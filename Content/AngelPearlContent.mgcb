@@ -1,0 +1,682 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:DesktopGL
+/config:
+/profile:HiDef
+/compress:True
+/compression:Brotli
+
+#-------------------------------- References --------------------------------#
+
+/reference:SimplePipeline.dll
+
+#---------------------------------- Content ---------------------------------#
+
+#begin Data/ConversationData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/ConversationData.json
+
+#begin Data/EncounterData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/EncounterData.json
+
+#begin Data/EnemyData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/EnemyData.json
+
+#begin Data/HeroData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/HeroData.json
+
+#begin Data/ItemData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/ItemData.json
+
+#begin Data/ShopData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/ShopData.json
+
+#begin Data/TownData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/TownData.json
+
+#begin Fonts/Console.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/build:Fonts/Console.spritefont
+
+#begin Fonts/Dialogue.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/build:Fonts/Dialogue.spritefont
+
+#begin Fonts/Interface.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/build:Fonts/Interface.spritefont
+
+#begin Maps/CirceLabyrinth.ldtk
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Maps/CirceLabyrinth.ldtk
+
+#begin Maps/TestAngel.ldtk
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Maps/TestAngel.ldtk
+
+#begin Music/BeyondtheHills.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/build:Music/BeyondtheHills.ogg
+
+#begin Music/DeadTrees.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/build:Music/DeadTrees.ogg
+
+#begin Music/SailingtheSevenSkies.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/build:Music/SailingtheSevenSkies.ogg
+
+#begin Music/TheGrappler.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/build:Music/TheGrappler.ogg
+
+#begin Shaders/BattleEnemy.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/BattleEnemy.fx
+
+#begin Shaders/BattleIntro.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/BattleIntro.fx
+
+#begin Shaders/Billboard.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/Billboard.fx
+
+#begin Shaders/ColorFade.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/ColorFade.fx
+
+#begin Shaders/Default.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/Default.fx
+
+#begin Shaders/Palette.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/Palette.fx
+
+#begin Shaders/Pinwheel.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/Pinwheel.fx
+
+#begin Shaders/Portrait.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/Portrait.fx
+
+#begin Shaders/Title.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/Title.fx
+
+#begin Shaders/Wall.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/build:Shaders/Wall.fx
+
+#begin Sounds/Back.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Back.wav
+
+#begin Sounds/BattleStart.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/BattleStart.wav
+
+#begin Sounds/Blip.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Blip.wav
+
+#begin Sounds/Bonk.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Bonk.wav
+
+#begin Sounds/Chest.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Chest.wav
+
+#begin Sounds/Confirm.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Confirm.wav
+
+#begin Sounds/Cure.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Cure.wav
+
+#begin Sounds/Cursor.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Cursor.wav
+
+#begin Sounds/Drop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Drop.wav
+
+#begin Sounds/Encounter.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Encounter.wav
+
+#begin Sounds/EnemyDeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/EnemyDeath.wav
+
+#begin Sounds/Error.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Error.wav
+
+#begin Sounds/Eruption.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Eruption.wav
+
+#begin Sounds/Fire.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Fire.wav
+
+#begin Sounds/Fireball.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Fireball.wav
+
+#begin Sounds/Freeze.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Freeze.wav
+
+#begin Sounds/GetItem.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/GetItem.wav
+
+#begin Sounds/Heal.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Heal.wav
+
+#begin Sounds/Ice.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Ice.wav
+
+#begin Sounds/LevelUp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/LevelUp.wav
+
+#begin Sounds/Miss.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Miss.wav
+
+#begin Sounds/Pickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Pickup.wav
+
+#begin Sounds/Ready.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Ready.wav
+
+#begin Sounds/Savepoint.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Savepoint.wav
+
+#begin Sounds/Screech.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Screech.wav
+
+#begin Sounds/Selection.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Selection.wav
+
+#begin Sounds/Slash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Slash.wav
+
+#begin Sounds/Talk.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Talk.wav
+
+#begin Sounds/Thunder.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:Sounds/Thunder.wav
+
+#begin Sprites/Background/Blank.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Background/Blank.png
+
+#begin Sprites/Background/LakeTown.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Background/LakeTown.png
+
+#begin Sprites/Background/Splash.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Background/Splash.png
+
+#begin Sprites/Enemies/Banshee.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Enemies/Banshee.png
+
+#begin Sprites/Enemies/Bard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Enemies/Bard.png
+
+#begin Sprites/Enemies/Brigand.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Enemies/Brigand.png
+
+#begin Sprites/Enemies/Engineer.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Enemies/Engineer.png
+
+#begin Sprites/Enemies/Thief.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Enemies/Thief.png
+
+#begin Sprites/Enemies/Witch.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Enemies/Witch.png
+
+#begin Sprites/NPCs/Chest.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/NPCs/Chest.png
+
+#begin Sprites/NPCs/Coral.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/NPCs/Coral.png
+
+#begin Sprites/NPCs/Door.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/NPCs/Door.png
+
+#begin Sprites/Particles/Bash.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Bash.png
+
+#begin Sprites/Particles/BlackHole.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/BlackHole.png
+
+#begin Sprites/Particles/BlueHeal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/BlueHeal.png
+
+#begin Sprites/Particles/Cure1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Cure1.png
+
+#begin Sprites/Particles/Cure2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Cure2.png
+
+#begin Sprites/Particles/DamageDigits.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/DamageDigits.png
+
+#begin Sprites/Particles/Darkness.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Darkness.png
+
+#begin Sprites/Particles/Eruption.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Eruption.png
+
+#begin Sprites/Particles/Exclamation.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Exclamation.png
+
+#begin Sprites/Particles/Fireburst.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Fireburst.png
+
+#begin Sprites/Particles/Freeze.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Freeze.png
+
+#begin Sprites/Particles/GreenHeal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/GreenHeal.png
+
+#begin Sprites/Particles/Heal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Heal.png
+
+#begin Sprites/Particles/Icefall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Icefall.png
+
+#begin Sprites/Particles/Impact.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Impact.png
+
+#begin Sprites/Particles/Skull.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Skull.png
+
+#begin Sprites/Particles/Slash.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Slash.png
+
+#begin Sprites/Particles/Smoke.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Smoke.png
+
+#begin Sprites/Particles/Sonic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Sonic.png
+
+#begin Sprites/Particles/Star.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Star.png
+
+#begin Sprites/Particles/Stone.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Stone.png
+
+#begin Sprites/Particles/Thunderbolt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Thunderbolt.png
+
+#begin Sprites/Particles/Tornado.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Tornado.png
+
+#begin Sprites/Particles/Weapons.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Weapons.png
+
+#begin Sprites/Portraits/DoctorF.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/DoctorF.png
+
+#begin Sprites/Portraits/DoctorM.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/DoctorM.png
+
+#begin Sprites/Portraits/Proxy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/Proxy.png
+
+#begin Sprites/Portraits/SailorF.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/SailorF.png
+
+#begin Sprites/Portraits/SailorM.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/SailorM.png
+
+#begin Sprites/Portraits/ScoutF.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/ScoutF.png
+
+#begin Sprites/Portraits/ScoutM.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/ScoutM.png
+
+#begin Sprites/Tiles/CrawlerTiles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Tiles/CrawlerTiles.png
+
+#begin Sprites/Widgets/Gauges/HealthBar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Gauges/HealthBar.png
+
+#begin Sprites/Widgets/Gauges/TechGauge.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Gauges/TechGauge.png
+
+#begin Sprites/Widgets/Gauges/TechGaugeBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Gauges/TechGaugeBackground.png
+
+#begin Sprites/Widgets/Gauges/TechGaugeBar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Gauges/TechGaugeBar.png
+
+#begin Sprites/Widgets/Gauges/TechSlider.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Gauges/TechSlider.png
+
+#begin Sprites/Widgets/Images/Enter.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Enter.png
+
+#begin Sprites/Widgets/Images/FoeMarker.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/FoeMarker.png
+
+#begin Sprites/Widgets/Images/GameLogo.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/GameLogo.png
+
+#begin Sprites/Widgets/Images/Icons.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Icons.png
+
+#begin Sprites/Widgets/Images/MiniMap.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/MiniMap.png
+
+#begin Sprites/Widgets/Images/Pointer.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Pointer.png
+
+#begin Sprites/Widgets/Images/YouAreHere.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/YouAreHere.png
+
+#begin Sprites/Widgets/Ninepatches/BattleWindow.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/BattleWindow.png
+
+#begin Sprites/Widgets/Ninepatches/Blank.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/Blank.png
+
+#begin Sprites/Widgets/Ninepatches/Cursor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/Cursor.png
+
+#begin Sprites/Widgets/Ninepatches/MagicBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/MagicBackground.png
+
+#begin Sprites/Widgets/Ninepatches/MagicForeground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/MagicForeground.png
+
+#begin Sprites/Widgets/Ninepatches/MagicFrame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/MagicFrame.png
+
+#begin Sprites/Widgets/Ninepatches/MagicPopup.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/MagicPopup.png
+
+#begin Sprites/Widgets/Ninepatches/MagicPopupSelected.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/MagicPopupSelected.png
+
+#begin Sprites/Widgets/Ninepatches/MagicWindow.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/MagicWindow.png
+
+#begin Sprites/Widgets/Ninepatches/OrnateFrame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/OrnateFrame.png
+
+#begin Sprites/Widgets/Ninepatches/OrnatePanel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/OrnatePanel.png
+
+#begin Sprites/Widgets/Ninepatches/ThinFrame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/ThinFrame.png
+
+#begin Sprites/Widgets/Ninepatches/ThinPanel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/ThinPanel.png
+
+#begin Sprites/Widgets/Ninepatches/ThinPanelSelected.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/ThinPanelSelected.png
+
+#begin Sprites/Palette.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Palette.png
+
+#begin Views/Conversation/ConversationView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Conversation/ConversationView.view
+
+#begin Views/Conversation/FastConversationView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Conversation/FastConversationView.view
+
+#begin Views/Conversation/NameView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Conversation/NameView.view
+
+#begin Views/Conversation/SelectionView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Conversation/SelectionView.view
+
+#begin Views/Crawler/BattleView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Crawler/BattleView.view
+
+#begin Views/Crawler/MapView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Crawler/MapView.view
+
+#begin Views/Title/TitleView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Title/TitleView.view
+

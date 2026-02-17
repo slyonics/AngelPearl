@@ -1,0 +1,13 @@
+[
+	{
+		"Name": "HalfwayHarborShop",
+		"Intro": "What can I help you with today?",
+		"Vouchers": [
+			{
+				"Icon": "0,15",
+				"Name": "Tonic",
+				"Price": 5
+			}
+		]
+	}
+]

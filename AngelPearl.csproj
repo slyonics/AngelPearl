@@ -1,0 +1,172 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>Major</RollForward>
+    <ProjectGuid>9fec9770-2720-4d6d-aef1-c479fe518da1</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <PublishTrimmed>True</PublishTrimmed>
+    <PublishAot>True</PublishAot>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AngelPearl</RootNamespace>
+    <AssemblyName>AngelPearl</AssemblyName>
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>$(DefineConstants);DESKTOPGL</DefineConstants>
+    <KniPlatform>DesktopGL</KniPlatform>
+  </PropertyGroup>
+	
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+	
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+	
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Main\AssetCache.cs" />
+    <Compile Include="Main\AssetList.cs" />
+    <Compile Include="Main\Audio.cs" />
+    <Compile Include="Main\CrossPlatformGame.cs" />
+    <Compile Include="Main\Debug.cs" />
+    <Compile Include="Main\Graphics.cs" />
+    <Compile Include="Main\Input.cs" />
+    <Compile Include="Main\InputFrame.cs" />
+    <Compile Include="Main\Rng.cs" />
+    <Compile Include="Main\Settings.cs" />
+    <Compile Include="Main\Text.cs" />
+    <Compile Include="Models\BattlerModel.cs" />
+    <Compile Include="Models\ClassRecord.cs" />
+    <Compile Include="Models\ConversationRecord.cs" />
+    <Compile Include="Models\EncounterRecord.cs" />
+    <Compile Include="Models\EnemyRecord.cs" />
+    <Compile Include="Models\GameProfile.cs" />
+    <Compile Include="Models\HeroModel.cs" />
+    <Compile Include="Models\HeroRecord.cs" />
+    <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Models\ItemRecord.cs" />
+    <Compile Include="Models\ModelCollection.cs" />
+    <Compile Include="Models\ModelProperty.cs" />
+    <Compile Include="Models\SaveProfile.cs" />
+    <Compile Include="Models\ShopRecord.cs" />
+    <Compile Include="Models\TownRecord.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="SceneObjects\AnimatedSprite.cs" />
+    <Compile Include="SceneObjects\Camera.cs" />
+    <Compile Include="SceneObjects\Controller.cs" />
+    <Compile Include="SceneObjects\Controllers\ConversationController.cs" />
+    <Compile Include="SceneObjects\Controllers\ScriptController.cs" />
+    <Compile Include="SceneObjects\Controllers\SkippableWaitController.cs" />
+    <Compile Include="SceneObjects\Controllers\TransitionController.cs" />
+    <Compile Include="SceneObjects\Controllers\WidgetController.cs" />
+    <Compile Include="SceneObjects\Entity.cs" />
+    <Compile Include="SceneObjects\Entity3D.cs" />
+    <Compile Include="SceneObjects\Maps\Actor.cs" />
+    <Compile Include="SceneObjects\Maps\Chunk.cs" />
+    <Compile Include="SceneObjects\Maps\LdtkJson.cs" />
+    <Compile Include="SceneObjects\Maps\OctantTransform.cs" />
+    <Compile Include="SceneObjects\Maps\Tile.cs" />
+    <Compile Include="SceneObjects\Maps\TileMap.cs" />
+    <Compile Include="SceneObjects\Ninepatch.cs" />
+    <Compile Include="SceneObjects\Overlay.cs" />
+    <Compile Include="SceneObjects\Overlays\ParticleOverlay.cs" />
+    <Compile Include="SceneObjects\ParallaxBackdrop.cs" />
+    <Compile Include="SceneObjects\Particle.cs" />
+    <Compile Include="SceneObjects\Particles\AnimationParticle.cs" />
+    <Compile Include="SceneObjects\Particles\EmoteParticle.cs" />
+    <Compile Include="SceneObjects\Scene.cs" />
+    <Compile Include="SceneObjects\ScriptParser.cs" />
+    <Compile Include="SceneObjects\Shader.cs" />
+    <Compile Include="SceneObjects\Shaders\ColorFade.cs" />
+    <Compile Include="SceneObjects\Shaders\DayNight.cs" />
+    <Compile Include="SceneObjects\Shaders\PaletteShader.cs" />
+    <Compile Include="SceneObjects\Shaders\Pinwheel.cs" />
+    <Compile Include="SceneObjects\ViewModel.cs" />
+    <Compile Include="SceneObjects\ViewModels\ConversationViewModel.cs" />
+    <Compile Include="SceneObjects\ViewModels\SelectionViewModel.cs" />
+    <Compile Include="SceneObjects\Widget.cs" />
+    <Compile Include="SceneObjects\Widgets\Button.cs" />
+    <Compile Include="SceneObjects\Widgets\CrawlText.cs" />
+    <Compile Include="SceneObjects\Widgets\DataGrid.cs" />
+    <Compile Include="SceneObjects\Widgets\Gauge.cs" />
+    <Compile Include="SceneObjects\Widgets\Image.cs" />
+    <Compile Include="SceneObjects\Widgets\Label.cs" />
+    <Compile Include="SceneObjects\Widgets\Panel.cs" />
+    <Compile Include="SceneObjects\Widgets\RadioBox.cs" />
+    <Compile Include="SceneObjects\Widgets\RadioButton.cs" />
+    <Compile Include="SceneObjects\Widgets\Textbox.cs" />
+    <Compile Include="SceneObjects\Widgets\Textplate.cs" />
+    <Compile Include="SceneObjects\Widgets\Tooltip.cs" />
+    <Compile Include="Scenes\CrawlerScene\BattleViewModel.cs" />
+    <Compile Include="Scenes\CrawlerScene\Billboard.cs" />
+    <Compile Include="Scenes\CrawlerScene\BillboardShader.cs" />
+    <Compile Include="Scenes\CrawlerScene\Chest.cs" />
+    <Compile Include="Scenes\CrawlerScene\CrawlerScene.cs" />
+    <Compile Include="Scenes\CrawlerScene\Door.cs" />
+    <Compile Include="Scenes\CrawlerScene\EnemyStack.cs" />
+    <Compile Include="Scenes\CrawlerScene\EventController.cs" />
+    <Compile Include="Scenes\CrawlerScene\Floor.cs" />
+    <Compile Include="Scenes\CrawlerScene\Foe.cs" />
+    <Compile Include="Scenes\CrawlerScene\MapRoom.cs" />
+    <Compile Include="Scenes\CrawlerScene\MapViewModel.cs" />
+    <Compile Include="Scenes\CrawlerScene\Npc.cs" />
+    <Compile Include="Scenes\CrawlerScene\PartyController.cs" />
+    <Compile Include="Scenes\CrawlerScene\Skybox.cs" />
+    <Compile Include="Scenes\CrawlerScene\WallShader.cs" />
+    <Compile Include="Scenes\LoadingScene\LoadingScene.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Data\ConversationData.json" />
+    <Content Include="Content\Data\EncounterData.json" />
+    <Content Include="Content\Data\EnemyData.json" />
+    <Content Include="Content\Data\HeroData.json" />
+    <Content Include="Content\Data\ItemData.json" />
+    <Content Include="Content\Data\ShopData.json" />
+    <Content Include="Content\Data\TownData.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="nkast.Xna.Framework" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Graphics" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Audio" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Media" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Input" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Game" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Devices" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Storage" Version="4.2.9001" />
+    <PackageReference Include="nkast.Xna.Framework.XR" Version="4.2.9001" />
+    <PackageReference Include="nkast.Kni.Platform.SDL2.GL" Version="4.2.9001.1" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Builder" Version="4.2.9001" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.ico" />
+	<EmbeddedResource Include="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+	<KniContentReference Include="Content\AngelPearlContent.mgcb" />
+    <None Include="app.manifest" />
+    <None Include="Content\Fonts\Interface.spritefont" />
+    <None Include="Content\Fonts\Console.spritefont" />
+    <None Include="Content\Fonts\Dialogue.spritefont" />
+    <None Include="Content\JamPacker.exe" />
+    <None Include="Content\SimplePipeline.dll" />
+    <None Include="Content\Views\Conversation\ConversationView.view" />
+    <None Include="Content\Views\Conversation\FastConversationView.view" />
+    <None Include="Content\Views\Conversation\NameView.view" />
+    <None Include="Content\Views\Conversation\SelectionView.view" />
+    <None Include="Content\Views\Crawler\BattleView.view" />
+    <None Include="Content\Views\Crawler\MapView.view" />
+    <None Include="Content\Views\Title\TitleView.view" />
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="$(SolutionDir)Content\JamPacker.exe Enumerate $(SolutionDir)Content $(ProjectDir)Main $(TargetDir)" />
+  </Target>
+
+</Project>

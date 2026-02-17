@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<View>
+	
+	<Image Picture="GameLogo" Anchor="$CenterX,$CenterY" Bounds="-145,-90,290,85" Color="Bind LogoColor" />
+	
+	<RadioBox Name="CommandBox" Style="OrnateFrame" Items="Ref AvailableCommands" Scrolling="False" Alignment="Stretch" SelectSound="None" Anchor="$CenterX,$CenterY" Bounds="-80,-5,160,74" InnerMargin="6,6,6,6">
+		<RadioButton Style="Blank" PushedStyle="LabelGlow" Bounds="0,0,100,10" Alignment="Vertical" Action="SelectCommand" ActionParameter="Ref DataGrid">
+			<Label Text="Ref DataGrid" Alignment="Center" Font="Console" TextAlignment="Center" Color="#E000C0" Bounds="0,0,100,10"/>
+		</RadioButton>
+	</RadioBox>
+	
+	<RadioBox Name="CharacterBox" Style="OrnatePanel" Items="Ref AvailableCharacters" Scrolling="False" Alignment="Stretch" SelectSound="None" Anchor="$CenterX,$CenterY" Bounds="-136,-80,272,80" InnerMargin="8,8,8,8">
+		<RadioButton Style="Blank" PushedStyle="LabelGlow" Bounds="0,0,64,64" Alignment="Cascading" Action="SelectCharacter" ActionParameter="Ref DataGrid">
+			<Image Picture="Bind DataGrid" Alignment="Bottom" Color="#FF0080" />
+		</RadioButton>
+	</RadioBox>
+
+</View>

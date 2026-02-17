@@ -1,0 +1,15 @@
+[
+	{
+		"Name": "Halfway Harbor",
+		"Background": "Background_LakeTown",
+		"MainNarration": "The streets of this vile den of villainy bustle with activity. Where will you go?",
+		"ShipNarration": "What business do you have at the shipyard?",
+		"ShopNarration": "What business do you have at the marketplace?",
+		"TavernNarration": "What business do you have at the marketplace?",
+		"DisembarkX": 20,
+		"DisembarkY": 20,
+		"DockName": "HalfwayHarborShop",
+		"ShopName": "HalfwayHarborShop",
+		"Heroes": [ "Ishmael", "Will", "Becca" ]
+	}
+]

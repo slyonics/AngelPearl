@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<View>
+
+	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-153,-180,306,176" Depth="0.9">
+		<Button Name="InteractLabel" Alignment="Center" InnerMargin="0,1,0,0" Bounds="Bind InteractBounds" Style="OrnatePanel" Action="ActivatePrompt" Visible="Bind ShowInteractLabel">
+			<Label Text="Bind InteractLabel" Font="Console" Alignment="Center" />
+		</Button>
+	</Panel>
+
+	<Panel Style="ThinPanel" Anchor="$CenterX,$CenterY" Bounds="80,12,58,26" InnerMargin="2,2,2,2" Visible="Bind ShowMiniMap">
+		<Label Text="Bind MiniMapHeader1" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,-2,54,9"/>
+		<Label Text="Bind MiniMapHeader2" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,-2,54,9"/>
+	</Panel>
+	<Panel Name="MiniMapPanel" Style="ThinPanel" InnerMargin="2,2,2,2" Anchor="$CenterX,$CenterY" Bounds="80,38,58,58" Visible="Bind ShowMiniMap"/>
+
+	<DataGrid Items="Bind PlayerProfile.Party" Bounds="16,147,288,33" Visible="Bind ShowPlayerBar">
+		<Panel Style="ThinPanel" Bounds="0,0,72,33" Alignment="Cascading">
+			<Label Text="Bind DataGrid.Name" TextAlignment="Center" Alignment="Cascading" Bounds="0,3,72,10"/>
+			<Image Icon="15,0" Alignment="Cascading" Bounds="4,5,8,8" Color="#FF0080FF"/>
+			<Label Text="Bind DataGrid.HP" Alignment="Cascading" TextAlignment="Right" Bounds="2,4,24,10"/>
+			<Label Text="/" Alignment="Cascading" TextAlignment="Left" Bounds="0,4,7,10"/>
+			<Label Text="Bind DataGrid.MaxHP" Alignment="Cascading" TextAlignment="Left" Bounds="0,4,24,10"/>
+
+			<Label Text="3/4/5" Alignment="Cascading" TextAlignment="Center" Bounds="0,3,72,10"/>
+		</Panel>
+	</DataGrid>
+</View>
