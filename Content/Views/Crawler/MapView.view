@@ -7,11 +7,12 @@
 		</Button>
 	</Panel>
 
-	<Panel Style="ThinPanel" Anchor="$CenterX,$CenterY" Bounds="80,12,58,26" InnerMargin="2,2,2,2" Visible="Bind ShowMiniMap">
+	<Panel Style="ThinPanel" Anchor="$CenterX,$CenterY" Bounds="-80,12,58,26" InnerMargin="2,2,2,2" Visible="Bind ShowMiniMap">
 		<Label Text="Bind MiniMapHeader1" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,-2,54,9"/>
 		<Label Text="Bind MiniMapHeader2" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,-2,54,9"/>
 	</Panel>
-	<Panel Name="MiniMapPanel" Style="ThinPanel" InnerMargin="2,2,2,2" Anchor="$CenterX,$CenterY" Bounds="80,38,58,58" Visible="Bind ShowMiniMap"/>
+	
+	<Panel Name="MiniMapPanel" Style="ThinPanel" Anchor="$CenterX,$CenterY" Bounds="51,-4,102,102" Visible="Bind ShowMiniMap"/>
 
 	<DataGrid Items="Bind PlayerProfile.Party" Bounds="16,147,288,33" Visible="Bind ShowPlayerBar">
 		<Panel Style="ThinPanel" Bounds="0,0,72,33" Alignment="Cascading">

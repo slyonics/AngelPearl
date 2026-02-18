@@ -377,36 +377,39 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public void DrawMiniMap(SpriteBatch spriteBatch, Rectangle bounds, Color color, float depth, int roomX, int roomY, Direction direction)
         {
-            MinimapStartX = Math.Max(0, roomX - 4);
-            int endX = MinimapStartX + 9;
+            MinimapStartX = Math.Max(0, roomX - 8);
+            int endX = MinimapStartX + 17;
             if (endX > mapRooms.GetLength(0) - 1)
             {
                 endX = mapRooms.GetLength(0) - 1;
-                MinimapStartX = Math.Max(0, endX - 9);
+                MinimapStartX = Math.Max(0, endX - 17);
             }
 
-            MinimapStartY = Math.Max(0, roomY - 4);
-            int endY = MinimapStartY + 9;
+            MinimapStartY = Math.Max(0, roomY - 8);
+            int endY = MinimapStartY + 17;
             if (endY > mapRooms.GetLength(1) - 1)
             {
                 endY = mapRooms.GetLength(1) - 1;
-                MinimapStartY = Math.Max(0, endY - 9);
+                MinimapStartY = Math.Max(0, endY - 17);
             }
 
-            Vector2 offset = new Vector2(bounds.X, bounds.Y);
+            int offsetX = (17 - mapRooms.GetLength(0)) * 3;
+			int offsetY = (17 - mapRooms.GetLength(1)) * 3;
+            Vector2 offset = new Vector2(offsetX, offsetY);
+			Vector2 roomOffset = new Vector2(bounds.X + offsetX, bounds.Y + offsetY);
             for (int x = MinimapStartX; x < endX; x++)
             {
                 for (int y = MinimapStartY; y < endY; y++)
                 {
                     MapRoom mapRoom = mapRooms[x, y];
                     //spriteBatch.Draw(minimapPlayer, offset, new Rectangle(0, 0, MINI_CELL_SIZE, MINI_CELL_SIZE), Color.Black, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, depth - 0.001f);
-                    mapRoom?.DrawMinimap(spriteBatch, offset, color, depth - 0.002f);
+                    mapRoom?.DrawMinimap(spriteBatch, roomOffset, color, depth - 0.002f);
 
-                    offset.Y += MINI_CELL_SIZE;
+                    roomOffset.Y += MINI_CELL_SIZE;
                 }
 
-                offset.Y = bounds.Y;
-                offset.X += MINI_CELL_SIZE;
+                roomOffset.Y = bounds.Y + offsetY;
+                roomOffset.X += MINI_CELL_SIZE;
             }
 
             int i = 0;
@@ -417,17 +420,17 @@ namespace AngelPearl.Scenes.CrawlerScene
                 {
                     if (tile == parentScene.PartyController.Path.Last())
                     {
-                        tile.DrawMinimapDecal(spriteBatch, new Vector2(bounds.X + (tile.RoomX - MinimapStartX) * MINI_CELL_SIZE, bounds.Y + (tile.RoomY - MinimapStartY) * MINI_CELL_SIZE), color, depth - 0.004f, 1);
+                        tile.DrawMinimapDecal(spriteBatch, new Vector2(bounds.X + (tile.RoomX - MinimapStartX) * MINI_CELL_SIZE, bounds.Y + (tile.RoomY - MinimapStartY) * MINI_CELL_SIZE) + offset, color, depth - 0.004f, 1);
                     }
                     else
                     {
-                        tile.DrawMinimapDecal(spriteBatch, new Vector2(bounds.X + (tile.RoomX - MinimapStartX) * MINI_CELL_SIZE - i % 2, bounds.Y + (tile.RoomY - MinimapStartY) * MINI_CELL_SIZE - i % 2), color, depth - 0.004f, 0);
+                        tile.DrawMinimapDecal(spriteBatch, new Vector2(bounds.X + (tile.RoomX - MinimapStartX) * MINI_CELL_SIZE - i % 2, bounds.Y + (tile.RoomY - MinimapStartY) * MINI_CELL_SIZE - i % 2) + offset, color, depth - 0.004f, 0);
                     }
                     i++;
                 }
             }
 
-            spriteBatch.Draw(minimapPlayer, new Vector2((roomX - MinimapStartX) * MINI_CELL_SIZE, (roomY - MinimapStartY) * MINI_CELL_SIZE) + new Vector2(bounds.X, bounds.Y), minimapSource[(int)direction], color, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, depth - 0.005f);
+            spriteBatch.Draw(minimapPlayer, new Vector2((roomX - MinimapStartX) * MINI_CELL_SIZE, (roomY - MinimapStartY) * MINI_CELL_SIZE) + new Vector2(bounds.X + offsetX, bounds.Y + offsetY), minimapSource[(int)direction], color, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, depth - 0.005f);
         }
 
         public List<MapRoom> GetPath(MapRoom startTile, MapRoom endTile)
