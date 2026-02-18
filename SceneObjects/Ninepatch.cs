@@ -20,7 +20,7 @@ namespace AngelPearl.SceneObjects
 		public float FrameDepth { get; set; }
 		private Rectangle[] frameSource;
 		private Texture2D frameSprite;
-		private Color frameColor = new Color(255, 0, 127, 255);
+		private Color frameColor = new Color(255, 255, 255, 255);
 
 		private bool flatFrame;
 

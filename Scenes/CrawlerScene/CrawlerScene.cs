@@ -30,7 +30,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 		private const int CRAWLER_VIEWPORT_WIDTH = 306;
 		private const int CRAWLER_VIEWPORT_HEIGHT = 176;
 		private const int CRAWLER_VIEWPORT_OFFSETX = (CrossPlatformGame.SCREEN_WIDTH - CRAWLER_VIEWPORT_WIDTH) / 2;
-		private const int CRAWLER_VIEWPORT_OFFSETY = 0;
+		private const int CRAWLER_VIEWPORT_OFFSETY = 54;
 
 		public static CrawlerScene Instance;
 
@@ -62,9 +62,9 @@ namespace AngelPearl.Scenes.CrawlerScene
         {
             Instance = this;
 
-			PaletteShader shader = new PaletteShader();
-			shader.SetGlobalBrightness(-1.01f);
-			interfaceShader = InterfacePaletteShader = shader;
+			//PaletteShader shader = new PaletteShader();
+			//shader.SetGlobalBrightness(-1.01f);
+			//interfaceShader = InterfacePaletteShader = shader;
 		}
 
         public CrawlerScene(GameMap gamemap, int x, int y, Direction dir) : this()
@@ -122,7 +122,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             transitionController.UpdateTransition += new Action<float>(t =>
             {
                 GlobalBrightness = (int)(t * 4) / 4.0f;
-                ((PaletteShader)interfaceShader).SetGlobalBrightness(MathHelper.SmoothStep(-1.01f, 0.0f, t));
+                //((PaletteShader)interfaceShader).SetGlobalBrightness(MathHelper.SmoothStep(-1.01f, 0.0f, t));
             });
 			transitionController.FinishTransition += new Action<TransitionDirection>(t => GlobalBrightness = 1.0f);
 			AddController(transitionController);
@@ -246,7 +246,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             graphicsDevice.Clear(ClearOptions.DepthBuffer, Color.Black, 1.0f, 0);
 
-			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullCounterClockwise, interfaceShader.Effect, null);
+			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullCounterClockwise, null, null);
             DrawOverlay(spriteBatch);
 
 
@@ -263,7 +263,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (Foe.DeferredSprite != null && BattleViewModel == null)
             {
                 float brightness = PartyController.FacingRoom.AverageBrightness();
-                spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, (CRAWLER_VIEWPORT_HEIGHT - Foe.DeferredSprite.Height) / 2 + CRAWLER_VIEWPORT_OFFSETY), null, new Color(brightness, brightness, brightness, 0.5f), 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
+                spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, (CRAWLER_VIEWPORT_HEIGHT - Foe.DeferredSprite.Height) / 2 + CRAWLER_VIEWPORT_OFFSETY - 8), null, new Color(brightness, brightness, brightness, 0.5f), 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
             }
             spriteBatch.End();
 

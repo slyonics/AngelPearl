@@ -25,7 +25,7 @@ namespace AngelPearl.Scenes.CrawlerScene
         {
             crawlerScene = iScene;
 
-            if (Text.GetStringLength(GameFont.Console, crawlerScene.Floor.LocationName) >= 50)
+            if (Text.GetStringLength(GameFont.Console, crawlerScene.Floor.LocationName) >= 92)
             {
                 var tokens = new Queue<string>(crawlerScene.Floor.LocationName.Split(' '));
                 MiniMapHeader1.Value += $" {tokens.Dequeue()}";

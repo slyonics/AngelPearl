@@ -7,7 +7,7 @@ namespace AngelPearl.Models
     public class ConversationRecord
     {
 		public static List<ConversationRecord> CONVERSATIONS { get; set; }
-		public static readonly Rectangle DEFAULT_CONVO_BOUNDS = new Rectangle(-160, 42, 320, 48);
+		public static readonly Rectangle DEFAULT_CONVO_BOUNDS = new Rectangle(-51, 50, 204, 130);
 
 		public string Name { get; set; }
         public string Background { get; set; }

@@ -19,7 +19,7 @@ namespace AngelPearl.Main
 		{
 			{ GameFont.Interface, new GameFontData() { fontHeight = 7 } },
             { GameFont.Console, new GameFontData() { fontHeight = 8 } },
-            { GameFont.Dialogue, new GameFontData() { fontHeight = 12, heightOffset = 0 } }
+            { GameFont.Dialogue, new GameFontData() { fontHeight = 14, heightOffset = -1 } }
 		};
 
 		public static void DrawText(SpriteBatch spriteBatch, Vector2 position, GameFont font, string text, int row = 0)

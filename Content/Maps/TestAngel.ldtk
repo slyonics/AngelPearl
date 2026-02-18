@@ -1519,9 +1519,9 @@
 			"__bgPos": null,
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "LocationName", "__type": "String", "__value": "Test Angel", "__tile": null, "defUid": 38, "realEditorValues": [{
+				{ "__identifier": "LocationName", "__type": "String", "__value": "Test Angel B5", "__tile": null, "defUid": 38, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["Test Angel"]
+					"params": ["Test Angel B5"]
 				}] },
 				{ "__identifier": "Music", "__type": "String", "__value": "DeadTrees", "__tile": null, "defUid": 39, "realEditorValues": [{
 					"id": "V_String",
@@ -1586,6 +1586,66 @@
 							"fieldInstances": [{ "__identifier": "Brightness", "__type": "Int", "__value": 8, "__tile": null, "defUid": 13, "realEditorValues": [{ "id": "V_Int", "params": [8] }] }],
 							"__worldX": 128,
 							"__worldY": 128
+						},
+						{
+							"__identifier": "Automatic",
+							"__grid": [5,9],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#C0CBDC",
+							"iid": "772477c0-fa90-11f0-8f89-a35b4126b106",
+							"width": 32,
+							"height": 32,
+							"defUid": 3,
+							"px": [160,288],
+							"fieldInstances": [
+								{ "__identifier": "Script", "__type": "String", "__value": "Conversation MenuIntro\nSetFlag MenuIntro True\nDisableEvent", "__tile": null, "defUid": 4, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Conversation MenuIntro\\nSetFlag MenuIntro True\\nDisableEvent"]
+								}] },
+								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 5, "realEditorValues": [] },
+								{ "__identifier": "DisableIf", "__type": "String", "__value": "MenuIntro", "__tile": null, "defUid": 6, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["MenuIntro"]
+								}] }
+							],
+							"__worldX": 160,
+							"__worldY": 288
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [4,6],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "a9ebf770-fa90-11f0-8f89-f5509b350b71",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [128,192],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Brigand", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Brigand"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Conversation MenuIntro", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Conversation MenuIntro"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "BossTest", "__tile": null, "defUid": 17, "realEditorValues": [] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Brute"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Enemy Mob", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Enemy Mob"]
+								}] }
+							],
+							"__worldX": 128,
+							"__worldY": 192
 						}
 					]
 				},

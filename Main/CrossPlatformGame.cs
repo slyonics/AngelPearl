@@ -19,7 +19,7 @@ namespace AngelPearl.Main
 	public partial class CrossPlatformGame : Game
 	{
 		public const string GAME_NAME = "AngelPearl";
-		public const int SCREEN_WIDTH = 640;
+		public const int SCREEN_WIDTH = 540;
 		public const int SCREEN_HEIGHT = 360;
 
 		public static readonly Color CLEAR_COLOR = Main.Graphics.PURE_BLACK;

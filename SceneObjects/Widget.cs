@@ -659,7 +659,7 @@ namespace AngelPearl.SceneObjects
 
 		public string Name { get; protected set; } = "Widget";
 		protected GameFont Font { get; set; } = GameFont.Dialogue;
-		public virtual Color Color { get; protected set; } = new Color(255, 0, 127, 255);
+		public virtual Color Color { get; protected set; } = new Color(255, 255, 255, 255);
 		public virtual float Depth { get; set; } = 1.0f;
 		public virtual bool Visible { get; set; } = true;
 		public virtual bool Enabled { get; set; } = true;

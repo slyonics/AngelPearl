@@ -98,8 +98,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             CurrentRoom.Foe = this;
 
             foeTexture = AssetCache.SPRITES[(GameSprite)Enum.Parse(typeof(GameSprite), "Enemies_" + sprite)];
-            float sizeX = foeTexture.Width / 9;
-            float sizeY = foeTexture.Height / 9;
+            float sizeX = foeTexture.Width / 18f;
+            float sizeY = foeTexture.Height / 18f;
             Billboard = new Billboard(crawlerScene, iFloor, foeTexture, sizeX, sizeY);
         }
 
