@@ -7,18 +7,24 @@
 		</Button>
 	</Panel>
 
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-153,50,102,28" InnerMargin="5,5,5,5">
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,50,102,28" InnerMargin="5,5,5,5">
 		<Label Text="Bind MiniMapHeader1" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,92,9"/>
 		<Label Text="Bind MiniMapHeader2" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,92,9"/>
 	</Panel>
 
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130"/>
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130"/>
 	
-	<Panel Name="MiniMapPanel" Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" />
+	<Panel Name="MiniMapPanel" Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" />
 
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-270,-180,117,180"/>
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-270,0,117,180"/>
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="153,-180,117,180"/>
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="153,0,117,180"/>
+	<DataGrid Items="Bind PlayerProfile.Party" Bounds="-270,-180,0,540,360">
+		<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="Bind Datagrid.WindowBounds" >
+
+		</Panel>
+	</DataGrid>
+	
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-270,-180,117,180"/>
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-270,0,117,180"/>
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="153,-180,117,180"/>
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="153,0,117,180"/>
 
 </View>

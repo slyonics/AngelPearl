@@ -9,22 +9,12 @@ namespace AngelPearl.Models
 
 	public class HeroRecord
     {
-		public static Dictionary<ClassType, string> CLASS_ABBREV = new Dictionary<ClassType, string>()
-		{
-			{ ClassType.Sailor, "Sailr" },
-            { ClassType.Doctor, "Doctr" },
-            { ClassType.Scout, "Scout" },
-            { ClassType.Explorer, "Explr" },
-        };
 
         public string Name { get; set; }
-		public string Cost { get; set; }
 		public string Description { get; set; }
-		public string ClassLevel { get => $"{CLASS_ABBREV[ClassType]}-{Level}"; }
 		public ClassType ClassType { get; set; }
 
-        public string MapSprite { get; set; }
-		public string PortraitSprite { get; set; }
+        public string PortraitSprite { get; set; }
 
 		public int Level { get; set; }
 		public int BaseHP { get; set; }

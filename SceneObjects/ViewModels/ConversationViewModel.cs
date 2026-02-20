@@ -34,6 +34,8 @@ namespace AngelPearl.SceneObjects.ViewModels
             conversationRecord = iConversationRecord;
             currentDialogue = conversationRecord.DialogueRecords[dialogueIndex];
 
+            DrawOnNewLayer = true;
+
             Speaker.Value = string.IsNullOrEmpty(currentDialogue.Speaker) ? "" : currentDialogue.Speaker;
             Portrait.Value = string.IsNullOrEmpty(currentDialogue.Portrait) ? GameSprite.Widgets_Ninepatches_Blank : Enum.Parse<GameSprite>(currentDialogue.Portrait);
             ShowPortrait.Value = Portrait.Value != GameSprite.Widgets_Ninepatches_Blank;

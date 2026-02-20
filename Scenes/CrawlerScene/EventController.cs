@@ -90,7 +90,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         private void Conversation(string[] tokens)
         {
-            crawlerScene.MapViewModel.ShowPlayerBar.Value = false;
+            crawlerScene.MapViewModel.ShowMiniMap.Value = false;
 
             if (tokens.Length == 2)
             {
@@ -99,7 +99,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 				conversationViewModel.OnTerminated += new Action(() =>
 				{
 					scriptParser.BlockScript();
-					crawlerScene.MapViewModel.ShowPlayerBar.Value = true;
+					crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				});
 			}
             else
@@ -109,7 +109,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 conversationViewModel.OnTerminated += new Action(() =>
                 {
                     scriptParser.BlockScript();
-					crawlerScene.MapViewModel.ShowPlayerBar.Value = true;
+					crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				});
             }
         }
@@ -126,10 +126,10 @@ namespace AngelPearl.Scenes.CrawlerScene
 			conversationViewModel.OnTerminated += new Action(() =>
 			{
 				scriptParser.BlockScript();
-				crawlerScene.MapViewModel.ShowPlayerBar.Value = true;
+				crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 			});
 
-			crawlerScene.MapViewModel.ShowPlayerBar.Value = false;
+			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
 
 			// Audio.PlaySound(GameSound.sfx_item_pickup);
 		}

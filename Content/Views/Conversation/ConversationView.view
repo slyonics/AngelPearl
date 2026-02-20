@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 
-	<Panel Style="OrnatePanel" Anchor="$CenterX,$CenterY" Bounds="Bind Window" InnerMargin="8,5,8,8" TransitionIn="Expand" TransitionOut="Shrink">
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="Bind Window" InnerMargin="8,5,8,8">
 		<CrawlText Name="ConversationText" Text="Bind Dialogue" Font="Bind ConversationFont" Alignment="Stretch" Color="#E000C0FF" VoiceSound="Blip"/>
 		<Textplate Name="SpeakerPlate" Style="OrnatePanel" Alignment="Left" Bounds="8,-22,-1,-1" InnerMargin="9,7,7,4" Font="Bind ConversationFont" Text="Bind Speaker" Color="#E0BFA2FF"/>
 		<Image Sprite="Widgets_Images_Enter,0,0,16,16,2,1000,-1" Alignment="BottomRight" Bounds="0,2,16,12" Visible="Bind ReadyToProceed"/>

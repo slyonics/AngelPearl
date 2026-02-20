@@ -54,12 +54,12 @@ namespace AngelPearl.Scenes.CrawlerScene
 			enemyPanel = GetWidget<Panel>("EnemyPanel");
 			commandPanel = GetWidget<Panel>("CommandPanel");
 
-			crawlerScene.MapViewModel.ShowPlayerBar.Value = false;
+			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
 			ConversationRecord conversationRecord = new ConversationRecord(encounterRecord.Intro);
 			ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
 			conversationViewModel.OnTerminated += new Action(() =>
 			{
-				crawlerScene.MapViewModel.ShowPlayerBar.Value = true;
+				crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				NewRound();
 			});
 

@@ -1,6 +1,7 @@
 ﻿using AngelPearl.Main;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,11 +20,9 @@ namespace AngelPearl.Models
 			Name.Value = heroRecord.Name;
 			Class.Value = heroRecord.ClassType;
 
-			Sprite.Value = $"Actors_{heroRecord.MapSprite}";
 			Portrait.Value = $"Portraits_{heroRecord.PortraitSprite}";
 
 			Level.Value = heroRecord.Level;
-			ClassLevel.Value = $"{HeroRecord.CLASS_ABBREV[Class.Value]}-{Level}";
             HP.Value = MaxHP.Value = heroRecord.BaseHP;
 			
 			Power.Value = heroRecord.BasePower;
@@ -69,7 +68,7 @@ namespace AngelPearl.Models
 			}
 		}
 
-		public ModelProperty<string> Sprite { get; set; } = new ModelProperty<string>(GameSprite.Enemies_Bard.ToString());
+		public ModelProperty<Rectangle> WindowBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 117, 180));
 		public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();
 
 		public ModelProperty<ItemRecord> Weapon { get; private set; } = new ModelProperty<ItemRecord>();
@@ -79,8 +78,5 @@ namespace AngelPearl.Models
 
 		public ModelProperty<int> Attack { get; set; } = new ModelProperty<int>(0);
 		public ModelProperty<int> Hit { get; set; } = new ModelProperty<int>(100);
-
-
-		public ModelProperty<string> ClassLevel { get; set; } = new ModelProperty<string>("");
     }
 }

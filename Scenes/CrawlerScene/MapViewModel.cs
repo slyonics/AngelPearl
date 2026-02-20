@@ -113,7 +113,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public ModelProperty<Color> MapColor { get; set; } = new ModelProperty<Color>(Color.White);
 
-		public ModelProperty<bool> ShowPlayerBar { get; set; } = new ModelProperty<bool>(true);
 
 		public ModelProperty<bool> ShowInstructions { get; set; } = new ModelProperty<bool>(true);
 
