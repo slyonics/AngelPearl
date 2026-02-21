@@ -188,7 +188,7 @@ namespace AngelPearl.Scenes.LoadingScene
 				case LoadingPhase.LoadingData:
 					ConversationRecord.CONVERSATIONS = AssetCache.LoadRecords<ConversationRecord>("Data/ConversationData");
 					//ClassRecord.CLASSES = AssetCache.LoadRecords<ClassRecord>("Data/ClassData");
-					HeroRecord.HEROES = AssetCache.LoadRecords<HeroRecord>("Data/HeroData");
+					PilotRecord.PILOTS = AssetCache.LoadRecords<PilotRecord>("Data/HeroData");
 					EnemyRecord.ENEMIES = AssetCache.LoadRecords<EnemyRecord>("Data/EnemyData");
 					//AbilityRecord.ABILITIES = AssetCache.LoadRecords<AbilityRecord>("Data/AbilityData");
 					EncounterRecord.ENCOUNTERS = AssetCache.LoadRecords<EncounterRecord>("Data/EncounterData");

@@ -65,6 +65,11 @@
 /processor:FontDescriptionProcessor
 /build:Fonts/Interface.spritefont
 
+#begin Fonts/LargeConsole.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/build:Fonts/LargeConsole.spritefont
+
 #begin Maps/CirceLabyrinth.ldtk
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
@@ -75,25 +80,15 @@
 /processor:SimpleContentProcessor
 /build:Maps/TestAngel.ldtk
 
-#begin Music/BeyondtheHills.ogg
-/importer:OggImporter
-/processor:SongProcessor
-/build:Music/BeyondtheHills.ogg
-
-#begin Music/DeadTrees.ogg
-/importer:OggImporter
-/processor:SongProcessor
-/build:Music/DeadTrees.ogg
-
-#begin Music/SailingtheSevenSkies.ogg
-/importer:OggImporter
-/processor:SongProcessor
-/build:Music/SailingtheSevenSkies.ogg
-
 #begin Music/TheGrappler.ogg
 /importer:OggImporter
 /processor:SongProcessor
 /build:Music/TheGrappler.ogg
+
+#begin Music/VoxTest.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/build:Music/VoxTest.mp3
 
 #begin Shaders/BattleEnemy.fx
 /importer:EffectImporter
@@ -295,10 +290,10 @@
 /processor:TextureProcessor
 /build:Sprites/Background/Blank.png
 
-#begin Sprites/Background/LakeTown.png
+#begin Sprites/Background/SealedDoor.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
-/build:Sprites/Background/LakeTown.png
+/build:Sprites/Background/SealedDoor.jpg
 
 #begin Sprites/Background/Splash.png
 /importer:TextureImporter
@@ -470,40 +465,15 @@
 /processor:TextureProcessor
 /build:Sprites/Particles/Weapons.png
 
-#begin Sprites/Portraits/DoctorF.png
+#begin Sprites/Portraits/Aika.png
 /importer:TextureImporter
 /processor:TextureProcessor
-/build:Sprites/Portraits/DoctorF.png
-
-#begin Sprites/Portraits/DoctorM.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Portraits/DoctorM.png
+/build:Sprites/Portraits/Aika.png
 
 #begin Sprites/Portraits/Proxy.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Portraits/Proxy.png
-
-#begin Sprites/Portraits/SailorF.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Portraits/SailorF.png
-
-#begin Sprites/Portraits/SailorM.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Portraits/SailorM.png
-
-#begin Sprites/Portraits/ScoutF.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Portraits/ScoutF.png
-
-#begin Sprites/Portraits/ScoutM.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Portraits/ScoutM.png
 
 #begin Sprites/Tiles/CrawlerTiles.png
 /importer:TextureImporter

@@ -2,7 +2,7 @@
 	{
 		"Name": "Brigand",
 		"PluralName": "Brigands",
-		"Class": "Monster",
+		"Class": "Minion",
 		"Level": 13,
 		"Sprite": "Brigand",
 		"Exp": 1,

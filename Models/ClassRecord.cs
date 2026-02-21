@@ -9,17 +9,14 @@ namespace AngelPearl.Models
 {
 	public enum ClassType
 	{
-		Sailor,
-		Scout,
-		Trader,
-		Explorer,
-		Herder,
-		Doctor,
+		Proxy,
+		Aika,
 
-		Monster,
-		Undead,
-		Beast,
-		Boss
+		Angel,
+		Avatar,
+		Machine,
+		Minion,
+		Pearl
 	}
 
 	public enum BattleCommand

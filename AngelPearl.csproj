@@ -48,7 +48,7 @@
     <Compile Include="Models\EnemyRecord.cs" />
     <Compile Include="Models\GameProfile.cs" />
     <Compile Include="Models\HeroModel.cs" />
-    <Compile Include="Models\HeroRecord.cs" />
+    <Compile Include="Models\PilotRecord.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\ItemRecord.cs" />
     <Compile Include="Models\ModelCollection.cs" />
@@ -152,6 +152,7 @@
   <ItemGroup>
 	<KniContentReference Include="Content\AngelPearlContent.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Content\Fonts\LargeConsole.spritefont" />
     <None Include="Content\Fonts\Interface.spritefont" />
     <None Include="Content\Fonts\Console.spritefont" />
     <None Include="Content\Fonts\Dialogue.spritefont" />

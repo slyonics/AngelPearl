@@ -38,7 +38,12 @@ namespace AngelPearl.Scenes.CrawlerScene
             }
             else MiniMapHeader1.Value = crawlerScene.Floor.LocationName;
 
-            LoadView(GameView.Crawler_MapView);
+            GameProfile.CurrentSave.Party[0].WindowBounds.Value = new Rectangle(-270, -180, 117, 180);
+			GameProfile.CurrentSave.Party[1].WindowBounds.Value = new Rectangle(153, -180, 117, 180);
+			GameProfile.CurrentSave.Party[2].WindowBounds.Value = new Rectangle(-270, 0, 117, 180);
+			GameProfile.CurrentSave.Party[3].WindowBounds.Value = new Rectangle(153, 0, 117, 180);
+
+			LoadView(GameView.Crawler_MapView);
 
 			InteractButton = GetWidget<Button>("InteractLabel");
         }

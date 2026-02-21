@@ -1523,9 +1523,9 @@
 					"id": "V_String",
 					"params": ["Test Angel B5"]
 				}] },
-				{ "__identifier": "Music", "__type": "String", "__value": "DeadTrees", "__tile": null, "defUid": 39, "realEditorValues": [{
+				{ "__identifier": "Music", "__type": "String", "__value": "VoxTest", "__tile": null, "defUid": 39, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["DeadTrees"]
+					"params": ["VoxTest"]
 				}] },
 				{ "__identifier": "AmbientLight", "__type": "Float", "__value": 0.3, "__tile": null, "defUid": 40, "realEditorValues": [{ "id": "V_Float", "params": [0.3] }] },
 				{ "__identifier": "Skybox", "__type": "String", "__value": null, "__tile": null, "defUid": 41, "realEditorValues": [] }

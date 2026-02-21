@@ -257,13 +257,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 				Rectangle miniMapBounds = miniMapPanel.InnerBounds;
 				miniMapBounds.X += (int)miniMapPanel.Position.X;
 				miniMapBounds.Y += (int)miniMapPanel.Position.Y;
-				floor.DrawMiniMap(spriteBatch, miniMapBounds, new Color(255, 0, 127), 0.1f, PartyController.RoomX, PartyController.RoomY, PartyController.PartyDirection);
+				floor.DrawMiniMap(spriteBatch, miniMapBounds, Color.White, 0.1f, PartyController.RoomX, PartyController.RoomY, PartyController.PartyDirection);
 			}
 
 			if (Foe.DeferredSprite != null && BattleViewModel == null)
             {
                 float brightness = PartyController.FacingRoom.AverageBrightness();
-                spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, (CRAWLER_VIEWPORT_HEIGHT - Foe.DeferredSprite.Height) / 2 + CRAWLER_VIEWPORT_OFFSETY - 8), null, new Color(brightness, brightness, brightness, 0.5f), 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
+                spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, (Foe.DeferredSprite.Height / 2) + CRAWLER_VIEWPORT_OFFSETY + 16), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
             }
             spriteBatch.End();
 

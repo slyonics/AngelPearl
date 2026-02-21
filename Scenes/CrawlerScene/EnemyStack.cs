@@ -36,9 +36,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			EnemyBounds.Value = new Rectangle(0, 0, EnemyWidth, EnemyHeight);
 
-			float brightness = crawlerScene.FoeInBattle.CurrentRoom.AverageBrightness();
-			EnemyColor.Value = new Color(brightness, brightness, brightness, 0.5f);
-
 			Header.Value = Count.Value == 1 ? $"{enemyRecord.Name}" : $"{Count.Value} {enemyRecord.PluralName}";
 		}
 

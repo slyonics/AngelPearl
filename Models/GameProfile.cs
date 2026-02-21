@@ -29,7 +29,16 @@ namespace AngelPearl.Models
             CurrentSave.AddInventory("Ether", 1);
             CurrentSave.Money.Value = 800;
 
-			HeroModel heroModel = new HeroModel(HeroRecord.HEROES.First(x => x.Name == "Proxy"));
+			HeroModel heroModel = new HeroModel(PilotRecord.PILOTS.First(x => x.Name == "Proxy"));
+			CurrentSave.Party.Add(heroModel);
+
+			heroModel = new HeroModel(PilotRecord.PILOTS.First(x => x.Name == "Aika"));
+			CurrentSave.Party.Add(heroModel);
+
+			heroModel = new HeroModel(PilotRecord.PILOTS.First(x => x.Name == "Rem"));
+			CurrentSave.Party.Add(heroModel);
+
+			heroModel = new HeroModel(PilotRecord.PILOTS.First(x => x.Name == "Becca"));
 			CurrentSave.Party.Add(heroModel);
 		}
 

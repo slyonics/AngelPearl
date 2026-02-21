@@ -9,7 +9,7 @@
 		</DataGrid>
 	</Panel>
 
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-144,-160,288,28" InnerMargin="4,4,4,4">
+	<Panel Anchor="$CenterX,$CenterY" Bounds="-144,-160,288,28" InnerMargin="4,4,4,4">
 		<DataGrid Bounds="0,0,284,20" Items="Bind EnemyStacks">
 			<Panel Bounds="0,0,284,10" Alignment="Cascading">
 				<Label Text="Bind DataGrid.Header" Bounds="0,0,284,10" TextAlignment="Center" />
@@ -17,7 +17,7 @@
 		</DataGrid>
 	</Panel>
 	
-	<Panel Name="CommandPanel" Style="MagicPopup" Bounds="230,60,58,58" InnerMargin="4,4,4,4" Visible="Bind PlayerTurn">
+	<Panel Name="CommandPanel" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" InnerMargin="4,4,4,4" Visible="Bind PlayerTurn">
 		<Label Text="Fight" Alignment="Cascading" TextAlignment="Center" Bounds="0,2,58,10"/>
 		<Label Text="Spell" Alignment="Cascading" TextAlignment="Center" Bounds="0,2,58,10"/>
 		<Label Text="Item" Alignment="Cascading" TextAlignment="Center" Bounds="0,2,58,10"/>

@@ -100,7 +100,7 @@ namespace AngelPearl.Models
 
 
         public ModelProperty<string> Name { get; set; } = new ModelProperty<string>("Battler");
-        public ModelProperty<ClassType> Class { get; set; } = new ModelProperty<ClassType>(ClassType.Monster);
+        public ModelProperty<ClassType> Class { get; set; } = new ModelProperty<ClassType>(ClassType.Minion);
         public ModelProperty<int> Level { get; set; } = new ModelProperty<int>(1);
         public ModelProperty<string> Description { get; set; } = new ModelProperty<string>("This is your own party member, you fool.");
 

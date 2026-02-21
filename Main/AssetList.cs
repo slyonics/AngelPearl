@@ -5,6 +5,7 @@ namespace AngelPearl.Main
         Console,
         Dialogue,
         Interface,
+        LargeConsole,
 
         None = -1
     }
@@ -59,9 +60,7 @@ namespace AngelPearl.Main
 
     public enum GameMusic
     {
-        BeyondtheHills,
-        DeadTrees,
-        SailingtheSevenSkies,
+        VoxTest,
         TheGrappler,
 
         None = -1
@@ -100,7 +99,6 @@ namespace AngelPearl.Main
     {
         Palette,
         Background_Blank,
-        Background_LakeTown,
         Background_Splash,
         Enemies_Banshee,
         Enemies_Bard,
@@ -135,13 +133,8 @@ namespace AngelPearl.Main
         Particles_Thunderbolt,
         Particles_Tornado,
         Particles_Weapons,
-        Portraits_DoctorF,
-        Portraits_DoctorM,
+        Portraits_Aika,
         Portraits_Proxy,
-        Portraits_SailorF,
-        Portraits_SailorM,
-        Portraits_ScoutF,
-        Portraits_ScoutM,
         Tiles_CrawlerTiles,
         Widgets_Gauges_HealthBar,
         Widgets_Gauges_TechGauge,
@@ -169,6 +162,7 @@ namespace AngelPearl.Main
         Widgets_Ninepatches_ThinFrame,
         Widgets_Ninepatches_ThinPanel,
         Widgets_Ninepatches_ThinPanelSelected,
+        Background_SealedDoor,
 
         None = -1
     }

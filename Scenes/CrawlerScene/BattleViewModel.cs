@@ -43,7 +43,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			int totalWidth = EnemyStacks.Sum(x => x.Value.PanelWidth) + (EnemyStacks.Count - 1) * 8;
 			int maxHeight = EnemyStacks.Max(x => x.Value.EnemyHeight);
-			Vector2 offset = new Vector2((306 - totalWidth) / 2, (176 - maxHeight) / 2);
+			Vector2 offset = new Vector2((306 - totalWidth) / 2, maxHeight / 2 + 24);
 
 			foreach (var stack in EnemyStacks)
 			{

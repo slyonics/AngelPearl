@@ -1,10 +1,10 @@
 ﻿using AngelPearl.Main;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace AngelPearl.Models
 {
@@ -15,7 +15,7 @@ namespace AngelPearl.Models
 			
 		}
 
-		public HeroModel(HeroRecord heroRecord)
+		public HeroModel(PilotRecord heroRecord)
 		{
 			Name.Value = heroRecord.Name;
 			Class.Value = heroRecord.ClassType;
@@ -25,10 +25,10 @@ namespace AngelPearl.Models
 			Level.Value = heroRecord.Level;
             HP.Value = MaxHP.Value = heroRecord.BaseHP;
 			
-			Power.Value = heroRecord.BasePower;
-			Finesse.Value = heroRecord.BaseFinesse;
-			Magic.Value = heroRecord.BaseMagic;
-			Charisma.Value = heroRecord.BaseCharisma;
+			Power.Value = heroRecord.BaseSkill;
+			Finesse.Value = heroRecord.BaseReflex;
+			Magic.Value = heroRecord.BaseSong;
+			Charisma.Value = heroRecord.BaseTech;
 			Guts.Value = heroRecord.BaseGuts;
 		}
 
