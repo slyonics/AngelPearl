@@ -11,6 +11,7 @@ float flashInterval;
 float4 flashColor;
 
 sampler s0;
+sampler noise;
 
 float4 PixelShaderFunction(float4 position : SV_POSITION, float4 color1 : COLOR0, float2 texCoord : TEXCOORD0) : SV_TARGET0
 {

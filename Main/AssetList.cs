@@ -82,14 +82,11 @@ namespace AngelPearl.Main
     public enum GameShader
     {
         BattleEnemy,
-        BattleIntro,
+        BattlePlayer,
         Billboard,
         ColorFade,
         Default,
-        Palette,
-        Pinwheel,
         Portrait,
-        Title,
         Wall,
 
         None = -1
@@ -100,12 +97,8 @@ namespace AngelPearl.Main
         Palette,
         Background_Blank,
         Background_Splash,
-        Enemies_Banshee,
-        Enemies_Bard,
-        Enemies_Brigand,
-        Enemies_Engineer,
-        Enemies_Thief,
-        Enemies_Witch,
+        Enemies_Avatar,
+        Enemies_Golem,
         NPCs_Chest,
         NPCs_Coral,
         NPCs_Door,

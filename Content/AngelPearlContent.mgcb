@@ -95,10 +95,10 @@
 /processor:EffectProcessor
 /build:Shaders/BattleEnemy.fx
 
-#begin Shaders/BattleIntro.fx
+#begin Shaders/BattlePlayer.fx
 /importer:EffectImporter
 /processor:EffectProcessor
-/build:Shaders/BattleIntro.fx
+/build:Shaders/BattlePlayer.fx
 
 #begin Shaders/Billboard.fx
 /importer:EffectImporter
@@ -115,25 +115,10 @@
 /processor:EffectProcessor
 /build:Shaders/Default.fx
 
-#begin Shaders/Palette.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/build:Shaders/Palette.fx
-
-#begin Shaders/Pinwheel.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/build:Shaders/Pinwheel.fx
-
 #begin Shaders/Portrait.fx
 /importer:EffectImporter
 /processor:EffectProcessor
 /build:Shaders/Portrait.fx
-
-#begin Shaders/Title.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/build:Shaders/Title.fx
 
 #begin Shaders/Wall.fx
 /importer:EffectImporter
@@ -300,35 +285,15 @@
 /processor:TextureProcessor
 /build:Sprites/Background/Splash.png
 
-#begin Sprites/Enemies/Banshee.png
+#begin Sprites/Enemies/Avatar.png
 /importer:TextureImporter
 /processor:TextureProcessor
-/build:Sprites/Enemies/Banshee.png
+/build:Sprites/Enemies/Avatar.png
 
-#begin Sprites/Enemies/Bard.png
+#begin Sprites/Enemies/Golem.png
 /importer:TextureImporter
 /processor:TextureProcessor
-/build:Sprites/Enemies/Bard.png
-
-#begin Sprites/Enemies/Brigand.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Enemies/Brigand.png
-
-#begin Sprites/Enemies/Engineer.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Enemies/Engineer.png
-
-#begin Sprites/Enemies/Thief.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Enemies/Thief.png
-
-#begin Sprites/Enemies/Witch.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/build:Sprites/Enemies/Witch.png
+/build:Sprites/Enemies/Golem.png
 
 #begin Sprites/NPCs/Chest.png
 /importer:TextureImporter

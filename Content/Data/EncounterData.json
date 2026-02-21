@@ -1,10 +1,22 @@
 [
 	{
-		"Name": "BossTest",
-		"EncounterStacks": [
+		"Name": "AvatarTest",
+		"Enemies": [
 			{
-				"Name": "Brigand",
-				"Count": 3
+				"Name": "Avatar",
+				"OffsetX": 0,
+				"OffsetY": 0
+			}
+		],
+		"Intro": "The brigands draw closer as you prepare for battle..."
+	},
+	{
+		"Name": "GolemTest",
+		"Enemies": [
+			{
+				"Name": "Golem",
+				"OffsetX": 0,
+				"OffsetY": 0
 			}
 		],
 		"Intro": "The brigands draw closer as you prepare for battle..."

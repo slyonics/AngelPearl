@@ -50,8 +50,6 @@ namespace AngelPearl.Scenes.CrawlerScene
         public List<Chest> ChestList { get; set; } = new List<Chest>();
         public List<Npc> NpcList { get; set; } = new List<Npc>();
 
-        public PaletteShader InterfacePaletteShader { get; }
-
         public Panel MapPanel { get; set; }
 
         private int bumpCooldown;
@@ -121,7 +119,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             TransitionController transitionController = new TransitionController(TransitionDirection.In, 800);
             transitionController.UpdateTransition += new Action<float>(t =>
             {
-                GlobalBrightness = (int)(t * 4) / 4.0f;
+                GlobalBrightness = t;
                 //((PaletteShader)interfaceShader).SetGlobalBrightness(MathHelper.SmoothStep(-1.01f, 0.0f, t));
             });
 			transitionController.FinishTransition += new Action<TransitionDirection>(t => GlobalBrightness = 1.0f);
@@ -263,7 +261,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (Foe.DeferredSprite != null && BattleViewModel == null)
             {
                 float brightness = PartyController.FacingRoom.AverageBrightness();
-                spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, (Foe.DeferredSprite.Height / 2) + CRAWLER_VIEWPORT_OFFSETY + 16), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
+                spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + (160 - Foe.DeferredSprite.Height)), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
             }
             spriteBatch.End();
 

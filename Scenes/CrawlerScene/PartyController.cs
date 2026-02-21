@@ -380,17 +380,17 @@ namespace AngelPearl.Scenes.CrawlerScene
 			else if (nextRoom.Foe != null && !string.IsNullOrEmpty(nextRoom.Foe.Label))
 			{
 				crawlerScene.MapViewModel.InteractLabel.Value = nextRoom.Foe.Label;
-				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -44, Text.GetStringLength(GameFont.Dialogue, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
+				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -44, Text.GetStringLength(GameFont.Console, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
 			}
 			else if (!string.IsNullOrEmpty(nextRoom.Label))
 			{
 				crawlerScene.MapViewModel.InteractLabel.Value = nextRoom.Label;
-				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -20, Text.GetStringLength(GameFont.Dialogue, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
+				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -20, Text.GetStringLength(GameFont.Console, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
 			}
 			else if (nextRoom.Chest != null)
 			{
 				crawlerScene.MapViewModel.InteractLabel.Value = "Open";
-				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -16, Text.GetStringLength(GameFont.Dialogue, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
+				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -16, Text.GetStringLength(GameFont.Console, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
 			}
 			else
 			{

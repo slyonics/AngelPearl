@@ -85,8 +85,6 @@
     <Compile Include="SceneObjects\Shader.cs" />
     <Compile Include="SceneObjects\Shaders\ColorFade.cs" />
     <Compile Include="SceneObjects\Shaders\DayNight.cs" />
-    <Compile Include="SceneObjects\Shaders\PaletteShader.cs" />
-    <Compile Include="SceneObjects\Shaders\Pinwheel.cs" />
     <Compile Include="SceneObjects\ViewModel.cs" />
     <Compile Include="SceneObjects\ViewModels\ConversationViewModel.cs" />
     <Compile Include="SceneObjects\ViewModels\SelectionViewModel.cs" />
@@ -103,13 +101,14 @@
     <Compile Include="SceneObjects\Widgets\Textbox.cs" />
     <Compile Include="SceneObjects\Widgets\Textplate.cs" />
     <Compile Include="SceneObjects\Widgets\Tooltip.cs" />
+    <Compile Include="Scenes\CrawlerScene\Battler.cs" />
     <Compile Include="Scenes\CrawlerScene\BattleViewModel.cs" />
     <Compile Include="Scenes\CrawlerScene\Billboard.cs" />
     <Compile Include="Scenes\CrawlerScene\BillboardShader.cs" />
     <Compile Include="Scenes\CrawlerScene\Chest.cs" />
     <Compile Include="Scenes\CrawlerScene\CrawlerScene.cs" />
     <Compile Include="Scenes\CrawlerScene\Door.cs" />
-    <Compile Include="Scenes\CrawlerScene\EnemyStack.cs" />
+    <Compile Include="Scenes\CrawlerScene\BattleEnemy.cs" />
     <Compile Include="Scenes\CrawlerScene\EventController.cs" />
     <Compile Include="Scenes\CrawlerScene\Floor.cs" />
     <Compile Include="Scenes\CrawlerScene\Foe.cs" />

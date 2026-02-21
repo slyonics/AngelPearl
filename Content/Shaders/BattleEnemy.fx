@@ -7,42 +7,29 @@
 	#define PS_SHADERMODEL ps_4_0_level_9_1
 #endif
 
-float global_gamma = 0.0f;
+float destroyInterval;
+float flashInterval;
+float4 flashColor;
 
 sampler s0;
 sampler noise;
-sampler paletteSprite = sampler_state
-{
-    Filter = Point;
-};
 
 float4 PixelShaderFunction(float4 position : SV_POSITION, float4 color1 : COLOR0, float2 texCoord : TEXCOORD0) : SV_TARGET0
 {
-    float4 color = tex2D(s0, texCoord);
+	if (destroyInterval <= tex2D(noise, texCoord).x)
+	{
+		return float4(0, 0, 0, 0);
+	}
 
-    if (color.a < 1.0f)
-        discard;
-	
-    if (color1.b <= 0.0f || global_gamma <= -1.0f)
-        return float4(0, 0, 0, 1);
-	
-    if (color1.g < 1.0f)
-    {
-        if (color1.g <= tex2D(noise, texCoord).x)
-        {
-            return float4(0, 0, 0, 0);
-        }
-    }
-    
-    float brightness = color.b - global_gamma - ((color1.b - 0.5f) * 2.0f);
-    if (color1.r < 1.0f)
-    {
-        float2 palCoord = float2(color1.r, brightness);
-        return tex2D(paletteSprite, palCoord);
-    }
+	float4 color = tex2D(s0, texCoord) * color1;
+	if (color.a <= 0) return color;
 
-    float2 palCoord = float2(color.r, brightness);
-    return tex2D(paletteSprite, palCoord);
+	color.a = lerp(color.a, flashColor.w, flashInterval);
+	color.r = lerp(color.r, flashColor.x, flashInterval);
+	color.g = lerp(color.g, flashColor.y, flashInterval);
+	color.b = lerp(color.b, flashColor.z, flashInterval);
+
+	return color;
 }
 
 technique Technique1

@@ -77,8 +77,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             TransitionController transitionController = new TransitionController(TransitionDirection.Out, 800);
             transitionController.UpdateTransition += new Action<float>(t =>
             {
-                crawlerScene.GlobalBrightness = (int)(t * 4) / 4.0f;
-                crawlerScene.InterfacePaletteShader.SetGlobalBrightness(MathHelper.SmoothStep(-1.01f, 0.0f, t));
+                crawlerScene.GlobalBrightness = t;
+                //crawlerScene.InterfacePaletteShader.SetGlobalBrightness(MathHelper.SmoothStep(-1.01f, 0.0f, t));
             });
 			transitionController.FinishTransition += new Action<TransitionDirection>(t => crawlerScene.GlobalBrightness = 0.0f);
 

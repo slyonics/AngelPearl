@@ -1615,7 +1615,7 @@
 						},
 						{
 							"__identifier": "Foe",
-							"__grid": [4,6],
+							"__grid": [10,12],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -1624,17 +1624,57 @@
 							"width": 32,
 							"height": 32,
 							"defUid": 14,
-							"px": [128,192],
+							"px": [320,384],
 							"fieldInstances": [
-								{ "__identifier": "Sprite", "__type": "String", "__value": "Brigand", "__tile": null, "defUid": 15, "realEditorValues": [{
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Avatar", "__tile": null, "defUid": 15, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Brigand"]
+									"params": ["Avatar"]
 								}] },
 								{ "__identifier": "Interact", "__type": "String", "__value": "Conversation MenuIntro", "__tile": null, "defUid": 16, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Conversation MenuIntro"]
 								}] },
-								{ "__identifier": "Encounter", "__type": "String", "__value": "BossTest", "__tile": null, "defUid": 17, "realEditorValues": [] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "AvatarTest", "__tile": null, "defUid": 17, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["AvatarTest"]
+								}] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Brute"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Enemy Mob", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Enemy Mob"]
+								}] }
+							],
+							"__worldX": 320,
+							"__worldY": 384
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [4,7],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "047c56c0-fa90-11f0-8f89-f91273431331",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [128,224],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Golem", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Golem"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Conversation MenuIntro", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Conversation MenuIntro"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "GolemTest", "__tile": null, "defUid": 17, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["GolemTest"]
+								}] },
 								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Brute"]
@@ -1645,7 +1685,7 @@
 								}] }
 							],
 							"__worldX": 128,
-							"__worldY": 192
+							"__worldY": 224
 						}
 					]
 				},

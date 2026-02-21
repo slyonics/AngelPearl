@@ -35,24 +35,18 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			crawlerScene = iScene;
 
-			foreach (var stack in encounterRecord.EncounterStacks)
-			{
-				var enemyStack = new EnemyStack(crawlerScene, stack);
-				EnemyStacks.Add(enemyStack);
-			}
-
-			int totalWidth = EnemyStacks.Sum(x => x.Value.PanelWidth) + (EnemyStacks.Count - 1) * 8;
-			int maxHeight = EnemyStacks.Max(x => x.Value.EnemyHeight);
-			Vector2 offset = new Vector2((306 - totalWidth) / 2, maxHeight / 2 + 24);
-
-			foreach (var stack in EnemyStacks)
-			{
-				stack.Value.UpdateBounds(ref offset, maxHeight);
-			}
-
 			LoadView(GameView.Crawler_BattleView);
 			enemyPanel = GetWidget<Panel>("EnemyPanel");
 			commandPanel = GetWidget<Panel>("CommandPanel");
+
+			Vector2 center = enemyPanel.AbsolutePosition;
+			foreach (var enemy in encounterRecord.Enemies)
+			{
+				//Vector2 offset = new Vector2((306 - totalWidth) / 2, maxHeight / 2 + 24 + (104 - maxHeight));
+				Vector2 offset = new(enemy.OffsetX, enemy.OffsetY);
+				var enemyStack = new BattleEnemy(crawlerScene, EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name), center + offset);
+				EnemyStacks.Add(enemyStack);
+			}
 
 			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
 			ConversationRecord conversationRecord = new ConversationRecord(encounterRecord.Intro);
@@ -81,14 +75,20 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 		}
 
+		public override void Draw(SpriteBatch spriteBatch)
+		{
+			base.Draw(spriteBatch);
+		}
+
 		private void NewRound()
 		{
 			PlayerTurn.Value = true;
 		}
 
-		public List<Tuple<EnemyRecord, int>> InitialEnemies { get; set; } = [];
+		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
-		public ModelCollection<EnemyStack> EnemyStacks { get; set; } = new ModelCollection<EnemyStack>();
+
+		public ModelCollection<BattleEnemy> EnemyStacks { get; set; } = new ModelCollection<BattleEnemy>();
 
 		public ModelProperty<bool> ReadyToProceed { get; set; } = new ModelProperty<bool>(false);
 		public ModelProperty<bool> PlayerTurn { get; set; } = new ModelProperty<bool>(false);

@@ -535,7 +535,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             if (Script != null)
             {
-                if (crawlerScene.FoeInBattle != null)
+                if (crawlerScene.BattleViewModel != null)
                 {
                     crawlerScene.BattleViewModel.OnTerminated += new Action(() =>
                     {
