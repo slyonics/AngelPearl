@@ -2,19 +2,11 @@
 <View>
 
 	<Panel Name="EnemyPanel" Anchor="$CenterX,$CenterY" Bounds="-153,-138,306,176">
-		<DataGrid Bounds="0,0,306,176" Items="Bind EnemyStacks">
-			<Panel Bounds="Bind DataGrid.PanelBounds" >
-				<Image Picture="Bind DataGrid.Sprite" Bounds="Bind DataGrid.EnemyBounds" Color="Bind DataGrid.EnemyColor" Alignment="Center" />
-			</Panel>
-		</DataGrid>
+
 	</Panel>
 
 	<Panel Anchor="$CenterX,$CenterY" Bounds="-144,-160,288,28" InnerMargin="4,4,4,4">
-		<DataGrid Bounds="0,0,284,20" Items="Bind EnemyStacks">
-			<Panel Bounds="0,0,284,10" Alignment="Cascading">
-				<Label Text="Bind DataGrid.Header" Bounds="0,0,284,10" TextAlignment="Center" />
-			</Panel>
-		</DataGrid>
+
 	</Panel>
 	
 	<Panel Name="CommandPanel" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" InnerMargin="4,4,4,4" Visible="Bind PlayerTurn">

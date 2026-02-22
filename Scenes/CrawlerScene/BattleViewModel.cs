@@ -39,13 +39,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 			enemyPanel = GetWidget<Panel>("EnemyPanel");
 			commandPanel = GetWidget<Panel>("CommandPanel");
 
-			Vector2 center = enemyPanel.AbsolutePosition;
+			Vector2 center = enemyPanel.AbsolutePosition + new Vector2(enemyPanel.OuterBounds.Width / 2, enemyPanel.OuterBounds.Height - 4);
 			foreach (var enemy in encounterRecord.Enemies)
 			{
 				//Vector2 offset = new Vector2((306 - totalWidth) / 2, maxHeight / 2 + 24 + (104 - maxHeight));
 				Vector2 offset = new(enemy.OffsetX, enemy.OffsetY);
 				var enemyStack = new BattleEnemy(crawlerScene, EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name), center + offset);
-				EnemyStacks.Add(enemyStack);
+				Enemies.Add(enemyStack);
 			}
 
 			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
@@ -66,6 +66,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			if (parentScene.PriorityLevel == PriorityLevel.CutsceneLevel)
 			{
+
+				return;
 				if (Input.CurrentInput.AnythingPressed())
 				{
 					Terminate();
@@ -88,7 +90,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
 
-		public ModelCollection<BattleEnemy> EnemyStacks { get; set; } = new ModelCollection<BattleEnemy>();
+		public List<BattleEnemy> Enemies { get; set; } = new List<BattleEnemy>();
+
 
 		public ModelProperty<bool> ReadyToProceed { get; set; } = new ModelProperty<bool>(false);
 		public ModelProperty<bool> PlayerTurn { get; set; } = new ModelProperty<bool>(false);

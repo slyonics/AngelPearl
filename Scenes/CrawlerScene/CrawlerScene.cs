@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AngelPearl.SceneObjects.ViewModels;
 
 namespace AngelPearl.Scenes.CrawlerScene
 {
@@ -199,7 +200,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 			else
 			{
-				MoveFoes(destinationRoom);
+                if (MoveFoes(destinationRoom)) destinationRoom = null;
 			}
 
             return destinationRoom;
@@ -248,8 +249,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             DrawOverlay(spriteBatch);
 
 
-
-			if (!Suspended && MapViewModel.ShowMiniMap.Value)
+            if (!overlayList.Any(x => x is ConversationViewModel || x is BattleViewModel))
 			{
 				var miniMapPanel = MapViewModel.GetWidget<Panel>("MiniMapPanel");
 				Rectangle miniMapBounds = miniMapPanel.InnerBounds;
@@ -263,6 +263,14 @@ namespace AngelPearl.Scenes.CrawlerScene
                 float brightness = PartyController.FacingRoom.AverageBrightness();
                 spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + (160 - Foe.DeferredSprite.Height)), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
             }
+            else if (BattleViewModel != null)
+            {
+                foreach (var enemy in BattleViewModel.Enemies)
+                {
+                    enemy.Draw(spriteBatch, Camera);
+                }
+            }
+
             spriteBatch.End();
 
             
@@ -275,13 +283,13 @@ namespace AngelPearl.Scenes.CrawlerScene
             return roomAhead.Activate(PartyController.PartyDirection);
         }
 
-        public void MoveFoes(MapRoom playerDestination)
+        public bool MoveFoes(MapRoom playerDestination)
         {
             foreach (Foe foe in FoeList)
             {
                 if (foe.Threaten())
                 {
-                    return;
+                    return true;
                 }
             }
 
@@ -289,6 +297,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 foe.Move(playerDestination);
             }
+
+            return false;
         }
 
         public void MiniMapClick(Vector2 clickPosition)

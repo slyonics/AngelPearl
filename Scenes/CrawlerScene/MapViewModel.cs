@@ -50,9 +50,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public override void Update(GameTime gameTime)
         {
+            if (crawlerScene.OverlayList.Any(x => x is BattleViewModel)) return;
+
             base.Update(gameTime);
-
-
         }
 
         public override void LeftClickChild(Vector2 mouseStart, Vector2 mouseEnd, Widget clickWidget, Widget otherWidget)
