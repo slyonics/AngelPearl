@@ -4,7 +4,7 @@ namespace AngelPearl.Models
 {
     public class ItemModel
     {
-        public ItemModel(ItemRecord itemRecord)
+        public ItemModel(CommandRecord itemRecord)
         {
             ItemRecord = itemRecord;
             Quantity.Value = -1;
@@ -16,7 +16,7 @@ namespace AngelPearl.Models
             Quantity.Value = quantity;
         }
 
-        public ItemRecord ItemRecord { get; set; }
+        public CommandRecord ItemRecord { get; set; }
         public ModelProperty<int> Quantity { get; set; } = new ModelProperty<int>(1);
 
         public bool FieldUsable { get => ItemRecord.FieldScript != null; }

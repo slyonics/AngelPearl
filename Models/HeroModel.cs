@@ -15,7 +15,7 @@ namespace AngelPearl.Models
 			
 		}
 
-		public HeroModel(PilotRecord heroRecord)
+		public HeroModel(MuseRecord heroRecord)
 		{
 			Name.Value = heroRecord.Name;
 			Class.Value = heroRecord.ClassType;
@@ -26,7 +26,7 @@ namespace AngelPearl.Models
             HP.Value = MaxHP.Value = heroRecord.BaseHP;
 			
 			Power.Value = heroRecord.BaseSkill;
-			Finesse.Value = heroRecord.BaseReflex;
+			Reflex.Value = heroRecord.BaseReflex;
 			Magic.Value = heroRecord.BaseSong;
 			Charisma.Value = heroRecord.BaseTech;
 			Guts.Value = heroRecord.BaseGuts;
@@ -68,7 +68,16 @@ namespace AngelPearl.Models
 			}
 		}
 
+		public void UpdateHealthColor()
+		{
+			if (HP.Value > MaxHP.Value / 8) HealthColor.Value = new Color(252, 252, 252, 255);
+			else if (HP.Value > 0) HealthColor.Value = new Color(228, 0, 88, 255);
+			else HealthColor.Value = new Color(136, 20, 0, 255);
+		}
+
 		public ModelProperty<Rectangle> WindowBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 117, 180));
+		public ModelProperty<Color> HealthColor { get; set; } = new ModelProperty<Color>();
+
 		public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();
 
 		public ModelProperty<ItemRecord> Weapon { get; private set; } = new ModelProperty<ItemRecord>();

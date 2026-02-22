@@ -72,7 +72,7 @@ namespace AngelPearl.Models
             MP.Value = MaxMP.Value;
 
             Power.Value = enemyRecord.Power;
-            Finesse.Value = enemyRecord.Finesse;
+            Reflex.Value = enemyRecord.Finesse;
             Magic.Value = enemyRecord.Magic;
             Charisma.Value = enemyRecord.Charisma;
 			Guts.Value = enemyRecord.Guts;
@@ -111,7 +111,7 @@ namespace AngelPearl.Models
         public ModelProperty<int> MaxMP { get; set; } = new ModelProperty<int>(10);
 
         public ModelProperty<int> Power { get; set; } = new ModelProperty<int>(3);
-        public ModelProperty<int> Finesse { get; set; } = new ModelProperty<int>(3);
+        public ModelProperty<int> Reflex { get; set; } = new ModelProperty<int>(3);
         public ModelProperty<int> Guts { get; set; } = new ModelProperty<int>(3);
         public ModelProperty<int> Magic { get; set; } = new ModelProperty<int>(3);
         public ModelProperty<int> Charisma { get; set; } = new ModelProperty<int>(3);

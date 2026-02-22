@@ -24,11 +24,12 @@ namespace AngelPearl.Scenes.CrawlerScene
 		private CrawlerScene crawlerScene;
 
 		private Panel enemyPanel;
-		private Panel commandPanel;
+
+		private CommandViewModel commandViewModel;
 
 		public List<BattlerModel> InitiativeList { get; } = new();
-		public List<HeroModel> PlayerList { get; } = new();
-		public List<BattlerModel> EnemyList { get; } = new();
+		public List<BattlePlayer> PlayerList { get; } = [];
+		public List<BattleEnemy> EnemyList { get; set; } = [];
 
 		public BattleViewModel(CrawlerScene iScene, EncounterRecord encounterRecord)
 			: base(iScene, PriorityLevel.CutsceneLevel)
@@ -37,7 +38,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			LoadView(GameView.Crawler_BattleView);
 			enemyPanel = GetWidget<Panel>("EnemyPanel");
-			commandPanel = GetWidget<Panel>("CommandPanel");
 
 			Vector2 center = enemyPanel.AbsolutePosition + new Vector2(enemyPanel.OuterBounds.Width / 2, enemyPanel.OuterBounds.Height - 4);
 			foreach (var enemy in encounterRecord.Enemies)
@@ -45,7 +45,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 				//Vector2 offset = new Vector2((306 - totalWidth) / 2, maxHeight / 2 + 24 + (104 - maxHeight));
 				Vector2 offset = new(enemy.OffsetX, enemy.OffsetY);
 				var enemyStack = new BattleEnemy(crawlerScene, EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name), center + offset);
-				Enemies.Add(enemyStack);
+				EnemyList.Add(enemyStack);
 			}
 
 			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
@@ -64,17 +64,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			base.Update(gameTime);
 
-			if (parentScene.PriorityLevel == PriorityLevel.CutsceneLevel)
-			{
+			
 
-				return;
-				if (Input.CurrentInput.AnythingPressed())
-				{
-					Terminate();
-
-					crawlerScene.EndBattle();
-                }
-			}
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
@@ -90,7 +81,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
 
-		public List<BattleEnemy> Enemies { get; set; } = new List<BattleEnemy>();
 
 
 		public ModelProperty<bool> ReadyToProceed { get; set; } = new ModelProperty<bool>(false);

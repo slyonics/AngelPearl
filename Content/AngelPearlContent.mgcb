@@ -520,6 +520,11 @@
 /processor:TextureProcessor
 /build:Sprites/Widgets/Ninepatches/Cursor.png
 
+#begin Sprites/Widgets/Ninepatches/LabelGlow.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/LabelGlow.png
+
 #begin Sprites/Widgets/Ninepatches/MagicBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -605,10 +610,20 @@
 /processor:SimpleContentProcessor
 /build:Views/Crawler/BattleView.view
 
+#begin Views/Crawler/CommandView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Crawler/CommandView.view
+
 #begin Views/Crawler/MapView.view
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
 /build:Views/Crawler/MapView.view
+
+#begin Views/Crawler/TargetView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/Crawler/TargetView.view
 
 #begin Views/Title/TitleView.view
 /importer:SimpleContentImporter

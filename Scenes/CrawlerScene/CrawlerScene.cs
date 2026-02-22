@@ -265,7 +265,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             }
             else if (BattleViewModel != null)
             {
-                foreach (var enemy in BattleViewModel.Enemies)
+                foreach (var enemy in BattleViewModel.EnemyList)
                 {
                     enemy.Draw(spriteBatch, Camera);
                 }

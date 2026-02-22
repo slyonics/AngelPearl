@@ -43,12 +43,13 @@
     <Compile Include="Main\Text.cs" />
     <Compile Include="Models\BattlerModel.cs" />
     <Compile Include="Models\ClassRecord.cs" />
+    <Compile Include="Models\CommandRecord.cs" />
     <Compile Include="Models\ConversationRecord.cs" />
     <Compile Include="Models\EncounterRecord.cs" />
     <Compile Include="Models\EnemyRecord.cs" />
     <Compile Include="Models\GameProfile.cs" />
     <Compile Include="Models\HeroModel.cs" />
-    <Compile Include="Models\PilotRecord.cs" />
+    <Compile Include="Models\MuseRecord.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\ItemRecord.cs" />
     <Compile Include="Models\ModelCollection.cs" />
@@ -101,12 +102,16 @@
     <Compile Include="SceneObjects\Widgets\Textbox.cs" />
     <Compile Include="SceneObjects\Widgets\Textplate.cs" />
     <Compile Include="SceneObjects\Widgets\Tooltip.cs" />
+    <Compile Include="Scenes\CrawlerScene\BattleController.cs" />
+    <Compile Include="Scenes\CrawlerScene\BattlePlayer.cs" />
     <Compile Include="Scenes\CrawlerScene\Battler.cs" />
     <Compile Include="Scenes\CrawlerScene\BattleViewModel.cs" />
     <Compile Include="Scenes\CrawlerScene\Billboard.cs" />
     <Compile Include="Scenes\CrawlerScene\BillboardShader.cs" />
     <Compile Include="Scenes\CrawlerScene\Chest.cs" />
+    <Compile Include="Scenes\CrawlerScene\CommandViewModel.cs" />
     <Compile Include="Scenes\CrawlerScene\CrawlerScene.cs" />
+    <Compile Include="Scenes\CrawlerScene\DamageParticle.cs" />
     <Compile Include="Scenes\CrawlerScene\Door.cs" />
     <Compile Include="Scenes\CrawlerScene\BattleEnemy.cs" />
     <Compile Include="Scenes\CrawlerScene\EventController.cs" />
@@ -117,6 +122,7 @@
     <Compile Include="Scenes\CrawlerScene\Npc.cs" />
     <Compile Include="Scenes\CrawlerScene\PartyController.cs" />
     <Compile Include="Scenes\CrawlerScene\Skybox.cs" />
+    <Compile Include="Scenes\CrawlerScene\TargetViewModel.cs" />
     <Compile Include="Scenes\CrawlerScene\WallShader.cs" />
     <Compile Include="Scenes\LoadingScene\LoadingScene.cs" />
   </ItemGroup>
@@ -156,13 +162,22 @@
     <None Include="Content\Fonts\Console.spritefont" />
     <None Include="Content\Fonts\Dialogue.spritefont" />
     <None Include="Content\JamPacker.exe" />
+    <None Include="Content\Shaders\BattleEnemy.fx" />
+    <None Include="Content\Shaders\BattlePlayer.fx" />
+    <None Include="Content\Shaders\Billboard.fx" />
+    <None Include="Content\Shaders\ColorFade.fx" />
+    <None Include="Content\Shaders\Default.fx" />
+    <None Include="Content\Shaders\Portrait.fx" />
+    <None Include="Content\Shaders\Wall.fx" />
     <None Include="Content\SimplePipeline.dll" />
     <None Include="Content\Views\Conversation\ConversationView.view" />
     <None Include="Content\Views\Conversation\FastConversationView.view" />
     <None Include="Content\Views\Conversation\NameView.view" />
     <None Include="Content\Views\Conversation\SelectionView.view" />
     <None Include="Content\Views\Crawler\BattleView.view" />
+    <None Include="Content\Views\Crawler\CommandView.view" />
     <None Include="Content\Views\Crawler\MapView.view" />
+    <None Include="Content\Views\Crawler\TargetView.view" />
     <None Include="Content\Views\Title\TitleView.view" />
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">

@@ -9,7 +9,7 @@ namespace AngelPearl.Models
 
 
 
-	public class PilotRecord
+	public class MuseRecord
     {
 
         public string Name { get; set; }
@@ -27,6 +27,6 @@ namespace AngelPearl.Models
 		public int BaseTech { get; set; }
 		public int BaseGuts { get; set; }
 
-		public static List<PilotRecord> PILOTS { get; set; }
+		public static List<MuseRecord> PILOTS { get; set; }
     }
 }

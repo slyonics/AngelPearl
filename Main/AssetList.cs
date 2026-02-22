@@ -17,7 +17,9 @@ namespace AngelPearl.Main
         Conversation_NameView,
         Conversation_SelectionView,
         Crawler_BattleView,
+        Crawler_CommandView,
         Crawler_MapView,
+        Crawler_TargetView,
         Title_TitleView,
 
         None = -1
@@ -144,6 +146,7 @@ namespace AngelPearl.Main
         Widgets_Ninepatches_BattleWindow,
         Widgets_Ninepatches_Blank,
         Widgets_Ninepatches_Cursor,
+        Widgets_Ninepatches_LabelGlow,
         Widgets_Ninepatches_MagicBackground,
         Widgets_Ninepatches_MagicForeground,
         Widgets_Ninepatches_MagicFrame,
