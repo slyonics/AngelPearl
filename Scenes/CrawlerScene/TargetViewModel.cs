@@ -259,8 +259,9 @@ namespace AngelPearl.Scenes.CrawlerScene
             Audio.PlaySound(GameSound.Selection);
 
             Terminate();
+            battleScene.BattleViewModel.CommandViewModel?.Terminate();
 
-            if (Command.Targetting == TargetType.OneEnemy)
+			if (Command.Targetting == TargetType.OneEnemy)
             {
                 lastEnemyTarget = target as BattleEnemy;
 

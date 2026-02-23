@@ -45,13 +45,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite)
 			: base(iScene, iPosition, iSprite, new Dictionary<string, Animation>() { { "Idle", new Animation(0, 0, iSprite.Width, iSprite.Height, 1, 10000) } })
 		{
-
+			priorityLevel = PriorityLevel.CutsceneLevel;
 		}
 
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite, Dictionary<string, Animation> iAnimations)
 			: base(iScene, iPosition, iSprite, iAnimations)
 		{
-
+			priorityLevel = PriorityLevel.CutsceneLevel;
 		}
 
         public override void Update(GameTime gameTime)
@@ -60,6 +60,11 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			ParticleList.RemoveAll(x => x.Terminated);
         }
+
+		public override void Draw(SpriteBatch spriteBatch, Camera camera)
+		{
+			animatedSprite?.Draw(spriteBatch, position - new Vector2(0.0f, positionZ), camera, 0.9f);
+		}
 
 		public static void Initialize()
 		{

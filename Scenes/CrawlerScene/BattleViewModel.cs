@@ -24,12 +24,15 @@ namespace AngelPearl.Scenes.CrawlerScene
 		private CrawlerScene crawlerScene;
 
 		private Panel enemyPanel;
+		public CrawlText crawlText;
 
 		public CommandViewModel CommandViewModel { get; set; }
 
 		public List<Battler> InitiativeList { get; } = new();
 		public List<BattlePlayer> PlayerList { get; } = [];
 		public List<BattleEnemy> EnemyList { get; set; } = [];
+
+		public event Action OnNarrationDone;
 
 		public BattleViewModel(CrawlerScene iScene, EncounterRecord encounterRecord)
 			: base(iScene, PriorityLevel.CutsceneLevel)
@@ -38,25 +41,29 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			LoadView(GameView.Crawler_BattleView);
 			enemyPanel = GetWidget<Panel>("EnemyPanel");
+			crawlText = GetWidget<CrawlText>("ConversationText");
 
 			Vector2 center = enemyPanel.AbsolutePosition + new Vector2(enemyPanel.OuterBounds.Width / 2, enemyPanel.OuterBounds.Height - 4);
 			foreach (var enemy in encounterRecord.Enemies)
 			{
 				//Vector2 offset = new Vector2((306 - totalWidth) / 2, maxHeight / 2 + 24 + (104 - maxHeight));
 				Vector2 offset = new(enemy.OffsetX, enemy.OffsetY);
-				var enemyStack = new BattleEnemy(crawlerScene, EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name), center + offset);
-				EnemyList.Add(enemyStack);
+				var battleEnemy = new BattleEnemy(crawlerScene, EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name), center + offset);
+				EnemyList.Add(battleEnemy);
+				crawlerScene.AddEntity(battleEnemy);
 			}
 
 			foreach (var player in GameProfile.CurrentSave.Party)
 			{
-				PlayerList.Add(new BattlePlayer(crawlerScene, new Vector2(player.Value.WindowBounds.Value.Center.X, player.Value.WindowBounds.Value.Bottom), player.Value));
+				var battlePlayer = new BattlePlayer(crawlerScene, new Vector2(player.Value.WindowBounds.Value.Center.X, player.Value.WindowBounds.Value.Bottom), player.Value);
+				PlayerList.Add(battlePlayer);
+				crawlerScene.AddEntity(battlePlayer);
 			}
 
+			DrawOnNewLayer = true;
 
 			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
 
-			/*
 			ConversationRecord conversationRecord = new ConversationRecord(encounterRecord.Intro);
 			ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
 			conversationViewModel.OnTerminated += new Action(() =>
@@ -64,9 +71,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 				crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				NewRound();
 			});
-			*/
-
-			NewRound();
 
 			Audio.PlayMusic(GameMusic.TheGrappler);
 		}
@@ -75,18 +79,35 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			base.Update(gameTime);
 
-			if (InitiativeList.Count == 0)
+			EnemyList.RemoveAll(x => x.Terminated);
+			if (!crawlerScene.ControllerStack.Any(y => y.Any(x => x is BattleController)) && !PlayerList.Any(x => x.Busy) && !EnemyList.Any(x => x.Busy))
 			{
-				if (!PlayerTurn.Value)
+				if (EnemyList.Count == 0)
 				{
-					PlayerTurn.Value = true;
-					NewRound();
+					crawlerScene.EndBattle();
+					Terminate();
+					return;
+				}
+
+				if (InitiativeList.Count == 0)
+				{
+					if (TurnExecuting.Value)
+					{
+						TurnExecuting.Value = false;
+						NewRound();
+					}
+				}
+				else
+				{
+					InitiativeList.First().ExecuteTurn();
+					InitiativeList.RemoveAt(0);
 				}
 			}
-			else if (!PlayerList.Any(x => x.Busy) && !EnemyList.Any(x => x.Busy))
+
+			if (crawlText.ReadyToProceed && OnNarrationDone != null)
 			{
-				InitiativeList.First().ExecuteTurn();
-				InitiativeList.RemoveAt(0);
+				OnNarrationDone.Invoke();
+				OnNarrationDone = null;
 			}
         }
 
@@ -95,26 +116,51 @@ namespace AngelPearl.Scenes.CrawlerScene
 			base.Draw(spriteBatch);
 		}
 
-		private void NewRound()
+		public void NewRound()
 		{
-			PlayerTurn.Value = true;
+			TurnExecuting.Value = false;
+			Narration.Value = "";
 
 			CommandViewModel = crawlerScene.AddView(new CommandViewModel(crawlerScene, PlayerList.First(x => !x.Dead && x.AwaitingOrders)));
 		}
 
 		public void ExecuteRound()
 		{
-			PlayerTurn.Value = false;
+			TurnExecuting.Value = true;
+			CommandHeader1.Value = "";
+			CommandHeader2.Value = "";
 
 			InitiativeList.Clear();
 			InitiativeList.AddRange(PlayerList.Where(x => !x.Dead));
 		}
 
+		public void SetHeader(string header)
+		{
+			CommandHeader1.Value = "";
+			CommandHeader2.Value = "";
+
+			if (Text.GetStringLength(GameFont.Console, header) >= 92)
+			{
+				var tokens = new Queue<string>(header.Split(' '));
+				CommandHeader1.Value += $" {tokens.Dequeue()}";
+				while (Math.Abs(Text.GetStringLength(GameFont.Console, CommandHeader1.Value) - Text.GetStringLength(GameFont.Console, string.Join(' ', tokens))) >
+					   Math.Abs(Text.GetStringLength(GameFont.Console, CommandHeader1.Value + $" {tokens.Peek()}") - Text.GetStringLength(GameFont.Console, string.Join(' ', tokens.Skip(1)))))
+				{
+					CommandHeader1.Value += $" {tokens.Dequeue()}";
+				}
+				CommandHeader2.Value = string.Join(' ', tokens);
+			}
+			else CommandHeader1.Value = header;
+		}
+
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
+		public ModelProperty<string> CommandHeader1 { get; set; } = new ModelProperty<string>("");
+		public ModelProperty<string> CommandHeader2 { get; set; } = new ModelProperty<string>("");
 
+		public ModelProperty<string> Narration { get; set; } = new ModelProperty<string>("");
 
 		public ModelProperty<bool> ReadyToProceed { get; set; } = new ModelProperty<bool>(false);
-		public ModelProperty<bool> PlayerTurn { get; set; } = new ModelProperty<bool>(false);
+		public ModelProperty<bool> TurnExecuting { get; set; } = new ModelProperty<bool>(false);
 	}
 }

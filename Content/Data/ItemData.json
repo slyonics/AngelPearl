@@ -8,6 +8,7 @@
 		"Attack": 16,
 		"Hit": 100,
 		"BattleScript": [
+			"Narrate $attackerName attacks with Ruby Staff!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",

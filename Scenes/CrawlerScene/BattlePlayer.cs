@@ -140,6 +140,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             enqueuedController.OnTerminated += new TerminationFollowup(() => FinishTurn());
             parentScene.AddController(enqueuedController);
+
+            ResetCommand();
 		}
 
 		public List<DialogueRecord> GrowAfterBattle(EncounterRecord encounterRecord)

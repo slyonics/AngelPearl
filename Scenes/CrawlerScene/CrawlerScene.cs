@@ -340,7 +340,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             FoeInBattle = foe;
 			EncounterRecord record = EncounterRecord.ENCOUNTERS.First(x => x.Name == foe.Encounter);
             BattleViewModel = AddView(new BattleViewModel(this, record));
-            MapViewModel.ShowMiniMap.Value = false;
+            //BattleViewModel.NewRound();
+			MapViewModel.ShowMiniMap.Value = false;
 			MapViewModel.ShowInstructions.Value = false;
 		}
 

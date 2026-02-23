@@ -41,7 +41,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			(commandList.ChildList[0] as RadioButton).RadioSelect();
 
-			DrawOnNewLayer = true;
+			crawlerScene.BattleViewModel.SetHeader($"What will {ActivePlayer.Stats.Name.Value} do?");
 		}
 
 		public override void Update(GameTime gameTime)

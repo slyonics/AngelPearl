@@ -176,7 +176,8 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case "Flash": Flash(tokens); break;
 
                 case "Attack": Attack(tokens); break;
-                case "Dialogue": Dialogue(tokens); break;
+				case "Narrate": Narration(tokens); break;
+				case "Dialogue": Dialogue(tokens); break;
                 case "Analyze": Analyze(tokens); return true;
                 case "Flee": Flee(tokens); break;
                 case "OnHit": if (!CalculateHit(tokens)) scriptParser.EndScript(); break;
@@ -505,7 +506,15 @@ namespace AngelPearl.Scenes.CrawlerScene
             // timeleft = 1000;
         }
 
-        private void Dialogue(string[] tokens)
+        private void Narration(string[] tokens)
+        {
+            battleScene.BattleViewModel.Narration.Value = String.Join(' ', tokens.Skip(1));
+			var unblock = scriptParser.BlockScript();
+			battleScene.BattleViewModel.OnNarrationDone += new Action(unblock);
+		}
+
+
+		private void Dialogue(string[] tokens)
         {
             if (tokens.Length == 2)
             {
