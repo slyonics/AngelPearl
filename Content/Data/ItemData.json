@@ -11,8 +11,8 @@
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Magic Sharp",
-			"Flash Red",
+			"OnHit Melee Sharp",
+			"Flash 255 0 0",
 			"Damage Magic Sharp"
 		]
 	},

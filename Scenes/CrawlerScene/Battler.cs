@@ -68,6 +68,11 @@ namespace AngelPearl.Scenes.CrawlerScene
 			STATIC_TEXTURE.SetData<Color>(colorData);
 		}
 
+		public virtual void ExecuteTurn()
+		{
+			
+		}
+
 		public virtual void Damage(int damage)
 		{
 			if (Defending)

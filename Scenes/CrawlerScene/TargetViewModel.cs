@@ -266,17 +266,16 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             }
 
-            switch (Command.Targetting)
+            BattleController battleController = new BattleController(battleScene, Player, target, Command, targetAllEnemies, targetAllAllies);
+            Player.EnqueueCommand(battleController, Command);
+
+			var nextPlayer = battleScene.BattleViewModel.PlayerList.FirstOrDefault(x => !x.Dead && x.AwaitingOrders);
+			if (nextPlayer != null) battleScene.BattleViewModel.CommandViewModel = battleScene.AddView(new CommandViewModel(battleScene, nextPlayer));
+            else
             {
-                case TargetType.OneEnemy:
-                case TargetType.OneAlly:
-                    {
-                        BattleController battleController = new BattleController(battleScene, Player, target, Command, targetAllEnemies, targetAllAllies);
-                        Player.EnqueueCommand(battleController, Command);
-                    }
-                    break;
+                battleScene.BattleViewModel.ExecuteRound();
             }
-        }
+		}
 
         public BattlePlayer Player { get; set; }
         public CommandRecord Command { get; set; }

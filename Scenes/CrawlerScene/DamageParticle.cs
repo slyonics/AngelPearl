@@ -44,6 +44,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 			velocityZ = DIGIT_HEIGHT * 10;
 			landingFollowup += StartDecay;
 			nextDigitTimer = NEXT_DIGIT_INTERVAL;
+
+			priorityLevel = PriorityLevel.CutsceneLevel;
 		}
 
 		public DamageParticle(Scene iScene, Vector2 iPosition, string digits, Color iColor)
@@ -62,6 +64,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 			nextDigitTimer = NEXT_DIGIT_INTERVAL;
 
 			color = iColor;
+
+			priorityLevel = PriorityLevel.CutsceneLevel;
 		}
 
 		public override void Update(GameTime gameTime)

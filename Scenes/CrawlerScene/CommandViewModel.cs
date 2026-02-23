@@ -3,6 +3,7 @@ using AngelPearl.Models;
 using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Widgets;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 {
 	public class CommandViewModel : ViewModel
 	{
-		CrawlerScene battleScene;
+		CrawlerScene crawlerScene;
 
 		TargetViewModel targetSelector;
 
@@ -25,7 +26,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			ConfirmCooldown = false;
 
-			battleScene = iScene;
+			crawlerScene = iScene;
 
 			ActivePlayer = iBattlePlayer;
 
@@ -44,7 +45,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public override void Update(GameTime gameTime)
 		{
-			if (battleScene.BattleViewModel == null || ActivePlayer.Dead)
+			if (crawlerScene.BattleViewModel == null || ActivePlayer.Dead)
 			{
 				Terminate();
 				return;
@@ -73,9 +74,16 @@ namespace AngelPearl.Scenes.CrawlerScene
 			base.Update(gameTime);
 
 			if (Input.CurrentInput.CommandPressed(Command.Cancel) && !CancelCooldown)
-			{
+			{				
+				var lastOrderedPlayer = crawlerScene.BattleViewModel.PlayerList.LastOrDefault(x => !x.Dead && !x.AwaitingOrders);
+				if (lastOrderedPlayer != null)
+				{
 					Audio.PlaySound(GameSound.Back);
+					Terminate();
 
+					lastOrderedPlayer.ResetCommand();
+					crawlerScene.BattleViewModel.CommandViewModel = crawlerScene.AddView(new CommandViewModel(crawlerScene, lastOrderedPlayer));
+				}
 			}
 
 			CancelCooldown = false;
@@ -103,9 +111,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			Audio.PlaySound(GameSound.Selection);
 
-
-			targetSelector = new TargetViewModel(battleScene, ActivePlayer, battleCommand);
-			battleScene.AddOverlay(targetSelector);
+			targetSelector = new TargetViewModel(crawlerScene, ActivePlayer, battleCommand);
+			crawlerScene.AddOverlay(targetSelector);
 		}
 
 

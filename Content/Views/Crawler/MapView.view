@@ -22,7 +22,7 @@
 
 	<DataGrid Items="Bind PlayerProfile.Party" Bounds="-270,-180,0,540,360">
 		<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="Bind DataGrid.WindowBounds" InnerMargin="4,4,4,4" Depth="0.3">
-			<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,2,92,18"/>
+			<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,2,92,18" Color="Bind DataGrid.NameColor"/>
 			
 			<Panel Style="MagicFrame" Bounds="0,2,109,124" Alignment="Vertical" Depth="0.1">
 				<Image Picture="Bind DataGrid.Portrait" Alignment="Stretch" Depth="0.2"/>
@@ -30,9 +30,9 @@
 
 			<Panel Alignment="Vertical" Bounds="0,0,109,12">
 				<Image Icon="15,0" Alignment="Cascading" Bounds="4,5,8,8" Color="#FFFFFFFF"/>
-				<Label Text="Bind DataGrid.HP" Font="Console" Alignment="Cascading" TextAlignment="Right" Bounds="2,4,24,10"/>
+				<Label Text="Bind DataGrid.HP" Font="Console" Alignment="Cascading" TextAlignment="Right" Bounds="2,4,24,10" Color="Bind DataGrid.HealthColor"/>
 				<Label Text="/" Alignment="Cascading" Font="Console" TextAlignment="Left" Bounds="0,4,7,10"/>
-				<Label Text="Bind DataGrid.MaxHP" Font="Console" Alignment="Cascading" TextAlignment="Left" Bounds="0,4,24,10"/>
+				<Label Text="Bind DataGrid.MaxHP" Font="Console" Alignment="Cascading" TextAlignment="Left" Bounds="0,4,24,10" Color="Bind DataGrid.HealthColor"/>
 			</Panel>
 
 			<Label Text="OK" Font="Console" Alignment="Vertical" TextAlignment="Center" Bounds="0,4,109,9"/>

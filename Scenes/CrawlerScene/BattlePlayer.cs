@@ -60,8 +60,9 @@ namespace AngelPearl.Scenes.CrawlerScene
         private bool healAnimation;
 
 
+        public bool AwaitingOrders { get => enqueuedCommand == null; }
 
-        private HeroModel heroModel;
+		private HeroModel heroModel;
         public HeroModel HeroModel
         {
             get => heroModel; set
@@ -133,7 +134,12 @@ namespace AngelPearl.Scenes.CrawlerScene
             enqueuedController = null;
         }
 
-        public List<DialogueRecord> GrowAfterBattle(EncounterRecord encounterRecord)
+		public override void ExecuteTurn()
+		{
+            parentScene.AddController(enqueuedController);
+		}
+
+		public List<DialogueRecord> GrowAfterBattle(EncounterRecord encounterRecord)
         {
             List<DialogueRecord> reports = new List<DialogueRecord>();
 

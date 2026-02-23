@@ -25,9 +25,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		private Panel enemyPanel;
 
-		private CommandViewModel commandViewModel;
+		public CommandViewModel CommandViewModel { get; set; }
 
-		public List<BattlerModel> InitiativeList { get; } = new();
+		public List<Battler> InitiativeList { get; } = new();
 		public List<BattlePlayer> PlayerList { get; } = [];
 		public List<BattleEnemy> EnemyList { get; set; } = [];
 
@@ -53,7 +53,10 @@ namespace AngelPearl.Scenes.CrawlerScene
 				PlayerList.Add(new BattlePlayer(crawlerScene, new Vector2(player.Value.WindowBounds.Value.Center.X, player.Value.WindowBounds.Value.Bottom), player.Value));
 			}
 
+
 			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
+
+			/*
 			ConversationRecord conversationRecord = new ConversationRecord(encounterRecord.Intro);
 			ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
 			conversationViewModel.OnTerminated += new Action(() =>
@@ -61,6 +64,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 				crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				NewRound();
 			});
+			*/
+
+			NewRound();
 
 			Audio.PlayMusic(GameMusic.TheGrappler);
 		}
@@ -82,18 +88,22 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			PlayerTurn.Value = true;
 
-			IdlePlayers.Clear();
-			foreach (var player in PlayerList)
-			{
-				IdlePlayers.Add(player);
-			}
+			CommandViewModel = crawlerScene.AddView(new CommandViewModel(crawlerScene, PlayerList.First(x => !x.Dead && x.AwaitingOrders)));
+		}
 
-			commandViewModel = crawlerScene.AddView(new CommandViewModel(crawlerScene, IdlePlayers[0]));
+		public void ExecuteRound()
+		{
+			PlayerTurn.Value = false;
+
+			InitiativeList.Clear();
+			InitiativeList.AddRange(PlayerList.Where(x => !x.Dead));
+
+			InitiativeList.First().ExecuteTurn();
+			InitiativeList.RemoveAt(0);
 		}
 
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
-		public List<BattlePlayer> IdlePlayers { get; set; } = [];
 
 
 		public ModelProperty<bool> ReadyToProceed { get; set; } = new ModelProperty<bool>(false);

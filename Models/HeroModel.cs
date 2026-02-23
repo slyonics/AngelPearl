@@ -64,7 +64,8 @@ namespace AngelPearl.Models
 		}
 
 		public ModelProperty<Rectangle> WindowBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 117, 180));
-		public ModelProperty<Color> HealthColor { get; set; } = new ModelProperty<Color>();
+		public ModelProperty<Color> NameColor { get; set; } = new ModelProperty<Color>(Color.White);
+		public ModelProperty<Color> HealthColor { get; set; } = new ModelProperty<Color>(Color.White);
 
 		public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();
 

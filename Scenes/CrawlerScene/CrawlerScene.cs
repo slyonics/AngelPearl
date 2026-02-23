@@ -269,7 +269,9 @@ namespace AngelPearl.Scenes.CrawlerScene
                 {
                     enemy.Draw(spriteBatch, Camera);
                 }
-            }
+
+				foreach (Particle particle in particleList) particle.Draw(spriteBatch, Camera);
+			}
 
             spriteBatch.End();
 
