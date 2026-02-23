@@ -29,6 +29,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			crawlerScene = iScene;
 
 			ActivePlayer = iBattlePlayer;
+			ActivePlayer.HeroModel.NameColor.Value = Color.Red;
 
 			foreach (var command in ActivePlayer.HeroModel.Commands)
 				AvailableCommands.ModelList.Add(new ModelProperty<CommandRecord>(command.Value));
@@ -56,17 +57,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 				if (targetSelector.Terminated)
 				{
 					targetSelector = null;
-					if (!ActivePlayer.Ready)
-					{
-						Terminate();
-						return;
-					}
-					else
-					{
-						CancelCooldown = true;
-
-						
-					}
+					CancelCooldown = true;
 				}
 				else return;
 			}
@@ -80,6 +71,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 				{
 					Audio.PlaySound(GameSound.Back);
 					Terminate();
+
+					ActivePlayer.HeroModel.NameColor.Value = Color.White;
 
 					lastOrderedPlayer.ResetCommand();
 					crawlerScene.BattleViewModel.CommandViewModel = crawlerScene.AddView(new CommandViewModel(crawlerScene, lastOrderedPlayer));

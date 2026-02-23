@@ -54,6 +54,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		}
 
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+			ParticleList.RemoveAll(x => x.Terminated);
+        }
+
 		public static void Initialize()
 		{
 			STATIC_TEXTURE = new Texture2D(CrossPlatformGame.GameInstance.GraphicsDevice, 200, 200);
@@ -70,7 +77,12 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public virtual void ExecuteTurn()
 		{
-			
+			turnActive = true;
+		}
+
+		public void FinishTurn()
+		{
+			turnActive = false;
 		}
 
 		public virtual void Damage(int damage)
@@ -175,7 +187,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 		}
 
-		public virtual bool Busy { get => turnActive || ParticleList.Count > 0 || (Math.Abs(battlerOffset.X) > 0.1f); }
+		public virtual bool Busy { get => ParticleList.Count > 0 || turnActive; }
 
 		public Vector2 Center { get => new Vector2(SpriteBounds.Center.X, SpriteBounds.Center.Y); }
 

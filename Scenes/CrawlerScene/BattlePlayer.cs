@@ -136,6 +136,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public override void ExecuteTurn()
 		{
+            base.ExecuteTurn();
+
+            enqueuedController.OnTerminated += new TerminationFollowup(() => FinishTurn());
             parentScene.AddController(enqueuedController);
 		}
 
@@ -212,6 +215,5 @@ namespace AngelPearl.Scenes.CrawlerScene
             get { return initiative; }
         }
 
-        public bool Ready { get => initiative >= 255 && !Dead && enqueuedController == null; }
     }
 }

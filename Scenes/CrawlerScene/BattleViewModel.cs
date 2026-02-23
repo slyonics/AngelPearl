@@ -75,9 +75,20 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			base.Update(gameTime);
 
-			
-
-		}
+			if (InitiativeList.Count == 0)
+			{
+				if (!PlayerTurn.Value)
+				{
+					PlayerTurn.Value = true;
+					NewRound();
+				}
+			}
+			else if (!PlayerList.Any(x => x.Busy) && !EnemyList.Any(x => x.Busy))
+			{
+				InitiativeList.First().ExecuteTurn();
+				InitiativeList.RemoveAt(0);
+			}
+        }
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
@@ -97,9 +108,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			InitiativeList.Clear();
 			InitiativeList.AddRange(PlayerList.Where(x => !x.Dead));
-
-			InitiativeList.First().ExecuteTurn();
-			InitiativeList.RemoveAt(0);
 		}
 
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];

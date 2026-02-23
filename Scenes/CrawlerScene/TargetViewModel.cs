@@ -269,7 +269,10 @@ namespace AngelPearl.Scenes.CrawlerScene
             BattleController battleController = new BattleController(battleScene, Player, target, Command, targetAllEnemies, targetAllAllies);
             Player.EnqueueCommand(battleController, Command);
 
-			var nextPlayer = battleScene.BattleViewModel.PlayerList.FirstOrDefault(x => !x.Dead && x.AwaitingOrders);
+            Player.HeroModel.NameColor.Value = Color.White;
+
+
+            var nextPlayer = battleScene.BattleViewModel.PlayerList.FirstOrDefault(x => !x.Dead && x.AwaitingOrders);
 			if (nextPlayer != null) battleScene.BattleViewModel.CommandViewModel = battleScene.AddView(new CommandViewModel(battleScene, nextPlayer));
             else
             {
