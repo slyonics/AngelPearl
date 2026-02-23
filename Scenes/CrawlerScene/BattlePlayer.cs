@@ -83,7 +83,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             // reapply poision and stone here
 
             if (heroModel.Weapon.Value != null && heroModel.Weapon.Value.AutoBuffs != null) foreach (BuffType buff in heroModel.Weapon.Value.AutoBuffs) Buffs.Add(buff);
-            if (heroModel.Armor.Value != null && heroModel.Armor.Value.AutoBuffs != null) foreach (BuffType buff in heroModel.Armor.Value.AutoBuffs) Buffs.Add(buff);
             if (heroModel.Accessory.Value != null && heroModel.Accessory.Value.AutoBuffs != null) foreach (BuffType buff in heroModel.Accessory.Value.AutoBuffs) Buffs.Add(buff);
 
             HeroModel.UpdateHealthColor();

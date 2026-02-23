@@ -30,6 +30,8 @@ namespace AngelPearl.Models
 			Magic.Value = heroRecord.BaseSong;
 			Charisma.Value = heroRecord.BaseTech;
 			Guts.Value = heroRecord.BaseGuts;
+
+			EquipWeapon(heroRecord.Weapon);
 		}
 
 		public HeroModel(BinaryReader binaryReader)
@@ -40,6 +42,18 @@ namespace AngelPearl.Models
 		public void WriteToFile(BinaryWriter binaryWriter)
 		{
 
+		}
+
+		public void EquipWeapon(string weaponName)
+		{
+			Weapon.Value = ItemRecord.ITEMS.First(x => x.Name == weaponName);
+			PopulateCommands();
+		}
+
+		public void PopulateCommands()
+		{
+			Commands.Clear();
+			Commands.ModelList.Add(new ModelProperty<CommandRecord>(new CommandRecord(Weapon.Value)));
 		}
 
 		public void UpdateHealthColor()
@@ -55,8 +69,9 @@ namespace AngelPearl.Models
 		public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();
 
 		public ModelProperty<ItemRecord> Weapon { get; private set; } = new ModelProperty<ItemRecord>();
-		public ModelProperty<ItemRecord> Armor { get; private set; } = new ModelProperty<ItemRecord>();
 		public ModelProperty<ItemRecord> Accessory { get; private set; } = new ModelProperty<ItemRecord>();
+		public ModelProperty<ItemRecord> ActiveModules { get; private set; } = new ModelProperty<ItemRecord>();
+		public ModelProperty<ItemRecord> PassiveModules { get; private set; } = new ModelProperty<ItemRecord>();
 
 		public ModelCollection<CommandRecord> Commands { get; private set; } = new ModelCollection<CommandRecord> { };
 

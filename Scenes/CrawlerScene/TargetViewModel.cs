@@ -266,8 +266,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             }
 
-            Player.PlayAnimation(Command.Animation);
-
             switch (Command.Targetting)
             {
                 case TargetType.OneEnemy:

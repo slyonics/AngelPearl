@@ -20,6 +20,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			crawlerScene = iScene;
 
+			stats = new BattlerModel(enemyRecord);
 		}
 
 

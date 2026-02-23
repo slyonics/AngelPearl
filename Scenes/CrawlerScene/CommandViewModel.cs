@@ -32,15 +32,14 @@ namespace AngelPearl.Scenes.CrawlerScene
 			foreach (var command in ActivePlayer.HeroModel.Commands)
 				AvailableCommands.ModelList.Add(new ModelProperty<CommandRecord>(command.Value));
 
-			int commandHeight = Math.Max(60, AvailableCommands.Count() * 10 + 16);
-			CommandBounds.Value = new Rectangle(-90, Math.Min(30, 90 - commandHeight), 60, commandHeight);
-
 			LoadView(GameView.Crawler_CommandView);
 
 			commandList = GetWidget<RadioBox>("CommandList");
 			mpCounter = GetWidget<Panel>("MPCounter");
 
 			(commandList.ChildList[0] as RadioButton).RadioSelect();
+
+			DrawOnNewLayer = true;
 		}
 
 		public override void Update(GameTime gameTime)
@@ -111,8 +110,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 
 		public BattlePlayer ActivePlayer { get; set; }
-
-		public ModelProperty<Rectangle> CommandBounds { get; set; } = new ModelProperty<Rectangle>();
 
 		public ModelCollection<CommandRecord> AvailableCommands { get; set; } = new ModelCollection<CommandRecord>();
 

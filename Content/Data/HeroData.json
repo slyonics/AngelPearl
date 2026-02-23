@@ -12,7 +12,8 @@
 		"BaseReflex": 4,
 		"BaseSong": 1,
 		"BaseTech": 3,
-		"BaseGuts": 1
+		"BaseGuts": 1,
+		"Weapon": "Ruby Staff"
 	},
 	{
 		"Name": "Aika",
@@ -27,7 +28,8 @@
 		"BaseReflex": 4,
 		"BaseSong": 1,
 		"BaseTech": 3,
-		"BaseGuts": 1
+		"BaseGuts": 1,
+		"Weapon": "Ruby Staff"
 	},
 	{
 		"Name": "Becca",
@@ -42,7 +44,8 @@
 		"BaseReflex": 4,
 		"BaseSong": 1,
 		"BaseTech": 3,
-		"BaseGuts": 1
+		"BaseGuts": 1,
+		"Weapon": "Ruby Staff"
 	},
 	{
 		"Name": "Rem",
@@ -56,6 +59,7 @@
 		"BaseReflex": 4,
 		"BaseSong": 1,
 		"BaseTech": 3,
-		"BaseGuts": 1
+		"BaseGuts": 1,
+		"Weapon": "Ruby Staff"
 	}
 ]

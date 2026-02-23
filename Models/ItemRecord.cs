@@ -30,6 +30,7 @@ namespace AngelPearl.Models
 		}
 
 		public string Name { get; set; }
+        public string Animation { get; set; }
 		public string Description { get; set; }
 		public ItemType ItemType { get; set; }
 		public string Icon { get; set; }

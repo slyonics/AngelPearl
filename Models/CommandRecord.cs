@@ -29,6 +29,20 @@ namespace AngelPearl.Models
 			if (clone.BattleScript != null) BattleScript = (string[])clone.BattleScript.Clone();
 		}
 
+		public CommandRecord(ItemRecord itemRecord)
+		{
+			Name = itemRecord.Name;
+			Animation = itemRecord.Animation;
+			Description= itemRecord.Description;
+			Icon = itemRecord.Icon;
+
+			Targetting = itemRecord.Targetting;
+			TargetDead = itemRecord.TargetDead;
+			if (itemRecord.Conditions != null) Conditions = (string)itemRecord.Conditions.Clone();
+			if (itemRecord.FieldScript != null) FieldScript = (string[])itemRecord.FieldScript.Clone();
+			if (itemRecord.BattleScript != null) BattleScript = (string[])itemRecord.BattleScript.Clone();
+		}
+
 		public string Name { get; set; }
 		public string Animation { get; set; }
 		public string Description { get; set; }

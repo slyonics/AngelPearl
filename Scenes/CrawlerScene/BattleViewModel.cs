@@ -88,7 +88,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 				IdlePlayers.Add(player);
 			}
 
-			commandViewModel = new CommandViewModel(crawlerScene, IdlePlayers[0]);
+			commandViewModel = crawlerScene.AddView(new CommandViewModel(crawlerScene, IdlePlayers[0]));
 		}
 
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];

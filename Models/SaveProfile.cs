@@ -133,11 +133,8 @@ namespace AngelPearl.Models
             }
         }
 
-		[field: NonSerialized]
-		public HeroModel StoredHero { get; set; }
 
 		public ModelCollection<HeroModel> Party { get; set; } = new ModelCollection<HeroModel>();
-		public ModelCollection<HeroModel> BackBench { get; set; } = new ModelCollection<HeroModel>();
 
 		public ModelCollection<ItemModel> Inventory { get; set; } = new ModelCollection<ItemModel>();
 		public ModelProperty<long> Money { get; set; } = new ModelProperty<long>(13);
@@ -153,8 +150,6 @@ namespace AngelPearl.Models
         public int DayOfYear { get; set; } = 2;
         public int Year { get; set; } = 1050;
 
-        public int ShipX { get; set; } = 35 + (65 * 2);
-        public int ShipY { get; set; } = 22 + (51 * 5);
 
 
         public Dictionary<string, object> SaveData;

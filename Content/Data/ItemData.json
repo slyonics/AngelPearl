@@ -1,9 +1,8 @@
 [
 	{
-		"Name": "Rusty Sword",
-		"Animation": "Guarding",
-		"Description": "Old, worn, but still usable sword from an earlier time.",
-		"Icon": "Sword",
+		"Name": "Ruby Staff",
+		"Description": "Item description here.",
+		"Icon": "3,3",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Attack": 16,
@@ -12,15 +11,15 @@
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Swords Sharp",
+			"OnHit Magic Sharp",
 			"Flash Red",
-			"Damage Swords Sharp"
+			"Damage Magic Sharp"
 		]
 	},
 	{
 		"Name": "Focus Stone",
 		"Description": "Natural mana crystal that slightly boosts magic power.",
-		"Icon": "Ice",
+		"Icon": "4,4",
 		"ItemType": "Accessory",
 		"MagicModifier": 2
 	}
