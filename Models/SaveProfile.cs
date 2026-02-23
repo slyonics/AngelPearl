@@ -68,7 +68,7 @@ namespace AngelPearl.Models
             var itemEntry = Inventory.FirstOrDefault(x => x.Value.ItemRecord.Name == itemName);
             if (itemEntry == null || quantity < 0)
             {
-                Inventory.Add(new ItemModel(itemName, quantity));
+                Inventory.Add(new ItemModel(ItemRecord.ITEMS.First(x => x.Name == itemName), quantity));
             }
             else
             {

@@ -25,8 +25,6 @@ namespace AngelPearl.Models
             //SaveSlot = -1;
             CurrentSave = new SaveProfile();
 
-            CurrentSave.AddInventory("Tonic", 3);
-            CurrentSave.AddInventory("Ether", 1);
             CurrentSave.Money.Value = 800;
 
 			HeroModel heroModel = new HeroModel(MuseRecord.PILOTS.First(x => x.Name == "Proxy"));

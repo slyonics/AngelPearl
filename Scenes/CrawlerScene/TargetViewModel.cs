@@ -38,20 +38,18 @@ namespace AngelPearl.Scenes.CrawlerScene
         private bool targetAllEnemies;
         private bool targetAllAllies;
 
-        private ItemModel itemModel;
-        private BattleCommand battleCommand;
+        private CommandRecord battleCommand;
 
         private NinePatch warningBox;
         private string warningMessage;
         private Color warningColor = new Color(252, 224, 168);
 
-        public TargetViewModel(CrawlerScene iScene, BattlePlayer iPlayer, ItemModel iItemModel, BattleCommand iBattleCommand)
+        public TargetViewModel(CrawlerScene iScene, BattlePlayer iPlayer, CommandRecord iBattleCommand)
             : base(iScene, PriorityLevel.GameLevel)
         {
             battleScene = iScene;
-            Player = iPlayer;
-            itemModel = iItemModel;            
-            Command = itemModel.ItemRecord;
+            Player = iPlayer;          
+            Command = iBattleCommand;
             battleCommand = iBattleCommand;
 
             pointerSprite = new AnimatedSprite(AssetCache.SPRITES[GameSprite.Widgets_Images_Pointer], POINTER_ANIMATIONS);
@@ -70,35 +68,10 @@ namespace AngelPearl.Scenes.CrawlerScene
                     break;
             }
 
-            if (!string.IsNullOrEmpty(itemModel.ItemRecord.Description))
+            if (!string.IsNullOrEmpty(iBattleCommand.Description))
             {
-                Description = itemModel.ItemRecord.Description;
+                Description = iBattleCommand.Description;
                 LoadView(GameView.Crawler_TargetView);
-            }
-        }
-
-        public TargetViewModel(CrawlerScene iScene, BattlePlayer iPlayer, CommandRecord iCommandRecord, BattleCommand iBattleCommand)
-            : base(iScene, PriorityLevel.GameLevel)
-        {
-            battleScene = iScene;
-            Player = iPlayer;
-            Command = iCommandRecord;
-            battleCommand = iBattleCommand;
-
-            pointerSprite = new AnimatedSprite(AssetCache.SPRITES[GameSprite.Widgets_Images_Pointer], POINTER_ANIMATIONS);
-
-            switch (Command.Targetting)
-            {
-                case TargetType.OneEnemy:
-                    if (lastEnemyTarget != null && !lastEnemyTarget.Dead) target = lastEnemyTarget;
-                    else target = battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead).MinBy(new Func<Battler, float>(t => Vector2.Distance(new Vector2(CrossPlatformGame.SCREEN_WIDTH, CrossPlatformGame.SCREEN_HEIGHT), t.Position)));
-                    ValidatePointer();
-                    break;
-
-                case TargetType.OneAlly:
-                    target = battleScene.BattleViewModel.PlayerList.Where(x => !x.Dead || Command.TargetDead).First();
-                    ValidatePointer();
-                    break;
             }
         }
 
@@ -198,7 +171,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         private void ValidatePointer()
         {
-            if (target != null && battleCommand == BattleCommand.Fight && Player.ScaredOf.Contains(target))
+            if (target != null && Player.ScaredOf.Contains(target))
             {
                 pointerSprite.PlayAnimation("Invalid");
 
@@ -301,7 +274,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case TargetType.OneAlly:
                     {
                         BattleController battleController = new BattleController(battleScene, Player, target, Command, targetAllEnemies, targetAllAllies);
-                        Player.EnqueueCommand(battleController, Command, battleCommand, itemModel);
+                        Player.EnqueueCommand(battleController, Command);
                     }
                     break;
             }

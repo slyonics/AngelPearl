@@ -118,7 +118,7 @@ namespace AngelPearl.Scenes.CrawlerScene
         {
             ItemRecord item = ItemRecord.ITEMS.First(x => x.Name == string.Join(' ', tokens.Skip(1)));
 
-            if (item.ItemType == ItemType.Medicine || item.ItemType == ItemType.Consumable) GameProfile.CurrentSave.AddInventory(item.Name, 1);
+            if (item.ItemType == ItemType.Consumable) GameProfile.CurrentSave.AddInventory(item.Name, 1);
             else GameProfile.CurrentSave.AddInventory(item.Name, -1);
 
             ConversationRecord conversationRecord = new ConversationRecord($"Found @{item.Icon} {item.Name}!");

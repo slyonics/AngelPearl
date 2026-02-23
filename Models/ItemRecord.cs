@@ -9,9 +9,10 @@ namespace AngelPearl.Models
     public enum ItemType
     {
         Weapon,
-        Armor,
+        ActiveModule,
+        PassiveModule,
+        Upgrade,
         Accessory,
-        Medicine,
         Consumable,
         Plot
     }
@@ -39,6 +40,7 @@ namespace AngelPearl.Models
         public int EnduranceModifier { get; set; }
         public int MagicModifier { get; set; }
 		public int LuckModifier { get; set; }
+
 		public int Attack { get; set; }
         public int Hit { get; set; }
         public int Critical { get; set; }

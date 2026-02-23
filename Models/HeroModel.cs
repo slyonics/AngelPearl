@@ -42,32 +42,6 @@ namespace AngelPearl.Models
 
 		}
 
-		public void Remove(ItemType itemType)
-		{
-			switch (itemType)
-			{
-				case ItemType.Weapon: Weapon.Value = null; break;
-				case ItemType.Armor: Armor.Value = null; break;
-				case ItemType.Accessory: Accessory.Value = null; break;
-			}
-		}
-
-		public void Equip(string itemName)
-		{
-			ItemRecord itemRecord = ItemRecord.ITEMS.First(x => x.Name == itemName);
-			Equip(itemRecord);
-		}
-
-		public void Equip(ItemRecord itemRecord)
-		{
-			switch (itemRecord.ItemType)
-			{
-				case ItemType.Weapon: Weapon.Value = itemRecord; break;
-				case ItemType.Armor: Armor.Value = itemRecord; break;
-				case ItemType.Accessory: Accessory.Value = itemRecord; break;
-			}
-		}
-
 		public void UpdateHealthColor()
 		{
 			if (HP.Value > MaxHP.Value / 8) HealthColor.Value = new Color(252, 252, 252, 255);
@@ -84,6 +58,7 @@ namespace AngelPearl.Models
 		public ModelProperty<ItemRecord> Armor { get; private set; } = new ModelProperty<ItemRecord>();
 		public ModelProperty<ItemRecord> Accessory { get; private set; } = new ModelProperty<ItemRecord>();
 
+		public ModelCollection<CommandRecord> Commands { get; private set; } = new ModelCollection<CommandRecord> { };
 
 		public ModelProperty<int> Attack { get; set; } = new ModelProperty<int>(0);
 		public ModelProperty<int> Hit { get; set; } = new ModelProperty<int>(100);

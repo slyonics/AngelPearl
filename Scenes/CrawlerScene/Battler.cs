@@ -45,22 +45,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite)
 			: base(iScene, iPosition, iSprite, new Dictionary<string, Animation>() { { "Idle", new Animation(0, 0, iSprite.Width, iSprite.Height, 1, 10000) } })
 		{
-			BuildShader();
+
 		}
 
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite, Dictionary<string, Animation> iAnimations)
 			: base(iScene, iPosition, iSprite, iAnimations)
 		{
-			BuildShader();
-		}
 
-		private void BuildShader()
-		{
-			shader = AssetCache.SHADERS[GameShader.BattleEnemy].Clone();
-			shader.Parameters["destroyInterval"].SetValue(1.1f);
-			shader.Parameters["noise"].SetValue(STATIC_TEXTURE);
-			shader.Parameters["flashInterval"].SetValue(0.0f);
-			shader.Parameters["flashColor"].SetValue(new Vector4(1.0f, 1.0f, 1.0f, 0.0f));
 		}
 
 		public static void Initialize()

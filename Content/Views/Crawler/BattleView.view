@@ -9,11 +9,4 @@
 
 	</Panel>
 	
-	<Panel Name="CommandPanel" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" InnerMargin="4,4,4,4" Visible="Bind PlayerTurn">
-		<Label Text="Fight" Alignment="Cascading" TextAlignment="Center" Bounds="0,2,58,10"/>
-		<Label Text="Spell" Alignment="Cascading" TextAlignment="Center" Bounds="0,2,58,10"/>
-		<Label Text="Item" Alignment="Cascading" TextAlignment="Center" Bounds="0,2,58,10"/>
-		<Label Text="Run" Alignment="Cascading" TextAlignment="Center" Bounds="0,2,58,10"/>
-	</Panel>
-	
 </View>

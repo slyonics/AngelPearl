@@ -57,12 +57,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         private BattleController enqueuedController;
         private CommandRecord enqueuedCommand;
-        private ItemModel enqueuedItemModel;
-        private int prepTimeLeft = 0;
         private bool healAnimation;
 
 
-        private AnimatedSprite shadowSprite;
 
         private HeroModel heroModel;
         public HeroModel HeroModel
@@ -89,8 +86,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             if (heroModel.Armor.Value != null && heroModel.Armor.Value.AutoBuffs != null) foreach (BuffType buff in heroModel.Armor.Value.AutoBuffs) Buffs.Add(buff);
             if (heroModel.Accessory.Value != null && heroModel.Accessory.Value.AutoBuffs != null) foreach (BuffType buff in heroModel.Accessory.Value.AutoBuffs) Buffs.Add(buff);
 
-            AnimatedSprite.PlayAnimation("Walking");
-
             HeroModel.UpdateHealthColor();
 
             int startingInitiative = Math.Max(1, 120 + HeroModel.Reflex.Value);
@@ -110,13 +105,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public override void Draw(SpriteBatch spriteBatch, Camera camera)
         {
-            // shadowSprite?.Draw(spriteBatch, new Vector2(Position.X, Position.Y + 2) + battlerOffset, null, 0.9f);
-        }
-
-        public void DrawShader(SpriteBatch spriteBatch)
-        {
-            shadowSprite?.Draw(spriteBatch, new Vector2(Position.X, Position.Y + 2) + battlerOffset, null, 0.95f);
-
             if (flashTime > 0)
             {
 				AnimatedSprite.SpriteColor = Color.Lerp(flashColor, Color.White, (float)flashTime / flashDuration);
@@ -134,11 +122,10 @@ namespace AngelPearl.Scenes.CrawlerScene
             AilmentSprite.Draw(spriteBatch, Center, null, 0.1f);
         }
 
-        public void EnqueueCommand(BattleController battleController, CommandRecord commandRecord, BattleCommand battleCommand, ItemModel itemModel)
+        public void EnqueueCommand(BattleController battleController, CommandRecord commandRecord)
         {
             enqueuedController = battleController;
             enqueuedCommand = commandRecord;
-            enqueuedItemModel = itemModel;
         }
 
         public void ResetCommand()
@@ -160,7 +147,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             if (Dead)
             {
-                prepTimeLeft = 0;
                 enqueuedController = null;
                 enqueuedCommand = null;
                 Initiative = 0;
@@ -179,7 +165,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             if (Dead)
             {
-                prepTimeLeft = 0;
                 enqueuedController = null;
                 enqueuedCommand = null;
                 Initiative = 0;

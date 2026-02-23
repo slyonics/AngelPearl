@@ -48,6 +48,11 @@ namespace AngelPearl.Scenes.CrawlerScene
 				EnemyList.Add(enemyStack);
 			}
 
+			foreach (var player in GameProfile.CurrentSave.Party)
+			{
+				PlayerList.Add(new BattlePlayer(crawlerScene, new Vector2(player.Value.WindowBounds.Value.Center.X, player.Value.WindowBounds.Value.Bottom), player.Value));
+			}
+
 			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
 			ConversationRecord conversationRecord = new ConversationRecord(encounterRecord.Intro);
 			ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
@@ -76,11 +81,19 @@ namespace AngelPearl.Scenes.CrawlerScene
 		private void NewRound()
 		{
 			PlayerTurn.Value = true;
+
+			IdlePlayers.Clear();
+			foreach (var player in PlayerList)
+			{
+				IdlePlayers.Add(player);
+			}
+
+			commandViewModel = new CommandViewModel(crawlerScene, IdlePlayers[0]);
 		}
 
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
-
+		public List<BattlePlayer> IdlePlayers { get; set; } = [];
 
 
 		public ModelProperty<bool> ReadyToProceed { get; set; } = new ModelProperty<bool>(false);

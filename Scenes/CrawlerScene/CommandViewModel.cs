@@ -18,7 +18,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 		TargetViewModel targetSelector;
 
 		RadioBox commandList;
-		RadioBox subCommandList;
 		Panel mpCounter;
 
 		public CommandViewModel(CrawlerScene iScene, BattlePlayer iBattlePlayer)
@@ -30,7 +29,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			ActivePlayer = iBattlePlayer;
 
-			AvailableCommands = ActivePlayer.HeroModel.Commands;
+			foreach (var command in ActivePlayer.HeroModel.Commands)
+				AvailableCommands.ModelList.Add(new ModelProperty<CommandRecord>(command.Value));
 
 			int commandHeight = Math.Max(60, AvailableCommands.Count() * 10 + 16);
 			CommandBounds.Value = new Rectangle(-90, Math.Min(30, 90 - commandHeight), 60, commandHeight);
@@ -38,16 +38,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 			LoadView(GameView.Crawler_CommandView);
 
 			commandList = GetWidget<RadioBox>("CommandList");
-			subCommandList = GetWidget<RadioBox>("SubCommandList");
 			mpCounter = GetWidget<Panel>("MPCounter");
 
 			(commandList.ChildList[0] as RadioButton).RadioSelect();
-
-			if (ActivePlayer.Stats.StatusAilments.ModelList.Any(x => x.Value == AilmentType.Confusion))
-			{
-				int index = ActivePlayer.HeroModel.Commands.ModelList.FindIndex(x => x.Value == BattleCommand.Magic);
-				if (index >= 0) commandList.ChildList[index].Enabled = false;
-			}
 		}
 
 		public override void Update(GameTime gameTime)
@@ -82,14 +75,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			if (Input.CurrentInput.CommandPressed(Command.Cancel) && !CancelCooldown)
 			{
-				if (subCommandList.Enabled)
-				{
 					Audio.PlaySound(GameSound.Back);
-					subCommandList.Enabled = false;
-					subCommandList.Visible = false;
-					commandList.Enabled = true;
-					mpCounter.Visible = false;
-				}
+
 			}
 
 			CancelCooldown = false;
@@ -102,14 +89,14 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			if (targetSelector != null) return;
 
-			ItemModel battleCommand;
+			CommandRecord battleCommand;
 			if (parameter is IModelProperty)
 			{
-				battleCommand = (ItemModel)((IModelProperty)parameter).GetValue();
+				battleCommand = (CommandRecord)((IModelProperty)parameter).GetValue();
 			}
-			else battleCommand = (ItemModel)parameter;
+			else battleCommand = (CommandRecord)parameter;
 
-			if (battleCommand != null && !battleCommand.BattleUsable)
+			if (battleCommand != null && !battleCommand.Usable)
 			{
 				Audio.PlaySound(GameSound.Error);
 				return;
@@ -117,10 +104,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			Audio.PlaySound(GameSound.Selection);
 
-			subCommandList.Enabled = false;
-			subCommandList.Visible = false;
 
-			targetSelector = new TargetViewModel(battleScene, ActivePlayer, battleCommand, AvailableCommands[commandList.Selection]);
+			targetSelector = new TargetViewModel(battleScene, ActivePlayer, battleCommand);
 			battleScene.AddOverlay(targetSelector);
 		}
 
@@ -133,6 +118,5 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public ModelProperty<int> CurrentMP { get => ActivePlayer.HeroModel.MP; }
 
-		public bool SubmenuActive { get => subCommandList.Enabled; }
 	}
 }
