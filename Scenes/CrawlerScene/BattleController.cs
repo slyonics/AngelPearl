@@ -486,7 +486,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             List<BattlePlayer> eligibleTargets = battleScene.BattleViewModel.PlayerList.FindAll(x => !x.Dead);
             target = eligibleTargets[Rng.RandomInt(0, eligibleTargets.Count - 1)];
 
-            scriptParser.RunScript("Animate Attack\nWait 600\nSound Slash\nCenterEffect Bash $targetCenterX $targetCenterY 2\nOnHit Monster Strength\nFlash Red\nDamage Monster Blunt");
+            scriptParser.RunScript("Animate Attack\nWait 600\nSound Slash\nCenterEffect Bash $targetCenterX $targetCenterY 2\nOnHit Monster Strength\nFlash 255 0 0\nDamage Monster Blunt");
         }
 
         private void Flee(string[] tokens)

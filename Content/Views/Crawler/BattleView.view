@@ -9,7 +9,7 @@
 
 	</Panel>
 
-	<Panel Style="MagicPopup" Anchor="$CenterX,$CenterY" Bounds="-153,50,102,28" InnerMargin="5,5,5,5">
+	<Panel Style="MagicPopup" Anchor="$CenterX,$CenterY" Bounds="-153,50,102,28" InnerMargin="5,5,5,5" Visible="Bind ShowHeader">
 		<Label Text="Bind CommandHeader1" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,92,9"/>
 		<Label Text="Bind CommandHeader2" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,92,9"/>
 	</Panel>

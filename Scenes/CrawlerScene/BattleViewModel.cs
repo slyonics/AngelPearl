@@ -53,11 +53,14 @@ namespace AngelPearl.Scenes.CrawlerScene
 				crawlerScene.AddEntity(battleEnemy);
 			}
 
+			int i = 0;
+			Vector2[] offsets = [ new(-222, -95), new(222, -95), new(-222, 95), new(222, 95) ];
 			foreach (var player in GameProfile.CurrentSave.Party)
 			{
-				var battlePlayer = new BattlePlayer(crawlerScene, new Vector2(player.Value.WindowBounds.Value.Center.X, player.Value.WindowBounds.Value.Bottom), player.Value);
+				var battlePlayer = new BattlePlayer(crawlerScene, new Vector2(CrossPlatformGame.SCREEN_WIDTH / 2, CrossPlatformGame.SCREEN_HEIGHT / 2) + offsets[i], player.Value);
 				PlayerList.Add(battlePlayer);
 				crawlerScene.AddEntity(battlePlayer);
+				i++;
 			}
 
 			DrawOnNewLayer = true;
@@ -72,7 +75,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 				NewRound();
 			});
 
-			Audio.PlayMusic(GameMusic.TheGrappler);
+			Audio.PlayMusic(GameMusic.Battle1);
 		}
 
 		public override void Update(GameTime gameTime)
@@ -84,8 +87,17 @@ namespace AngelPearl.Scenes.CrawlerScene
 			{
 				if (EnemyList.Count == 0)
 				{
-					crawlerScene.EndBattle();
-					Terminate();
+					if (!crawlerScene.OverlayList.Any(x => x is ConversationViewModel))
+					{
+						ConversationRecord conversationRecord = new ConversationRecord("Victory!!!");
+						ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
+						conversationViewModel.OnTerminated += new Action(() =>
+						{
+							crawlerScene.EndBattle();
+							Terminate();
+						});
+					}
+
 					return;
 				}
 
@@ -113,6 +125,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
+			ShowHeader.Value = !crawlerScene.OverlayList.Any(x => x is ConversationViewModel);
+
 			base.Draw(spriteBatch);
 		}
 
@@ -132,6 +146,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			InitiativeList.Clear();
 			InitiativeList.AddRange(PlayerList.Where(x => !x.Dead));
+			InitiativeList.AddRange(EnemyList);
 		}
 
 		public void SetHeader(string header)
@@ -155,7 +170,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
-		public ModelProperty<string> CommandHeader1 { get; set; } = new ModelProperty<string>("");
+        public ModelProperty<bool> ShowHeader { get; set; } = new ModelProperty<bool>(false);
+        public ModelProperty<string> CommandHeader1 { get; set; } = new ModelProperty<string>("");
 		public ModelProperty<string> CommandHeader2 { get; set; } = new ModelProperty<string>("");
 
 		public ModelProperty<string> Narration { get; set; } = new ModelProperty<string>("");

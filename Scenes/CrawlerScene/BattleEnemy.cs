@@ -23,12 +23,15 @@ namespace AngelPearl.Scenes.CrawlerScene
 		private int attackTimeLeft;
 		private int deathTimeLeft;
 
-		public BattleEnemy(CrawlerScene iScene, EnemyRecord enemyRecord, Vector2 iPosition)
-			: base(iScene, iPosition, AssetCache.SPRITES[Enum.Parse<GameSprite>($"Enemies_{enemyRecord.Sprite}")])
+		private EnemyRecord enemyRecord;
+
+		public BattleEnemy(CrawlerScene iScene, EnemyRecord iEnemyRecord, Vector2 iPosition)
+			: base(iScene, iPosition, AssetCache.SPRITES[Enum.Parse<GameSprite>($"Enemies_{iEnemyRecord.Sprite}")])
 		{
 			crawlerScene = iScene;
 
-			stats = new BattlerModel(enemyRecord);
+			enemyRecord = iEnemyRecord;
+			stats = new BattlerModel(iEnemyRecord);
 		}
 
 		public override void Update(GameTime gameTime)
@@ -61,7 +64,29 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 		}
 
-		public override void Damage(int damage)
+        public override void ExecuteTurn()
+        {
+            base.ExecuteTurn();
+
+            Dictionary<AttackData, double> attacks = enemyRecord.Attacks.ToDictionary(x => x, x => (double)x.Weight);
+            AttackData attack = Rng.WeightedEntry<AttackData>(attacks);
+
+            List<BattlePlayer> eligibleTargets = crawlerScene.BattleViewModel.PlayerList.FindAll(x => !x.Dead);
+            var target = eligibleTargets[Rng.RandomInt(0, eligibleTargets.Count - 1)];
+            BattleController battleController = new BattleController(crawlerScene, this, target, attack);
+			battleController.OnTerminated += new TerminationFollowup(FinishTurn);
+            crawlerScene.AddController(battleController);
+        }
+
+        public override void PlayAnimation(string animationName, AnimationFollowup animationFollowup = null)
+        {
+			switch (animationName)
+            {
+                case "Attack": attackTimeLeft = ATTACK_DURATION; break;
+            }
+        }
+
+        public override void Damage(int damage)
 		{
 			base.Damage(damage);
 

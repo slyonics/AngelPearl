@@ -62,8 +62,8 @@ namespace AngelPearl.Main
 
     public enum GameMusic
     {
+        Battle1,
         VoxTest,
-        TheGrappler,
 
         None = -1
     }
