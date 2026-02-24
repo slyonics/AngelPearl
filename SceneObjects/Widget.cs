@@ -71,7 +71,7 @@ namespace AngelPearl.SceneObjects
 
 		protected Rectangle bounds;
 		private Vector2 anchor;
-		protected virtual Rectangle Bounds { get => bounds; set => bounds = value; }
+		public virtual Rectangle Bounds { get => bounds; set => bounds = value; }
 
 		protected Vector2[] layoutOffset = new Vector2[Enum.GetValuesAsUnderlyingType(typeof(Alignment)).Length];
 		protected Alignment Alignment { get; set; } = Alignment.Absolute;

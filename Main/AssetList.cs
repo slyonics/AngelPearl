@@ -165,8 +165,9 @@ namespace AngelPearl.Main
 
     public enum GameMap
     {
-        CirceLabyrinth,
         TestAngel,
+        TestAngelD1,
+        TestAngelD2,
 
         None = -1
     }

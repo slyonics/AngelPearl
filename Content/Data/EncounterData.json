@@ -8,17 +8,27 @@
 				"OffsetY": 0
 			}
 		],
-		"Intro": "The brigands draw closer as you prepare for battle..."
+		"Intro": "Battle introduction narration."
 	},
 	{
 		"Name": "GolemTest",
 		"Enemies": [
 			{
 				"Name": "Golem",
+				"OffsetX": -60,
+				"OffsetY": 0
+			},
+			{
+				"Name": "Golem",
 				"OffsetX": 0,
+				"OffsetY": 0
+			},
+			{
+				"Name": "Golem",
+				"OffsetX": 60,
 				"OffsetY": 0
 			}
 		],
-		"Intro": "The brigands draw closer as you prepare for battle..."
+		"Intro": "Golem battle intro"
 	}
 ]

@@ -30,7 +30,7 @@ namespace AngelPearl.SceneObjects.Widgets
 		private string Style { get => style; set { style = value; UpdateFrame(); } }
 
 
-		protected override Rectangle Bounds { get => bounds;
+		public override Rectangle Bounds { get => bounds;
 			set {
 				bounds = value;
 				ApplyAlignment();

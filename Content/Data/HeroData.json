@@ -45,7 +45,8 @@
 		"BaseSong": 1,
 		"BaseTech": 3,
 		"BaseGuts": 1,
-		"Weapon": "Ruby Staff"
+		"Weapon": "Ruby Staff",
+		"ActiveModules": [ "Module" ]
 	},
 	{
 		"Name": "Rem",

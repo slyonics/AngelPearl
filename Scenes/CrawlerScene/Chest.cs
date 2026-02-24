@@ -46,7 +46,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             CurrentRoom = iFloor.GetRoom(startX, startY);
             CurrentRoom.Chest = this;
-            CurrentRoom.PreEnterScript = CurrentRoom.InteractScript = new string[] { "GiveItem " + Item, "SetFlag " + Name + " True", "RemoveChest " + Name };
+            CurrentRoom.PreEnterScript = CurrentRoom.InteractScript = new string[] { "GiveItem " + Item, "SetFlag " + Name + " True" };
 
             var texture = AssetCache.SPRITES[GameSprite.NPCs_Chest];
             float sizeX = texture.Width * 3.2f / 9;

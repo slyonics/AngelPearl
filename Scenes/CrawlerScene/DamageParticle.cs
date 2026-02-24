@@ -14,8 +14,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 	{
 		private const int DIGIT_WIDTH = 8;
 		private const int DIGIT_HEIGHT = 11;
-		private const int DECAY_DURATION = 500;
-		private const int NEXT_DIGIT_INTERVAL = 80;
+		private const int DECAY_DURATION = 550;
+		private const int NEXT_DIGIT_INTERVAL = 100;
 
 		private Texture2D DIGIT_SPRITE = AssetCache.SPRITES[GameSprite.Particles_DamageDigits];
 		private Rectangle[] DIGIT_SOURCES;
@@ -41,7 +41,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			initialPosition = iPosition;
 			digitsRemaining = digits.Substring(1, digits.Length - 1);
 
-			velocityZ = DIGIT_HEIGHT * 10;
+			velocityZ = DIGIT_HEIGHT * 30;
 			landingFollowup += StartDecay;
 			nextDigitTimer = NEXT_DIGIT_INTERVAL;
 
@@ -59,7 +59,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			initialPosition = iPosition;
 			digitsRemaining = digits.Substring(1, digits.Length - 1);
 
-			velocityZ = DIGIT_HEIGHT * 10;
+			velocityZ = DIGIT_HEIGHT * 30;
 			landingFollowup += StartDecay;
 			nextDigitTimer = NEXT_DIGIT_INTERVAL;
 
@@ -99,7 +99,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			{
 				Text.DrawText(spriteBatch, position - new Vector2(0.0f, positionZ + DIGIT_HEIGHT), GameFont.LargeConsole, "" + nonDigit, color, 0.1f);
 			}
-			else spriteBatch.Draw(DIGIT_SPRITE, position - new Vector2(0.0f, positionZ + DIGIT_HEIGHT), DIGIT_SOURCES[digitIndex], color, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.1f);
+			else spriteBatch.Draw(DIGIT_SPRITE, position - new Vector2(0.0f, positionZ + DIGIT_HEIGHT), DIGIT_SOURCES[digitIndex], color, 0.0f, Vector2.Zero, 2.0f, SpriteEffects.None, 0.1f);
 		}
 
 		private void StartDecay()

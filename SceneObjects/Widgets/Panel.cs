@@ -1,7 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AngelPearl.SceneObjects.Controllers;
+using AngelPearl.Scenes.CrawlerScene;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using AngelPearl.SceneObjects.Controllers;
 using System.Xml;
 
 namespace AngelPearl.SceneObjects.Widgets
@@ -23,6 +23,19 @@ namespace AngelPearl.SceneObjects.Widgets
 			Width,
 			Height,
 			Both
+		}
+
+
+		public override Rectangle Bounds
+		{
+			get => bounds;
+			set
+			{
+				currentWindow = bounds = value;
+
+				UpdateFrame();
+				foreach (var child in ChildList) child.ApplyAlignment();
+			}
 		}
 
 		private NinePatch panelFrame;
@@ -60,6 +73,7 @@ namespace AngelPearl.SceneObjects.Widgets
 				if (panelFrame == null) panelFrame = new NinePatch(style, Depth);
 				panelFrame.SetSprite(style);
 				panelFrame.FrameDepth = Depth;
+				panelFrame.Bounds = Bounds;
 			}
 		}
 

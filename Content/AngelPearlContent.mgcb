@@ -70,15 +70,20 @@
 /processor:FontDescriptionProcessor
 /build:Fonts/LargeConsole.spritefont
 
-#begin Maps/CirceLabyrinth.ldtk
-/importer:SimpleContentImporter
-/processor:SimpleContentProcessor
-/build:Maps/CirceLabyrinth.ldtk
-
 #begin Maps/TestAngel.ldtk
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
 /build:Maps/TestAngel.ldtk
+
+#begin Maps/TestAngelD1.ldtk
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Maps/TestAngelD1.ldtk
+
+#begin Maps/TestAngelD2.ldtk
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Maps/TestAngelD2.ldtk
 
 #begin Music/VoxTest.mp3
 /importer:Mp3Importer

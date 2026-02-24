@@ -109,9 +109,11 @@ namespace AngelPearl.Scenes.CrawlerScene
             var oldTarget = target;
 
             var input = Input.CurrentInput;
-            if (input.CommandPressed(Main.Command.Left)) TargetUp();
-            else if (input.CommandPressed(Main.Command.Right)) TargetDown();
-            else if (input.CommandPressed(Main.Command.Confirm) && confirmCooldown <= 0) SelectCurrentTarget();
+			if (input.CommandPressed(Main.Command.Up)) TargetUp();
+			else if (input.CommandPressed(Main.Command.Down)) TargetDown();
+			else if (input.CommandPressed(Main.Command.Left)) TargetLeft();
+			else if (input.CommandPressed(Main.Command.Right)) TargetRight();
+			else if (input.CommandPressed(Main.Command.Confirm) && confirmCooldown <= 0) SelectCurrentTarget();
             else if (input.CommandPressed(Main.Command.Cancel))
             {
                 Audio.PlaySound(GameSound.Back);
@@ -129,47 +131,59 @@ namespace AngelPearl.Scenes.CrawlerScene
             pointerSprite.Update(gameTime);
         }
 
-        private void TargetUp()
-        {
-            if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self) return;
+		private void TargetUp()
+		{
+			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
 
-            if (target is BattleEnemy)
-            {
-                List<Battler> targetList = new List<Battler>();
-                targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y < target.Center.Y));
+			if (target is BattleEnemy)
+			{
+				List<Battler> targetList = new List<Battler>();
+				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y < target.Center.Y));
 
-                if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-            }
-            else if (target is BattlePlayer)
-            {
-                List<Battler> targetList = new List<Battler>();
-                targetList.AddRange(battleScene.BattleViewModel.PlayerList.Where(x => (!x.Dead || Command.TargetDead) && x.Center.Y < target.Center.Y));
+				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
+			}
+		}
 
-                if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-            }
-        }
+		private void TargetDown()
+		{
+			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
 
-        private void TargetDown()
-        {
-            if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self) return;
+			if (target is BattleEnemy)
+			{
+				List<Battler> targetList = new List<Battler>();
+				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y > target.Center.Y));
 
-            if (target is BattleEnemy)
-            {
-                List<Battler> targetList = new List<Battler>();
-                targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y > target.Center.Y));
+				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
+			}
+		}
 
-                if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-            }
-            else if (target is BattlePlayer)
-            {
-                List<Battler> targetList = new List<Battler>();
-                targetList.AddRange(battleScene.BattleViewModel.PlayerList.Where(x => (!x.Dead || Command.TargetDead) && x.Center.Y > target.Center.Y));
+		private void TargetLeft()
+		{
+			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
 
-                if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-            }
-        }
+			if (target is BattleEnemy)
+			{
+				List<Battler> targetList = new List<Battler>();
+				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.X < target.Center.X));
 
-        private void ValidatePointer()
+				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
+			}
+		}
+
+		private void TargetRight()
+		{
+			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
+
+			if (target is BattleEnemy)
+			{
+				List<Battler> targetList = new List<Battler>();
+				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.X > target.Center.X));
+
+				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
+			}
+		}
+
+		private void ValidatePointer()
         {
             if (target != null && Player.ScaredOf.Contains(target))
             {
@@ -185,9 +199,24 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 pointerSprite.PlayAnimation("Valid");
             }
-        }
 
-        public override void Draw(SpriteBatch spriteBatch)
+			var targetEnemy = target as BattleEnemy;
+            if (targetEnemy != null)
+            {
+                Label.Value = targetEnemy.Stats.Name.Value;
+                int width = Text.GetStringLength(GameFont.Console, targetEnemy.Stats.Name.Value) + 16;
+
+				LabelBounds.Value = new Rectangle((int)target.Center.X - (CrossPlatformGame.SCREEN_WIDTH / 2) - (width / 2), -80, width, 19);
+                ShowLabel.Value = true;
+            }
+            else
+            {
+				Label.Value = "";
+				ShowLabel.Value = false;
+			}
+		}
+
+		public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
 
@@ -285,5 +314,9 @@ namespace AngelPearl.Scenes.CrawlerScene
         public CommandRecord Command { get; set; }
 
         public string Description { get; set; }
-    }
+
+        public ModelProperty<string> Label { get; set; } = new ModelProperty<string>("");
+		public ModelProperty<bool> ShowLabel { get; set; } = new ModelProperty<bool>(false);
+		public ModelProperty<Rectangle> LabelBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 10, 10));
+	}
 }

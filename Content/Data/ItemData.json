@@ -2,13 +2,31 @@
 	{
 		"Name": "Ruby Staff",
 		"Description": "Item description here.",
-		"Icon": "3,3",
+		"Icon": "6,3",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Attack": 16,
 		"Hit": 100,
 		"BattleScript": [
 			"Narrate $attackerName attacks with Ruby Staff!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Melee Sharp",
+			"Flash 255 0 0",
+			"Damage Magic Sharp"
+		]
+	},
+	{
+		"Name": "Module",
+		"Description": "Item description here.",
+		"Icon": "8,3",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneEnemy",
+		"Attack": 16,
+		"Hit": 100,
+		"BattleScript": [
+			"Narrate $attackerName uses a sample active module!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",

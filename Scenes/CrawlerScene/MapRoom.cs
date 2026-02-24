@@ -489,7 +489,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             if (Foe != null && Foe.Script != null)
             {
                 EventController eventController = new EventController(crawlerScene, Foe.Script, this);
-                crawlerScene.AddController(eventController);
+				crawlerScene.AddController(eventController);
                 crawlerScene.ResetPathfinding();
 
                 return true;
@@ -498,7 +498,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             else
             {
                 EventController eventController = new EventController(crawlerScene, InteractScript, this);
-                crawlerScene.AddController(eventController);
+				Chest?.Destroy();
+				crawlerScene.AddController(eventController);
                 crawlerScene.ResetPathfinding();
 
                 return true;
@@ -527,7 +528,9 @@ namespace AngelPearl.Scenes.CrawlerScene
                 crawlerScene.AddController(eventController);
                 crawlerScene.ResetPathfinding();
             }
-        }
+
+			Chest?.Destroy();
+		}
 
         public void EnterRoom(bool finishedMove = true)
         {
@@ -549,11 +552,13 @@ namespace AngelPearl.Scenes.CrawlerScene
                     crawlerScene.AddController(eventController);
                     crawlerScene.ResetPathfinding();
                 }
-            }
-        }
+			}
+
+			Chest?.Destroy();
+		}
 
 
-        public List<MapRoom> Neighbors { get; private set; } = new List<MapRoom>();
+		public List<MapRoom> Neighbors { get; private set; } = new List<MapRoom>();
 
         public MapRoom this[Direction key]
         {

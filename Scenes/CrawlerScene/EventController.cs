@@ -39,7 +39,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case "ChangeMap": ChangeMap(tokens); /*Audio.PlaySound(GameSound.sfx_stairs_down);*/ break;
                 case "DisableEvent": mapRoom.Script = null; break;
                 case "Conversation": Conversation(tokens); break;
-                case "Encounter": Encounter(tokens, scriptParser); break;
+                case "Encounter": Encounter(tokens); break;
                 case "GiveItem": GiveItem(tokens); break;
                 case "RemoveChest": RemoveChest(tokens); break;
                 case "RemoveNpc": RemoveNpc(tokens); break;
@@ -134,8 +134,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 			// Audio.PlaySound(GameSound.sfx_item_pickup);
 		}
 
-        public static void Encounter(string[] tokens, ScriptParser scriptParser)
+        public void Encounter(string[] tokens)
         {
+            if (tokens.Length == 1)
+            {
+                crawlerScene.StartBattle(crawlerScene.PartyController.FacingRoom.Foe);
+            }
+
             /*
             BattleScene.BattleScene battleScene = new BattleScene.BattleScene(tokens[1], null);
             battleScene.OnTerminated += new TerminationFollowup(scriptParser.BlockScript());

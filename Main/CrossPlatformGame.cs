@@ -42,7 +42,7 @@ namespace AngelPearl.Main
 		private static int scaledScreenWidth = SCREEN_WIDTH;
 		private static int scaledScreenHeight = SCREEN_HEIGHT;
 
-		public static int ScreenScale = 1;
+		public static int ScreenScale = 2;
 
         private static CrossPlatformGame gameInstance;
 

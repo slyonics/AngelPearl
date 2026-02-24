@@ -138,7 +138,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
             base.ExecuteTurn();
 
-            enqueuedController.OnTerminated += new TerminationFollowup(() => FinishTurn());
+            enqueuedController.FixTargetting();
+			enqueuedController.OnTerminated += new TerminationFollowup(() => FinishTurn());
             parentScene.AddController(enqueuedController);
 
             ResetCommand();

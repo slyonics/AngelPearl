@@ -35,7 +35,7 @@
 		"Sprite": "Golem",
 		"Exp": 1,
 		"Description": "Wailing spirit that portends the death of whomever hears its cry. Undead, weak VS holy, strong vs ice.",
-		"HP": 100,
+		"HP": 1,
 		"MP": 10,
 		"Strength": 25,
 		"Agility": 10,

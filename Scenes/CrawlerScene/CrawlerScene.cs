@@ -187,6 +187,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (destinationRoom.PreEnterScript != null)
 			{
 				destinationRoom.ActivatePreScript();
+				destinationRoom.Chest?.Destroy();
 				return null;
 			}
 

@@ -32,6 +32,7 @@ namespace AngelPearl.Models
 			Guts.Value = heroRecord.BaseGuts;
 
 			EquipWeapon(heroRecord.Weapon);
+			if (heroRecord.ActiveModules != null) foreach(var moduleName in heroRecord.ActiveModules) EquipModule(moduleName);
 		}
 
 		public HeroModel(BinaryReader binaryReader)
@@ -50,10 +51,18 @@ namespace AngelPearl.Models
 			PopulateCommands();
 		}
 
+		public void EquipModule(string moduleName)
+		{
+			var module = ItemRecord.ITEMS.First(x => x.Name == moduleName);
+			ActiveModules.Add(module);
+			PopulateCommands();
+		}
+
 		public void PopulateCommands()
 		{
 			Commands.Clear();
 			Commands.ModelList.Add(new ModelProperty<CommandRecord>(new CommandRecord(Weapon.Value)));
+			foreach (var module in ActiveModules) Commands.ModelList.Add(new ModelProperty<CommandRecord>(new CommandRecord(module.Value)));
 		}
 
 		public void UpdateHealthColor()
@@ -71,8 +80,8 @@ namespace AngelPearl.Models
 
 		public ModelProperty<ItemRecord> Weapon { get; private set; } = new ModelProperty<ItemRecord>();
 		public ModelProperty<ItemRecord> Accessory { get; private set; } = new ModelProperty<ItemRecord>();
-		public ModelProperty<ItemRecord> ActiveModules { get; private set; } = new ModelProperty<ItemRecord>();
-		public ModelProperty<ItemRecord> PassiveModules { get; private set; } = new ModelProperty<ItemRecord>();
+		public ModelCollection<ItemRecord> ActiveModules { get; private set; } = new ModelCollection<ItemRecord>() { };
+		public ModelCollection<ItemRecord> PassiveModules { get; private set; } = new ModelCollection<ItemRecord>() { };
 
 		public ModelCollection<CommandRecord> Commands { get; private set; } = new ModelCollection<CommandRecord> { };
 
