@@ -16,7 +16,33 @@
 		<Label Text="Bind MiniMapHeader2" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,92,9"/>
 	</Panel>
 
-	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130"/>
+	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130">
+			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="TurnLeft" >
+				<Image Picture="TurnLeft" Alignment="Left" Bounds="0,2,48,16" />
+				<Label Text="Q" Alignment="Left" Bounds="-5,3,8,8" />
+			</Button>
+			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="MoveForward" >
+				<Image Picture="Forward" Alignment="Left" Bounds="0,2,48,16" />
+				<Label Text="W" Alignment="Left" Bounds="-5,3,8,8" />
+			</Button>
+			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="TurnRight" >
+				<Image Picture="TurnRight" Alignment="Left" Bounds="0,2,48,16" />
+				<Label Text="E" Alignment="Left" Bounds="-5,3,8,8" />
+			</Button>
+
+			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="StrafeLeft" >
+				<Image Picture="StrafeLeft" Alignment="Left" Bounds="0,2,48,16" />
+				<Label Text="A" Alignment="Left" Bounds="-5,3,8,8" />
+			</Button>
+			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="MoveBackward" >
+				<Image Picture="Backward" Alignment="Left" Bounds="0,2,48,16" />
+				<Label Text="S" Alignment="Left" Bounds="-5,3,8,8" />
+			</Button>
+			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="StrafeRight" >
+				<Image Picture="StrafeRight" Alignment="Left" Bounds="0,2,48,16" />
+				<Label Text="D" Alignment="Left" Bounds="-5,3,8,8" />
+			</Button>
+	</Panel>
 	
 	<Panel Name="MiniMapPanel" Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" />
 

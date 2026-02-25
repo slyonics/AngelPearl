@@ -126,7 +126,8 @@ namespace AngelPearl.Scenes.CrawlerScene
                 float destZ = 10 * (crawlerScene.Floor.MapHeight - DestinationRoom.RoomY);
                 float destBrightness = CurrentRoom.AverageBrightness();
 
-                Billboard.Draw(viewMatrix, MathHelper.Lerp(x, destX, MoveInterval), MathHelper.Lerp(z, destZ, MoveInterval), cameraX, MathHelper.Lerp(brightness, destBrightness, MoveInterval));
+				if (!crawlerScene.PartyController.Turning)
+				    Billboard.Draw(viewMatrix, MathHelper.Lerp(x, destX, MoveInterval), MathHelper.Lerp(z, destZ, MoveInterval), cameraX, MathHelper.Lerp(brightness, destBrightness, MoveInterval));
             }
             else
             {
@@ -161,7 +162,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			switch (Behavior)
 			{
 				case FoeBehavior.Chasing:
-                    if (crawlerScene.Floor.GetPath(CurrentRoom, crawlerScene.PartyController.CurrentRoom).Skip(1).FirstOrDefault() == crawlerScene.PartyController.CurrentRoom)
+                    if (crawlerScene.PartyController.CurrentRoom.Neighbors.Contains(CurrentRoom))
                     {
                         crawlerScene.StartBattle(this);
 
@@ -204,7 +205,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                         var newRoom = crawlerScene.Floor.GetPath(CurrentRoom, crawlerScene.PartyController.CurrentRoom).Skip(1).FirstOrDefault();
 						if (newRoom == null || newRoom.Blocked || newRoom.Chest != null) return;
 
-                        if (newRoom == playerDestination)
+                        if (newRoom == playerDestination || CurrentRoom.Neighbors.Contains(playerDestination))
                         {
                             crawlerScene.FoeInBattle = this;
                             return;

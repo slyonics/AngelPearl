@@ -34,6 +34,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public TransitionController MoveController { get; private set; }
 		
 		public bool Moving { get => MoveController != null; }
+		public bool Turning { get; private set; }
 		public float MoveInterval { get => MoveController.TransitionProgress; }
 
 
@@ -121,6 +122,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public void TurnLeft()
 		{
+			Turning = true;
+
 			MoveController = new TransitionController(TransitionDirection.Out, 300, PriorityLevel.TransitionLevel);
 			crawlerScene.AddController(MoveController);
 
@@ -145,11 +148,14 @@ namespace AngelPearl.Scenes.CrawlerScene
 				crawlerScene.AddController(new SkippableWaitController(PriorityLevel.CutsceneLevel, null, false, 250));
 
 				MoveController = null;
+				Turning = false;
 			});
 		}
 
 		public void TurnRight()
 		{
+			Turning = true;
+
 			MoveController = new TransitionController(TransitionDirection.In, 300, PriorityLevel.TransitionLevel);
 			crawlerScene.AddController(MoveController);
 
@@ -174,6 +180,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 				crawlerScene.AddController(new SkippableWaitController(PriorityLevel.CutsceneLevel, null, false, 250));
 
                 MoveController = null;
+				Turning = false;
             });
         }
 
@@ -218,7 +225,11 @@ namespace AngelPearl.Scenes.CrawlerScene
             });
 
 			crawlerScene.Floor.ResetFOV(destinationRoom, PartyDirection, false);
+
+			DestinationRoom = destinationRoom;
 		}
+
+		public MapRoom DestinationRoom { get; private set; }
 
 		public void MoveLeft()
 		{
@@ -270,6 +281,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             });
 
 			crawlerScene.Floor.ResetFOV(destinationRoom, PartyDirection, false);
+
+			DestinationRoom = destinationRoom;
 		}
 
 		public void MoveRight()
@@ -322,6 +335,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             });
 
 			crawlerScene.Floor.ResetFOV(destinationRoom, PartyDirection, false);
+
+			DestinationRoom = destinationRoom;
 		}
 
 		public void MoveBackward()
@@ -368,6 +383,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             });
 
 			crawlerScene.Floor.ResetFOV(destinationRoom, PartyDirection, false);
+
+			DestinationRoom = destinationRoom;
 		}
 
 		public void CheckForInteractionPrompts()

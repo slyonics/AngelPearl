@@ -187,14 +187,10 @@ namespace AngelPearl.Scenes.LoadingScene
 
 				case LoadingPhase.LoadingData:
 					ConversationRecord.CONVERSATIONS = AssetCache.LoadRecords<ConversationRecord>("Data/ConversationData");
-					//ClassRecord.CLASSES = AssetCache.LoadRecords<ClassRecord>("Data/ClassData");
-					MuseRecord.PILOTS = AssetCache.LoadRecords<MuseRecord>("Data/HeroData");
+					MuseRecord.MUSES = AssetCache.LoadRecords<MuseRecord>("Data/MuseData");
 					EnemyRecord.ENEMIES = AssetCache.LoadRecords<EnemyRecord>("Data/EnemyData");
-					//AbilityRecord.ABILITIES = AssetCache.LoadRecords<AbilityRecord>("Data/AbilityData");
 					EncounterRecord.ENCOUNTERS = AssetCache.LoadRecords<EncounterRecord>("Data/EncounterData");
 					ItemRecord.ITEMS = AssetCache.LoadRecords<ItemRecord>("Data/ItemData");
-					ShopRecord.SHOPS = AssetCache.LoadRecords<ShopRecord>("Data/ShopData");
-                    TownRecord.TOWNS = AssetCache.LoadRecords<TownRecord>("Data/TownData");
                     currentPhase = LoadingPhase.InitializingScenes;
 					loadingMessage = "Initializing scenes ...";
 					break;

@@ -2,7 +2,7 @@
 <View>
 	
 	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130" InnerMargin="6,5,6,0">
-		<CrawlText Name="Description" Text="Ref Description" Alignment="Stretch" Font="Dialogue"/>
+		<CrawlText Name="Description" Text="Bind Description" Alignment="Stretch" Font="Dialogue"/>
 	</Panel>
 
 	<Panel InnerMargin="0,1,0,0" Anchor="$CenterX,$CenterY" Bounds="Bind LabelBounds" Style="MagicPopup" Visible="Bind ShowLabel">

@@ -13,6 +13,7 @@ using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Controllers;
 using AngelPearl.SceneObjects.Shaders;
 using AngelPearl.Scenes.MapScene;
+using AngelPearl.Scenes.CrawlerScene;
 
 namespace AngelPearl.Main
 {
@@ -97,6 +98,7 @@ namespace AngelPearl.Main
 		protected override void LoadContent()
 		{
 			Debug.Initialize(GraphicsDevice);
+			CrawlerScene.Initialize(GraphicsDevice);
 		}
 
 		protected override void UnloadContent()

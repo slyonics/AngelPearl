@@ -30,25 +30,15 @@
 /processor:SimpleContentProcessor
 /build:Data/EnemyData.json
 
-#begin Data/HeroData.json
-/importer:SimpleContentImporter
-/processor:SimpleContentProcessor
-/build:Data/HeroData.json
-
 #begin Data/ItemData.json
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
 /build:Data/ItemData.json
 
-#begin Data/ShopData.json
+#begin Data/MuseData.json
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
-/build:Data/ShopData.json
-
-#begin Data/TownData.json
-/importer:SimpleContentImporter
-/processor:SimpleContentProcessor
-/build:Data/TownData.json
+/build:Data/MuseData.json
 
 #begin Fonts/Console.spritefont
 /importer:FontDescriptionImporter
@@ -470,6 +460,11 @@
 /processor:TextureProcessor
 /build:Sprites/Widgets/Gauges/TechSlider.png
 
+#begin Sprites/Widgets/Images/Backward.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Backward.png
+
 #begin Sprites/Widgets/Images/Enter.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -479,6 +474,11 @@
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Widgets/Images/FoeMarker.png
+
+#begin Sprites/Widgets/Images/Forward.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Forward.png
 
 #begin Sprites/Widgets/Images/GameLogo.png
 /importer:TextureImporter
@@ -499,6 +499,26 @@
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Widgets/Images/Pointer.png
+
+#begin Sprites/Widgets/Images/StrafeLeft.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/StrafeLeft.png
+
+#begin Sprites/Widgets/Images/StrafeRight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/StrafeRight.png
+
+#begin Sprites/Widgets/Images/TurnLeft.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/TurnLeft.png
+
+#begin Sprites/Widgets/Images/TurnRight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/TurnRight.png
 
 #begin Sprites/Widgets/Images/YouAreHere.png
 /importer:TextureImporter

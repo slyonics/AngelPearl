@@ -11,6 +11,7 @@ namespace AngelPearl.Models
         public string Name { get; set; }
         public int OffsetX { get; set; }
 		public int OffsetY { get; set; }
+		public bool Flash { get; set; }
 	}
 
 

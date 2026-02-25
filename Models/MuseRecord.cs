@@ -29,6 +29,6 @@ namespace AngelPearl.Models
 		public string Weapon {  get; set; }
 		public string[] ActiveModules { get; set; }
 
-		public static List<MuseRecord> PILOTS { get; set; }
+		public static List<MuseRecord> MUSES { get; set; }
     }
 }

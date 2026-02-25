@@ -1,13 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using AngelPearl.Main;
+﻿using AngelPearl.Main;
 using AngelPearl.Models;
+using AngelPearl.SceneObjects;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Platform.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AngelPearl.SceneObjects;
 
 namespace AngelPearl.Scenes.CrawlerScene
 {
@@ -25,13 +26,24 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		private EnemyRecord enemyRecord;
 
-		public BattleEnemy(CrawlerScene iScene, EnemyRecord iEnemyRecord, Vector2 iPosition)
+		int index;
+
+		public BattleEnemy(CrawlerScene iScene, EnemyRecord iEnemyRecord, Vector2 iPosition, int i, bool flash)
 			: base(iScene, iPosition, AssetCache.SPRITES[Enum.Parse<GameSprite>($"Enemies_{iEnemyRecord.Sprite}")])
 		{
 			crawlerScene = iScene;
+			index = i;
 
 			enemyRecord = iEnemyRecord;
 			stats = new BattlerModel(iEnemyRecord);
+
+			AnimatedSprite.SpriteColor = new Color(255, 255, 255, index);
+
+			if (!flash)
+			{
+				fadeInTime = FADE_IN_DURATION;
+
+			}
 		}
 
 		public override void Update(GameTime gameTime)
@@ -42,7 +54,12 @@ namespace AngelPearl.Scenes.CrawlerScene
 			{
 				fadeInTime += gameTime.ElapsedGameTime.Milliseconds;
 				float flashInterval = Math.Min((float)fadeInTime / FADE_IN_DURATION, 1.0f);
-				//shader.Parameters["flashInterval"].SetValue(1.0f - flashInterval);
+				crawlerScene.FLASH_INTERVAL[index] = 1.0f - flashInterval;
+			}
+			else
+			{
+				if (flashTime > 0) crawlerScene.FLASH_INTERVAL[index] = ((float)flashTime / DAMAGE_FLASH_DURATION);
+				else crawlerScene.FLASH_INTERVAL[index] = (0.0f);
 			}
 
 			if (attackTimeLeft > 0)
@@ -55,7 +72,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (deathTimeLeft > 0)
 			{
 				deathTimeLeft -= gameTime.ElapsedGameTime.Milliseconds;
-				//shader.Parameters["destroyInterval"].SetValue((float)deathTimeLeft / DEATH_DURATION);
+				crawlerScene.DESTROY_INTERVAL[index] = (float)deathTimeLeft / DEATH_DURATION;
 				if (deathTimeLeft <= 0) { deathTimeLeft = -1; }
 			}
 			else if (deathTimeLeft == -1)
@@ -95,6 +112,15 @@ namespace AngelPearl.Scenes.CrawlerScene
 				deathTimeLeft = DEATH_DURATION;
 				Audio.PlaySound(GameSound.EnemyDeath);
 			}
+		}
+
+		public override void FlashColor(Color flashColor, int duration = DAMAGE_FLASH_DURATION)
+		{
+			base.FlashColor(flashColor, duration);
+			crawlerScene.FLASH_COLOR[index] = flashColor.ToVector4();
+
+			float flashInterval = Math.Min((float)flashTime / flashDuration, 1.0f);
+			crawlerScene.FLASH_INTERVAL[index] = 1.0f - flashInterval;
 		}
 
 

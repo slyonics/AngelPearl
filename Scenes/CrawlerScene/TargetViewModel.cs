@@ -68,11 +68,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                     break;
             }
 
-            if (!string.IsNullOrEmpty(iBattleCommand.Description))
-            {
-                Description = iBattleCommand.Description;
-                LoadView(GameView.Crawler_TargetView);
-            }
+            LoadView(GameView.Crawler_TargetView);
         }
 
         public override void Update(GameTime gameTime)
@@ -118,6 +114,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 Audio.PlaySound(GameSound.Back);
                 Terminate();
+                battleScene.BattleViewModel.CommandViewModel.ShowCommandSummary.Value = true;
             }
 
             if (target != oldTarget)
@@ -208,11 +205,15 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 				LabelBounds.Value = new Rectangle((int)target.Center.X - (CrossPlatformGame.SCREEN_WIDTH / 2) - (width / 2), -80, width, 19);
                 ShowLabel.Value = true;
-            }
+
+				Description.Value = targetEnemy.Stats.Description.Value;
+			}
             else
             {
 				Label.Value = "";
 				ShowLabel.Value = false;
+
+                Description.Value = "";
 			}
 		}
 
@@ -313,9 +314,9 @@ namespace AngelPearl.Scenes.CrawlerScene
         public BattlePlayer Player { get; set; }
         public CommandRecord Command { get; set; }
 
-        public string Description { get; set; }
+        public ModelProperty<string> Description { get; set; } = new ModelProperty<string>("");
 
-        public ModelProperty<string> Label { get; set; } = new ModelProperty<string>("");
+		public ModelProperty<string> Label { get; set; } = new ModelProperty<string>("");
 		public ModelProperty<bool> ShowLabel { get; set; } = new ModelProperty<bool>(false);
 		public ModelProperty<Rectangle> LabelBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 10, 10));
 	}

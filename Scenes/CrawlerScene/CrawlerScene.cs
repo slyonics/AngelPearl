@@ -1,18 +1,19 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using AngelPearl.Main;
+﻿using AngelPearl.Main;
 using AngelPearl.Models;
 using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Controllers;
 using AngelPearl.SceneObjects.Shaders;
+using AngelPearl.SceneObjects.ViewModels;
 using AngelPearl.SceneObjects.Widgets;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Platform.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AngelPearl.SceneObjects.ViewModels;
 
 namespace AngelPearl.Scenes.CrawlerScene
 {
@@ -57,13 +58,24 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public float GlobalBrightness { get; set; } = 0.0f;
 
-        public CrawlerScene()
+		private static Texture2D STATIC_TEXTURE;
+        private Effect enemyShader;
+		public float[] DESTROY_INTERVAL = new float[5] { 1.1f, 1.1f, 1.1f, 1.1f, 1.1f };
+		public float[] FLASH_INTERVAL = new float[5];
+		public Vector4[] FLASH_COLOR = new Vector4[5] { new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f) };
+
+
+
+		public CrawlerScene()
         {
             Instance = this;
 
 			//PaletteShader shader = new PaletteShader();
 			//shader.SetGlobalBrightness(-1.01f);
 			//interfaceShader = InterfacePaletteShader = shader;
+
+			enemyShader = AssetCache.SHADERS[GameShader.BattleEnemy].Clone();
+			enemyShader.Parameters["noise"].SetValue(STATIC_TEXTURE);
 		}
 
         public CrawlerScene(GameMap gamemap, int x, int y, Direction dir) : this()
@@ -95,7 +107,21 @@ namespace AngelPearl.Scenes.CrawlerScene
 			floor.GetRoom(PartyController.RoomX, PartyController.RoomY).EnterRoom(false);
 		}
 
-        public void ResetPathfinding()
+		public static void Initialize(GraphicsDevice graphicsDevice)
+		{
+			STATIC_TEXTURE = new Texture2D(graphicsDevice, 160, 160);
+			Color[] colorData = new Color[STATIC_TEXTURE.Width * STATIC_TEXTURE.Height];
+			for (int y = 0; y < STATIC_TEXTURE.Height; y++)
+			{
+				for (int x = 0; x < STATIC_TEXTURE.Width; x++)
+				{
+					colorData[y * STATIC_TEXTURE.Width + x] = new Color(Rng.RandomInt(0, 255), 255, 255, 255);
+				}
+			}
+			STATIC_TEXTURE.SetData<Color>(colorData);
+		}
+
+		public void ResetPathfinding()
         {
             PartyController?.Path.Clear();
         }
@@ -246,11 +272,24 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             graphicsDevice.Clear(ClearOptions.DepthBuffer, Color.Black, 1.0f, 0);
 
+            if (BattleViewModel != null)
+            {
+				enemyShader.Parameters["destroyInterval"].SetValue(DESTROY_INTERVAL);
+				enemyShader.Parameters["flashInterval"].SetValue(FLASH_INTERVAL);
+				enemyShader.Parameters["flashColor"].SetValue(FLASH_COLOR);
+
+				spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullCounterClockwise, enemyShader, null);
+				foreach (var enemy in BattleViewModel.EnemyList)
+				{
+					enemy.Draw(spriteBatch, Camera);
+				}
+				spriteBatch.End();
+			}
+
 			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullCounterClockwise, null, null);
             DrawOverlay(spriteBatch);
 
-
-            if (!overlayList.Any(x => x is ConversationViewModel || x is BattleViewModel))
+			if (!overlayList.Any(x => x is ConversationViewModel || x is BattleViewModel))
 			{
 				var miniMapPanel = MapViewModel.GetWidget<Panel>("MiniMapPanel");
 				Rectangle miniMapBounds = miniMapPanel.InnerBounds;
@@ -259,27 +298,18 @@ namespace AngelPearl.Scenes.CrawlerScene
 				floor.DrawMiniMap(spriteBatch, miniMapBounds, Color.White, 0.1f, PartyController.RoomX, PartyController.RoomY, PartyController.PartyDirection);
 			}
 
-			if (Foe.DeferredSprite != null && BattleViewModel == null)
-            {
-                float brightness = PartyController.FacingRoom.AverageBrightness();
-                spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + (160 - Foe.DeferredSprite.Height)), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
-            }
-            else if (BattleViewModel != null)
-            {
-                foreach (var enemy in BattleViewModel.EnemyList)
-                {
-                    enemy.Draw(spriteBatch, Camera);
-                }
-
-				foreach (Particle particle in particleList) particle.Draw(spriteBatch, Camera);
+            if (Foe.DeferredSprite != null && BattleViewModel == null && !PartyController.Turning)
+			{
+				float brightness = PartyController.FacingRoom.AverageBrightness();
+				spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + (160 - Foe.DeferredSprite.Height)), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
 			}
 
-            spriteBatch.End();
+			foreach (Particle particle in particleList) particle.Draw(spriteBatch, Camera);
 
-            
+			spriteBatch.End();
 		}
 
-        public bool Activate(MapRoom roomAhead)
+		public bool Activate(MapRoom roomAhead)
         {
             if (roomAhead == null) return false;
 
@@ -306,8 +336,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public void MiniMapClick(Vector2 clickPosition)
         {
-            return;
-
             if (PriorityLevel != PriorityLevel.GameLevel || controllerList.Any(x => x.Any(y => y is EventController))) return;
 
             Panel miniMapPanel = MapViewModel.GetWidget<Panel>("MiniMapPanel");

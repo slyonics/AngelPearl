@@ -101,7 +101,7 @@ namespace AngelPearl.SceneObjects.Widgets
 					if (textElement.icon != null)
 					{
 						var iconSprite = AssetCache.SPRITES[GameSprite.Widgets_Images_Icons];
-						spriteBatch.Draw(iconSprite, base.Position + new Vector2(currentWindow.X + textElement.offset - 2, currentWindow.Y + textElement.line * Main.Text.GetStringHeight(Font)), textElement.icon, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.05f);
+						spriteBatch.Draw(iconSprite, base.Position + new Vector2(currentWindow.X + textElement.offset - 2, currentWindow.Y + textElement.line * Main.Text.GetStringHeight(Font) + 4), textElement.icon, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.05f);
 					}
 					else Main.Text.DrawText(spriteBatch, base.Position + new Vector2(currentWindow.X + textElement.offset, currentWindow.Y), Font, textElement.text.ToString(), textElement.color, textElement.line);
 				}

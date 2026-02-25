@@ -55,8 +55,6 @@
     <Compile Include="Models\ModelCollection.cs" />
     <Compile Include="Models\ModelProperty.cs" />
     <Compile Include="Models\SaveProfile.cs" />
-    <Compile Include="Models\ShopRecord.cs" />
-    <Compile Include="Models\TownRecord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SceneObjects\AnimatedSprite.cs" />
     <Compile Include="SceneObjects\Camera.cs" />
@@ -130,10 +128,8 @@
     <Content Include="Content\Data\ConversationData.json" />
     <Content Include="Content\Data\EncounterData.json" />
     <Content Include="Content\Data\EnemyData.json" />
-    <Content Include="Content\Data\HeroData.json" />
+    <Content Include="Content\Data\MuseData.json" />
     <Content Include="Content\Data\ItemData.json" />
-    <Content Include="Content\Data\ShopData.json" />
-    <Content Include="Content\Data\TownData.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />

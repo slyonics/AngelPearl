@@ -19,7 +19,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 		TargetViewModel targetSelector;
 
 		RadioBox commandList;
-		Panel mpCounter;
 
 		public CommandViewModel(CrawlerScene iScene, BattlePlayer iBattlePlayer)
 			: base(iScene, PriorityLevel.GameLevel)
@@ -34,10 +33,11 @@ namespace AngelPearl.Scenes.CrawlerScene
 			foreach (var command in ActivePlayer.HeroModel.Commands)
 				AvailableCommands.ModelList.Add(new ModelProperty<CommandRecord>(command.Value));
 
+			Description.Value = AvailableCommands[0].Description;
+
 			LoadView(GameView.Crawler_CommandView);
 
 			commandList = GetWidget<RadioBox>("CommandList");
-			mpCounter = GetWidget<Panel>("MPCounter");
 
 			(commandList.ChildList[0] as RadioButton).RadioSelect();
 
@@ -106,12 +106,24 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			targetSelector = new TargetViewModel(crawlerScene, ActivePlayer, battleCommand);
 			crawlerScene.AddOverlay(targetSelector);
+
+			ShowCommandSummary.Value = false;
+		}
+
+		public void CommandChanged(object parameter)
+		{
+			Description.Value = AvailableCommands[(int)parameter].Description;
 		}
 
 
 		public BattlePlayer ActivePlayer { get; set; }
 
 		public ModelCollection<CommandRecord> AvailableCommands { get; set; } = new ModelCollection<CommandRecord>();
+
+		public ModelProperty<string> Description { get; set; } = new ModelProperty<string>("");
+
+		public ModelProperty<bool> ShowCommandSummary { get; set; } = new ModelProperty<bool>(true);
+
 
 		public ModelProperty<int> CurrentMP { get => ActivePlayer.HeroModel.MP; }
 

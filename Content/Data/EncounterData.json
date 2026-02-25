@@ -16,7 +16,8 @@
 			{
 				"Name": "Golem",
 				"OffsetX": -60,
-				"OffsetY": 0
+				"OffsetY": 0,
+				"Flash": true
 			},
 			{
 				"Name": "Golem",
@@ -26,7 +27,8 @@
 			{
 				"Name": "Golem",
 				"OffsetX": 60,
-				"OffsetY": 0
+				"OffsetY": 0,
+				"Flash": true
 			}
 		],
 		"Intro": "Golem battle intro"

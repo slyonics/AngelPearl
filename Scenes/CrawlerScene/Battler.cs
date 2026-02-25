@@ -15,11 +15,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 {
 	public class Battler : Entity
 	{
-		private const int DAMAGE_FLASH_DURATION = 400;
+		protected const int DAMAGE_FLASH_DURATION = 400;
 
-		public static Texture2D STATIC_TEXTURE;
-
-		protected Effect shader;
 		protected Color flashColor;
 		protected int flashTime;
 		protected int flashDuration;
@@ -45,13 +42,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite)
 			: base(iScene, iPosition, iSprite, new Dictionary<string, Animation>() { { "Idle", new Animation(0, 0, iSprite.Width, iSprite.Height, 1, 10000) } })
 		{
-			priorityLevel = PriorityLevel.CutsceneLevel;
+			priorityLevel = PriorityLevel.TransitionLevel;
 		}
 
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite, Dictionary<string, Animation> iAnimations)
 			: base(iScene, iPosition, iSprite, iAnimations)
 		{
-			priorityLevel = PriorityLevel.CutsceneLevel;
+			priorityLevel = PriorityLevel.TransitionLevel;
 		}
 
         public override void Update(GameTime gameTime)
@@ -59,25 +56,16 @@ namespace AngelPearl.Scenes.CrawlerScene
             base.Update(gameTime);
 
 			ParticleList.RemoveAll(x => x.Terminated);
+
+			if (flashTime > 0)
+            {
+                flashTime -= gameTime.ElapsedGameTime.Milliseconds;
+            }
         }
 
 		public override void Draw(SpriteBatch spriteBatch, Camera camera)
 		{
 			animatedSprite?.Draw(spriteBatch, position - new Vector2(0.0f, positionZ), camera, 0.9f);
-		}
-
-		public static void Initialize()
-		{
-			STATIC_TEXTURE = new Texture2D(CrossPlatformGame.GameInstance.GraphicsDevice, 200, 200);
-			Color[] colorData = new Color[STATIC_TEXTURE.Width * STATIC_TEXTURE.Height];
-			for (int y = 0; y < STATIC_TEXTURE.Height; y++)
-			{
-				for (int x = 0; x < STATIC_TEXTURE.Width; x++)
-				{
-					colorData[y * STATIC_TEXTURE.Width + x] = new Color(Rng.RandomInt(0, 255), 255, 255, 255);
-				}
-			}
-			STATIC_TEXTURE.SetData<Color>(colorData);
 		}
 
 		public virtual void ExecuteTurn()
@@ -174,9 +162,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (Stats.StatusAilments.Count() == 0) AilmentSprite.PlayAnimation(AilmentType.Healthy.ToString());
 		}
 
-		public void FlashColor(Color color, int duration = DAMAGE_FLASH_DURATION)
+		public virtual void FlashColor(Color color, int duration = DAMAGE_FLASH_DURATION)
 		{
-			//shader.Parameters["flashColor"].SetValue(flashColor.ToVector4());
 			flashColor = color;
 			flashTime = flashDuration = duration;
 		}

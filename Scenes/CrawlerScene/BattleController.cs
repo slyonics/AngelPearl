@@ -478,7 +478,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         private void Flash(string[] tokens)
         {
-            target.FlashColor(new Color(int.Parse(tokens[1]), int.Parse(tokens[1]), int.Parse(tokens[1])));
+            target.FlashColor(new Color(int.Parse(tokens[1]), int.Parse(tokens[2]), int.Parse(tokens[3])));
         }
 
         private void Attack(string[] tokens)
