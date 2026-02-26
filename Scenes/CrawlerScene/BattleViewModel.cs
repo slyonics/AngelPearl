@@ -28,7 +28,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public CommandViewModel CommandViewModel { get; set; }
 
-		public List<Battler> InitiativeList { get; } = new();
+		public List<Battler> InitiativeList { get; private set; } = new();
 		public List<BattlePlayer> PlayerList { get; } = [];
 		public List<BattleEnemy> EnemyList { get; set; } = [];
 
@@ -150,9 +150,16 @@ namespace AngelPearl.Scenes.CrawlerScene
 			CommandHeader1.Value = "";
 			CommandHeader2.Value = "";
 
+			foreach (BattleEnemy enemy in EnemyList)
+			{
+				enemy.PlanTurn();
+			}
+
 			InitiativeList.Clear();
 			InitiativeList.AddRange(PlayerList.Where(x => !x.Dead));
 			InitiativeList.AddRange(EnemyList);
+
+			InitiativeList = InitiativeList.OrderByDescending(x => x.Initiative).ToList();
 		}
 
 		public void SetHeader(string header)

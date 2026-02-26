@@ -42,7 +42,6 @@
     <Compile Include="Main\Settings.cs" />
     <Compile Include="Main\Text.cs" />
     <Compile Include="Models\BattlerModel.cs" />
-    <Compile Include="Models\ClassRecord.cs" />
     <Compile Include="Models\CommandRecord.cs" />
     <Compile Include="Models\ConversationRecord.cs" />
     <Compile Include="Models\EncounterRecord.cs" />

@@ -1,7 +1,7 @@
 [
 	{
 		"Name": "Proxy",
-		"Description": "Your representative in this game, linked to you through the Gemini engine.",
+		"Description": "Your representative in this game, linked to you through the Gemini cosmo engine.",
 		"ClassType": "Gemini",
 		"PortraitSprite": "Proxy",
 		"Level": 1,
@@ -12,7 +12,7 @@
 		"BaseMagic": 1,
 		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Ruby Staff"
+		"Weapon": "Pearl Staff"
 	},
 	{
 		"Name": "Aika",
@@ -27,7 +27,7 @@
 		"BaseMagic": 1,
 		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Ruby Staff"
+		"Weapon": "Ram Piston"
 	},
 	{
 		"Name": "Chika",
@@ -61,7 +61,7 @@
 		"Weapon": "Ruby Staff"
 	},
 	{
-		"Name": "Nara",
+		"Name": "Faye",
 		"Description": "A quirky muse operating the Sagittarius cosmo engine.",
 		"ClassType": "Libra",
 		"PortraitSprite": "Proxy",
@@ -77,7 +77,7 @@
 	},
 	{
 		"Name": "Naomi",
-		"Description": "A brutally honest muse operating the Aquarius cosmo engine.",
+		"Description": "A straightforward muse operating the Aquarius cosmo engine.",
 		"ClassType": "Libra",
 		"PortraitSprite": "Proxy",
 		"Level": 1,

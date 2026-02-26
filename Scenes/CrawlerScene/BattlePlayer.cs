@@ -55,10 +55,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             { HeroAnimation.Ready.ToString(), new Animation(0, 0, HERO_WIDTH, HERO_HEIGHT, 3, 400) }
         };
 
-        private BattleController enqueuedController;
-        private CommandRecord enqueuedCommand;
         private bool healAnimation;
-
 
         public bool AwaitingOrders { get => enqueuedCommand == null; }
 
@@ -89,7 +86,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             HeroModel.UpdateHealthColor();
 
             int startingInitiative = Math.Max(1, 120 + HeroModel.Reflex.Value);
-            Initiative = Rng.RandomInt(startingInitiative, 200);
         }
 
         public override void Update(GameTime gameTime)
@@ -122,29 +118,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             AilmentSprite.Draw(spriteBatch, Center, null, 0.1f);
         }
 
-        public void EnqueueCommand(BattleController battleController, CommandRecord commandRecord)
-        {
-            enqueuedController = battleController;
-            enqueuedCommand = commandRecord;
-        }
-
-        public void ResetCommand()
-        {
-            enqueuedCommand = null;
-            enqueuedController = null;
-        }
-
-		public override void ExecuteTurn()
-		{
-            base.ExecuteTurn();
-
-            enqueuedController.FixTargetting();
-			enqueuedController.OnTerminated += new TerminationFollowup(() => FinishTurn());
-            parentScene.AddController(enqueuedController);
-
-            ResetCommand();
-		}
-
 		public List<DialogueRecord> GrowAfterBattle(EncounterRecord encounterRecord)
         {
             List<DialogueRecord> reports = new List<DialogueRecord>();
@@ -160,7 +133,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 enqueuedController = null;
                 enqueuedCommand = null;
-                Initiative = 0;
                 stats.StatusAilments.Clear();
                 AilmentSprite.PlayAnimation(AilmentType.Healthy.ToString());
             }
@@ -178,7 +150,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 enqueuedController = null;
                 enqueuedCommand = null;
-                Initiative = 0;
                 stats.StatusAilments.Clear();
                 AilmentSprite.PlayAnimation(AilmentType.Healthy.ToString());
                 HeroModel.UpdateHealthColor();
@@ -212,11 +183,16 @@ namespace AngelPearl.Scenes.CrawlerScene
             else PlayAnimation("Dead");
         }
 
-        public override float Initiative
-        {
-            set => initiative = value;
-            get { return initiative; }
-        }
+		public override int Initiative
+		{
+            get
+            {
+                var result = (int)enqueuedCommand.Priority * 100 + Stats.Reflex.Value;
+                if (enqueuedCommand.Priority == CommandPriority.Melee) result += Stats.Energy.Value;
+				else if (enqueuedCommand.Priority == CommandPriority.Ranged) result += Stats.Sensors.Value;
+				return result;
+            }
+		}
 
-    }
+	}
 }

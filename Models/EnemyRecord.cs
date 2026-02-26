@@ -11,7 +11,8 @@ namespace AngelPearl.Models
         public int Weight;
         public TargetType Targetting = TargetType.OneEnemy;
         public int Power = -1;
-        public int Hit = 100;
+        public int Accuracy = 100;
+        public CommandPriority Priority = CommandPriority.Melee;
     }
 
     public class EnemyRecord

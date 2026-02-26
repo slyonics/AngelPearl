@@ -88,19 +88,17 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 		}
 
-        public override void ExecuteTurn()
+        public void PlanTurn()
         {
-            base.ExecuteTurn();
-
             Dictionary<AttackData, double> attacks = enemyRecord.Attacks.ToDictionary(x => x, x => (double)x.Weight);
             AttackData attack = Rng.WeightedEntry<AttackData>(attacks);
 
             List<BattlePlayer> eligibleTargets = crawlerScene.BattleViewModel.PlayerList.FindAll(x => !x.Dead);
             var target = eligibleTargets[Rng.RandomInt(0, eligibleTargets.Count - 1)];
             BattleController battleController = new BattleController(crawlerScene, this, target, attack);
-			battleController.OnTerminated += new TerminationFollowup(FinishTurn);
-            crawlerScene.AddController(battleController);
-        }
+
+			EnqueueCommand(battleController, new CommandRecord(attack));
+		}
 
         public override void PlayAnimation(string animationName, AnimationFollowup animationFollowup = null)
         {

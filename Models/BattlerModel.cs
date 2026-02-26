@@ -6,6 +6,22 @@ using System.Threading.Tasks;
 
 namespace AngelPearl.Models
 {
+	public enum ClassType
+	{
+		Gemini,
+		Aries,
+		Leo,
+		Libra,
+		Sagittarius,
+		Aquarius,
+
+		Angel,
+		Avatar,
+		Machine,
+		Minion,
+		Pearl
+	}
+
 	public enum ElementType
 	{
 		None,
@@ -71,11 +87,11 @@ namespace AngelPearl.Models
             MaxMP.Value = enemyRecord.MP;
             MP.Value = MaxMP.Value;
 
-            Power.Value = enemyRecord.Power;
+            Skill.Value = enemyRecord.Power;
             Reflex.Value = enemyRecord.Finesse;
             Magic.Value = enemyRecord.Magic;
-            Charisma.Value = enemyRecord.Charisma;
-			Guts.Value = enemyRecord.Guts;
+            Tech.Value = enemyRecord.Charisma;
+			Heart.Value = enemyRecord.Guts;
 
 			PhysicalDefense.Value = enemyRecord.PhysicalDefense;
             PhysicalEvade.Value = enemyRecord.PhysicalEvade;
@@ -110,13 +126,19 @@ namespace AngelPearl.Models
         public ModelProperty<int> MP { get; set; } = new ModelProperty<int>(10);
         public ModelProperty<int> MaxMP { get; set; } = new ModelProperty<int>(10);
 
-        public ModelProperty<int> Power { get; set; } = new ModelProperty<int>(3);
+        public ModelProperty<int> Skill { get; set; } = new ModelProperty<int>(3);
         public ModelProperty<int> Reflex { get; set; } = new ModelProperty<int>(3);
-        public ModelProperty<int> Guts { get; set; } = new ModelProperty<int>(3);
         public ModelProperty<int> Magic { get; set; } = new ModelProperty<int>(3);
-        public ModelProperty<int> Charisma { get; set; } = new ModelProperty<int>(3);
+        public ModelProperty<int> Tech { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Heart { get; set; } = new ModelProperty<int>(3);
 
-        public ModelProperty<int> PhysicalDefense { get; set; } = new ModelProperty<int>(0);
+		public ModelProperty<int> Control { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Sensors { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Resonance { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Energy { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Shielding { get; set; } = new ModelProperty<int>(3);
+
+		public ModelProperty<int> PhysicalDefense { get; set; } = new ModelProperty<int>(0);
         public ModelProperty<int> PhysicalEvade { get; set; } = new ModelProperty<int>(0);
         public ModelProperty<int> MagicDefense { get; set; } = new ModelProperty<int>(0);
         public ModelProperty<int> MagicEvade { get; set; } = new ModelProperty<int>(0);

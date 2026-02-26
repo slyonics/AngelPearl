@@ -1,14 +1,53 @@
 [
 	{
+		"Name": "Pearl Staff",
+		"Description": "Item description here.",
+		"Icon": "6,3",
+		"ItemType": "Weapon",
+		"Targetting": "OneEnemy",
+		"Power": 16,
+		"Accuracy": 90,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName attacks with Pearl Staff!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Melee Sharp",
+			"Flash 255 0 0",
+			"Damage Magic Sharp"
+		]
+	},
+	{
 		"Name": "Ruby Staff",
 		"Description": "Item description here.",
 		"Icon": "6,3",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
-		"Attack": 16,
-		"Hit": 100,
+		"Power": 16,
+		"Accuracy": 90,
+		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Ruby Staff!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Melee Sharp",
+			"Flash 255 0 0",
+			"Damage Magic Sharp"
+		]
+	},
+	{
+		"Name": "Ram Piston",
+		"Description": "Pneumatic battering ram.",
+		"Icon": "6,3",
+		"ItemType": "Weapon",
+		"Targetting": "OneEnemy",
+		"Power": 16,
+		"Accuracy": 9,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName attacks with Ram Piston!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
@@ -23,8 +62,9 @@
 		"Icon": "8,3",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
-		"Attack": 16,
-		"Hit": 100,
+		"Power": 16,
+		"Accuracy": 100,
+		"Priority": "Ranged",
 		"BattleScript": [
 			"Narrate $attackerName uses a sample active module!",
 			"Animate Attack Sword",

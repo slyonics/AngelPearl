@@ -33,10 +33,10 @@ namespace AngelPearl.Models
 			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Aika"));
 			CurrentSave.Party.Add(heroModel);
 
-			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Rem"));
+			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Chika"));
 			CurrentSave.Party.Add(heroModel);
 
-			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Becca"));
+			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Karin"));
 			CurrentSave.Party.Add(heroModel);
 		}
 

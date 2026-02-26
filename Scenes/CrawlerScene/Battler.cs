@@ -23,9 +23,11 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		protected Vector2 battlerOffset;
 
-		protected float initiative;
 		protected bool turnActive;
 		public virtual bool TurnActive { get => turnActive; }
+
+		protected BattleController enqueuedController;
+		protected CommandRecord enqueuedCommand;
 
 		public bool Defending { get; set; }
 		public bool Delaying { get; set; }
@@ -68,9 +70,27 @@ namespace AngelPearl.Scenes.CrawlerScene
 			animatedSprite?.Draw(spriteBatch, position - new Vector2(0.0f, positionZ), camera, 0.9f);
 		}
 
-		public virtual void ExecuteTurn()
+		public void ResetCommand()
+		{
+			enqueuedCommand = null;
+			enqueuedController = null;
+		}
+
+		public void EnqueueCommand(BattleController battleController, CommandRecord commandRecord)
+		{
+			enqueuedController = battleController;
+			enqueuedCommand = commandRecord;
+		}
+
+		public void ExecuteTurn()
 		{
 			turnActive = true;
+
+			enqueuedController.FixTargetting();
+			enqueuedController.OnTerminated += new TerminationFollowup(() => FinishTurn());
+			parentScene.AddController(enqueuedController);
+
+			ResetCommand();
 		}
 
 		public void FinishTurn()
@@ -95,6 +115,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 					Stats.HP.Value = 1;
 					Buffs.Remove(autoReviveBuff);
 				}
+
+				((CrawlerScene)parentScene).BattleViewModel.InitiativeList.Remove(this);
 			}
 
 			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, damage.ToString())));
@@ -138,11 +160,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public virtual void Heal(int healing)
 		{
-			if (Dead)
-			{
-				Initiative = 0;
-			}
-
 			Stats.HP.Value = Math.Min(Stats.MaxHP.Value, Stats.HP.Value + healing);
 
 			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, healing.ToString(), new Color(28, 210, 160))));
@@ -170,13 +187,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public bool Dead { get => Stats.HP.Value <= 0; }
 
-		public virtual float Initiative
+		public virtual int Initiative
 		{
-			get => initiative;
-			set
-			{
-				initiative = value;
-			}
+			get => 0;
 		}
 
 		public virtual bool Busy { get => ParticleList.Count > 0 || turnActive; }

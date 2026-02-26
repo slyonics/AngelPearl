@@ -20,6 +20,11 @@ namespace AngelPearl.Models
 			Animation = clone.Animation;
 			Description = clone.Description;
 			Icon = clone.Icon;
+
+			Power = clone.Power;
+			Accuracy = clone.Accuracy;
+			Priority = clone.Priority;
+
 			ChargesLeft = clone.ChargesLeft;
 			Charges = clone.Charges;
 			Targetting = clone.Targetting;
@@ -29,12 +34,23 @@ namespace AngelPearl.Models
 			if (clone.BattleScript != null) BattleScript = (string[])clone.BattleScript.Clone();
 		}
 
+		public CommandRecord(AttackData attackData)
+		{
+			Power = attackData.Power;
+			Accuracy = attackData.Accuracy;
+			Priority = attackData.Priority;
+		}
+
 		public CommandRecord(ItemRecord itemRecord)
 		{
 			Name = itemRecord.Name;
 			Animation = itemRecord.Animation;
 			Description= itemRecord.Description;
 			Icon = itemRecord.Icon;
+
+			Power = itemRecord.Power;
+			Accuracy = itemRecord.Accuracy;
+			Priority = itemRecord.Priority;
 
 			Targetting = itemRecord.Targetting;
 			TargetDead = itemRecord.TargetDead;
@@ -51,8 +67,10 @@ namespace AngelPearl.Models
 		public int Charges { get; set; } = -1;
 		public bool ShowCharges { get => Charges >= 0; }
 		public virtual bool Usable { get => ChargesLeft != 0; }
-		public int Hit { get; set; }
+
 		public int Power { get; set; }
+		public int Accuracy { get; set; }
+		public CommandPriority Priority { get; set; }
 
 		public bool FieldUsable { get => FieldScript != null; }
 		public TargetType Targetting { get; set; }

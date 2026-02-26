@@ -79,8 +79,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 				if (nextDigitTimer <= 0 && digitsRemaining.Length > 0)
 				{
 					int digitWidth;
-					if (digitIndex > DIGIT_SOURCES.Length) digitWidth = Text.GetStringLength(GameFont.LargeConsole, "" + nonDigit) - 2;
-					else digitWidth = DIGIT_WIDTH;
+					if (digitIndex > DIGIT_SOURCES.Length) digitWidth = (Text.GetStringLength(GameFont.LargeConsole, "" + nonDigit) - 2) * 2;
+					else digitWidth = DIGIT_WIDTH * 2;
 
 					DamageParticle nextParticle = new DamageParticle(parentScene, initialPosition + new Vector2(digitWidth, 0), digitsRemaining, color);
 					parentScene.AddParticle(nextParticle);

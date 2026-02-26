@@ -17,6 +17,15 @@ namespace AngelPearl.Models
         Plot
     }
 
+    public enum CommandPriority
+    {
+        Ritual,
+        Melee,
+        Ranged,
+        Word,
+        Thought
+    }
+
     public class ItemRecord
     {
         public ItemRecord()
@@ -34,21 +43,28 @@ namespace AngelPearl.Models
 		public string Description { get; set; }
 		public ItemType ItemType { get; set; }
 		public string Icon { get; set; }
-		public long SellPrice { get; set; } = 13;
 
-        public int StrengthModifier { get; set; }
-        public int AgilityModifier { get; set; }
-        public int EnduranceModifier { get; set; }
+        public int SkillModifier { get; set; }
+        public int ReflexModifier { get; set; }
         public int MagicModifier { get; set; }
-		public int LuckModifier { get; set; }
+        public int TechModifier { get; set; }
+		public int HeartModifier { get; set; }
 
-		public int Attack { get; set; }
-        public int Hit { get; set; }
+		public int ControlModifier { get; set; }
+		public int SensorsModifier { get; set; }
+		public int ResonanceModifier { get; set; }
+		public int EnergyModifier { get; set; }
+		public int ShieldingModifier { get; set; }
+
+		public int DefenseModifier { get; set; }
+		public int MagicDefenseModifier { get; set; }
+		public int EvadeModifier { get; set; }
+		public int MagicEvadeModifier { get; set; }
+
+		public int Power { get; set; }
+        public int Accuracy { get; set; }
         public int Critical { get; set; }
-        public int Defense { get; set; }
-        public int MagicDefense { get; set; }
-        public int Evade { get; set; }
-        public int MagicEvade { get; set; }
+        public CommandPriority Priority { get; set; }
 
         public ElementType AttackElement { get; set; }
         public ElementType[] ElementsWeak { get; set; }
