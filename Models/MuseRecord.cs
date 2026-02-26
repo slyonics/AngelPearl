@@ -23,9 +23,9 @@ namespace AngelPearl.Models
 		public int BaseMP { get; set; }
 		public int BaseSkill { get; set; }
         public int BaseReflex { get; set; }
-        public int BaseSong { get; set; }
+        public int BaseMagic { get; set; }
 		public int BaseTech { get; set; }
-		public int BaseGuts { get; set; }
+		public int BaseHeart { get; set; }
 		public string Weapon {  get; set; }
 		public string[] ActiveModules { get; set; }
 

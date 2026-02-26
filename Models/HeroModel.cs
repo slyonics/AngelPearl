@@ -27,9 +27,9 @@ namespace AngelPearl.Models
 			
 			Power.Value = heroRecord.BaseSkill;
 			Reflex.Value = heroRecord.BaseReflex;
-			Magic.Value = heroRecord.BaseSong;
+			Magic.Value = heroRecord.BaseMagic;
 			Charisma.Value = heroRecord.BaseTech;
-			Guts.Value = heroRecord.BaseGuts;
+			Guts.Value = heroRecord.BaseHeart;
 
 			EquipWeapon(heroRecord.Weapon);
 			if (heroRecord.ActiveModules != null) foreach(var moduleName in heroRecord.ActiveModules) EquipModule(moduleName);

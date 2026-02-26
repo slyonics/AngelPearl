@@ -354,6 +354,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public void StartBattle(Foe foe)
         {
+            if (BattleViewModel != null) return;
+
             var facingRoom = PartyController.FacingRoom;
             if (facingRoom != foe.CurrentRoom)
             {
@@ -366,12 +368,19 @@ namespace AngelPearl.Scenes.CrawlerScene
                 return;
             }
 
-            FoeInBattle = foe;
+			DESTROY_INTERVAL = new float[5] { 1.1f, 1.1f, 1.1f, 1.1f, 1.1f };
+			FLASH_INTERVAL = new float[5];
+			FLASH_COLOR = new Vector4[5] { new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f), new(1.0f, 1.0f, 1.0f, 0.0f) };
+
+			FoeInBattle = foe;
 			EncounterRecord record = EncounterRecord.ENCOUNTERS.First(x => x.Name == foe.Encounter);
             BattleViewModel = AddView(new BattleViewModel(this, record));
             //BattleViewModel.NewRound();
 			MapViewModel.ShowMiniMap.Value = false;
 			MapViewModel.ShowInstructions.Value = false;
+
+
+
 		}
 
         public void EndBattle()

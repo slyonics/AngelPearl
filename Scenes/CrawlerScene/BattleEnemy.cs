@@ -42,7 +42,14 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (!flash)
 			{
 				fadeInTime = FADE_IN_DURATION;
-
+				float flashInterval = Math.Min((float)fadeInTime / FADE_IN_DURATION, 1.0f);
+				crawlerScene.FLASH_INTERVAL[index] = 1.0f - flashInterval;
+			}
+			else
+			{
+				fadeInTime = 0;
+				float flashInterval = Math.Min((float)fadeInTime / FADE_IN_DURATION, 1.0f);
+				crawlerScene.FLASH_INTERVAL[index] = 1.0f - flashInterval;
 			}
 		}
 
