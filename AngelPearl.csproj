@@ -99,6 +99,7 @@
     <Compile Include="SceneObjects\Widgets\Textbox.cs" />
     <Compile Include="SceneObjects\Widgets\Textplate.cs" />
     <Compile Include="SceneObjects\Widgets\Tooltip.cs" />
+    <Compile Include="Scenes\BaseScene\BaseScene.cs" />
     <Compile Include="Scenes\CrawlerScene\BattleController.cs" />
     <Compile Include="Scenes\CrawlerScene\BattlePlayer.cs" />
     <Compile Include="Scenes\CrawlerScene\Battler.cs" />
@@ -174,9 +175,6 @@
     <None Include="Content\Views\Crawler\MapView.view" />
     <None Include="Content\Views\Crawler\TargetView.view" />
     <None Include="Content\Views\Title\TitleView.view" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scenes\BaseScene\" />
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="$(SolutionDir)Content\JamPacker.exe Enumerate $(SolutionDir)Content $(ProjectDir)Main $(TargetDir)" />
