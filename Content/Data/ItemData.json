@@ -1,6 +1,6 @@
 [
 	{
-		"Name": "Pearl Staff",
+		"Name": "Pearl Rod",
 		"Description": "Item description here.",
 		"Icon": "6,3",
 		"ItemType": "Weapon",
@@ -9,7 +9,7 @@
 		"Accuracy": 90,
 		"Priority": "Melee",
 		"BattleScript": [
-			"Narrate $attackerName attacks with Pearl Staff!",
+			"Narrate $attackerName attacks with Pearl Rod!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
@@ -48,6 +48,25 @@
 		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Ram Piston!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Melee Sharp",
+			"Flash 255 0 0",
+			"Damage Magic Sharp"
+		]
+	},
+	{
+		"Name": "Vice Claws",
+		"Description": "Pneumatic battering ram.",
+		"Icon": "6,3",
+		"ItemType": "Weapon",
+		"Targetting": "OneEnemy",
+		"Power": 16,
+		"Accuracy": 9,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName attacks with Vice Klaws!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",

@@ -175,6 +175,9 @@
     <None Include="Content\Views\Crawler\TargetView.view" />
     <None Include="Content\Views\Title\TitleView.view" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scenes\BaseScene\" />
+  </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="$(SolutionDir)Content\JamPacker.exe Enumerate $(SolutionDir)Content $(ProjectDir)Main $(TargetDir)" />
   </Target>
