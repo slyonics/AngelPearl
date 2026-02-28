@@ -265,6 +265,11 @@
 /processor:TextureProcessor
 /build:Sprites/Background/Blank.png
 
+#begin Sprites/Background/Nebulae.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Background/Nebulae.png
+
 #begin Sprites/Background/SealedDoor.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
