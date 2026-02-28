@@ -24,15 +24,22 @@ namespace AngelPearl.Models
 
 			Level.Value = heroRecord.Level;
             HP.Value = MaxHP.Value = heroRecord.BaseHP;
-			
+			MP.Value = MaxMP.Value = heroRecord.BaseMP;
+
 			Skill.Value = heroRecord.BaseSkill;
 			Reflex.Value = heroRecord.BaseReflex;
-			Magic.Value = heroRecord.BaseMagic;
-			Tech.Value = heroRecord.BaseTech;
 			Heart.Value = heroRecord.BaseHeart;
+			Mind.Value = heroRecord.BaseMind;
+
+			Power.Value = heroRecord.CosmoEngine.BasePower;
+			Magic.Value = heroRecord.CosmoEngine.BaseMagic;
+			Armor.Value = heroRecord.CosmoEngine.BaseArmor;
+			Resist.Value = heroRecord.CosmoEngine.BaseResist;
 
 			EquipWeapon(heroRecord.Weapon);
-			if (heroRecord.ActiveModules != null) foreach(var moduleName in heroRecord.ActiveModules) EquipModule(moduleName);
+			EquipAccessory(heroRecord.Accessory);
+			if (heroRecord.CosmoEngine.ActiveModules != null) foreach(var moduleName in heroRecord.CosmoEngine.ActiveModules) EquipModule(moduleName);
+			if (heroRecord.CosmoEngine.PassiveModules != null) foreach (var moduleName in heroRecord.CosmoEngine.PassiveModules) EquipModule(moduleName);
 		}
 
 		public HeroModel(BinaryReader binaryReader)
@@ -51,11 +58,30 @@ namespace AngelPearl.Models
 			PopulateCommands();
 		}
 
+		public void EquipAccessory(string accessoryName)
+		{
+			Accessory.Value = ItemRecord.ITEMS.First(x => x.Name == accessoryName);
+
+		}
+
 		public void EquipModule(string moduleName)
 		{
 			var module = ItemRecord.ITEMS.First(x => x.Name == moduleName);
-			ActiveModules.Add(module);
-			PopulateCommands();
+
+			if (module.ItemType == ItemType.ActiveModule)
+			{
+				ActiveModules.Add(module);
+				PopulateCommands();
+			}
+			else
+			{
+
+			}
+		}
+
+		public void CalculateStats()
+		{
+
 		}
 
 		public void PopulateCommands()
@@ -80,12 +106,20 @@ namespace AngelPearl.Models
 
 		public ModelProperty<ItemRecord> Weapon { get; private set; } = new ModelProperty<ItemRecord>();
 		public ModelProperty<ItemRecord> Accessory { get; private set; } = new ModelProperty<ItemRecord>();
+
+		public ModelProperty<int> Power { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Magic { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Armor { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Resist { get; set; } = new ModelProperty<int>(3);
+
 		public ModelCollection<ItemRecord> ActiveModules { get; private set; } = new ModelCollection<ItemRecord>() { };
 		public ModelCollection<ItemRecord> PassiveModules { get; private set; } = new ModelCollection<ItemRecord>() { };
 
 		public ModelCollection<CommandRecord> Commands { get; private set; } = new ModelCollection<CommandRecord> { };
 
-		public ModelProperty<int> Attack { get; set; } = new ModelProperty<int>(0);
-		public ModelProperty<int> Hit { get; set; } = new ModelProperty<int>(100);
-    }
+		public ModelProperty<int> Attack { get; set; } = new ModelProperty<int>(1);
+		public ModelProperty<int> Accuracy { get; set; } = new ModelProperty<int>(100);
+		public ModelProperty<int> Critical { get; set; } = new ModelProperty<int>(5);
+
+	}
 }

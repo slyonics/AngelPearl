@@ -188,8 +188,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             get
             {
                 var result = (int)enqueuedCommand.Priority * 100 + Stats.Reflex.Value;
-                if (enqueuedCommand.Priority == CommandPriority.Melee) result += Stats.Energy.Value;
-				else if (enqueuedCommand.Priority == CommandPriority.Ranged) result += Stats.Sensors.Value;
 				return result;
             }
 		}

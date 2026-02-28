@@ -650,6 +650,11 @@
 /processor:SimpleContentProcessor
 /build:Views/Crawler/TargetView.view
 
+#begin Views/HomeBase/BaseView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/HomeBase/BaseView.view
+
 #begin Views/Title/TitleView.view
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor

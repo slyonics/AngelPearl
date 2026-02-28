@@ -40,18 +40,21 @@ namespace AngelPearl.Models
 
         public long HP { get; set; }
         public int MP { get; set; }
-        public int Power { get; set; }
-        public int Finesse { get; set; }
-		public int Magic { get; set; }
-        public int Charisma { get; set; }
-		public int Guts { get; set; }
 
+        public int PhysicalAttack { get; set; }
 		public int PhysicalDefense { get; set; }
 		public int PhysicalEvade { get; set; }
+
+        public int MagicAttack { get; set; }
         public int MagicDefense { get; set; }
         public int MagicEvade { get; set; }
 
-        public AttackData[] Attacks { get; set; }
+		public int Skill { get; set; }
+		public int Reflex { get; set; }
+		public int Heart { get; set; }
+		public int Mind { get; set; }
+
+		public AttackData[] Attacks { get; set; }
 
         public ElementType[] ElementWeak { get; set; }
         public ElementType[] ElementStrong { get; set; }

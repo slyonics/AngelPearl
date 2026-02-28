@@ -79,8 +79,9 @@ namespace AngelPearl.Scenes.LoadingScene
 					GameProfile.NewState();
 
 					// CrossPlatformGame.SetCurrentScene(new MapScene.MapScene(GameMap.Overworld, "Default"));
-                    CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North));
-                }
+					// CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North));
+					CrossPlatformGame.SetCurrentScene(new BaseScene.BaseScene());
+				}
 			}
         }
 

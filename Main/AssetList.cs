@@ -20,6 +20,7 @@ namespace AngelPearl.Main
         Crawler_CommandView,
         Crawler_MapView,
         Crawler_TargetView,
+        HomeBase_BaseView,
         Title_TitleView,
 
         None = -1
@@ -96,6 +97,7 @@ namespace AngelPearl.Main
     {
         Palette,
         Background_Blank,
+        Background_Nebulae,
         Background_Splash,
         Enemies_Avatar,
         Enemies_Golem,

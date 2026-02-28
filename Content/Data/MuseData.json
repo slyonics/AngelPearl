@@ -9,10 +9,17 @@
 		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
-		"BaseMagic": 1,
-		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Pearl Rod"
+		"BaseMind": 1,
+		"Weapon": "Pearl Rod",
+		"Accessory": "Focus Stone",
+		"CosmoEngine": {
+			"BasePower": 4,
+			"BaseMagic": 4,
+			"BaseArmor": 4,
+			"BaseResist": 4,
+			"ActiveModules": [ "Module" ]
+		}
 	},
 	{
 		"Name": "Aika",
@@ -27,7 +34,15 @@
 		"BaseMagic": 1,
 		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Ram Piston"
+		"Weapon": "Ram Piston",
+		"Accessory": "Focus Stone",
+		"CosmoEngine": {
+			"BasePower": 4,
+			"BaseMagic": 4,
+			"BaseArmor": 4,
+			"BaseResist": 4,
+			"ActiveModules": [ "Module" ]
+		}
 	},
 	{
 		"Name": "Chika",
@@ -43,7 +58,14 @@
 		"BaseTech": 3,
 		"BaseHeart": 1,
 		"Weapon": "Ruby Staff",
-		"ActiveModules": [ "Module" ]
+		"Accessory": "Focus Stone",
+		"CosmoEngine": {
+			"BasePower": 4,
+			"BaseMagic": 4,
+			"BaseArmor": 4,
+			"BaseResist": 4,
+			"ActiveModules": [ "Module" ]
+		}
 	},
 	{
 		"Name": "Karin",
@@ -58,7 +80,15 @@
 		"BaseMagic": 1,
 		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Ruby Staff"
+		"Weapon": "Ruby Staff",
+		"Accessory": "Focus Stone",
+		"CosmoEngine": {
+			"BasePower": 4,
+			"BaseMagic": 4,
+			"BaseArmor": 4,
+			"BaseResist": 4,
+			"ActiveModules": [ "Module" ]
+		}
 	},
 	{
 		"Name": "Faye",
@@ -73,7 +103,15 @@
 		"BaseMagic": 1,
 		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Ruby Staff"
+		"Weapon": "Ruby Staff",
+		"Accessory": "Focus Stone",
+		"CosmoEngine": {
+			"BasePower": 4,
+			"BaseMagic": 4,
+			"BaseArmor": 4,
+			"BaseResist": 4,
+			"ActiveModules": [ "Module" ]
+		}
 	},
 	{
 		"Name": "Naomi",
@@ -88,6 +126,14 @@
 		"BaseMagic": 1,
 		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Ruby Staff"
+		"Weapon": "Ruby Staff",
+		"Accessory": "Focus Stone",
+		"CosmoEngine": {
+			"BasePower": 4,
+			"BaseMagic": 4,
+			"BaseArmor": 4,
+			"BaseResist": 4,
+			"ActiveModules": [ "Module" ]
+		}
 	}
 ]

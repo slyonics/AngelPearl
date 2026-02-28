@@ -174,6 +174,7 @@
     <None Include="Content\Views\Crawler\CommandView.view" />
     <None Include="Content\Views\Crawler\MapView.view" />
     <None Include="Content\Views\Crawler\TargetView.view" />
+    <None Include="Content\Views\HomeBase\BaseView.view" />
     <None Include="Content\Views\Title\TitleView.view" />
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">

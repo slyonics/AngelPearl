@@ -16,7 +16,7 @@ namespace AngelPearl.Scenes.BaseScene
 {
     public class BaseScene : Scene
     {
-
+		Texture2D nebulae = AssetCache.SPRITES[GameSprite.Background_Nebulae];
 
 
 		public BaseScene()
@@ -29,18 +29,21 @@ namespace AngelPearl.Scenes.BaseScene
 		{
 			base.BeginScene();
 
-
 		}
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
-        }
+			if (Input.CurrentInput.AnythingPressed())
+			{
+				CrossPlatformGame.Transition(new Task<Scene>(() => new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North)));
+			}
+		}
 
 		public override void DrawBackground(SpriteBatch spriteBatch)
 		{
-
+			spriteBatch.Draw(nebulae, Vector2.Zero, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.9f);
 		}
 
     }

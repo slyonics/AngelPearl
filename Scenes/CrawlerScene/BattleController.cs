@@ -361,29 +361,36 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             switch (tokens[1])
             {
-                case "Bows":
-                    attack = attacker.Stats.Skill.Value + Rng.RandomInt(0, 3);
-                    multiplier = attacker.Stats.Reflex.Value * attacker.Stats.Level.Value / 256 + 2;
-                    defense = target.Stats.Heart.Value;
+                case "Melee":
+
+                    attack = attacker.Stats.PhysicalAttack.Value + Rng.RandomInt(0, 3);
+                    multiplier = attacker.Stats.Skill.Value * attacker.Stats.Level.Value / 256 + 2;
+                    defense = target.Stats.PhysicalDefense.Value;
                     break;
 
-                case "Magic":
+				case "Ranged":
+					attack = attacker.Stats.PhysicalAttack.Value + Rng.RandomInt(0, 3);
+					multiplier = attacker.Stats.Skill.Value * attacker.Stats.Level.Value / 256 + 2;
+					defense = target.Stats.PhysicalDefense.Value;
+					break;
+
+				case "Magic":
                     attack = commandRecord.Power + Rng.RandomInt(0, commandRecord.Power / 8);
-                    multiplier = attacker.Stats.Magic.Value * attacker.Stats.Level.Value / 256 + 4;
+                    multiplier = attacker.Stats.Heart.Value * attacker.Stats.Level.Value / 256 + 4;
                     defense = target.Stats.MagicDefense.Value;
                     break;
 
                 case "Monster":
-                    attack = attackData.Power < 0 ? attacker.Stats.Skill.Value : attackData.Power;
+                    attack = attackData.Power < 0 ? attacker.Stats.PhysicalAttack.Value : attackData.Power;
                     attack += Rng.RandomInt(0, attack / 8);
                     multiplier = attacker.Stats.Skill.Value;
-                    defense = target.Stats.Heart.Value;
+                    defense = target.Stats.PhysicalDefense.Value;
                     break;
 
                 case "MonsterMagic":
-                    attack = attackData.Power < 0 ? attacker.Stats.Magic.Value : attackData.Power;
+                    attack = attackData.Power < 0 ? attacker.Stats.MagicAttack.Value : attackData.Power;
                     attack += Rng.RandomInt(0, attack / 8);
-                    multiplier = attacker.Stats.Magic.Value;
+                    multiplier = attacker.Stats.Heart.Value;
                     defense = target.Stats.MagicDefense.Value;
                     break;
 
@@ -449,7 +456,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             else
             {
                 int power = commandRecord.Power + Rng.RandomInt(0, commandRecord.Power / 8);
-                int multiplier = attacker.Stats.Level.Value * attacker.Stats.Magic.Value / 256 + 4;
+                int multiplier = attacker.Stats.Level.Value * attacker.Stats.Heart.Value / 256 + 4;
 
                 int healing = power * multiplier;
 

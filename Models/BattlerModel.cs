@@ -87,14 +87,16 @@ namespace AngelPearl.Models
             MaxMP.Value = enemyRecord.MP;
             MP.Value = MaxMP.Value;
 
-            Skill.Value = enemyRecord.Power;
-            Reflex.Value = enemyRecord.Finesse;
-            Magic.Value = enemyRecord.Magic;
-            Tech.Value = enemyRecord.Charisma;
-			Heart.Value = enemyRecord.Guts;
+			Skill.Value = enemyRecord.Skill;
+			Reflex.Value = enemyRecord.Reflex;
+			Heart.Value = enemyRecord.Heart;
+			Mind.Value = enemyRecord.Mind;
 
+			PhysicalAttack.Value = enemyRecord.PhysicalAttack;
 			PhysicalDefense.Value = enemyRecord.PhysicalDefense;
             PhysicalEvade.Value = enemyRecord.PhysicalEvade;
+
+            MagicAttack.Value = enemyRecord.MagicAttack;
             MagicDefense.Value = enemyRecord.MagicDefense;
             MagicEvade.Value = enemyRecord.MagicEvade;
 
@@ -121,25 +123,22 @@ namespace AngelPearl.Models
         public ModelProperty<string> Description { get; set; } = new ModelProperty<string>("This is your own party member, you fool.");
 
         public ModelCollection<AilmentType> StatusAilments { get; set; } = new ModelCollection<AilmentType>();
+
         public ModelProperty<long> HP { get; set; } = new ModelProperty<long>(100);
         public ModelProperty<long> MaxHP { get; set; } = new ModelProperty<long>(100);
         public ModelProperty<int> MP { get; set; } = new ModelProperty<int>(10);
         public ModelProperty<int> MaxMP { get; set; } = new ModelProperty<int>(10);
 
-        public ModelProperty<int> Skill { get; set; } = new ModelProperty<int>(3);
-        public ModelProperty<int> Reflex { get; set; } = new ModelProperty<int>(3);
-        public ModelProperty<int> Magic { get; set; } = new ModelProperty<int>(3);
-        public ModelProperty<int> Tech { get; set; } = new ModelProperty<int>(3);
-		public ModelProperty<int> Heart { get; set; } = new ModelProperty<int>(3);
+		public ModelProperty<int> Skill { get; set; } = new ModelProperty<int>(1);
+		public ModelProperty<int> Reflex { get; set; } = new ModelProperty<int>(1);
+		public ModelProperty<int> Heart { get; set; } = new ModelProperty<int>(1);
+		public ModelProperty<int> Mind { get; set; } = new ModelProperty<int>(1);
 
-		public ModelProperty<int> Control { get; set; } = new ModelProperty<int>(3);
-		public ModelProperty<int> Sensors { get; set; } = new ModelProperty<int>(3);
-		public ModelProperty<int> Resonance { get; set; } = new ModelProperty<int>(3);
-		public ModelProperty<int> Energy { get; set; } = new ModelProperty<int>(3);
-		public ModelProperty<int> Shielding { get; set; } = new ModelProperty<int>(3);
-
+		public ModelProperty<int> PhysicalAttack { get; set; } = new ModelProperty<int>(3);
 		public ModelProperty<int> PhysicalDefense { get; set; } = new ModelProperty<int>(0);
         public ModelProperty<int> PhysicalEvade { get; set; } = new ModelProperty<int>(0);
+
+        public ModelProperty<int> MagicAttack { get; set; } = new ModelProperty<int>(3);
         public ModelProperty<int> MagicDefense { get; set; } = new ModelProperty<int>(0);
         public ModelProperty<int> MagicEvade { get; set; } = new ModelProperty<int>(0);
 
