@@ -25,8 +25,6 @@ namespace AngelPearl.Models
             //SaveSlot = -1;
             CurrentSave = new SaveProfile();
 
-            CurrentSave.Money.Value = 800;
-
 			HeroModel heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Proxy"));
 			CurrentSave.Party.Add(heroModel);
 
@@ -38,6 +36,8 @@ namespace AngelPearl.Models
 
 			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Karin"));
 			CurrentSave.Party.Add(heroModel);
+
+			CurrentSave.CurrentMission = new ModelProperty<MissionRecord>(MissionRecord.MISSIONS.First(x => x.Name == "Gabriel"));
 		}
 
 		public static void LoadState(int slot)

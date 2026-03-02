@@ -12,7 +12,7 @@ using AngelPearl.Models;
 using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Controllers;
 using AngelPearl.SceneObjects.Shaders;
-using AngelPearl.Scenes.MapScene;
+using AngelPearl.Scenes.BaseScene;
 using AngelPearl.Scenes.CrawlerScene;
 
 namespace AngelPearl.Main

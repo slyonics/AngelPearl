@@ -143,8 +143,6 @@ namespace AngelPearl.SceneObjects
 					case "StackScene": StackScene(tokens); break;
 					case "Switch": Switch(tokens); break;
 
-                    case "AddMoney": GameProfile.CurrentSave.Money.Value = GameProfile.CurrentSave.Money.Value + int.Parse(tokens[1]); break;
-
                     case "ScreenShake":
 						parentScene.AddController(new TransitionController(TransitionDirection.In, int.Parse(tokens[1]))).UpdateTransition += new Action<float>(amount =>
 						{
@@ -188,7 +186,6 @@ namespace AngelPearl.SceneObjects
 						case "$bottom": return CrossPlatformGame.SCREEN_HEIGHT.ToString();
 						case "$top": return "0";
 						case "$left": return "0";
-						case "$money": return GameProfile.CurrentSave.Money.Value.ToString();
 						case "$selection": return GameProfile.GetSaveData<string>("LastSelection");
 						default:
 							if (parameter.Contains("$random"))

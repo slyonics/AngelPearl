@@ -5,7 +5,7 @@ using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Controllers;
 using AngelPearl.SceneObjects.Shaders;
 using AngelPearl.SceneObjects.ViewModels;
-using AngelPearl.Scenes.MapScene;
+using AngelPearl.Scenes.BaseScene;
 using System;
 using System.Collections.Generic;
 using System.Linq;

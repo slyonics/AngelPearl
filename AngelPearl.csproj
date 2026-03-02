@@ -48,6 +48,7 @@
     <Compile Include="Models\EnemyRecord.cs" />
     <Compile Include="Models\GameProfile.cs" />
     <Compile Include="Models\HeroModel.cs" />
+    <Compile Include="Models\MissionRecord.cs" />
     <Compile Include="Models\MuseRecord.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\ItemRecord.cs" />
@@ -100,6 +101,8 @@
     <Compile Include="SceneObjects\Widgets\Textplate.cs" />
     <Compile Include="SceneObjects\Widgets\Tooltip.cs" />
     <Compile Include="Scenes\BaseScene\BaseScene.cs" />
+    <Compile Include="Scenes\BaseScene\MissionViewModel.cs" />
+    <Compile Include="Scenes\BaseScene\BaseViewModel.cs" />
     <Compile Include="Scenes\CrawlerScene\BattleController.cs" />
     <Compile Include="Scenes\CrawlerScene\BattlePlayer.cs" />
     <Compile Include="Scenes\CrawlerScene\Battler.cs" />
@@ -127,6 +130,7 @@
   <ItemGroup>
     <Content Include="Content\Data\ConversationData.json" />
     <Content Include="Content\Data\EncounterData.json" />
+    <Content Include="Content\Data\MissionData.json" />
     <Content Include="Content\Data\EnemyData.json" />
     <Content Include="Content\Data\MuseData.json" />
     <Content Include="Content\Data\ItemData.json" />
@@ -175,6 +179,7 @@
     <None Include="Content\Views\Crawler\MapView.view" />
     <None Include="Content\Views\Crawler\TargetView.view" />
     <None Include="Content\Views\HomeBase\BaseView.view" />
+    <None Include="Content\Views\HomeBase\MissionView.view" />
     <None Include="Content\Views\Title\TitleView.view" />
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">

@@ -192,7 +192,8 @@ namespace AngelPearl.Scenes.LoadingScene
 					EnemyRecord.ENEMIES = AssetCache.LoadRecords<EnemyRecord>("Data/EnemyData");
 					EncounterRecord.ENCOUNTERS = AssetCache.LoadRecords<EncounterRecord>("Data/EncounterData");
 					ItemRecord.ITEMS = AssetCache.LoadRecords<ItemRecord>("Data/ItemData");
-                    currentPhase = LoadingPhase.InitializingScenes;
+					MissionRecord.MISSIONS = AssetCache.LoadRecords<MissionRecord>("Data/MissionData");
+					currentPhase = LoadingPhase.InitializingScenes;
 					loadingMessage = "Initializing scenes ...";
 					break;
 

@@ -17,7 +17,7 @@ namespace AngelPearl.Main
 
 		public static readonly Dictionary<GameFont, GameFontData> FONT_DATA = new Dictionary<GameFont, GameFontData>()
 		{
-			{ GameFont.Interface, new GameFontData() { fontHeight = 7 } },
+			{ GameFont.Interface, new GameFontData() { fontHeight = 7, heightOffset = -1 } },
             { GameFont.Console, new GameFontData() { fontHeight = 8 } },
 			{ GameFont.LargeConsole, new GameFontData() { fontHeight = 10 } },
 			{ GameFont.Dialogue, new GameFontData() { fontHeight = 14, heightOffset = -1 } }

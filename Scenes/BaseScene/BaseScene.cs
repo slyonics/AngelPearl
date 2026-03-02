@@ -16,6 +16,8 @@ namespace AngelPearl.Scenes.BaseScene
 {
     public class BaseScene : Scene
     {
+		public BaseViewModel BaseViewModel { get; private set; }
+
 		Texture2D nebulae = AssetCache.SPRITES[GameSprite.Background_Nebulae];
 
 
@@ -29,6 +31,9 @@ namespace AngelPearl.Scenes.BaseScene
 		{
 			base.BeginScene();
 
+			BaseViewModel = AddView(new BaseViewModel(this, GameProfile.CurrentSave.CurrentMission.Value));
+
+			Audio.PlayMusic(GameMusic.MissionSelect);
 		}
 
         public override void Update(GameTime gameTime)

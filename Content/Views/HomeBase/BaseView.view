@@ -1,18 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
-	
-	<Image Picture="GameLogo" Anchor="$CenterX,$CenterY" Bounds="-145,-90,290,85" Color="Bind LogoColor" />
-	
-	<RadioBox Name="CommandBox" Style="OrnateFrame" Items="Ref AvailableCommands" Scrolling="False" Alignment="Stretch" SelectSound="None" Anchor="$CenterX,$CenterY" Bounds="-80,-5,160,74" InnerMargin="6,6,6,6">
-		<RadioButton Style="Blank" PushedStyle="LabelGlow" Bounds="0,0,100,10" Alignment="Vertical" Action="SelectCommand" ActionParameter="Ref DataGrid">
-			<Label Text="Ref DataGrid" Alignment="Center" Font="Console" TextAlignment="Center" Color="#E000C0" Bounds="0,0,100,10"/>
-		</RadioButton>
-	</RadioBox>
-	
-	<RadioBox Name="CharacterBox" Style="OrnatePanel" Items="Ref AvailableCharacters" Scrolling="False" Alignment="Stretch" SelectSound="None" Anchor="$CenterX,$CenterY" Bounds="-136,-80,272,80" InnerMargin="8,8,8,8">
-		<RadioButton Style="Blank" PushedStyle="LabelGlow" Bounds="0,0,64,64" Alignment="Cascading" Action="SelectCharacter" ActionParameter="Ref DataGrid">
-			<Image Picture="Bind DataGrid" Alignment="Bottom" Color="#FF0080" />
-		</RadioButton>
-	</RadioBox>
+
+	<Panel Bounds="45,3,230,132" InnerMargin="2,2,2,2" >
+
+		<RadioBox Name="CommandBox" Style="ThinPanel" Items="Bind AvailableCommands" Alignment="Center" Bounds="Bind CommandBounds" InnerMargin="5,5,5,5" >
+			<RadioButton Style="Blank" PushedStyle="Cursor" Bounds="0,0,90,9" Alignment="Cascading" Action="SelectCommand" ActionParameter="Bind DataGrid">
+				<Label Text="Bind DataGrid" Font="Interface" TextAlignment="Left" Bounds="8,-4,126,9"/>
+			</RadioButton>
+		</RadioBox>
+
+	</Panel>
+
+	<Panel Style="OrnatePanel" Bounds="70,7,180,20" InnerMargin="3,3,3,3">
+		<Label Text="Bind Header" Alignment="Center" TextAlignment="Center" Bounds="0,0,160,10"/>
+	</Panel>
+
+	<Panel Style="OrnatePanel" Bounds="25,137,270,40" InnerMargin="8,5,8,8">
+		<CrawlText Name="NarrationText" Text="Bind Narration" Font="Dialogue" Alignment="Stretch" Color="#E000C0FF"/>
+	</Panel>
 
 </View>

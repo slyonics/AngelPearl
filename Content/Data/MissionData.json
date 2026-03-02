@@ -1,0 +1,17 @@
+[
+	{
+		"Name": "Gabriel",
+		"Description": "Name meaning Emissary of God",
+		"TimeLimit": 12,
+		"AngelSprite": "Widgets_Comet",
+		"Checkpoints": [
+			{
+				"Name": "Entrance",
+				"SpawnMap": "TestAngel",
+				"SpawnX": 6,
+				"SpawnY": 13,
+				"SpawnDirection": "North"
+			}
+		]
+	}
+]

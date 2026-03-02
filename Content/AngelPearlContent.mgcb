@@ -35,6 +35,11 @@
 /processor:SimpleContentProcessor
 /build:Data/ItemData.json
 
+#begin Data/MissionData.json
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Data/MissionData.json
+
 #begin Data/MuseData.json
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
@@ -74,6 +79,11 @@
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
 /build:Maps/TestAngelD2.ldtk
+
+#begin Music/MissionSelect.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/build:Music/MissionSelect.mp3
 
 #begin Music/VoxTest.mp3
 /importer:Mp3Importer
@@ -470,6 +480,16 @@
 /processor:TextureProcessor
 /build:Sprites/Widgets/Images/Backward.png
 
+#begin Sprites/Widgets/Images/Comet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Comet.png
+
+#begin Sprites/Widgets/Images/Earth.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Earth.png
+
 #begin Sprites/Widgets/Images/Enter.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -500,6 +520,11 @@
 /processor:TextureProcessor
 /build:Sprites/Widgets/Images/MiniMap.png
 
+#begin Sprites/Widgets/Images/Moon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Moon.png
+
 #begin Sprites/Widgets/Images/Pointer.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -514,6 +539,11 @@
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Widgets/Images/StrafeRight.png
+
+#begin Sprites/Widgets/Images/Sun.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Images/Sun.png
 
 #begin Sprites/Widgets/Images/TurnLeft.png
 /importer:TextureImporter
@@ -654,6 +684,11 @@
 /importer:SimpleContentImporter
 /processor:SimpleContentProcessor
 /build:Views/HomeBase/BaseView.view
+
+#begin Views/HomeBase/MissionView.view
+/importer:SimpleContentImporter
+/processor:SimpleContentProcessor
+/build:Views/HomeBase/MissionView.view
 
 #begin Views/Title/TitleView.view
 /importer:SimpleContentImporter

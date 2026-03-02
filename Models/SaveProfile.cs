@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Reflection.PortableExecutable;
+using AngelPearl.Scenes.CrawlerScene;
 
 namespace AngelPearl.Models
 {
@@ -37,15 +38,14 @@ namespace AngelPearl.Models
                 int itemQuantity = reader.ReadInt32();
                 AddInventory(itemName, itemQuantity);
             }
-            Money.Value = reader.ReadInt64();
-
-            Steps.Value = reader.ReadInt64();
 
             LocationName.Value = reader.ReadString();
-            LastMap = reader.ReadString();
-            LastSpawn = reader.ReadString();
+            SaveMapName = reader.ReadString();
+            SaveMapX = reader.ReadInt32();
+			SaveMapY = reader.ReadInt32();
+			SaveDirection = (Direction)reader.ReadInt32();
 
-            SaveData = new Dictionary<string, object>();
+			SaveData = new Dictionary<string, object>();
             int saveCount = reader.ReadInt32();
             for (int i = 0; i < saveCount; i++)
             {
@@ -109,15 +109,14 @@ namespace AngelPearl.Models
                 writer.Write(item.Value.ItemRecord.Name);
                 writer.Write(item.Value.Quantity.Value);
             }
-            writer.Write(Money.Value);
-
-            writer.Write(Steps.Value);
 
             writer.Write(LocationName.Value);
-            writer.Write(LastMap);
-            writer.Write(LastSpawn);
+            writer.Write(SaveMapName);
+            writer.Write(SaveMapX);
+			writer.Write(SaveMapY);
+			writer.Write((int)SaveDirection);
 
-            writer.Write(SaveData.Count);
+			writer.Write(SaveData.Count);
             foreach (var item in SaveData)
             {
                 writer.Write(item.Key);
@@ -135,20 +134,18 @@ namespace AngelPearl.Models
 
 
 		public ModelCollection<HeroModel> Party { get; set; } = new ModelCollection<HeroModel>();
-
+		public ModelCollection<HeroModel> Roster { get; set; } = new ModelCollection<HeroModel>();
 		public ModelCollection<ItemModel> Inventory { get; set; } = new ModelCollection<ItemModel>();
-		public ModelProperty<long> Money { get; set; } = new ModelProperty<long>(13);
 
-		public ModelProperty<long> Steps { get; set; } = new ModelProperty<long>(0);
+        public ModelProperty<string> LocationName { get; set; } = new ModelProperty<string>("S.T.A.R. Base");
+        public string SaveMapName { get; set; } = "";
+		public int SaveMapX { get; set; } = 12;
+		public int SaveMapY { get; set; } = 12;
+		public Direction SaveDirection { get; set; } = Direction.North;
 
-        public ModelProperty<string> LocationName { get; set; } = new ModelProperty<string>("Your House");                
-        public string LastMap { get; set; } = "Interior";
-		public string LastSpawn { get; set; } = "Intro";
+		public ModelProperty<MissionRecord> CurrentMission { get; set; } = new ModelProperty<MissionRecord>();
 
-
-        public float TimeOfDay { get; set; } = 660;
-        public int DayOfYear { get; set; } = 2;
-        public int Year { get; set; } = 1050;
+		public ModelProperty<int> DayOfYear { get; set; } = new ModelProperty<int>(12);
 
 
 

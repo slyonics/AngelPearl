@@ -1,6 +1,6 @@
 ﻿using AngelPearl.Main;
 using AngelPearl.SceneObjects.Maps;
-using AngelPearl.Scenes.MapScene;
+using AngelPearl.Scenes.BaseScene;
 using ldtk;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

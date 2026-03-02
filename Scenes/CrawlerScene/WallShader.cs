@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AngelPearl.Scenes.MapScene
+namespace AngelPearl.Scenes.BaseScene
 {
     public class WallShader : Shader
     {

@@ -21,6 +21,7 @@ namespace AngelPearl.Main
         Crawler_MapView,
         Crawler_TargetView,
         HomeBase_BaseView,
+        HomeBase_MissionView,
         Title_TitleView,
 
         None = -1
@@ -64,6 +65,7 @@ namespace AngelPearl.Main
     public enum GameMusic
     {
         Battle1,
+        MissionSelect,
         VoxTest,
 
         None = -1
@@ -75,6 +77,7 @@ namespace AngelPearl.Main
         EncounterData,
         EnemyData,
         ItemData,
+        MissionData,
         MuseData,
 
         None = -1
@@ -137,15 +140,19 @@ namespace AngelPearl.Main
         Widgets_Gauges_TechGaugeBar,
         Widgets_Gauges_TechSlider,
         Widgets_Images_Backward,
+        Widgets_Images_Comet,
+        Widgets_Images_Earth,
         Widgets_Images_Enter,
         Widgets_Images_FoeMarker,
         Widgets_Images_Forward,
         Widgets_Images_GameLogo,
         Widgets_Images_Icons,
         Widgets_Images_MiniMap,
+        Widgets_Images_Moon,
         Widgets_Images_Pointer,
         Widgets_Images_StrafeLeft,
         Widgets_Images_StrafeRight,
+        Widgets_Images_Sun,
         Widgets_Images_TurnLeft,
         Widgets_Images_TurnRight,
         Widgets_Images_YouAreHere,

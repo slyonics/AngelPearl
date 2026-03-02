@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using AngelPearl.Main;
-using AngelPearl.Scenes.MapScene;
+using AngelPearl.Scenes.BaseScene;
 using System;
 using System.Collections.Generic;
 
