@@ -25,17 +25,17 @@ namespace AngelPearl.Models
             //SaveSlot = -1;
             CurrentSave = new SaveProfile();
 
-			HeroModel heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Proxy"));
-			CurrentSave.Party.Add(heroModel);
+			HeroModel proxy = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Proxy"));
+			CurrentSave.Roster.Add(proxy);
 
-			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Aika"));
-			CurrentSave.Party.Add(heroModel);
+			HeroModel aika = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Aika"));
+			CurrentSave.Roster.Add(aika);
 
-			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Chika"));
-			CurrentSave.Party.Add(heroModel);
+			HeroModel faye = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Faye"));
+			CurrentSave.Roster.Add(faye);
 
-			heroModel = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Karin"));
-			CurrentSave.Party.Add(heroModel);
+			HeroModel karin = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Karin"));
+			CurrentSave.Roster.Add(karin);
 
 			CurrentSave.CurrentMission = new ModelProperty<MissionRecord>(MissionRecord.MISSIONS.First(x => x.Name == "Gabriel"));
 		}

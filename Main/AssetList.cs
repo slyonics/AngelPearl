@@ -102,6 +102,7 @@ namespace AngelPearl.Main
         Background_Blank,
         Background_Nebulae,
         Background_Splash,
+        Background_YellowStars,
         Enemies_Avatar,
         Enemies_Golem,
         NPCs_Chest,

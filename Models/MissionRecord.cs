@@ -21,11 +21,12 @@ namespace AngelPearl.Models
         public string Name { get; set; }
 		public string Description { get; set; }
 
+		public int MissionStart { get; set; }
 		public int TimeLimit { get; set; }
 
 		public string AngelSprite { get; set; }
-		public string AngelStartX { get; set; }
-		public string AngelStartY { get; set; }
+		public int AngelStartX { get; set; }
+		public int AngelStartY { get; set; }
 
 		public MissionCheckpoint[] Checkpoints { get; set; }
 

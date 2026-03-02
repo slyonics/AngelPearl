@@ -36,9 +36,7 @@ namespace AngelPearl.Scenes.BaseScene
             SellEquipment,
             OutfitHero,
             
-            RecruitHero,
-            HearRumors,
-            RestOvernight
+            Mission
 		}
 
         public delegate void NarrationFinished();
@@ -69,6 +67,8 @@ namespace AngelPearl.Scenes.BaseScene
             AvailableCommands.Add("Prepare for Mission");
             AvailableCommands.Add("Modify Cosmo Engine");
 			AvailableCommands.Add("Visit the Muse Lounge");
+
+            DaysLeft.Value = iMissionRecord.TimeLimit - GameProfile.CurrentSave.DayOfYear.Value - iMissionRecord.MissionStart;
 
 			LoadView(GameView.HomeBase_BaseView);
 
@@ -146,9 +146,7 @@ namespace AngelPearl.Scenes.BaseScene
                         }
                         break;
 
-                    case SubMenu.RecruitHero:
-                    case SubMenu.HearRumors:
-                    case SubMenu.RestOvernight:
+                    case SubMenu.Mission:
 						{
 							CurrentMenu = SubMenu.Tavern;
 							CommandBox.Visible = false;
@@ -239,11 +237,11 @@ namespace AngelPearl.Scenes.BaseScene
 					this.Terminate();
                     break;
 
-                case "Recruit Hero":
+                case "Prepare for Mission":
                     {
-						CurrentMenu = SubMenu.RecruitHero;
+						CurrentMenu = SubMenu.Mission;
 						CommandBox.Visible = false;
-						Header.Value = "Recruit Heroes";
+						Header.Value = "Assemble Squad";
 
 						ChildViewModel = mapScene.AddView(new MissionViewModel(mapScene, this, []));
 					}
@@ -261,5 +259,7 @@ namespace AngelPearl.Scenes.BaseScene
         public ModelProperty<Rectangle> CommandBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 100, 55));
 
 		public ModelCollection<string> AvailableItems { get; set; } = new ModelCollection<string>();
+
+		public ModelProperty<int> DaysLeft { get; set; } = new ModelProperty<int>(1);
 	}
 }

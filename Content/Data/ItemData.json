@@ -66,7 +66,26 @@
 		"Accuracy": 9,
 		"Priority": "Melee",
 		"BattleScript": [
-			"Narrate $attackerName attacks with Vice Klaws!",
+			"Narrate $attackerName attacks with Vice Claws!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Melee Sharp",
+			"Flash 255 0 0",
+			"Damage Magic Sharp"
+		]
+	},
+	{
+		"Name": "Orbital Drones",
+		"Description": "Swarm of levitating impact drones.",
+		"Icon": "6,3",
+		"ItemType": "Weapon",
+		"Targetting": "OneEnemy",
+		"Power": 16,
+		"Accuracy": 9,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName attacks with Orbital Drones!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",

@@ -145,7 +145,7 @@ namespace AngelPearl.Models
 
 		public ModelProperty<MissionRecord> CurrentMission { get; set; } = new ModelProperty<MissionRecord>();
 
-		public ModelProperty<int> DayOfYear { get; set; } = new ModelProperty<int>(12);
+		public ModelProperty<int> DayOfYear { get; set; } = new ModelProperty<int>(1);
 
 
 

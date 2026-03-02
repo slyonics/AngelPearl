@@ -290,6 +290,11 @@
 /processor:TextureProcessor
 /build:Sprites/Background/Splash.png
 
+#begin Sprites/Background/YellowStars.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Background/YellowStars.png
+
 #begin Sprites/Enemies/Avatar.png
 /importer:TextureImporter
 /processor:TextureProcessor

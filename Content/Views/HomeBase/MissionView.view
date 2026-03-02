@@ -3,41 +3,20 @@
 	
 	<Panel Bounds="45,3,230,132">
 
-		<RadioBox Name="HireBox" Style="ThinPanel" Items="Bind AvailableHeroes" Bounds="4,26,138,35" InnerMargin="5,4,5,4" OnSelect="NewSelection">
+		<RadioBox Name="HireBox" Style="ThinPanel" Items="Bind PlayerProfile.Roster" Anchor="$CenterX,$CenterY" Bounds="4,26,138,35" InnerMargin="5,4,5,4" OnSelect="NewSelection">
 			<RadioButton Style="Blank" PushedStyle="Cursor" Bounds="0,0,128,9" Alignment="Cascading" Action="SelectCommand" ActionParameter="Bind DataGrid">
-				<Label Text="Ref DataGrid.Name" Font="Rebuttal" TextAlignment="Left" Bounds="8,-4,56,9" Alignment="Cascading"/>
-				<Label Text="Ref DataGrid.ClassLevel" Font="Rebuttal" TextAlignment="Left" Bounds="0,-4,36,9" Alignment="Cascading"/>
-				<Image Icon="15,18" Alignment="Cascading" Bounds="4,1,8,8" Color="#FF0080FF"/>
-				<Label Text="Ref DataGrid.Cost" Font="Rebuttal" TextAlignment="Left" Bounds="2,-4,15,9" Alignment="Cascading"/>
+				<Label Text="Ref DataGrid.Name" Font="Interface" TextAlignment="Left" Bounds="8,-4,56,9" Alignment="Cascading"/>
 			</RadioButton>
 		</RadioBox>
 
-		<Panel Style="ThinPanel" Bounds="86,61,56,15" InnerMargin="5,3,5,3">
-			<Image Icon="15,18" Alignment="Cascading" Bounds="0,1,8,8" Color="#FF0080FF"/>
-			<Label Text="Bind PlayerProfile.Money" Font="Rebuttal" Alignment="Cascading" TextAlignment="Left" Bounds="2,-4,30,9"/>
+		<Panel Style="ThinPanel" Bounds="4,67,74,15" Anchor="$CenterX,$CenterY" InnerMargin="5,3,5,3">
+			<Label Text="Active Party" Font="Interface" TextAlignment="Left" Bounds="1,-4,64,9"/>
 		</Panel>
 
-		<Panel Style="ThinPanel" Bounds="4,67,74,15" InnerMargin="5,3,5,3">
-			<Label Text="Active Party" Font="Rebuttal" TextAlignment="Left" Bounds="1,-4,64,9"/>
-		</Panel>
-
-		<Panel Style="ThinPanel" Bounds="4,82,103,46" InnerMargin="5,5,5,5">
+		<Panel Style="ThinPanel" Bounds="4,82,103,46" Anchor="$CenterX,$CenterY" InnerMargin="5,5,5,5">
 			<DataGrid Name="PartyBox" Items="Bind PlayerProfile.Party" Alignment="Stretch" >
 				<Panel Bounds="0,0,93,9" Alignment="Cascading" >
-					<Label Text="Bind DataGrid.Name" Font="Rebuttal" TextAlignment="Left" Bounds="1,-4,56,9" Alignment="Cascading"/>
-					<Label Text="Bind DataGrid.ClassLevel" Font="Rebuttal" TextAlignment="Left" Bounds="0,-4,36,9" Alignment="Cascading"/>
-				</Panel>
-			</DataGrid>
-		</Panel>
-
-		<Panel Style="ThinPanel" Bounds="148,26,66,15" InnerMargin="5,3,5,3">
-			<Label Text="On Standby" Font="Rebuttal" TextAlignment="Center" Bounds="-1,-4,58,9"/>
-		</Panel>
-
-		<Panel Style="ThinPanel" Bounds="144,40,82,88" InnerMargin="5,5,5,5">
-			<DataGrid Name="RosterBox" Items="Bind PlayerProfile.BackBench" Alignment="Stretch" >
-				<Panel Bounds="0,0,72,9" Alignment="Cascading" >
-					<Label Text="Bind DataGrid.Name" Font="Rebuttal" TextAlignment="Center" Bounds="0,-4,56,9" Alignment="Cascading"/>
+					<Label Text="Bind DataGrid.Name" Font="Interface" TextAlignment="Left" Bounds="1,-3,56,9" Alignment="Cascading"/>
 				</Panel>
 			</DataGrid>
 		</Panel>
