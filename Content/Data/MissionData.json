@@ -1,9 +1,9 @@
 [
 	{
 		"Name": "Gabriel",
-		"Description": "Name means Emissary of God ",
+		"Description": "General mission description goes here.",
 		"Mission Start": 1,
-		"TimeLimit": 12,
+		"TimeLimit": 13,
 		"AngelSprite": "Widgets_Comet",
 		"AngelStartX": 420,
 		"AngelStartY": 180,
@@ -14,7 +14,8 @@
 				"SpawnMap": "TestAngel",
 				"SpawnX": 6,
 				"SpawnY": 13,
-				"SpawnDirection": "North"
+				"SpawnDirection": "North",
+				"Description": "After that is the checkpoint description."
 			}
 		]
 	}

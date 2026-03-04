@@ -41,7 +41,7 @@ namespace AngelPearl.Scenes.BaseScene
 		{
 			base.BeginScene();
 
-			BaseViewModel = AddView(new BaseViewModel(this, GameProfile.CurrentSave.CurrentMission.Value));
+			BaseViewModel = AddView(new BaseViewModel(this, GameProfile.CurrentSave.CurrentMission.Value, angelPosition));
 
 			Audio.PlayMusic(GameMusic.MissionSelect);
 		}
@@ -68,7 +68,7 @@ namespace AngelPearl.Scenes.BaseScene
 
 			spriteBatch.Draw(moon, new Vector2(210, 150), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.6f);
 
-			spriteBatch.Draw(angel, angelPosition, null, Color.White, 0.0f, new Vector2(-angel.Width / 2), 1.0f, SpriteEffects.FlipVertically, 0.4f);
+			spriteBatch.Draw(angel, angelPosition, null, Color.White, 0.0f, new Vector2(angel.Width / 2), 1.0f, SpriteEffects.FlipVertically, 0.4f);
 
 		}
 

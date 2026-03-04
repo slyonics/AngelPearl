@@ -2,14 +2,18 @@
 <View>
 
 
-		<Panel Style="MagicWindow" Bounds="-90,-160,180,20" Anchor="$CenterX,$CenterY" InnerMargin="3,3,3,3">
-			<Label Text="Bind Header" Alignment="Center" TextAlignment="Center" Bounds="0,0,160,10"/>
+		<Panel Style="MagicWindow" Bounds="Bind AngelHeaderBounds" InnerMargin="3,2,3,4">
+			<Label Text="Bind Header" Alignment="Stretch" TextAlignment="Center"/>
 		</Panel>
+
+	<Panel Style="MagicWindow" Bounds="190,122,92,20" InnerMargin="3,2,3,4">
+		<Label Text="S.T.A.R. Base" Alignment="Center" TextAlignment="Center" Bounds="0,0,84,10"/>
+	</Panel>
 
 		<Panel Style="MagicWindow" Bounds="-240,-160,120,40" Anchor="$CenterX,$CenterY" InnerMargin="8,8,8,8">
 			<Label Text="Year 3012" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,100,12"/>
 			<Label Text="Day" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,24,12"/>
-			<Label Text="Bind" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,16,12"/>
+			<Label Text="Bind PlayerProfile.DayOfYear" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,16,12"/>
 		</Panel>
 
 		<Panel Style="MagicWindow" Bounds="140,-160,120,40" Anchor="$CenterX,$CenterY" InnerMargin="8,8,8,8">
@@ -18,13 +22,13 @@
 			<Label Text="Bind DaysLeft" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,25,12"/>
 		</Panel>
 		
-		<RadioBox Name="CommandBox" Style="MagicWindow" Items="Bind AvailableCommands" Anchor="$CenterX,$CenterY"  Bounds="-270,90,200,90" InnerMargin="5,5,5,5" >
+		<RadioBox Name="CommandBox" Style="MagicWindow" Items="Bind AvailableCommands" Anchor="$CenterX,$CenterY"  Bounds="Bind CommandBounds" InnerMargin="5,5,5,5" >
 			<RadioButton Style="Blank" PushedStyle="Cursor" Bounds="0,0,190,9" Alignment="Cascading" Action="SelectCommand" ActionParameter="Bind DataGrid">
 				<Label Text="Bind DataGrid" Font="Interface" TextAlignment="Left" Bounds="8,-4,126,9"/>
 			</RadioButton>
 		</RadioBox>
 
-		<Panel Style="MagicWindow" Bounds="-70,90,340,90" Anchor="$CenterX,$CenterY" InnerMargin="8,5,8,8">
+		<Panel Style="MagicWindow" Bounds="-270,90,540,90" Anchor="$CenterX,$CenterY" InnerMargin="8,5,8,8">
 			<CrawlText Name="NarrationText" Text="Bind Narration" Font="Dialogue" Alignment="Stretch" Color="#E000C0FF"/>
 		</Panel>
 

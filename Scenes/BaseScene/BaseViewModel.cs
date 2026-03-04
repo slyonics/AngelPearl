@@ -54,13 +54,17 @@ namespace AngelPearl.Scenes.BaseScene
 
         private SubMenu CurrentMenu { get; set; } = SubMenu.Main;
 
-		public BaseViewModel(BaseScene iScene, MissionRecord iMissionRecord)
+		public BaseViewModel(BaseScene iScene, MissionRecord iMissionRecord, Vector2 angelPosition)
             : base(iScene, PriorityLevel.CutsceneLevel)
         {
             mapScene = iScene;
             missionRecord = iMissionRecord;
 
             Header.Value = missionRecord.Name;
+
+            int headerWidth = Text.GetStringLength(GameFont.Console, Header.Value);
+
+			AngelHeaderBounds.Value = new Rectangle((int)angelPosition.X - (headerWidth / 2), (int)angelPosition.Y - 32, headerWidth, 20);
 
             Narration.Value = missionRecord.Description;
 
@@ -251,8 +255,8 @@ namespace AngelPearl.Scenes.BaseScene
         }
 
 
-
-        public ModelProperty<string> Header { get; set; } = new ModelProperty<string>();
+		public ModelProperty<Rectangle> AngelHeaderBounds { get; set; } = new ModelProperty<Rectangle>();
+		public ModelProperty<string> Header { get; set; } = new ModelProperty<string>();
         public ModelProperty<string> Narration { get; set; } = new ModelProperty<string>();
 
         public ModelCollection<string> AvailableCommands { get; set; } = new ModelCollection<string>();
