@@ -13,6 +13,7 @@ namespace AngelPearl.Models
 		public int SpawnX { get; set; }
 		public int SpawnY { get; set; }
 		public string SpawnDirection { get; set; }
+		public string Description { get; set; }
 	}
 
 	public class MissionRecord

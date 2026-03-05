@@ -66,7 +66,7 @@ namespace AngelPearl.Scenes.BaseScene
 
 			AngelHeaderBounds.Value = new Rectangle((int)angelPosition.X - (headerWidth / 2), (int)angelPosition.Y - 32, headerWidth, 20);
 
-            Narration.Value = missionRecord.Description;
+            Narration.Value = missionRecord.Description + " " + missionRecord.Checkpoints.First().Description;
 
             AvailableCommands.Add("Prepare for Mission");
             AvailableCommands.Add("Modify Cosmo Engine");

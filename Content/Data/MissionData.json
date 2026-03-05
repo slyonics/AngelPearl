@@ -1,9 +1,9 @@
 [
 	{
 		"Name": "Gabriel",
-		"Description": "General mission description goes here.",
+		"Description": "First mission should be Gabriel, Messenger of God. General mission description goes here.",
 		"Mission Start": 1,
-		"TimeLimit": 13,
+		"TimeLimit": 30,
 		"AngelSprite": "Widgets_Comet",
 		"AngelStartX": 420,
 		"AngelStartY": 180,
