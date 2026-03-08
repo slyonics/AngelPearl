@@ -80,6 +80,16 @@
 /processor:SimpleContentProcessor
 /build:Maps/TestAngelD2.ldtk
 
+#begin Music/Battle2.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/build:Music/Battle2.mp3
+
+#begin Music/BossTheme1.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/build:Music/BossTheme1.mp3
+
 #begin Music/MissionSelect.mp3
 /importer:Mp3Importer
 /processor:SongProcessor

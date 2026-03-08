@@ -65,6 +65,8 @@ namespace AngelPearl.Main
     public enum GameMusic
     {
         Battle1,
+        Battle2,
+        BossTheme1,
         MissionSelect,
         VoxTest,
 
