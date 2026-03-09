@@ -17,7 +17,9 @@ namespace AngelPearl.SceneObjects.Widgets
 
 		public override void EndLeftClick(Vector2 mouseStart, Vector2 mouseEnd, Widget otherWidget)
 		{
-			if (!Enabled || !parent.Enabled) return;
+
+
+			if (!Enabled || !parent.Enabled || !Input.MOUSE_MODE) return;
 
 			clicking = false;
 
@@ -36,7 +38,7 @@ namespace AngelPearl.SceneObjects.Widgets
 
 		public override void EndMouseOver()
 		{
-			if (!Enabled || !parent.Enabled) return;
+			if (!Enabled || !parent.Enabled || !Input.MOUSE_MODE) return;
 
 			base.EndMouseOver();
 

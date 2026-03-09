@@ -116,6 +116,8 @@ namespace AngelPearl.SceneObjects.Widgets
 
 		public void CursorDecrement(int amount)
 		{
+			if (Input.MOUSE_MODE) return;
+
 			if (ChildList.Count() == 0) return;
 
 			if (selectionIndex == -1) selectionIndex = 0;
@@ -133,6 +135,8 @@ namespace AngelPearl.SceneObjects.Widgets
 
 		public void CursorIncrement(int amount)
 		{
+			if (Input.MOUSE_MODE) return;
+
 			if (ChildList.Count() == 0) return;
 
 			if (selectionIndex == -1) selectionIndex = 0;

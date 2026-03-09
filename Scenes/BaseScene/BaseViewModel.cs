@@ -98,77 +98,33 @@ namespace AngelPearl.Scenes.BaseScene
             {
                 if (ChildViewModel.Terminated)
                 {
-                    if (ChildViewModel is MissionViewModel)
-                    {
-						CurrentMenu = SubMenu.Tavern;
-						CommandBox.Visible = false;
-						CommandBounds.Value = new Rectangle(0, 0, 100, 37);
-						var newCommands = new List<ModelProperty<string>>
-						{
-							new("Recruit Hero"),
-							new("Hear Rumors"),
-							new("Rest Overnight"),
-						};
-						AvailableCommands.ModelList = newCommands;
-						CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
-						//Narration.Value = townRecord.TavernNarration;
-						OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
+					switch (CurrentMenu)
+					{
+						case SubMenu.Mission:
+							{
+								CurrentMenu = SubMenu.Main;
+								var newCommands = new List<ModelProperty<string>>
+							{
+								new("Prepare for Mission"),
+								new("Modify Cosmo Engine"),
+								new("Visit the Muse Lounge")
+							};
+
+								AvailableCommands.ModelList = newCommands;
+								CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
+								CommandBox.Visible = false;
+								CommandBounds.Value = new Rectangle(0, 0, 100, 55);
+
+								Narration.Value = missionRecord.Description + " " + missionRecord.Checkpoints.First().Description;
+								OnFinishNarration = new NarrationFinished(() => CommandBox.Visible = true);
+							}
+							break;
 					}
 
-                    ChildViewModel = null;
+					ChildViewModel = null;
                 }
                 return;
             }
-
-			if (Input.CurrentInput.CommandPressed(Command.Cancel) && CommandBox.Visible)
-			{
-				switch (CurrentMenu)
-				{
-                    case SubMenu.Shipyard:
-                    case SubMenu.Tavern:
-                    case SubMenu.Marketplace:
-                        {
-                            CurrentMenu = SubMenu.Main;
-                            var newCommands = new List<ModelProperty<string>>
-                            {
-                                new("Shipyard"),
-                                new("Marketplace"),
-                                new("Tavern"),
-                                new("Depart (ground)")
-                            };
-                            if (false)
-                            {
-                                newCommands.Add(new("Depart (ship)"));
-								CommandBounds.Value = new Rectangle(0, 0, 100, 55);
-							}
-                            else CommandBounds.Value = new Rectangle(0, 0, 100, 46);
-							AvailableCommands.ModelList = newCommands;
-                            CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
-							CommandBox.Visible = false;
-							//Narration.Value = townRecord.MainNarration;
-                            OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
-                        }
-                        break;
-
-                    case SubMenu.Mission:
-						{
-							CurrentMenu = SubMenu.Tavern;
-							CommandBox.Visible = false;
-							CommandBounds.Value = new Rectangle(0, 0, 100, 37);
-							var newCommands = new List<ModelProperty<string>>
-						    {
-							    new("Recruit Hero"),
-							    new("Hear Rumors"),
-							    new("Rest Overnight"),
-						    };
-							AvailableCommands.ModelList = newCommands;
-							CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
-							//Narration.Value = townRecord.TavernNarration;
-							OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
-						}
-						break;
-				}
-			}
 		}
 
         public void SelectCommand(object parameter)
@@ -182,67 +138,17 @@ namespace AngelPearl.Scenes.BaseScene
 
             switch (menuCommand)
             {
-				case "Shipyard":
-					{
-						CurrentMenu = SubMenu.Shipyard;
-						CommandBox.Visible = false;
-						CommandBounds.Value = new Rectangle(0, 0, 100, 37);
-						var newCommands = new List<ModelProperty<string>>
-						{
-							new("Buy Cargo"),
-							new("Sell Cargo"),
-							new("Upgrade Ship"),
-						};
-						AvailableCommands.ModelList = newCommands;
-						CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
-						//Narration.Value = townRecord.ShipNarration;
-						OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
-					}
-					break;
-
-				case "Marketplace":
-                    {
-                        CurrentMenu = SubMenu.Marketplace;
-                        CommandBox.Visible = false;
-                        CommandBounds.Value = new Rectangle(0, 0, 100, 37);
-                        var newCommands = new List<ModelProperty<string>>
-                        {
-                            new("Buy Equipment"),
-                            new("Sell Equipment"),
-                            new("Outfit Hero"),
-                        };
-                        AvailableCommands.ModelList = newCommands;
-                        CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
-                        //Narration.Value = townRecord.ShopNarration;
-                        OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
-                    }
-					break;
-
-				case "Tavern":
-					{
-						CurrentMenu = SubMenu.Tavern;
-						CommandBox.Visible = false;
-						CommandBounds.Value = new Rectangle(0, 0, 100, 37);
-						var newCommands = new List<ModelProperty<string>>
-						{
-							new("Recruit Hero"),
-							new("Hear Rumors"),
-							new("Rest Overnight"),
-						};
-						AvailableCommands.ModelList = newCommands;
-						CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
-						//Narration.Value = townRecord.TavernNarration;
-						OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
-					}
-					break;
-
-                case "Depart (ground)":
-				case "Depart (ship)":
-					this.Terminate();
-                    break;
-
                 case "Prepare for Mission":
                     {
+                        GameProfile.CurrentSave.Party.Clear();
+                        foreach (var maho in GameProfile.CurrentSave.Roster)
+                        {
+                            GameProfile.CurrentSave.Party.Add(maho.Value);
+                        }
+
+						CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North));
+                        return;
+
 						CurrentMenu = SubMenu.Mission;
 						CommandBox.Visible = false;
 						Header.Value = "Assemble Squad";
@@ -253,7 +159,6 @@ namespace AngelPearl.Scenes.BaseScene
 
 			}
         }
-
 
 		public ModelProperty<Rectangle> AngelHeaderBounds { get; set; } = new ModelProperty<Rectangle>();
 		public ModelProperty<string> Header { get; set; } = new ModelProperty<string>();

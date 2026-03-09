@@ -1,25 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 	
-	<Panel Bounds="45,3,230,132">
-
-		<RadioBox Name="HireBox" Style="ThinPanel" Items="Bind PlayerProfile.Roster" Anchor="$CenterX,$CenterY" Bounds="4,26,138,35" InnerMargin="5,4,5,4" OnSelect="NewSelection">
+		<RadioBox Name="HireBox" Style="ThinPanel" Items="Bind PlayerProfile.Roster" Anchor="$CenterX,$CenterY" Bounds="-278,-26,138,35" InnerMargin="5,4,5,4" OnSelect="NewSelection">
 			<RadioButton Style="Blank" PushedStyle="Cursor" Bounds="0,0,128,9" Alignment="Cascading" Action="SelectCommand" ActionParameter="Bind DataGrid">
 				<Label Text="Ref DataGrid.Name" Font="Interface" TextAlignment="Left" Bounds="8,-4,56,9" Alignment="Cascading"/>
 			</RadioButton>
 		</RadioBox>
 
-		<Panel Style="ThinPanel" Bounds="4,67,74,15" Anchor="$CenterX,$CenterY" InnerMargin="5,3,5,3">
+		<Panel Style="ThinPanel" Bounds="4,-33,74,15" Anchor="$CenterX,$CenterY" InnerMargin="5,3,5,3">
 			<Label Text="Active Party" Font="Interface" TextAlignment="Left" Bounds="1,-4,64,9"/>
 		</Panel>
 
-		<Panel Style="ThinPanel" Bounds="4,82,103,46" Anchor="$CenterX,$CenterY" InnerMargin="5,5,5,5">
+		<Panel Style="ThinPanel" Bounds="4,-18,103,46" Anchor="$CenterX,$CenterY" InnerMargin="5,5,5,5">
 			<DataGrid Name="PartyBox" Items="Bind PlayerProfile.Party" Alignment="Stretch" >
 				<Panel Bounds="0,0,93,9" Alignment="Cascading" >
 					<Label Text="Bind DataGrid.Name" Font="Interface" TextAlignment="Left" Bounds="1,-3,56,9" Alignment="Cascading"/>
 				</Panel>
 			</DataGrid>
 		</Panel>
-		
-	</Panel>
 </View>
