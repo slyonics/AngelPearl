@@ -1,36 +1,36 @@
 [
 	{
-		"Name": "AvatarTest",
+		"Name": "MoonRabbit",
 		"Enemies": [
 			{
-				"Name": "Avatar",
+				"Name": "MoonRabbit",
 				"OffsetX": 0,
 				"OffsetY": 0
 			}
 		],
-		"Intro": "Battle introduction narration."
+		"Intro": "Moon Rabbit decides to get a little too frisky! Prepare for battle..."
 	},
 	{
-		"Name": "GolemTest",
+		"Name": "OutlawGang",
 		"Enemies": [
 			{
-				"Name": "Golem",
+				"Name": "Outlaw",
 				"OffsetX": -60,
 				"OffsetY": 0,
 				"Flash": true
 			},
 			{
-				"Name": "Golem",
+				"Name": "Outlaw",
 				"OffsetX": 0,
 				"OffsetY": 0
 			},
 			{
-				"Name": "Golem",
+				"Name": "Outlaw",
 				"OffsetX": 60,
 				"OffsetY": 0,
 				"Flash": true
 			}
 		],
-		"Intro": "Golem battle intro"
+		"Intro": "A gang of Moon Rabbit outlaws draw near... are they after your cosmo engine?"
 	}
 ]

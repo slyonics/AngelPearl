@@ -135,5 +135,28 @@
 			"BaseResist": 4,
 			"ActiveModules": [ "Module" ]
 		}
+	},
+	{
+		"Name": "Mascot",
+		"Description": "The obligatory magical girl mascot character.",
+		"ClassType": "Mascot",
+		"PortraitSprite": "Mascot",
+		"Level": 1,
+		"BaseHP": 12,
+		"BaseMP": 2,
+		"BaseSkill": 4,
+		"BaseReflex": 4,
+		"BaseMagic": 1,
+		"BaseTech": 3,
+		"BaseHeart": 1,
+		"Weapon": "Ruby Staff",
+		"Accessory": "Focus Stone",
+		"CosmoEngine": {
+			"BasePower": 4,
+			"BaseMagic": 4,
+			"BaseArmor": 4,
+			"BaseResist": 4,
+			"ActiveModules": [ "Module" ]
+		}
 	}
 ]

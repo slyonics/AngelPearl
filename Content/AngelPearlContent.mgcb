@@ -305,15 +305,15 @@
 /processor:TextureProcessor
 /build:Sprites/Background/YellowStars.png
 
-#begin Sprites/Enemies/Avatar.png
+#begin Sprites/Enemies/MoonRabbit.png
 /importer:TextureImporter
 /processor:TextureProcessor
-/build:Sprites/Enemies/Avatar.png
+/build:Sprites/Enemies/MoonRabbit.png
 
-#begin Sprites/Enemies/Golem.png
+#begin Sprites/Enemies/Outlaw.png
 /importer:TextureImporter
 /processor:TextureProcessor
-/build:Sprites/Enemies/Golem.png
+/build:Sprites/Enemies/Outlaw.png
 
 #begin Sprites/NPCs/Chest.png
 /importer:TextureImporter

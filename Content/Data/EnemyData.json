@@ -1,10 +1,10 @@
 [
 	{
-		"Name": "Avatar",
-		"Class": "Avatar",
-		"Level": 13,
-		"Sprite": "Avatar",
-		"Exp": 1,
+		"Name": "Moon Rabbit",
+		"Class": "Bunny",
+		"Level": 3,
+		"Sprite": "MoonRabbit",
+		"Exp": 3,
 		"Description": "avatar description with element weakness, hp, etc.",
 		"HP": 150,
 		"MP": 10,
@@ -18,9 +18,8 @@
 		"MagicAttack": 10,
 		"MagicDefense": 5,
 		"MagicEvade": 5,
-		"ElementWeak": [ "Holy" ],
-		"ElementStrong": [ "Ice" ],
-		"ElementImmune": [ "Dark" ],
+		"ElementWeak": [ "Solar" ],
+		"ElementStrong": [ "Lunar" ],
 		"Attacks": [
 			{
 				"Script": [ "Attack" ],
@@ -29,10 +28,10 @@
 		]
 	},
 	{
-		"Name": "Golem",
-		"Class": "Machine",
-		"Level": 13,
-		"Sprite": "Golem",
+		"Name": "Outlaw",
+		"Class": "Bunny",
+		"Level": 5,
+		"Sprite": "Outlaw",
 		"Exp": 1,
 		"Description": "Golem description with element weakness, hp, etc.",
 		"HP": 50,
@@ -47,9 +46,8 @@
 		"MagicAttack": 10,
 		"MagicDefense": 5,
 		"MagicEvade": 5,
-		"ElementWeak": [ "Holy" ],
-		"ElementStrong": [ "Ice" ],
-		"ElementImmune": [ "Dark" ],
+		"ElementWeak": [ "Solar" ],
+		"ElementStrong": [ "Lunar" ],
 		"Attacks": [
 			{
 				"Script": [ "Attack" ],

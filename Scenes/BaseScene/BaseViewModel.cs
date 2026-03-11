@@ -113,7 +113,7 @@ namespace AngelPearl.Scenes.BaseScene
 								AvailableCommands.ModelList = newCommands;
 								CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
 								CommandBox.Visible = false;
-								CommandBounds.Value = new Rectangle(0, 0, 100, 55);
+								CommandBounds.Value = new Rectangle(-220, 52, 130, 38);
 
 								Narration.Value = missionRecord.Description + " " + missionRecord.Checkpoints.First().Description;
 								OnFinishNarration = new NarrationFinished(() => CommandBox.Visible = true);
@@ -140,6 +140,7 @@ namespace AngelPearl.Scenes.BaseScene
             {
                 case "Prepare for Mission":
                     {
+                        /*
                         GameProfile.CurrentSave.Party.Clear();
                         foreach (var maho in GameProfile.CurrentSave.Roster)
                         {
@@ -148,10 +149,11 @@ namespace AngelPearl.Scenes.BaseScene
 
 						CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North));
                         return;
+                        */
 
 						CurrentMenu = SubMenu.Mission;
 						CommandBox.Visible = false;
-						Header.Value = "Assemble Squad";
+						//Header.Value = "Assemble Squad";
 
 						ChildViewModel = mapScene.AddView(new MissionViewModel(mapScene, this, []));
 					}
@@ -165,7 +167,7 @@ namespace AngelPearl.Scenes.BaseScene
         public ModelProperty<string> Narration { get; set; } = new ModelProperty<string>();
 
         public ModelCollection<string> AvailableCommands { get; set; } = new ModelCollection<string>();
-        public ModelProperty<Rectangle> CommandBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 100, 55));
+        public ModelProperty<Rectangle> CommandBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(-220, 52, 130, 38));
 
 		public ModelCollection<string> AvailableItems { get; set; } = new ModelCollection<string>();
 

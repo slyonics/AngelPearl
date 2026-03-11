@@ -1626,25 +1626,25 @@
 							"defUid": 14,
 							"px": [320,384],
 							"fieldInstances": [
-								{ "__identifier": "Sprite", "__type": "String", "__value": "Avatar", "__tile": null, "defUid": 15, "realEditorValues": [{
+								{ "__identifier": "Sprite", "__type": "String", "__value": "MoonRabbit", "__tile": null, "defUid": 15, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Avatar"]
+									"params": ["MoonRabbit"]
 								}] },
 								{ "__identifier": "Interact", "__type": "String", "__value": "Encounter", "__tile": null, "defUid": 16, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Encounter"]
 								}] },
-								{ "__identifier": "Encounter", "__type": "String", "__value": "AvatarTest", "__tile": null, "defUid": 17, "realEditorValues": [{
+								{ "__identifier": "Encounter", "__type": "String", "__value": "MoonRabbit", "__tile": null, "defUid": 17, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["AvatarTest"]
+									"params": ["MoonRabbit"]
 								}] },
 								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Brute"]
 								}] },
-								{ "__identifier": "Label", "__type": "String", "__value": "Avatar", "__tile": null, "defUid": 19, "realEditorValues": [{
+								{ "__identifier": "Label", "__type": "String", "__value": "Moon Rabbit", "__tile": null, "defUid": 19, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Avatar"]
+									"params": ["Moon Rabbit"]
 								}] }
 							],
 							"__worldX": 320,
@@ -1663,25 +1663,25 @@
 							"defUid": 14,
 							"px": [128,224],
 							"fieldInstances": [
-								{ "__identifier": "Sprite", "__type": "String", "__value": "Golem", "__tile": null, "defUid": 15, "realEditorValues": [{
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 15, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Golem"]
+									"params": ["Outlaw"]
 								}] },
 								{ "__identifier": "Interact", "__type": "String", "__value": "Encounter", "__tile": null, "defUid": 16, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Encounter"]
 								}] },
-								{ "__identifier": "Encounter", "__type": "String", "__value": "GolemTest", "__tile": null, "defUid": 17, "realEditorValues": [{
+								{ "__identifier": "Encounter", "__type": "String", "__value": "OutlawGang", "__tile": null, "defUid": 17, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["GolemTest"]
+									"params": ["OutlawGang"]
 								}] },
 								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["Brute"]
 								}] },
-								{ "__identifier": "Label", "__type": "String", "__value": "Golem Squad", "__tile": null, "defUid": 19, "realEditorValues": [{
+								{ "__identifier": "Label", "__type": "String", "__value": "Outlaw Gang", "__tile": null, "defUid": 19, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Golem Squad"]
+									"params": ["Outlaw Gang"]
 								}] }
 							],
 							"__worldX": 128,
