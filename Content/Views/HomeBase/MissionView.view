@@ -7,7 +7,7 @@
 			<Label Text="Start Mission!" Font="Console" Alignment="Center" />
 		</Button>
 		
-		<DataGrid Items="Bind PlayerProfile.Roster" Bounds="0,0,468,150" Alignment="Bottom">
+		<DataGrid Items="Bind PlayerProfile.Party" Bounds="0,0,468,150" Alignment="Bottom">
 			<Panel Alignment="Cascading" Bounds="0,0,117,150">
 				<Panel Style="MagicFrame" Bounds="0,0,117,132" Alignment="Vertical" InnerMargin="4,4,4,4" Depth="0.2">
 					<Image Picture="Bind DataGrid.Portrait" Alignment="Stretch" Depth="0.3"/>

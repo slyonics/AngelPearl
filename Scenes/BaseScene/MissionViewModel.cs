@@ -126,11 +126,7 @@ namespace AngelPearl.Scenes.BaseScene
 
         public void StartMission()
         {
-            GameProfile.CurrentSave.Party.Clear();
-            foreach (var maho in GameProfile.CurrentSave.Roster.Take(4))
-            {
-                GameProfile.CurrentSave.Party.Add(maho.Value);
-            }
+            
 
             CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North));
         }

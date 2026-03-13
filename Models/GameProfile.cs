@@ -38,9 +38,19 @@ namespace AngelPearl.Models
 			CurrentSave.Roster.Add(karin);
 
 			HeroModel mascot = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Mascot"));
-			CurrentSave.Roster.Add(mascot);
+			CurrentSave.Mascot.Value = mascot;
 
-			CurrentSave.CurrentMission = new ModelProperty<MissionRecord>(MissionRecord.MISSIONS.First(x => x.Name == "Gabriel"));
+
+            GameProfile.CurrentSave.Party.Clear();
+            foreach (var maho in GameProfile.CurrentSave.Roster.Take(3))
+            {
+                GameProfile.CurrentSave.Party.Add(maho.Value);
+            }
+
+            GameProfile.CurrentSave.Party.Add(GameProfile.CurrentSave.Mascot.Value);
+
+
+            CurrentSave.CurrentMission = new ModelProperty<MissionRecord>(MissionRecord.MISSIONS.First(x => x.Name == "Gabriel"));
 		}
 
 		public static void LoadState(int slot)
