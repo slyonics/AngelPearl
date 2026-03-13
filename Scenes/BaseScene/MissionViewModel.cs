@@ -31,6 +31,8 @@ namespace AngelPearl.Scenes.BaseScene
 
         public RadioBox HireBox { get; set; }
 
+        private bool confirmCooldown = false;
+
 		public MissionViewModel(BaseScene iScene, BaseViewModel iTownViewModel, string[] iHeroes)
             : base(iScene, PriorityLevel.CutsceneLevel)
         {
@@ -64,7 +66,13 @@ namespace AngelPearl.Scenes.BaseScene
 			{
                 Terminate();
 			}
-		}
+            else if (Input.CurrentInput.CommandPressed(Command.Confirm) && confirmCooldown)
+            {
+                StartMission();
+            }
+
+            confirmCooldown = true;
+        }
 
         public void SelectCommand(object parameter)
         {
@@ -115,5 +123,16 @@ namespace AngelPearl.Scenes.BaseScene
 
         //public ModelCollection<HeroRecord> AvailableHeroes { get; set; } = new ModelCollection<HeroRecord>();
 
-	}
+
+        public void StartMission()
+        {
+            GameProfile.CurrentSave.Party.Clear();
+            foreach (var maho in GameProfile.CurrentSave.Roster.Take(4))
+            {
+                GameProfile.CurrentSave.Party.Add(maho.Value);
+            }
+
+            CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North));
+        }
+    }
 }

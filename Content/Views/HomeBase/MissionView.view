@@ -1,11 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 
-	<Panel Style="MagicWindow" Bounds="-230,-175,460,268" Anchor="$CenterX,$CenterY" InnerMargin="8,5,8,8">
+	<Panel Style="MagicWindow" Bounds="-270,-180,540,270" Anchor="$CenterX,$CenterY" InnerMargin="16,16,16,16" Depth="0.8">
 
-		<DataGrid Items="Bind PlayerProfile.Roster" Bounds="0,0,436,124" Alignment="Bottom">
-			<Panel Style="MagicFrame" Bounds="0,0,109,124" Alignment="Cascading" >
-				<Image Picture="Bind DataGrid.Portrait" Alignment="Stretch" />
+		<Button Alignment="Vertical" InnerMargin="0,1,0,0" Bounds="0,40,170,20" Style="MagicPopup" PushedStyle="ThinPanelSelected" Action="StartMission">
+			<Label Text="Start Mission!" Font="Console" Alignment="Center" />
+		</Button>
+		
+		<DataGrid Items="Bind PlayerProfile.Roster" Bounds="0,0,468,150" Alignment="Bottom">
+			<Panel Alignment="Cascading" Bounds="0,0,117,150">
+				<Panel Style="MagicFrame" Bounds="0,0,117,132" Alignment="Vertical" InnerMargin="4,4,4,4" Depth="0.2">
+					<Image Picture="Bind DataGrid.Portrait" Alignment="Stretch" Depth="0.3"/>
+				</Panel>
+				<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,0,92,18" />
 			</Panel>
 		</DataGrid>
 		

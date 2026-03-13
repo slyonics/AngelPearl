@@ -23,19 +23,7 @@ namespace AngelPearl.Scenes.BaseScene
         private enum SubMenu
         {
             Main,
-
-            Shipyard,
-			Marketplace,
-            Tavern,
-
-            BuyCargo,
-            SellCargo,
-            UpgradeShip,
-
-            BuyEquipment,
-            SellEquipment,
-            OutfitHero,
-            
+                        
             Mission
 		}
 
