@@ -397,7 +397,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			else if (nextRoom.Foe != null && !string.IsNullOrEmpty(nextRoom.Foe.Label))
 			{
 				crawlerScene.MapViewModel.InteractLabel.Value = nextRoom.Foe.Label;
-				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -44, Text.GetStringLength(GameFont.Console, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
+				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, 60 - nextRoom.Foe.Billboard.Texture.Height, Text.GetStringLength(GameFont.Console, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
 			}
 			else if (!string.IsNullOrEmpty(nextRoom.Label))
 			{
