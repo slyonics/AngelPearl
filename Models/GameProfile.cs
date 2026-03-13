@@ -37,6 +37,9 @@ namespace AngelPearl.Models
 			HeroModel karin = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Karin"));
 			CurrentSave.Roster.Add(karin);
 
+			HeroModel mascot = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Mascot"));
+			CurrentSave.Roster.Add(mascot);
+
 			CurrentSave.CurrentMission = new ModelProperty<MissionRecord>(MissionRecord.MISSIONS.First(x => x.Name == "Gabriel"));
 		}
 

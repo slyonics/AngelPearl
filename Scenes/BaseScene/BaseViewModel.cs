@@ -79,7 +79,7 @@ namespace AngelPearl.Scenes.BaseScene
 			CommandBox = GetWidget<RadioBox>("CommandBox");
 			NarrationText = GetWidget<CrawlText>("NarrationText");
 
-            OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
+            // OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
         }
 
         public override void Update(GameTime gameTime)
@@ -91,8 +91,14 @@ namespace AngelPearl.Scenes.BaseScene
             if (NarrationText.ReadyToProceed && !oldProceed)
             {
                 OnFinishNarration?.Invoke();
-                OnFinishNarration = null;
-            }
+                if (OnFinishNarration != null)
+                {
+                    foreach (Delegate d in OnFinishNarration.GetInvocationList())
+                    {
+                        OnFinishNarration -= (NarrationFinished)d;
+                    }
+                }
+			}
 
             if (ChildViewModel != null)
             {
@@ -112,11 +118,11 @@ namespace AngelPearl.Scenes.BaseScene
 
 								AvailableCommands.ModelList = newCommands;
 								CommandBox.Selection = 0; (CommandBox.ChildList[0] as RadioButton)?.RadioSelect();
-								CommandBox.Visible = false;
+								CommandBox.Visible = true;
 								CommandBounds.Value = new Rectangle(-220, 52, 130, 38);
 
 								Narration.Value = missionRecord.Description + " " + missionRecord.Checkpoints.First().Description;
-								OnFinishNarration = new NarrationFinished(() => CommandBox.Visible = true);
+								//OnFinishNarration = new NarrationFinished(() => CommandBox.Visible = true);
 							}
 							break;
 					}

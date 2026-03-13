@@ -37,6 +37,8 @@ namespace AngelPearl.Scenes.BaseScene
             mapScene = iScene;
             townViewModel = iTownViewModel;
 
+            DrawOnNewLayer = true;
+
             /*
 			var availableHeroes = HeroRecord.HEROES.Where(x => !GameProfile.GetSaveData<bool>($"Recruited{x.Name}") && iHeroes.Any(y => y == x.Name));
             AvailableHeroes.AddRange(availableHeroes);
@@ -51,7 +53,7 @@ namespace AngelPearl.Scenes.BaseScene
 			LoadView(GameView.HomeBase_MissionView);
 
 
-            HireBox = GetWidget<RadioBox>("HireBox");
+            // HireBox = GetWidget<RadioBox>("HireBox");
         }
 
         public override void Update(GameTime gameTime)

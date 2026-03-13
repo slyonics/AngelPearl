@@ -135,6 +135,7 @@ namespace AngelPearl.Models
 
 		public ModelCollection<HeroModel> Party { get; set; } = new ModelCollection<HeroModel>();
 		public ModelCollection<HeroModel> Roster { get; set; } = new ModelCollection<HeroModel>();
+		public ModelProperty<HeroModel> Mascot { get; set; } = new ModelProperty<HeroModel>();
 		public ModelCollection<ItemModel> Inventory { get; set; } = new ModelCollection<ItemModel>();
 
         public ModelProperty<string> LocationName { get; set; } = new ModelProperty<string>("S.T.A.R. Base");

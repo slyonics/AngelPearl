@@ -455,6 +455,11 @@
 /processor:TextureProcessor
 /build:Sprites/Portraits/Aika.png
 
+#begin Sprites/Portraits/Mascot.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/Mascot.png
+
 #begin Sprites/Portraits/Proxy.png
 /importer:TextureImporter
 /processor:TextureProcessor

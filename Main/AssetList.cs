@@ -135,6 +135,7 @@ namespace AngelPearl.Main
         Particles_Tornado,
         Particles_Weapons,
         Portraits_Aika,
+        Portraits_Mascot,
         Portraits_Proxy,
         Tiles_CrawlerTiles,
         Widgets_Gauges_HealthBar,
