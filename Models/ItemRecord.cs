@@ -62,9 +62,12 @@ namespace AngelPearl.Models
 		public int Power { get; set; }
         public int Accuracy { get; set; }
         public int Critical { get; set; }
+
         public CommandPriority Priority { get; set; }
 
-        public ElementType AttackElement { get; set; }
+		public int Cost { get; set; }
+
+		public ElementType AttackElement { get; set; }
         public ElementType[] ElementsWeak { get; set; }
         public ElementType[] ElementsStrong { get; set; }
         public ElementType[] ElementsAbsorb { get; set; }

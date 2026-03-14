@@ -1614,43 +1614,6 @@
 							"__worldY": 224
 						},
 						{
-							"__identifier": "Foe",
-							"__grid": [4,6],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#F77622",
-							"iid": "047c56c0-fa90-11f0-8f89-f91273431331",
-							"width": 32,
-							"height": 32,
-							"defUid": 14,
-							"px": [128,192],
-							"fieldInstances": [
-								{ "__identifier": "Sprite", "__type": "String", "__value": "Golem", "__tile": null, "defUid": 15, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["Golem"]
-								}] },
-								{ "__identifier": "Interact", "__type": "String", "__value": "Encounter", "__tile": null, "defUid": 16, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["Encounter"]
-								}] },
-								{ "__identifier": "Encounter", "__type": "String", "__value": "GolemTest", "__tile": null, "defUid": 17, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["GolemTest"]
-								}] },
-								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["Brute"]
-								}] },
-								{ "__identifier": "Label", "__type": "String", "__value": "Golem Squad", "__tile": null, "defUid": 19, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["Golem Squad"]
-								}] }
-							],
-							"__worldX": 128,
-							"__worldY": 192
-						},
-						{
 							"__identifier": "Spawn",
 							"__grid": [9,5],
 							"__pivot": [0,0],
@@ -1729,7 +1692,7 @@
 						},
 						{
 							"__identifier": "Chest",
-							"__grid": [9,10],
+							"__grid": [10,11],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -1738,7 +1701,7 @@
 							"width": 32,
 							"height": 32,
 							"defUid": 31,
-							"px": [288,320],
+							"px": [320,352],
 							"fieldInstances": [
 								{ "__identifier": "Name", "__type": "String", "__value": "TestChest1", "__tile": null, "defUid": 32, "realEditorValues": [{
 									"id": "V_String",
@@ -1749,8 +1712,8 @@
 									"params": ["Ruby Staff"]
 								}] }
 							],
-							"__worldX": 288,
-							"__worldY": 320
+							"__worldX": 320,
+							"__worldY": 352
 						}
 					]
 				},

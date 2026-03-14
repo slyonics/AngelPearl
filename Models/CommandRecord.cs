@@ -69,10 +69,20 @@ namespace AngelPearl.Models
 		public string Animation { get; set; }
 		public string Description { get; set; }
 		public string Icon { get; set; }
+		public int Cost { get; set; } = -1;
+		public bool ShowCost { get => Cost >= 0; }
 		public int ChargesLeft { get; set; } = -1;
 		public int Charges { get; set; } = -1;
 		public bool ShowCharges { get => Charges >= 0; }
-		public virtual bool Usable { get => ChargesLeft != 0; }
+
+		public virtual bool Usable
+		{
+			get
+			{
+				if (Cost >= 0) return false;
+				return ChargesLeft != 0;
+			}
+		}
 
 		public int Power { get; set; }
 		public int Accuracy { get; set; }

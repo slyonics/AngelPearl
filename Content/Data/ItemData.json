@@ -115,7 +115,7 @@
 	},
 	{
 		"Name": "Slice",
-		"Description": "Physical (slash) damage to one enemy. May inflict critical damage.",
+		"Description": "Physical (slash) damage to one enemy. May inflict critical damage. Cost: 5sp",
 		"Icon": "13,4",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
@@ -123,8 +123,49 @@
 		"Accuracy": 100,
 		"Critical": 10,
 		"Priority": "Melee",
+		"Cost": 5,
 		"BattleScript": [
 			"Narrate $attackerName uses Slice!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Module Sharp",
+			"Flash 255 0 0",
+			"Damage Module Sharp"
+		]
+	},
+	{
+		"Name": "Smash",
+		"Description": "Physical (blunt) damage to one enemy. May inflict stun. Cost: 5sp",
+		"Icon": "13,4",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneEnemy",
+		"Power": 20,
+		"Accuracy": 90,
+		"Priority": "Melee",
+		"Cost": 5,
+		"BattleScript": [
+			"Narrate $attackerName uses Smash!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Module Sharp",
+			"Flash 255 0 0",
+			"Damage Module Sharp"
+		]
+	},
+	{
+		"Name": "Sting",
+		"Description": "Physical (ranged) damage to one enemy. May inflict stun. Cost: 5sp",
+		"Icon": "13,4",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneEnemy",
+		"Power": 15,
+		"Accuracy": 100,
+		"Priority": "Ranged",
+		"Cost": 5,
+		"BattleScript": [
+			"Narrate $attackerName uses Sting!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
