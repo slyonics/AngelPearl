@@ -114,6 +114,26 @@
 		]
 	},
 	{
+		"Name": "Slice",
+		"Description": "Physical (slash) damage to one enemy. May inflict critical damage.",
+		"Icon": "8,3",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneEnemy",
+		"Power": 16,
+		"Accuracy": 100,
+		"Critical": 10,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName uses Slice!",
+			"Animate Attack Sword",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Melee Sharp",
+			"Flash 255 0 0",
+			"Damage Melee Sharp"
+		]
+	},
+	{
 		"Name": "Focus Stone",
 		"Description": "Natural mana crystal that slightly boosts magic power.",
 		"Icon": "4,4",

@@ -15,7 +15,7 @@
 	</Panel>
 
 	<Panel Style="MagicPopup" Anchor="$CenterX,$CenterY" Bounds="-153,50,306,130" InnerMargin="5,5,5,5" Visible="Bind TurnExecuting">
-		<CrawlText Name="ConversationText" Text="Bind Narration" Font="Dialogue" Alignment="Stretch" Color="#E000C0FF"/>
+		<CrawlText Name="ConversationText" Text="Bind Narration" Font="Dialogue" Alignment="Stretch" />
 	</Panel>
 	
 </View>

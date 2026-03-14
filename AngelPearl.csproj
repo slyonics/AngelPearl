@@ -48,6 +48,7 @@
     <Compile Include="Models\EnemyRecord.cs" />
     <Compile Include="Models\GameProfile.cs" />
     <Compile Include="Models\HeroModel.cs" />
+    <Compile Include="Models\ObjectiveModel.cs" />
     <Compile Include="Models\MissionRecord.cs" />
     <Compile Include="Models\MuseRecord.cs" />
     <Compile Include="Models\ItemModel.cs" />

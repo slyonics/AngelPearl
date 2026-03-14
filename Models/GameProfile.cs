@@ -27,6 +27,7 @@ namespace AngelPearl.Models
 
 			HeroModel proxy = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Proxy"));
 			CurrentSave.Roster.Add(proxy);
+			GameProfile.CurrentSave.Leader.Value = proxy;
 
 			HeroModel aika = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Aika"));
 			CurrentSave.Roster.Add(aika);
@@ -40,8 +41,10 @@ namespace AngelPearl.Models
 			HeroModel mascot = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Mascot"));
 			CurrentSave.Mascot.Value = mascot;
 
+			CurrentSave.Objectives.Add(new ObjectiveModel("ObjDemo1", "- Descend to the next floor."));
+			CurrentSave.Objectives.Add(new ObjectiveModel("ObjDemo2", "- Defeat the Moon Bunny outlaws."));
 
-            GameProfile.CurrentSave.Party.Clear();
+			GameProfile.CurrentSave.Party.Clear();
             foreach (var maho in GameProfile.CurrentSave.Roster.Take(3))
             {
                 GameProfile.CurrentSave.Party.Add(maho.Value);

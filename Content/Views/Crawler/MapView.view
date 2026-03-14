@@ -2,7 +2,11 @@
 <View>
 
 	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,-180,306,54" InnerMargin="5,5,5,5">
-
+		<DataGrid Items="Bind PlayerProfile.Objectives" Bounds="0,0,280,27" Alignment="Center">
+			<Panel Alignment="Vertical" Bounds="0,0,280,9">
+				<Label Text="Bind DataGrid.Headline" Font="Console" Alignment="Center" />
+			</Panel>
+		</DataGrid>
 	</Panel>
 
 	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-153,-126,306,176" Depth="0.9">
