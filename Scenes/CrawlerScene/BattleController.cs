@@ -367,14 +367,14 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 case "Melee":
 
-                    attack = attacker.Stats.PhysicalAttack.Value + Rng.RandomInt(0, 3);
+                    attack = ((HeroModel)attacker.Stats).Attack.Value + Rng.RandomInt(0, 3);
                     multiplier = ((HeroModel)attacker.Stats).Power.Value * attacker.Stats.Level.Value / 256 + 2;
                     defense = target.Stats.PhysicalDefense.Value;
                     critical = commandRecord.Critical;
 					break;
 
 				case "Ranged":
-					attack = attacker.Stats.PhysicalAttack.Value + Rng.RandomInt(0, 3);
+					attack = ((HeroModel)attacker.Stats).Attack.Value + Rng.RandomInt(0, 3);
 					multiplier = ((HeroModel)attacker.Stats).Power.Value * attacker.Stats.Level.Value / 256 + 2;
 					defense = target.Stats.PhysicalDefense.Value;
 					critical = commandRecord.Critical;
@@ -390,7 +390,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case "MonsterMelee":
                     attack = attackData.Power < 0 ? attacker.Stats.PhysicalAttack.Value : attackData.Power;
                     attack += Rng.RandomInt(0, attack / 8);
-                    multiplier = attacker.Stats.Skill.Value;
+                    multiplier = attacker.Stats.Skill.Value * attacker.Stats.Level.Value / 256 + 2;
                     defense = target.Stats.PhysicalDefense.Value;
 					critical = attackData.Critical;
 					break;
@@ -398,7 +398,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case "MonsterModule":
                     attack = attackData.Power < 0 ? attacker.Stats.MagicAttack.Value : attackData.Power;
                     attack += Rng.RandomInt(0, attack / 8);
-                    multiplier = attacker.Stats.Heart.Value;
+                    multiplier = attacker.Stats.Heart.Value * attacker.Stats.Level.Value / 256 + 2;
                     defense = target.Stats.MagicDefense.Value;
 					critical = attackData.Critical;
 					break;
@@ -412,7 +412,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             if (Rng.RandomInt(0, 99) < critical)
             {
-                attack = (int)(attack * 1.5f);
+                attack *= 2;
                 defense = 0;
 
                 Audio.PlaySound(GameSound.Eruption); // replace with critical hit sfx

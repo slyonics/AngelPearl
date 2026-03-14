@@ -46,15 +46,13 @@ namespace AngelPearl.Models
 
         public int SkillModifier { get; set; }
         public int ReflexModifier { get; set; }
-        public int MagicModifier { get; set; }
-        public int TechModifier { get; set; }
 		public int HeartModifier { get; set; }
+		public int MindModifier { get; set; }
 
-		public int ControlModifier { get; set; }
-		public int SensorsModifier { get; set; }
-		public int ResonanceModifier { get; set; }
-		public int EnergyModifier { get; set; }
-		public int ShieldingModifier { get; set; }
+		public int PowerModifier { get; set; }
+		public int MagicModifier { get; set; }
+		public int ArmorModifier { get; set; }
+		public int ResistModifier { get; set; }
 
 		public int DefenseModifier { get; set; }
 		public int MagicDefenseModifier { get; set; }

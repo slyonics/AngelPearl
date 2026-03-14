@@ -134,7 +134,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 enqueuedController = null;
                 enqueuedCommand = null;
                 stats.StatusAilments.Clear();
-                AilmentSprite.PlayAnimation(AilmentType.Healthy.ToString());
+                AilmentSprite?.PlayAnimation(AilmentType.Healthy.ToString());
             }
 
             PlayAnimation("Hit", Idle);

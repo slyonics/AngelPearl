@@ -1,11 +1,11 @@
 [
 	{
 		"Name": "Pearl Rod",
-		"Description": "Item description here.",
+		"Description": "Majestic rod with a shining pearl on the tip. Inflicts almighty melee damage. ATK 10, HIT 90",
 		"Icon": "13,6",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
-		"Power": 8,
+		"Power": 10,
 		"Accuracy": 90,
 		"Priority": "Melee",
 		"BattleScript": [
@@ -13,9 +13,9 @@
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Melee Sharp",
+			"OnHit Melee Almighty",
 			"Flash 255 0 0",
-			"Damage Melee Sharp"
+			"Damage Melee Almighty"
 		]
 	},
 	{
@@ -24,7 +24,7 @@
 		"Icon": "6,3",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
-		"Power": 16,
+		"Power": 10,
 		"Accuracy": 90,
 		"Priority": "Melee",
 		"BattleScript": [
@@ -39,12 +39,12 @@
 	},
 	{
 		"Name": "Ram Piston",
-		"Description": "Pneumatic battering ram.",
-		"Icon": "6,3",
+		"Description": "Enourmous pneumatic battering ram. Powerful but somewhat inaccurate. Inflicts blunt melee damage. ATK 16, HIT 75",
+		"Icon": "6,7",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 16,
-		"Accuracy": 9,
+		"Accuracy": 75,
 		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Ram Piston!",
@@ -77,21 +77,21 @@
 	},
 	{
 		"Name": "Orbital Drones",
-		"Description": "Swarm of levitating impact drones.",
-		"Icon": "6,3",
+		"Description": "Swarm of levitating impact drones attacks unerringly at range. Inflicts sharp ranged damage. ATK 8, HIT 100",
+		"Icon": "8,6",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
-		"Power": 16,
-		"Accuracy": 9,
+		"Power": 8,
+		"Accuracy": 100,
 		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Orbital Drones!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Melee Sharp",
+			"OnHit Ranged Sharp",
 			"Flash 255 0 0",
-			"Damage Magic Sharp"
+			"Damage Ranged Sharp"
 		]
 	},
 	{
@@ -119,7 +119,7 @@
 		"Icon": "13,4",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
-		"Power": 12,
+		"Power": 15,
 		"Accuracy": 100,
 		"Critical": 10,
 		"Priority": "Melee",

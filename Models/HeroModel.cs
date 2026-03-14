@@ -56,12 +56,13 @@ namespace AngelPearl.Models
 		{
 			Weapon.Value = ItemRecord.ITEMS.First(x => x.Name == weaponName);
 			PopulateCommands();
+			CalculateStats();
 		}
 
 		public void EquipAccessory(string accessoryName)
 		{
 			Accessory.Value = ItemRecord.ITEMS.First(x => x.Name == accessoryName);
-
+			CalculateStats();
 		}
 
 		public void EquipModule(string moduleName)
@@ -75,13 +76,19 @@ namespace AngelPearl.Models
 			}
 			else
 			{
-
+				CalculateStats();
 			}
 		}
 
 		public void CalculateStats()
 		{
+			Attack.Value = Weapon.Value.Power;
+			Accuracy.Value = Weapon.Value.Accuracy;
+			Critical.Value = Weapon.Value.Critical + (Skill.Value / 4);
 
+			PhysicalDefense.Value = Armor.Value;
+
+			MagicDefense.Value = Resist.Value;
 		}
 
 		public void PopulateCommands()
