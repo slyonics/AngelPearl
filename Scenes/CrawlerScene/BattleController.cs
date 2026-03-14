@@ -288,7 +288,17 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             switch (tokens[1])
             {
-                case "Magic":
+				case "Melee":
+					hit = commandRecord.Accuracy + attacker.Stats.Skill.Value;
+					evade = target.Stats.PhysicalEvade.Value + target.Stats.Reflex.Value;
+					break;
+
+				case "Ranged":
+					hit = commandRecord.Accuracy + attacker.Stats.Skill.Value;
+					evade = target.Stats.PhysicalEvade.Value + target.Stats.Reflex.Value;
+					break;
+
+				case "Module":
                     hit = commandRecord.Accuracy + attacker.Stats.Level.Value - target.Stats.Level.Value;
                     evade = target.Stats.MagicEvade.Value;
                     break;
@@ -298,22 +308,15 @@ namespace AngelPearl.Scenes.CrawlerScene
                     evade = target.Stats.AilmentImmune.Any(x => x.Value.ToString() == tokens[2]) ? 100 : 0;
                     break;
 
-                case "Monster":
-                    hit = attackData.Accuracy;
-                    evade = target.Stats.PhysicalEvade.Value;
+                case "MonsterMelee":
+                    hit = attackData.Accuracy + attacker.Stats.Skill.Value;
+                    evade = target.Stats.PhysicalEvade.Value + target.Stats.Reflex.Value;
                     break;
 
-                case "MonsterMagic":
+                case "MonsterModule":
                     hit = attackData.Accuracy;
-                    evade = target.Stats.MagicEvade.Value;
+                    evade = target.Stats.MagicEvade.Value + ((HeroModel)target.Stats).Resist.Value;
                     break;
-            }
-
-            if (multiTarget && commandRecord.Targetting != TargetType.All &&
-                               commandRecord.Targetting != TargetType.AllEnemies &&
-                               commandRecord.Targetting != TargetType.AllAllies)
-            {
-                hit /= 2;
             }
 
             if (attacker.Stats.StatusAilments.ModelList.Any(x => x.Value == AilmentType.Fear))
@@ -358,41 +361,47 @@ namespace AngelPearl.Scenes.CrawlerScene
             int multiplier = 0;
             int defense = 0;
             int damage = 0;
+            int critical = 0;
 
             switch (tokens[1])
             {
                 case "Melee":
 
                     attack = attacker.Stats.PhysicalAttack.Value + Rng.RandomInt(0, 3);
-                    multiplier = attacker.Stats.Skill.Value * attacker.Stats.Level.Value / 256 + 2;
+                    multiplier = ((HeroModel)attacker.Stats).Power.Value * attacker.Stats.Level.Value / 256 + 2;
                     defense = target.Stats.PhysicalDefense.Value;
-                    break;
+                    critical = commandRecord.Critical;
+					break;
 
 				case "Ranged":
 					attack = attacker.Stats.PhysicalAttack.Value + Rng.RandomInt(0, 3);
-					multiplier = attacker.Stats.Skill.Value * attacker.Stats.Level.Value / 256 + 2;
+					multiplier = ((HeroModel)attacker.Stats).Power.Value * attacker.Stats.Level.Value / 256 + 2;
 					defense = target.Stats.PhysicalDefense.Value;
+					critical = commandRecord.Critical;
 					break;
 
-				case "Magic":
+				case "Module":
                     attack = commandRecord.Power + Rng.RandomInt(0, commandRecord.Power / 8);
-                    multiplier = attacker.Stats.Heart.Value * attacker.Stats.Level.Value / 256 + 4;
-                    defense = target.Stats.MagicDefense.Value;
+					multiplier = ((HeroModel)attacker.Stats).Magic.Value * attacker.Stats.Level.Value / 256 + 2;
+					defense = target.Stats.MagicDefense.Value;
+                    critical = commandRecord.Critical;
                     break;
 
-                case "Monster":
+                case "MonsterMelee":
                     attack = attackData.Power < 0 ? attacker.Stats.PhysicalAttack.Value : attackData.Power;
                     attack += Rng.RandomInt(0, attack / 8);
                     multiplier = attacker.Stats.Skill.Value;
                     defense = target.Stats.PhysicalDefense.Value;
-                    break;
+					critical = attackData.Critical;
+					break;
 
-                case "MonsterMagic":
+                case "MonsterModule":
                     attack = attackData.Power < 0 ? attacker.Stats.MagicAttack.Value : attackData.Power;
                     attack += Rng.RandomInt(0, attack / 8);
                     multiplier = attacker.Stats.Heart.Value;
                     defense = target.Stats.MagicDefense.Value;
-                    break;
+					critical = attackData.Critical;
+					break;
 
                 default:
                     attack = int.Parse(tokens[1]);
@@ -401,15 +410,12 @@ namespace AngelPearl.Scenes.CrawlerScene
                     break;
             }
 
-            if (multiTarget && battleScene.BattleViewModel.EnemyList.Count() > 1 &&
-                               commandRecord.Targetting != TargetType.All &&
-                               commandRecord.Targetting != TargetType.AllEnemies &&
-                               commandRecord.Targetting != TargetType.AllAllies)
+            if (Rng.RandomInt(0, 99) < critical)
             {
-                if ((target is BattlePlayer && battleScene.BattleViewModel.PlayerList.Where(x => !x.Dead).Count() > 1) || (target is BattleEnemy && battleScene.BattleViewModel.EnemyList.Count() > 1))
-                {
-                    attack /= 2;
-                }
+                attack = (int)(attack * 1.5f);
+                defense = 0;
+
+                Audio.PlaySound(GameSound.Eruption); // replace with critical hit sfx
             }
 
             if (tokens.Length > 2)
@@ -493,7 +499,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             List<BattlePlayer> eligibleTargets = battleScene.BattleViewModel.PlayerList.FindAll(x => !x.Dead);
             target = eligibleTargets[Rng.RandomInt(0, eligibleTargets.Count - 1)];
 
-            scriptParser.RunScript($"Narrate {attacker.Stats.Name} attacks!\nAnimate Attack\nWait 600\nSound Slash\nCenterEffect Bash $targetCenterX $targetCenterY 2\nOnHit Monster Strength\nFlash 255 0 0\nDamage Monster Blunt");
+            scriptParser.RunScript($"Narrate {attacker.Stats.Name} attacks!\nAnimate Attack\nWait 600\nSound Slash\nCenterEffect Bash $targetCenterX $targetCenterY 2\nOnHit MonsterMelee\nFlash 255 0 0\nDamage MonsterMelee Blunt");
         }
 
         private void Flee(string[] tokens)

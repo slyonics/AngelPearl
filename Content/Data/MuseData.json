@@ -18,7 +18,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Module" ]
+			"ActiveModules": [ "Slice" ]
 		}
 	},
 	{
@@ -41,7 +41,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Module" ]
+			"ActiveModules": [ "Slice" ]
 		}
 	},
 	{
@@ -64,7 +64,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Module" ]
+			"ActiveModules": [ "Slice" ]
 		}
 	},
 	{
@@ -87,7 +87,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Module" ]
+			"ActiveModules": [ "Slice" ]
 		}
 	},
 	{
@@ -110,7 +110,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Module" ]
+			"ActiveModules": [ "Slice" ]
 		}
 	},
 	{
@@ -133,7 +133,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Module" ]
+			"ActiveModules": [ "Slice" ]
 		}
 	},
 	{
@@ -156,7 +156,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Module" ]
+			"ActiveModules": [ "Slice" ]
 		}
 	}
 ]

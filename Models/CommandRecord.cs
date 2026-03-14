@@ -23,6 +23,8 @@ namespace AngelPearl.Models
 
 			Power = clone.Power;
 			Accuracy = clone.Accuracy;
+			Critical = clone.Critical;
+
 			Priority = clone.Priority;
 
 			ChargesLeft = clone.ChargesLeft;
@@ -38,6 +40,8 @@ namespace AngelPearl.Models
 		{
 			Power = attackData.Power;
 			Accuracy = attackData.Accuracy;
+			Critical = attackData.Critical;
+
 			Priority = attackData.Priority;
 		}
 
@@ -50,6 +54,8 @@ namespace AngelPearl.Models
 
 			Power = itemRecord.Power;
 			Accuracy = itemRecord.Accuracy;
+			Critical = itemRecord.Critical;
+
 			Priority = itemRecord.Priority;
 
 			Targetting = itemRecord.Targetting;
@@ -70,6 +76,8 @@ namespace AngelPearl.Models
 
 		public int Power { get; set; }
 		public int Accuracy { get; set; }
+		public int Critical { get; set; }
+
 		public CommandPriority Priority { get; set; }
 
 		public bool FieldUsable { get => FieldScript != null; }

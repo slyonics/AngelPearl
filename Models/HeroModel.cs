@@ -23,8 +23,8 @@ namespace AngelPearl.Models
 			Portrait.Value = $"Portraits_{heroRecord.PortraitSprite}";
 
 			Level.Value = heroRecord.Level;
-            HP.Value = MaxHP.Value = heroRecord.BaseHP;
-			MP.Value = MaxMP.Value = heroRecord.BaseMP;
+            HP.Value = MaxHP.Value = 40 + (4 * heroRecord.BaseHeart);
+			MP.Value = MaxMP.Value = 20 + (2 * heroRecord.BaseMind);
 
 			Skill.Value = heroRecord.BaseSkill;
 			Reflex.Value = heroRecord.BaseReflex;

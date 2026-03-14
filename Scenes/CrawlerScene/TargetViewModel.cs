@@ -221,6 +221,7 @@ namespace AngelPearl.Scenes.CrawlerScene
         {
             base.Draw(spriteBatch);
 
+            /*
             targetFrames++;
 
             if (targetAllEnemies && !targetAllAllies)
@@ -275,6 +276,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                     Text.DrawCenteredText(spriteBatch, pointerPos + new Vector2(1, 3), GameFont.Interface, warningMessage, warningColor, 0.03f);
                 }
             }
+            */
         }
 
 

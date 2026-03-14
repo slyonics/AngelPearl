@@ -2,10 +2,10 @@
 	{
 		"Name": "Pearl Rod",
 		"Description": "Item description here.",
-		"Icon": "6,3",
+		"Icon": "13,6",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
-		"Power": 16,
+		"Power": 8,
 		"Accuracy": 90,
 		"Priority": "Melee",
 		"BattleScript": [
@@ -15,7 +15,7 @@
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
 			"OnHit Melee Sharp",
 			"Flash 255 0 0",
-			"Damage Magic Sharp"
+			"Damage Melee Sharp"
 		]
 	},
 	{
@@ -34,7 +34,7 @@
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
 			"OnHit Melee Sharp",
 			"Flash 255 0 0",
-			"Damage Magic Sharp"
+			"Damage Melee Sharp"
 		]
 	},
 	{
@@ -53,7 +53,7 @@
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
 			"OnHit Melee Sharp",
 			"Flash 255 0 0",
-			"Damage Magic Sharp"
+			"Damage Melee Sharp"
 		]
 	},
 	{
@@ -116,10 +116,10 @@
 	{
 		"Name": "Slice",
 		"Description": "Physical (slash) damage to one enemy. May inflict critical damage.",
-		"Icon": "8,3",
+		"Icon": "13,4",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
-		"Power": 16,
+		"Power": 12,
 		"Accuracy": 100,
 		"Critical": 10,
 		"Priority": "Melee",
@@ -128,9 +128,9 @@
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Melee Sharp",
+			"OnHit Module Sharp",
 			"Flash 255 0 0",
-			"Damage Melee Sharp"
+			"Damage Module Sharp"
 		]
 	},
 	{
