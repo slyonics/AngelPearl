@@ -13,9 +13,9 @@
 			"Animate Attack",
 			"Sound Bonk",
 			"CenterEffect Bash $targetCenterX $targetCenterY 2",
-			"OnHit Melee Almighty",
+			"OnHit Physical Almighty",
 			"Flash 255 0 0",
-			"Damage Melee Almighty"
+			"Damage Physical Almighty"
 		]
 	},
 	{
@@ -32,9 +32,28 @@
 			"Animate Attack",
 			"Sound Bonk",
 			"CenterEffect Bash $targetCenterX $targetCenterY 2",
-			"OnHit Melee Blunt",
+			"OnHit Physical Blunt",
 			"Flash 255 0 0",
-			"Damage Melee Blunt"
+			"Damage Physical Blunt"
+		]
+	},
+	{
+		"Name": "Epee",
+		"Description": "An elegant slashing sword.",
+		"Icon": "8,7",
+		"ItemType": "Weapon",
+		"Targetting": "OneEnemy",
+		"Power": 12,
+		"Accuracy": 100,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName attacks with Epee!",
+			"Animate Attack",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Physical Sharp",
+			"Flash 255 0 0",
+			"Damage Physical Sharp"
 		]
 	},
 	{
@@ -51,9 +70,9 @@
 			"Animate Attack",
 			"Sound Slash",
 			"CenterEffect Bash $targetCenterX $targetCenterY 2",
-			"OnHit Melee Blunt",
+			"OnHit Physical Blunt",
 			"Flash 255 0 0",
-			"Damage Melee Blunt"
+			"Damage Physical Blunt"
 		]
 	},
 	{
@@ -70,9 +89,9 @@
 			"Animate Attack",
 			"Sound Slash",
 			"CenterEffect Bash $targetCenterX $targetCenterY 2",
-			"OnHit Melee Blunt",
+			"OnHit Physical Blunt",
 			"Flash 255 0 0",
-			"Damage Melee Blunt"
+			"Damage Physical Blunt"
 		]
 	},
 	{
@@ -82,16 +101,16 @@
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 16,
-		"Accuracy": 9,
+		"Accuracy": 90,
 		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Vice Claws!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Melee Sharp",
+			"OnHit Physical Sharp",
 			"Flash 255 0 0",
-			"Damage Magic Sharp"
+			"Damage Physical Sharp"
 		]
 	},
 	{
@@ -102,15 +121,15 @@
 		"Targetting": "OneEnemy",
 		"Power": 8,
 		"Accuracy": 100,
-		"Priority": "Melee",
+		"Priority": "Ranged",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Orbital Drones!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Ranged Sharp",
+			"OnHit Physical Ranged",
 			"Flash 255 0 0",
-			"Damage Ranged Sharp"
+			"Damage Physical Ranged"
 		]
 	},
 	{
@@ -129,9 +148,9 @@
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Module Sharp",
+			"OnHit Physical Sharp",
 			"Flash 255 0 0",
-			"Damage Module Sharp"
+			"Damage Physical Sharp"
 		]
 	},
 	{
@@ -143,16 +162,42 @@
 		"Power": 30,
 		"Accuracy": 100,
 		"Critical": 0,
-		"Priority": "Melee",
+		"Priority": "Ranged",
 		"Cost": 20,
 		"BattleScript": [
 			"Narrate $attackerName uses Fireball!",
 			"Animate Attack",
 			"Sound Fireball",
 			"CenterEffect Fireburst $targetCenterX $targetCenterY 3",
-			"OnHit Module Fire",
+			"OnHit Magic Fire",
 			"Flash 255 0 0",
-			"Damage Module Fire"
+			"Damage Magic Fire"
+		]
+	},
+	{
+		"Name": "Heal",
+		"Description": "Light healing for one ally. Cost: 8sp",
+		"Icon": "8,4",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneAlly",
+		"Power": 8,
+		"Accuracy": 100,
+		"Critical": 0,
+		"Priority": "Word",
+		"Cost": 8,
+		"Conditions": "$Target.HP > 0 && $Target.HP < $Target.MaxHP",
+		"BattleScript": [
+			"Narrate $attackerName uses Heal!",
+			"Animate Attack",
+			"Sound Cure",
+			"Effect Cure2 $targetCenterX $targetBottom 3",
+			"Flash 0 255 255",
+			"Heal Magic Life"
+		],
+		"FieldScript": [
+			"Sound Cure",
+			"Heal Heal 15",
+			"Effect Cure1 $targetX $targetY 3"
 		]
 	},
 	{
@@ -170,15 +215,15 @@
 			"Animate Attack",
 			"Sound Bonk",
 			"CenterEffect Bash $targetCenterX $targetCenterY 2",
-			"OnHit Module Blunt",
+			"OnHit Physical Blunt",
 			"Flash 255 0 0",
-			"Damage Module Blunt"
+			"Damage Physical Blunt"
 		]
 	},
 	{
 		"Name": "Sting",
 		"Description": "Physical (ranged) damage to one enemy. May inflict stun. Cost: 5sp",
-		"Icon": "13,4",
+		"Icon": "11,6",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
 		"Power": 15,
@@ -190,9 +235,9 @@
 			"Animate Attack",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Module Sharp",
+			"OnHit Physical Ranged",
 			"Flash 255 0 0",
-			"Damage Module Sharp"
+			"Damage Physical Ranged"
 		]
 	},
 	{

@@ -132,52 +132,40 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
 
-			if (target is BattleEnemy)
-			{
-				List<Battler> targetList = new List<Battler>();
-				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y < target.Center.Y));
-
-				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-			}
+			List<Battler> targetList = new List<Battler>();
+			if (target is BattleEnemy) targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y < target.Center.Y));
+            else targetList.AddRange(battleScene.BattleViewModel.PlayerList.Where(x => !x.Dead && x.Center.Y < target.Center.Y));
+			if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
 		}
 
 		private void TargetDown()
 		{
 			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
 
-			if (target is BattleEnemy)
-			{
-				List<Battler> targetList = new List<Battler>();
-				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y > target.Center.Y));
-
-				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-			}
+			List<Battler> targetList = new List<Battler>();
+			if (target is BattleEnemy) targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.Y > target.Center.Y));
+            else targetList.AddRange(battleScene.BattleViewModel.PlayerList.Where(x => !x.Dead && x.Center.Y > target.Center.Y));
+			if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
 		}
 
 		private void TargetLeft()
 		{
 			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
 
-			if (target is BattleEnemy)
-			{
-				List<Battler> targetList = new List<Battler>();
-				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.X < target.Center.X));
-
-				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-			}
+			List<Battler> targetList = new List<Battler>();
+			if (target is BattleEnemy) targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.X < target.Center.X));
+            else targetList.AddRange(battleScene.BattleViewModel.PlayerList.Where(x => !x.Dead && x.Center.X < target.Center.X));
+			if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
 		}
 
 		private void TargetRight()
 		{
 			if (Command.Targetting == TargetType.All || Command.Targetting == TargetType.Self || Command.Targetting == TargetType.AllAllies || Command.Targetting == TargetType.AllEnemies) return;
 
-			if (target is BattleEnemy)
-			{
-				List<Battler> targetList = new List<Battler>();
-				targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.X > target.Center.X));
-
-				if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
-			}
+			List<Battler> targetList = new List<Battler>();
+			if (target is BattleEnemy) targetList.AddRange(battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead && x.Center.X > target.Center.X));
+            else targetList.AddRange(battleScene.BattleViewModel.PlayerList.Where(x => !x.Dead && x.Center.X > target.Center.X));
+			if (targetList.Count > 0) target = targetList.MinBy(new Func<Battler, float>(t => Vector2.Distance(target.Position, t.Position)));
 		}
 
 		private void ValidatePointer()
@@ -197,24 +185,14 @@ namespace AngelPearl.Scenes.CrawlerScene
                 pointerSprite.PlayAnimation("Valid");
             }
 
-			var targetEnemy = target as BattleEnemy;
-            if (targetEnemy != null)
-            {
-                Label.Value = targetEnemy.Stats.Name.Value;
-                int width = Text.GetStringLength(GameFont.Console, targetEnemy.Stats.Name.Value) + 16;
 
-				LabelBounds.Value = new Rectangle((int)target.Center.X - (CrossPlatformGame.SCREEN_WIDTH / 2) - (width / 2), -80, width, 19);
+            {
+                Label.Value = target.Stats.Name.Value;
+                int width = Text.GetStringLength(GameFont.Console, target.Stats.Name.Value) + 16;
+                LabelBounds.Value = new Rectangle((int)target.Center.X - (CrossPlatformGame.SCREEN_WIDTH / 2) - (width / 2), -80, width, 19);
                 ShowLabel.Value = true;
-
-				Description.Value = targetEnemy.Stats.Description.Value;
-			}
-            else
-            {
-				Label.Value = "";
-				ShowLabel.Value = false;
-
-                Description.Value = "";
-			}
+                Description.Value = target.Stats.Description.Value;
+            }
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)

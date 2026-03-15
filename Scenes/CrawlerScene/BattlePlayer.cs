@@ -177,7 +177,7 @@ namespace AngelPearl.Scenes.CrawlerScene
         public void Idle()
         {
             if (Defending && !Dead) PlayAnimation("Guarding");
-            else if (enqueuedCommand != null && !enqueuedController.Terminated) PlayAnimation(enqueuedCommand.Animation);
+            // else if (enqueuedCommand != null && !enqueuedController.Terminated) PlayAnimation(enqueuedCommand.Animation);
             else if (Stats.HP.Value > HeroModel.MaxHP.Value / 8 && !Stats.StatusAilments.Any()) PlayAnimation("Ready");
             else if (Stats.HP.Value > 0) PlayAnimation("Hurting");
             else PlayAnimation("Dead");

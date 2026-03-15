@@ -45,12 +45,10 @@ namespace AngelPearl.Models
 			CurrentSave.Objectives.Add(new ObjectiveModel("ObjDemo2", "- Defeat the Moon Bunny outlaws."));
 
 			GameProfile.CurrentSave.Party.Clear();
-            foreach (var maho in GameProfile.CurrentSave.Roster.Take(3))
+            foreach (var maho in GameProfile.CurrentSave.Roster.Take(4))
             {
                 GameProfile.CurrentSave.Party.Add(maho.Value);
             }
-
-            GameProfile.CurrentSave.Party.Add(GameProfile.CurrentSave.Mascot.Value);
 
 
             CurrentSave.CurrentMission = new ModelProperty<MissionRecord>(MissionRecord.MISSIONS.First(x => x.Name == "Gabriel"));

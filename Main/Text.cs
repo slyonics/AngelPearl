@@ -41,10 +41,10 @@ namespace AngelPearl.Main
 			spriteBatch.DrawString(AssetCache.FONTS[font], text, position, color, 0.0f, offset, 1.0f, SpriteEffects.None, TEXT_DEPTH);
 		}
 
-		public static void DrawText(SpriteBatch spriteBatch, Vector2 position, GameFont font, string text, Color color, float depth, int row = 0)
+		public static void DrawText(SpriteBatch spriteBatch, Vector2 position, GameFont font, string text, Color color, float depth, int row = 0, float scale = 1.0f)
 		{
 			Vector2 offset = new Vector2(0, -row * GetStringHeight(font) + FONT_DATA[font].heightOffset);
-			spriteBatch.DrawString(AssetCache.FONTS[font], text, position, color, 0.0f, offset, 1.0f, SpriteEffects.None, depth);
+			spriteBatch.DrawString(AssetCache.FONTS[font], text, position, color, 0.0f, offset, scale, SpriteEffects.None, depth);
 		}
 
 		public static void DrawCenteredText(SpriteBatch spriteBatch, Vector2 position, GameFont font, string text, int row = 0)

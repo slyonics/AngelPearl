@@ -296,17 +296,12 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             switch (tokens[1])
             {
-				case "Melee":
+				case "Physical":
 					hit = commandRecord.Accuracy + attacker.Stats.Skill.Value;
 					evade = target.Stats.PhysicalEvade.Value + target.Stats.Reflex.Value;
 					break;
 
-				case "Ranged":
-					hit = commandRecord.Accuracy + attacker.Stats.Skill.Value;
-					evade = target.Stats.PhysicalEvade.Value + target.Stats.Reflex.Value;
-					break;
-
-				case "Module":
+				case "Magic":
                     hit = commandRecord.Accuracy + attacker.Stats.Level.Value - target.Stats.Level.Value;
                     evade = target.Stats.MagicEvade.Value;
                     break;
@@ -373,22 +368,15 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             switch (tokens[1])
             {
-                case "Melee":
+                case "Physical":
 
-                    attack = ((HeroModel)attacker.Stats).Attack.Value + Rng.RandomInt(0, 3);
+                    attack = commandRecord.Power + Rng.RandomInt(0, 3);
                     multiplier = ((HeroModel)attacker.Stats).Power.Value * attacker.Stats.Level.Value / 256 + 2;
                     defense = target.Stats.PhysicalDefense.Value;
                     critical = commandRecord.Critical;
 					break;
 
-				case "Ranged":
-					attack = ((HeroModel)attacker.Stats).Attack.Value + Rng.RandomInt(0, 3);
-					multiplier = ((HeroModel)attacker.Stats).Power.Value * attacker.Stats.Level.Value / 256 + 2;
-					defense = target.Stats.PhysicalDefense.Value;
-					critical = commandRecord.Critical;
-					break;
-
-				case "Module":
+				case "Magic":
                     attack = commandRecord.Power + Rng.RandomInt(0, commandRecord.Power / 8);
 					multiplier = ((HeroModel)attacker.Stats).Magic.Value * attacker.Stats.Level.Value / 256 + 2;
 					defense = target.Stats.MagicDefense.Value;
