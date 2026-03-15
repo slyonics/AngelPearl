@@ -86,8 +86,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			LocationName = floor.LocationName;
 
 			PartyController = AddController(new PartyController(this, x, y, dir));
-		    MapViewModel = AddView(new MapViewModel(this, GameView.Crawler_MapView));
-            MapPanel = MapViewModel.GetWidget<Panel>("MapPanel");
+
 
 			floor.GetRoom(PartyController.RoomX, PartyController.RoomY).EnterRoom(false);
 		}
@@ -101,8 +100,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             Spawn spawn = floor.Spawns[spawnName];
 
 			PartyController = AddController(new PartyController(this, spawn.RoomX, spawn.RoomY, spawn.Direction));
-			MapViewModel = AddView(new MapViewModel(this, GameView.Crawler_MapView));
-            MapPanel = MapViewModel.GetWidget<Panel>("MapPanel");
+
 
 			floor.GetRoom(PartyController.RoomX, PartyController.RoomY).EnterRoom(false);
 		}
@@ -154,7 +152,10 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             Audio.PlayMusic(Music);
 
-			OnStart?.Invoke();
+            MapViewModel = AddView(new MapViewModel(this, GameView.Crawler_MapView));
+            MapPanel = MapViewModel.GetWidget<Panel>("MapPanel");
+
+            OnStart?.Invoke();
 		}
 
         public override void Update(GameTime gameTime)
