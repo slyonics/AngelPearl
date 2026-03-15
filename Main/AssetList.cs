@@ -110,7 +110,6 @@ namespace AngelPearl.Main
         NPCs_Chest,
         NPCs_Coral,
         NPCs_Door,
-        NPCs_MoonRabbit,
         Particles_Bash,
         Particles_BlackHole,
         Particles_BlueHeal,

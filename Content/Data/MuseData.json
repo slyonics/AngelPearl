@@ -5,8 +5,6 @@
 		"ClassType": "Gemini",
 		"PortraitSprite": "Proxy",
 		"Level": 1,
-		"BaseHP": 12,
-		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
 		"BaseHeart": 1,
@@ -18,7 +16,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Slice" ]
+			"ActiveModules": [ "Slice", "Fireball" ]
 		}
 	},
 	{
@@ -27,8 +25,6 @@
 		"ClassType": "Aries",
 		"PortraitSprite": "Aika",
 		"Level": 1,
-		"BaseHP": 12,
-		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
 		"BaseMagic": 1,
@@ -41,7 +37,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Slice" ]
+			"ActiveModules": [ "Smash" ]
 		}
 	},
 	{
@@ -50,8 +46,6 @@
 		"ClassType": "Leo",
 		"PortraitSprite": "Proxy",
 		"Level": 1,
-		"BaseHP": 12,
-		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
 		"BaseMagic": 1,
@@ -73,8 +67,6 @@
 		"ClassType": "Libra",
 		"PortraitSprite": "Proxy",
 		"Level": 1,
-		"BaseHP": 12,
-		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
 		"BaseMagic": 1,
@@ -96,8 +88,6 @@
 		"ClassType": "Libra",
 		"PortraitSprite": "Proxy",
 		"Level": 1,
-		"BaseHP": 12,
-		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
 		"BaseMagic": 1,
@@ -110,7 +100,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Slice" ]
+			"ActiveModules": [ "Sting" ]
 		}
 	},
 	{
@@ -119,8 +109,6 @@
 		"ClassType": "Libra",
 		"PortraitSprite": "Proxy",
 		"Level": 1,
-		"BaseHP": 12,
-		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
 		"BaseMagic": 1,
@@ -142,14 +130,12 @@
 		"ClassType": "Mascot",
 		"PortraitSprite": "Mascot",
 		"Level": 1,
-		"BaseHP": 12,
-		"BaseMP": 2,
 		"BaseSkill": 4,
 		"BaseReflex": 4,
 		"BaseMagic": 1,
 		"BaseTech": 3,
 		"BaseHeart": 1,
-		"Weapon": "Ruby Staff",
+		"Weapon": "Carrot",
 		"Accessory": "Focus Stone",
 		"CosmoEngine": {
 			"BasePower": 4,

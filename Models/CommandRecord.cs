@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AngelPearl.Scenes.CrawlerScene;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,9 @@ namespace AngelPearl.Models
 			Critical = clone.Critical;
 
 			Priority = clone.Priority;
+
+			Cost = clone.Cost;
+			Charges = ChargesLeft = clone.Charges;
 
 			ChargesLeft = clone.ChargesLeft;
 			Charges = clone.Charges;
@@ -58,6 +62,9 @@ namespace AngelPearl.Models
 
 			Priority = itemRecord.Priority;
 
+			Cost = itemRecord.Cost;
+			Charges = ChargesLeft = itemRecord.Charges;
+
 			Targetting = itemRecord.Targetting;
 			TargetDead = itemRecord.TargetDead;
 			if (itemRecord.Conditions != null) Conditions = (string)itemRecord.Conditions.Clone();
@@ -75,11 +82,11 @@ namespace AngelPearl.Models
 		public int Charges { get; set; } = -1;
 		public bool ShowCharges { get => Charges >= 0; }
 
-		public virtual bool Usable
+		public bool Usable
 		{
 			get
 			{
-				if (Cost >= 0) return false;
+				if (Cost >= 0) return CommandViewModel.AvailableMP >= Cost;
 				return ChargesLeft != 0;
 			}
 		}

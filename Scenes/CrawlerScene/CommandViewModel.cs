@@ -14,6 +14,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 {
 	public class CommandViewModel : ViewModel
 	{
+		public static int AvailableMP = 0;
+
 		CrawlerScene crawlerScene;
 
 		TargetViewModel targetSelector;
@@ -29,6 +31,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			ActivePlayer = iBattlePlayer;
 			ActivePlayer.HeroModel.NameColor.Value = Color.Red;
+			AvailableMP = ActivePlayer.Stats.MP.Value;
 
 			foreach (var command in ActivePlayer.HeroModel.Commands)
 				AvailableCommands.ModelList.Add(new ModelProperty<CommandRecord>(command.Value));

@@ -103,8 +103,15 @@ namespace AngelPearl.Scenes.CrawlerScene
             FixTargetting();
         }
 
-        public void StartExecution(ItemModel itemModel)
+        public void StartExecution()
         {
+            if (commandRecord != null)
+            {
+                if (commandRecord.Cost > 0) attacker.Stats.MP.Value = attacker.Stats.MP.Value - commandRecord.Cost;
+				else if (commandRecord.Charges > 0) commandRecord.ChargesLeft--;
+			}
+
+            /*
             if (itemModel != null && itemModel.Quantity.Value > 0)
             {
                 itemModel.Quantity.Value = itemModel.Quantity.Value - 1;
@@ -114,6 +121,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                     GameProfile.CurrentSave.Inventory.Remove(property);
                 }
             }
+            */
 		}
 
         public override void PreUpdate(GameTime gameTime)

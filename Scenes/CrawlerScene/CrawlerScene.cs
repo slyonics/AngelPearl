@@ -385,7 +385,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public void EndBattle()
         {
-            FoeInBattle.Destroy();
+            FoeInBattle?.Destroy();
             FoeInBattle = null;
 
             BattleViewModel = null;

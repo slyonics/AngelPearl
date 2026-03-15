@@ -10,9 +10,9 @@
 		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Pearl Rod!",
-			"Animate Attack Sword",
-			"Sound Slash",
-			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"Animate Attack",
+			"Sound Bonk",
+			"CenterEffect Bash $targetCenterX $targetCenterY 2",
 			"OnHit Melee Almighty",
 			"Flash 255 0 0",
 			"Damage Melee Almighty"
@@ -29,12 +29,31 @@
 		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Ruby Staff!",
-			"Animate Attack Sword",
-			"Sound Slash",
-			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Melee Sharp",
+			"Animate Attack",
+			"Sound Bonk",
+			"CenterEffect Bash $targetCenterX $targetCenterY 2",
+			"OnHit Melee Blunt",
 			"Flash 255 0 0",
-			"Damage Melee Sharp"
+			"Damage Melee Blunt"
+		]
+	},
+	{
+		"Name": "Carrot",
+		"Description": "A leafy carrot that rabbits like to eat.",
+		"Icon": "13,17",
+		"ItemType": "Weapon",
+		"Targetting": "OneEnemy",
+		"Power": 8,
+		"Accuracy": 90,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName attacks with Carrot!",
+			"Animate Attack",
+			"Sound Slash",
+			"CenterEffect Bash $targetCenterX $targetCenterY 2",
+			"OnHit Melee Blunt",
+			"Flash 255 0 0",
+			"Damage Melee Blunt"
 		]
 	},
 	{
@@ -48,12 +67,12 @@
 		"Priority": "Melee",
 		"BattleScript": [
 			"Narrate $attackerName attacks with Ram Piston!",
-			"Animate Attack Sword",
+			"Animate Attack",
 			"Sound Slash",
-			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Melee Sharp",
+			"CenterEffect Bash $targetCenterX $targetCenterY 2",
+			"OnHit Melee Blunt",
 			"Flash 255 0 0",
-			"Damage Melee Sharp"
+			"Damage Melee Blunt"
 		]
 	},
 	{
@@ -95,25 +114,6 @@
 		]
 	},
 	{
-		"Name": "Module",
-		"Description": "Item description here.",
-		"Icon": "8,3",
-		"ItemType": "ActiveModule",
-		"Targetting": "OneEnemy",
-		"Power": 16,
-		"Accuracy": 100,
-		"Priority": "Ranged",
-		"BattleScript": [
-			"Narrate $attackerName uses a sample active module!",
-			"Animate Attack Sword",
-			"Sound Slash",
-			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Melee Sharp",
-			"Flash 255 0 0",
-			"Damage Magic Sharp"
-		]
-	},
-	{
 		"Name": "Slice",
 		"Description": "Physical (slash) damage to one enemy. May inflict critical damage. Cost: 5sp",
 		"Icon": "13,4",
@@ -135,6 +135,27 @@
 		]
 	},
 	{
+		"Name": "Fireball",
+		"Description": "Magical (fire) damage to one enemy. Cost: 20sp",
+		"Icon": "0,4",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneEnemy",
+		"Power": 30,
+		"Accuracy": 100,
+		"Critical": 0,
+		"Priority": "Melee",
+		"Cost": 20,
+		"BattleScript": [
+			"Narrate $attackerName uses Fireball!",
+			"Animate Attack",
+			"Sound Fireball",
+			"CenterEffect Fireburst $targetCenterX $targetCenterY 3",
+			"OnHit Module Fire",
+			"Flash 255 0 0",
+			"Damage Module Fire"
+		]
+	},
+	{
 		"Name": "Smash",
 		"Description": "Physical (blunt) damage to one enemy. May inflict stun. Cost: 5sp",
 		"Icon": "13,4",
@@ -146,12 +167,12 @@
 		"Cost": 5,
 		"BattleScript": [
 			"Narrate $attackerName uses Smash!",
-			"Animate Attack Sword",
-			"Sound Slash",
-			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Module Sharp",
+			"Animate Attack",
+			"Sound Bonk",
+			"CenterEffect Bash $targetCenterX $targetCenterY 2",
+			"OnHit Module Blunt",
 			"Flash 255 0 0",
-			"Damage Module Sharp"
+			"Damage Module Blunt"
 		]
 	},
 	{
@@ -166,7 +187,7 @@
 		"Cost": 5,
 		"BattleScript": [
 			"Narrate $attackerName uses Sting!",
-			"Animate Attack Sword",
+			"Animate Attack",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
 			"OnHit Module Sharp",

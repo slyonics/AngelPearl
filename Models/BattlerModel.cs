@@ -28,13 +28,17 @@ namespace AngelPearl.Models
 	{
 		None,
 
+		Almighty,
+
 		Blunt,
 		Sharp,
 		Ranged,
 
 		Solar,
 		Lunar,
-		Almighty,
+
+		Holy,
+		Darkness,
 
 		Ice,
 		Fire,

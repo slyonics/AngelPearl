@@ -66,6 +66,7 @@ namespace AngelPearl.Models
         public CommandPriority Priority { get; set; }
 
 		public int Cost { get; set; }
+		public int Charges { get; set; }
 
 		public ElementType AttackElement { get; set; }
         public ElementType[] ElementsWeak { get; set; }
