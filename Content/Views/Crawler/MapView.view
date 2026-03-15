@@ -4,7 +4,7 @@
 	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,-180,306,54" InnerMargin="5,5,5,5">
 		<DataGrid Items="Bind PlayerProfile.Objectives" Bounds="0,0,290,27" Alignment="Center">
 			<Panel Alignment="Vertical" Bounds="0,0,290,9">
-				<Image Icon="15,4" Alignment="Left" Bounds="0,0,8,8" Color="#FFFFFFFF"/>
+				<Image Icon="15,1" Alignment="Left" Bounds="0,0,8,8" Color="#FFFFFFFF" Visible="Bind DataGrid.Completed"/>
 				<Label Text="Bind DataGrid.Headline" Font="Console" Alignment="Left" TextAlignment="Left" Bounds="8,0,270,9"/>
 			</Panel>
 		</DataGrid>
@@ -22,6 +22,7 @@
 	</Panel>
 
 	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130">
+		<Panel Bounds="0,-20,168,48" Alignment="Center">
 			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="TurnLeft" >
 				<Image Picture="TurnLeft" Alignment="Left" Bounds="0,2,48,16" />
 				<Label Text="Q" Alignment="Left" Bounds="-5,3,8,8" />
@@ -47,6 +48,7 @@
 				<Image Picture="StrafeRight" Alignment="Left" Bounds="0,2,48,16" />
 				<Label Text="D" Alignment="Left" Bounds="-5,3,8,8" />
 			</Button>
+		</Panel>
 	</Panel>
 	
 	<Panel Name="MiniMapPanel" Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" />

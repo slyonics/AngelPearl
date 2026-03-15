@@ -187,7 +187,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 				case "Narrate": Narration(tokens); break;
 				case "Dialogue": Dialogue(tokens); break;
                 case "Analyze": Analyze(tokens); return true;
-                case "Flee": Flee(tokens); break;
+				case "Sacrifice": Sacrifice(tokens); break;
+				case "Flee": Flee(tokens); break;
                 case "OnHit": if (!CalculateHit(tokens)) scriptParser.EndScript(); break;
                 case "Multitarget": if (!Multitarget()) scriptParser.EndScript(); break;
                 default: return false;
@@ -480,7 +481,15 @@ namespace AngelPearl.Scenes.CrawlerScene
             }
         }
 
-        private void CalculateReplenish(string[] tokens)
+        private void Sacrifice(string[] tokens)
+        {
+            float percent = int.Parse(tokens[1].Replace("%", "")) / 100.0f;
+            int sacrifice = (int)(attacker.Stats.HP.Value * percent);
+            attacker.Stats.HP.Value = Math.Max(1, attacker.Stats.HP.Value - sacrifice);
+		}
+
+
+		private void CalculateReplenish(string[] tokens)
         {
             target.Replenish(int.Parse(tokens[1]));
         }

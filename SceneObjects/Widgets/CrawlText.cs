@@ -1,11 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using AngelPearl.Main;
+﻿using AngelPearl.Main;
 using AngelPearl.Models;
+using AngelPearl.Scenes.CrawlerScene;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Xml;
 
@@ -124,6 +126,13 @@ namespace AngelPearl.SceneObjects.Widgets
 
 					case "PlayerName":
 						newToken = GameProfile.CurrentSave.Party[originalToken.Last() - '0'].Name.Value; break;
+
+					case "HP10%":
+						{
+							int sacrifice = Math.Min((int)(CommandViewModel.ActiveMuse.HP.Value * 0.1f), (int)CommandViewModel.ActiveMuse.HP.Value - 1);
+							newToken = sacrifice.ToString();
+						}
+						break;
 
 					default:
 						newToken = "ERR"; break;

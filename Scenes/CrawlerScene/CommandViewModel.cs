@@ -15,6 +15,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 	public class CommandViewModel : ViewModel
 	{
 		public static int AvailableMP = 0;
+		public static HeroModel ActiveMuse;
 
 		CrawlerScene crawlerScene;
 
@@ -29,6 +30,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			crawlerScene = iScene;
 
+			ActiveMuse = iBattlePlayer.HeroModel;
 			ActivePlayer = iBattlePlayer;
 			ActivePlayer.HeroModel.NameColor.Value = Color.Red;
 			AvailableMP = ActivePlayer.Stats.MP.Value;

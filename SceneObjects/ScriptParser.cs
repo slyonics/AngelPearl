@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using AngelPearl.SceneObjects.Controllers;
+using AngelPearl.Scenes.CrawlerScene;
 
 namespace AngelPearl.SceneObjects
 {

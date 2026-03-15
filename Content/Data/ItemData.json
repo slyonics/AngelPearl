@@ -39,7 +39,7 @@
 	},
 	{
 		"Name": "Epee",
-		"Description": "An elegant slashing sword.",
+		"Description": "An elegant slashing sword. ATK 12, HIT 100",
 		"Icon": "8,7",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
@@ -134,7 +134,7 @@
 	},
 	{
 		"Name": "Slice",
-		"Description": "Physical (slash) damage to one enemy. May inflict critical damage. Cost: 5sp",
+		"Description": "Physical (slash) damage to one enemy. May inflict critical damage. Cost: {HP10%} HP",
 		"Icon": "13,4",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
@@ -142,9 +142,9 @@
 		"Accuracy": 100,
 		"Critical": 10,
 		"Priority": "Melee",
-		"Cost": 5,
 		"BattleScript": [
 			"Narrate $attackerName uses Slice!",
+			"Sacrifice 10%",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
@@ -154,8 +154,48 @@
 		]
 	},
 	{
+		"Name": "Smash",
+		"Description": "Physical (blunt) damage to one enemy. May inflict stun. Cost: {HP10%} HP",
+		"Icon": "13,4",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneEnemy",
+		"Power": 20,
+		"Accuracy": 90,
+		"Priority": "Melee",
+		"BattleScript": [
+			"Narrate $attackerName uses Smash!",
+			"Sacrifice 10%",
+			"Animate Attack",
+			"Sound Bonk",
+			"CenterEffect Bash $targetCenterX $targetCenterY 2",
+			"OnHit Physical Blunt",
+			"Flash 255 0 0",
+			"Damage Physical Blunt"
+		]
+	},
+	{
+		"Name": "Sting",
+		"Description": "Physical (ranged) damage to one enemy. May inflict stun. Cost: {HP10%} HP",
+		"Icon": "11,6",
+		"ItemType": "ActiveModule",
+		"Targetting": "OneEnemy",
+		"Power": 15,
+		"Accuracy": 100,
+		"Priority": "Ranged",
+		"BattleScript": [
+			"Narrate $attackerName uses Sting!",
+			"Sacrifice 10%",
+			"Animate Attack",
+			"Sound Slash",
+			"CenterEffect Slash $targetCenterX $targetCenterY 1",
+			"OnHit Physical Ranged",
+			"Flash 255 0 0",
+			"Damage Physical Ranged"
+		]
+	},
+	{
 		"Name": "Fireball",
-		"Description": "Magical (fire) damage to one enemy. Cost: 20sp",
+		"Description": "Magical (fire) damage to one enemy. Cost: 20 SP",
 		"Icon": "0,4",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
@@ -176,7 +216,7 @@
 	},
 	{
 		"Name": "Heal",
-		"Description": "Light healing for one ally. Cost: 8sp",
+		"Description": "Light healing for one ally. Cost: 8 SP",
 		"Icon": "8,4",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneAlly",
@@ -198,46 +238,6 @@
 			"Sound Cure",
 			"Heal Heal 15",
 			"Effect Cure1 $targetX $targetY 3"
-		]
-	},
-	{
-		"Name": "Smash",
-		"Description": "Physical (blunt) damage to one enemy. May inflict stun. Cost: 5sp",
-		"Icon": "13,4",
-		"ItemType": "ActiveModule",
-		"Targetting": "OneEnemy",
-		"Power": 20,
-		"Accuracy": 90,
-		"Priority": "Melee",
-		"Cost": 5,
-		"BattleScript": [
-			"Narrate $attackerName uses Smash!",
-			"Animate Attack",
-			"Sound Bonk",
-			"CenterEffect Bash $targetCenterX $targetCenterY 2",
-			"OnHit Physical Blunt",
-			"Flash 255 0 0",
-			"Damage Physical Blunt"
-		]
-	},
-	{
-		"Name": "Sting",
-		"Description": "Physical (ranged) damage to one enemy. May inflict stun. Cost: 5sp",
-		"Icon": "11,6",
-		"ItemType": "ActiveModule",
-		"Targetting": "OneEnemy",
-		"Power": 15,
-		"Accuracy": 100,
-		"Priority": "Ranged",
-		"Cost": 5,
-		"BattleScript": [
-			"Narrate $attackerName uses Sting!",
-			"Animate Attack",
-			"Sound Slash",
-			"CenterEffect Slash $targetCenterX $targetCenterY 1",
-			"OnHit Physical Ranged",
-			"Flash 255 0 0",
-			"Damage Physical Ranged"
 		]
 	},
 	{

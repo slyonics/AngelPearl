@@ -19,6 +19,7 @@ namespace AngelPearl.Models
 		{
 			Name.Value = heroRecord.Name;
 			Class.Value = heroRecord.ClassType;
+			Description.Value = heroRecord.Description;
 
 			Portrait.Value = $"Portraits_{heroRecord.PortraitSprite}";
 
@@ -36,10 +37,13 @@ namespace AngelPearl.Models
 			Armor.Value = heroRecord.CosmoEngine.BaseArmor;
 			Resist.Value = heroRecord.CosmoEngine.BaseResist;
 
-			EquipWeapon(heroRecord.Weapon);
-			EquipAccessory(heroRecord.Accessory);
-			if (heroRecord.CosmoEngine.ActiveModules != null) foreach(var moduleName in heroRecord.CosmoEngine.ActiveModules) EquipModule(moduleName);
-			if (heroRecord.CosmoEngine.PassiveModules != null) foreach (var moduleName in heroRecord.CosmoEngine.PassiveModules) EquipModule(moduleName);
+			EquipWeapon(heroRecord.Weapon, false);
+			EquipAccessory(heroRecord.Accessory, false);
+			if (heroRecord.CosmoEngine.ActiveModules != null) foreach(var moduleName in heroRecord.CosmoEngine.ActiveModules) EquipModule(moduleName, false);
+			if (heroRecord.CosmoEngine.PassiveModules != null) foreach (var moduleName in heroRecord.CosmoEngine.PassiveModules) EquipModule(moduleName, false);
+
+			CalculateStats();
+			PopulateCommands();
 		}
 
 		public HeroModel(BinaryReader binaryReader)
@@ -52,31 +56,35 @@ namespace AngelPearl.Models
 
 		}
 
-		public void EquipWeapon(string weaponName)
+		public void EquipWeapon(string weaponName, bool calculateStats = true)
 		{
 			Weapon.Value = ItemRecord.ITEMS.First(x => x.Name == weaponName);
-			PopulateCommands();
-			CalculateStats();
+
+			if (calculateStats)
+			{
+				CalculateStats();
+				PopulateCommands();
+			}
 		}
 
-		public void EquipAccessory(string accessoryName)
+		public void EquipAccessory(string accessoryName, bool calculateStats = true)
 		{
 			Accessory.Value = ItemRecord.ITEMS.First(x => x.Name == accessoryName);
-			CalculateStats();
+			if (calculateStats) CalculateStats();
 		}
 
-		public void EquipModule(string moduleName)
+		public void EquipModule(string moduleName, bool calculateStats = true)
 		{
 			var module = ItemRecord.ITEMS.First(x => x.Name == moduleName);
 
 			if (module.ItemType == ItemType.ActiveModule)
 			{
 				ActiveModules.Add(module);
-				PopulateCommands();
+				if (calculateStats) PopulateCommands();
 			}
 			else
 			{
-				CalculateStats();
+				if (calculateStats) CalculateStats();
 			}
 		}
 
