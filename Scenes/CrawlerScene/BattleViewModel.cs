@@ -1,8 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Media;
-using Newtonsoft.Json.Linq;
-using AngelPearl.Main;
+﻿using AngelPearl.Main;
 using AngelPearl.Main;
 using AngelPearl.Models;
 using AngelPearl.Models;
@@ -12,10 +8,16 @@ using AngelPearl.SceneObjects.Controllers;
 using AngelPearl.SceneObjects.ViewModels;
 using AngelPearl.SceneObjects.Widgets;
 using AngelPearl.SceneObjects.Widgets;
+using AngelPearl.Scenes.BaseScene;
 using AngelPearl.Scenes.CrawlerScene;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AngelPearl.Scenes.CrawlerScene
 {
@@ -34,10 +36,14 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public event Action OnNarrationDone;
 
+
+		EncounterRecord record;
+
 		public BattleViewModel(CrawlerScene iScene, EncounterRecord encounterRecord)
 			: base(iScene, PriorityLevel.CutsceneLevel)
 		{
 			crawlerScene = iScene;
+			record = encounterRecord;
 
 			LoadView(GameView.Crawler_BattleView);
 			enemyPanel = GetWidget<Panel>("EnemyPanel");
@@ -83,7 +89,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 				NewRound();
 			});
 
-			Audio.PlayMusic(GameMusic.Battle1);
+			if (encounterRecord.Boss) Audio.PlayMusic(GameMusic.BossTheme1);
+			else Audio.PlayMusic(GameMusic.Battle1);
 		}
 
 		public override void Update(GameTime gameTime)
@@ -98,6 +105,16 @@ namespace AngelPearl.Scenes.CrawlerScene
 					if (!crawlerScene.OverlayList.Any(x => x is ConversationViewModel))
 					{
 						Victory();
+					}
+
+					return;
+				}
+
+				if (PlayerList.All(x => x.Dead))
+				{
+					if (!crawlerScene.OverlayList.Any(x => x is ConversationViewModel))
+					{
+						Defeat();
 					}
 
 					return;
@@ -168,9 +185,6 @@ namespace AngelPearl.Scenes.CrawlerScene
             }
 
             List<DialogueRecord> victoryRecords = new List<DialogueRecord>();
-
-            var survivorList = PlayerList.Where(x => !x.Dead);
-            string participation;
             victoryRecords.Add(new DialogueRecord { Text = $"Good work, all foes have been dispatched! The party gained {expGain} experience points." });
 
             foreach (var battlePlayer in PlayerList)
@@ -187,10 +201,27 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 crawlerScene.EndBattle();
                 Terminate();
+
+				if (record.Boss)
+				{
+					crawlerScene.AddView(new ConversationViewModel(crawlerScene, ConversationRecord.CONVERSATIONS.First(x => x.Name == "PostGabriel"), PriorityLevel.MenuLevel));
+				}
             });
         }
 
-        public void SetHeader(string header)
+		private void Defeat()
+		{
+			var defeatConversation = new ConversationRecord("The party was wiped out... returning to Home Base screen.");
+			ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, defeatConversation, PriorityLevel.MenuLevel));
+			conversationViewModel.OnTerminated += new Action(() =>
+			{
+				Terminate();
+				CrossPlatformGame.Transition(new Task<Scene>(() => new BaseScene.BaseScene()));
+			});
+		}
+
+
+		public void SetHeader(string header)
 		{
 			CommandHeader1.Value = "";
 			CommandHeader2.Value = "";

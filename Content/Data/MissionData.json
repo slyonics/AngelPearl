@@ -1,7 +1,7 @@
 [
 	{
 		"Name": "Gabriel",
-		"Description": "First mission should be Gabriel, Messenger of God. General mission description goes here.",
+		"Description": "This game demo contains a single sample mission. Prepare to intercept the angel Gabriel before the S.T.A.R. Base is impacted. Select 'Prepare for Mission' and then press ENTER or click the Start Mission button to proceed.",
 		"Mission Start": 1,
 		"TimeLimit": 30,
 		"AngelSprite": "Widgets_Comet",
@@ -15,7 +15,7 @@
 				"SpawnX": 6,
 				"SpawnY": 13,
 				"SpawnDirection": "North",
-				"Description": "After that is the checkpoint description."
+				"Description": ""
 			}
 		]
 	}

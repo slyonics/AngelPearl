@@ -1380,7 +1380,7 @@
 			"savedSelections": [],
 			"cachedPixelData": {
 				"opaqueTiles": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
-				"averageColors": "f111fffff8cff46ef751f860f860f861fcdcfcdcfbcbf567f455f778f881f961f971fa81f971fffffffffffff364f551f451f84ef411f57bf361f822fffffffffffff7adf8aef9bff8aef68af78af78af78af223fffffffff341f531f416f359f812f771f441f663fffffffffffff668f769f769f769f941f951fa51f951fffffffffffff740f246f246f46bf354f357f246f358fffffffffffff496f496f5a6f596f357f357f358f357fffffffffffff243f341f639f712f349f531f417f235fffffffffffff999f999f999f888f961f851f961f851fffffffffffff548f417f548f549fbcffbcffccffabffefffffffffff888f751fabff69bfbdffceff888f777fffffffffffff666f541f8aff851f851f368f368f451fffffffffffff555f331f69ff851f851f369f368f358feeefffffffff666f541f7aff357f357f888f888f741feeefffffffff888f751fabff357f357f999f888fa13fffffffffa98"
+				"averageColors": "f111fffff8cff46ef751f860f860f861fcdcfcdcfbcbf567f455f778f881f961f971fa81f971fffffffffffff194f4c4f451f84ef411f57bf361f822fffffffffffff3b3f0b4f1a4f8b9f68af78af78af78af223fffffffff341f531f416f359f812f771f441f663fffffffffffff668f769f769f769f941f951fa51f951fffffffffffff740f246f246f46bf354f357f246f358fffffffffffff496f496f5a6f596f357f357f358f357fffffffffffff243f341f639f712f349f531f417f235fffffffffffff999f999f999f888f961f851f961f851fffffffffffff548f417f548f549fbcffbcffccffabffefffffffffff888f751fabff69bfbdffceff888f777fffffffffffff666f541f8aff851f851f368f368f451fffffffffffff555f331f69ff851f851f369f368f358feeefffffffff666f541f7aff357f357f888f888f741feeefffffffff888f751fabff357f357f999f888fa13fffffffffa98"
 			}
 		}
 	], "enums": [{ "identifier": "SpecialTiles", "uid": 2, "values": [ { "id": "Blocked", "tileRect": null, "color": 12470831 }, { "id": "Occluding", "tileRect": null, "color": 14120515 } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }], "externalEnums": [], "levelFields": [
@@ -1722,9 +1722,9 @@
 								}] },
 								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 9, "realEditorValues": [] },
 								{ "__identifier": "DisableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 10, "realEditorValues": [] },
-								{ "__identifier": "Label", "__type": "String", "__value": "Door 1", "__tile": null, "defUid": 11, "realEditorValues": [{
+								{ "__identifier": "Label", "__type": "String", "__value": "Descend to Next Floor", "__tile": null, "defUid": 11, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Door 1"]
+									"params": ["Descend to Next Floor"]
 								}] }
 							],
 							"__worldX": 224,
@@ -1791,7 +1791,7 @@
 						},
 						{
 							"__identifier": "Foe",
-							"__grid": [8,2],
+							"__grid": [9,3],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -1800,15 +1800,15 @@
 							"width": 32,
 							"height": 32,
 							"defUid": 14,
-							"px": [256,64],
+							"px": [288,96],
 							"fieldInstances": [
 								{ "__identifier": "Sprite", "__type": "String", "__value": "MoonRabbit", "__tile": null, "defUid": 15, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["MoonRabbit"]
 								}] },
-								{ "__identifier": "Interact", "__type": "String", "__value": "Conversation TutorialBunny1", "__tile": null, "defUid": 16, "realEditorValues": [{
+								{ "__identifier": "Interact", "__type": "String", "__value": "Conversation TutorialBunny3", "__tile": null, "defUid": 16, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Conversation TutorialBunny1"]
+									"params": ["Conversation TutorialBunny3"]
 								}] },
 								{ "__identifier": "Encounter", "__type": "String", "__value": "None", "__tile": null, "defUid": 17, "realEditorValues": [null] },
 								{ "__identifier": "Alignment", "__type": "String", "__value": "Adventurer", "__tile": null, "defUid": 18, "realEditorValues": [{
@@ -1820,8 +1820,8 @@
 									"params": ["Tutorial Bunny"]
 								}] }
 							],
-							"__worldX": 256,
-							"__worldY": 64
+							"__worldX": 288,
+							"__worldY": 96
 						},
 						{
 							"__identifier": "Npc",
@@ -1903,6 +1903,74 @@
 							],
 							"__worldX": 224,
 							"__worldY": 128
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [10,7],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "87d872b0-fa90-11f0-9bc3-178bc97225bc",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [320,224],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "MoonRabbit", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["MoonRabbit"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Conversation TutorialBunny2", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Conversation TutorialBunny2"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "None", "__tile": null, "defUid": 17, "realEditorValues": [null] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Adventurer", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Adventurer"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Tutorial Bunny", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Tutorial Bunny"]
+								}] }
+							],
+							"__worldX": 320,
+							"__worldY": 224
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [2,13],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "8ca64e70-fa90-11f0-9bc3-5fef242e94f8",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [64,416],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "MoonRabbit", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["MoonRabbit"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Conversation TutorialBunny4", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Conversation TutorialBunny4"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "None", "__tile": null, "defUid": 17, "realEditorValues": [null] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Adventurer", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Adventurer"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Tutorial Bunny", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Tutorial Bunny"]
+								}] }
+							],
+							"__worldX": 64,
+							"__worldY": 416
 						}
 					]
 				},

@@ -21,7 +21,7 @@
 	{
 		"Name": "Ruby Staff",
 		"Description": "Item description here.",
-		"Icon": "6,3",
+		"Icon": "13,6",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 10,
@@ -195,7 +195,7 @@
 	},
 	{
 		"Name": "Fireball",
-		"Description": "Magical (fire) damage to one enemy. Cost: 20 SP",
+		"Description": "Magical (fire) damage to one enemy. Cost: 8 SP",
 		"Icon": "0,4",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
@@ -203,7 +203,7 @@
 		"Accuracy": 100,
 		"Critical": 0,
 		"Priority": "Ranged",
-		"Cost": 20,
+		"Cost": 8,
 		"BattleScript": [
 			"Narrate $attackerName uses Fireball!",
 			"Animate Attack",

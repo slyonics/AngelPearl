@@ -38,8 +38,8 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case "EndGame": EndGame = true; break;
                 case "ChangeMap": ChangeMap(tokens); /*Audio.PlaySound(GameSound.sfx_stairs_down);*/ break;
                 case "DisableEvent": mapRoom.Script = null; break;
-                case "Conversation": Conversation(tokens); break;
-                case "Encounter": Encounter(tokens); break;
+                case "Conversation": Conversation(tokens); return true;
+                case "Encounter": Encounter(tokens); return true;
                 case "GiveItem": GiveItem(tokens); break;
                 case "RemoveChest": RemoveChest(tokens); break;
                 case "RemoveNpc": RemoveNpc(tokens); break;
@@ -95,25 +95,29 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             if (tokens.Length == 2)
             {
-                ConversationRecord conversationRecord = ConversationRecord.CONVERSATIONS.First(x => x.Name == tokens[1]);
-                ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.CutsceneLevel));
+				var unblock = scriptParser.BlockScript();
+
+				ConversationRecord conversationRecord = ConversationRecord.CONVERSATIONS.First(x => x.Name == tokens[1]);
+                ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
 				conversationViewModel.OnTerminated += new Action(() =>
 				{
-					scriptParser.BlockScript();
+					unblock();
 					crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				});
 			}
-            else
+			else
             {
-                ConversationRecord conversationRecord = new ConversationRecord(string.Join(' ', tokens.Skip(1)));
-                ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.CutsceneLevel));
+				var unblock = scriptParser.BlockScript();
+
+				ConversationRecord conversationRecord = new ConversationRecord(string.Join(' ', tokens.Skip(1)));
+                ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
                 conversationViewModel.OnTerminated += new Action(() =>
                 {
-                    scriptParser.BlockScript();
+                    unblock();
 					crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				});
-            }
-        }
+			}
+		}
 
         public void GiveItem(string[] tokens)
         {

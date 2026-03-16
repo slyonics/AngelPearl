@@ -1,14 +1,14 @@
 [
 	{
-		"Name": "MoonRabbit",
+		"Name": "Outlaw",
 		"Enemies": [
 			{
-				"Name": "Moon Rabbit",
+				"Name": "Outlaw",
 				"OffsetX": 0,
 				"OffsetY": 0
 			}
 		],
-		"Intro": "Moon Rabbit decides to get a little too frisky! Prepare for battle..."
+		"Intro": "A lone Moon Rabbit Outlaw decides to get a little too frisky! Prepare for battle..."
 	},
 	{
 		"Name": "OutlawGang",
@@ -31,6 +31,18 @@
 				"Flash": true
 			}
 		],
-		"Intro": "A gang of Moon Rabbit outlaws draw near... are they after your cosmo engine?"
+		"Intro": "A gang of Moon Rabbit outlaws draw near... are they after your Cosmo Engine?"
+	},
+	{
+		"Name": "Gabriel",
+		"Enemies": [
+			{
+				"Name": "Gabriel",
+				"OffsetX": 0,
+				"OffsetY": 0
+			}
+		],
+		"Intro": "The angel demands your Cosmo Engine and won't accept 'no' for an answer!",
+		"Boss": true
 	}
 ]

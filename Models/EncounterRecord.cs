@@ -20,8 +20,8 @@ namespace AngelPearl.Models
         public string Name { get; set; }
         public EncounterStack[] Enemies { get; set; }
         public string Intro { get; set; }
+		public bool Boss { get; set; }
 
-
-        public static List<EncounterRecord> ENCOUNTERS { get; set; }
+		public static List<EncounterRecord> ENCOUNTERS { get; set; }
     }
 }

@@ -305,6 +305,11 @@
 /processor:TextureProcessor
 /build:Sprites/Background/YellowStars.png
 
+#begin Sprites/Enemies/Gabriel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Enemies/Gabriel.png
+
 #begin Sprites/Enemies/MoonRabbit.png
 /importer:TextureImporter
 /processor:TextureProcessor

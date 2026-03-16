@@ -105,6 +105,7 @@ namespace AngelPearl.Main
         Background_Nebulae,
         Background_Splash,
         Background_YellowStars,
+        Enemies_Gabriel,
         Enemies_MoonRabbit,
         Enemies_Outlaw,
         NPCs_Chest,

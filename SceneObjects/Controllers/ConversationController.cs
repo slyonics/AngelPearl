@@ -15,17 +15,19 @@ namespace AngelPearl.SceneObjects.Controllers
 
         public bool EndGame { get; private set; }
 
-        public ConversationController(Scene iScene, PriorityLevel priorityLevel, string script)
+        public ConversationController(Scene iScene, ConversationViewModel viewModel, PriorityLevel priorityLevel, string script)
             : base(iScene, script, priorityLevel)
         {
             conversationScene = iScene;
+            ConversationViewModel = viewModel;          
         }
 
-        public ConversationController(Scene iScene, PriorityLevel priorityLevel, string[] script)
+        public ConversationController(Scene iScene, ConversationViewModel viewModel, PriorityLevel priorityLevel, string[] script)
             : base(iScene, script, priorityLevel)
         {
             conversationScene = iScene;
-        }
+			ConversationViewModel = viewModel;
+		}
 
         public ConversationViewModel ConversationViewModel { get; set; }
 

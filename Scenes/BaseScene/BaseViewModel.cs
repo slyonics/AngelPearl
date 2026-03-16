@@ -67,8 +67,11 @@ namespace AngelPearl.Scenes.BaseScene
 			CommandBox = GetWidget<RadioBox>("CommandBox");
 			NarrationText = GetWidget<CrawlText>("NarrationText");
 
-            // OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
-        }
+            CommandBox.ChildList[1].Enabled = false;
+			CommandBox.ChildList[2].Enabled = false;
+
+			// OnFinishNarration += new NarrationFinished(() => CommandBox.Visible = true);
+		}
 
         public override void Update(GameTime gameTime)
         {
@@ -111,6 +114,9 @@ namespace AngelPearl.Scenes.BaseScene
 
 								Narration.Value = missionRecord.Description + " " + missionRecord.Checkpoints.First().Description;
 								//OnFinishNarration = new NarrationFinished(() => CommandBox.Visible = true);
+
+								CommandBox.ChildList[1].Enabled = false;
+								CommandBox.ChildList[2].Enabled = false;
 							}
 							break;
 					}

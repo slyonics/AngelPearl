@@ -1345,7 +1345,7 @@
 			"savedSelections": [],
 			"cachedPixelData": {
 				"opaqueTiles": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
-				"averageColors": "f111fffff8cff46ef751f860f860f861fcdcfcdcfbcbf567f455f778f881f961f971fa81f971fffffffffffff364f551f451f84ef411f57bf361f822fffffffffffff7adf8aef9bff8aef68af78af78af78af223fffffffff341f531f416f359f812f771f441f663fffffffffffff668f769f769f769f941f951fa51f951fffffffffffff740f246f246f46bf354f357f246f358fffffffffffff496f496f5a6f596f357f357f358f357fffffffffffff243f341f639f712f349f531f417f235fffffffffffff999f999f999f888f961f851f961f851fffffffffffff548f417f548f549fbcffbcffccffabffffffffffffff888f751fabff69bfbdffceff888f777fffffffffffff666f541f8aff851f851f368f368f451fffffffffffff555f331f69ff851f851f369f368f358fffffffffffff666f541f7aff357f357f888f888f741fffffffffffff888f751fabff357f357f999f888fa13ffffffffffff"
+				"averageColors": "f111fffff8cff46ef751f860f860f861fcdcfcdcfbcbf567f455f778f881f961f971fa81f971fffffffffffff194f4c4f451f84ef411f57bf361f822fffffffffffff3b3f0b4f1a4f8b9f68af78af78af78af223fffffffff341f531f416f359f812f771f441f663fffffffffffff668f769f769f769f941f951fa51f951fffffffffffff740f246f246f46bf354f357f246f358fffffffffffff496f496f5a6f596f357f357f358f357fffffffffffff243f341f639f712f349f531f417f235fffffffffffff999f999f999f888f961f851f961f851fffffffffffff548f417f548f549fbcffbcffccffabffefffffffffff888f751fabff69bfbdffceff888f777fffffffffffff666f541f8aff851f851f368f368f451fffffffffffff555f331f69ff851f851f369f368f358feeefffffffff666f541f7aff357f357f888f888f741feeefffffffff888f751fabff357f357f999f888fa13fffffffffa98"
 			}
 		}
 	], "enums": [{ "identifier": "SpecialTiles", "uid": 2, "values": [ { "id": "Blocked", "tileRect": null, "color": 12470831 }, { "id": "Occluding", "tileRect": null, "color": 14120515 } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }], "externalEnums": [], "levelFields": [
@@ -1519,9 +1519,9 @@
 			"__bgPos": null,
 			"externalRelPath": null,
 			"fieldInstances": [
-				{ "__identifier": "LocationName", "__type": "String", "__value": "Test Angel D1", "__tile": null, "defUid": 38, "realEditorValues": [{
+				{ "__identifier": "LocationName", "__type": "String", "__value": "Gabriel Outlaw Floor", "__tile": null, "defUid": 38, "realEditorValues": [{
 					"id": "V_String",
-					"params": ["Test Angel D1"]
+					"params": ["Gabriel Outlaw Floor"]
 				}] },
 				{ "__identifier": "Music", "__type": "String", "__value": "VoxTest", "__tile": null, "defUid": 39, "realEditorValues": [{
 					"id": "V_String",
@@ -1600,9 +1600,9 @@
 							"defUid": 3,
 							"px": [224,384],
 							"fieldInstances": [
-								{ "__identifier": "Script", "__type": "String", "__value": "CompleteObjective Obj1\nDisableEvent", "__tile": null, "defUid": 4, "realEditorValues": [{
+								{ "__identifier": "Script", "__type": "String", "__value": "CompleteObjective ObjDemo1\nDisableEvent", "__tile": null, "defUid": 4, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["CompleteObjective Obj1\\nDisableEvent"]
+									"params": ["CompleteObjective ObjDemo1\\nDisableEvent"]
 								}] },
 								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 5, "realEditorValues": [] },
 								{ "__identifier": "DisableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 6, "realEditorValues": [null] }
@@ -1623,9 +1623,9 @@
 							"defUid": 28,
 							"px": [96,32],
 							"fieldInstances": [
-								{ "__identifier": "Name", "__type": "String", "__value": "TestAngel", "__tile": null, "defUid": 29, "realEditorValues": [{
+								{ "__identifier": "Name", "__type": "String", "__value": "TestAngelD2", "__tile": null, "defUid": 29, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["TestAngel"]
+									"params": ["TestAngelD2"]
 								}] },
 								{ "__identifier": "Direction", "__type": "String", "__value": "East", "__tile": null, "defUid": 30, "realEditorValues": [{
 									"id": "V_String",
@@ -1648,44 +1648,19 @@
 							"defUid": 7,
 							"px": [64,32],
 							"fieldInstances": [
-								{ "__identifier": "Script", "__type": "String", "__value": "ChangeMap TestAngel", "__tile": null, "defUid": 8, "realEditorValues": [{
+								{ "__identifier": "Script", "__type": "String", "__value": "ChangeMap TestAngelD2", "__tile": null, "defUid": 8, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["ChangeMap TestAngel"]
+									"params": ["ChangeMap TestAngelD2"]
 								}] },
 								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 9, "realEditorValues": [] },
 								{ "__identifier": "DisableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 10, "realEditorValues": [] },
-								{ "__identifier": "Label", "__type": "String", "__value": "Back to Lobby", "__tile": null, "defUid": 11, "realEditorValues": [{
+								{ "__identifier": "Label", "__type": "String", "__value": "Descend to Next Floor", "__tile": null, "defUid": 11, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Back to Lobby"]
+									"params": ["Descend to Next Floor"]
 								}] }
 							],
 							"__worldX": 64,
 							"__worldY": 32
-						},
-						{
-							"__identifier": "Chest",
-							"__grid": [6,2],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#D7B343",
-							"iid": "5c629f80-fa90-11f0-8f89-b188410b3b6f",
-							"width": 32,
-							"height": 32,
-							"defUid": 31,
-							"px": [192,64],
-							"fieldInstances": [
-								{ "__identifier": "Name", "__type": "String", "__value": "TestChest1", "__tile": null, "defUid": 32, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["TestChest1"]
-								}] },
-								{ "__identifier": "Item", "__type": "String", "__value": "Ruby Staff", "__tile": null, "defUid": 33, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["Ruby Staff"]
-								}] }
-							],
-							"__worldX": 192,
-							"__worldY": 64
 						},
 						{
 							"__identifier": "Light",
@@ -1718,6 +1693,206 @@
 							"fieldInstances": [{ "__identifier": "Brightness", "__type": "Int", "__value": 8, "__tile": null, "defUid": 13, "realEditorValues": [{ "id": "V_Int", "params": [8] }] }],
 							"__worldX": 160,
 							"__worldY": 128
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [4,7],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "b813aa90-fa90-11f0-8624-83acc205d524",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [128,224],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Encounter Outlaw", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Encounter Outlaw"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 17, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Brute"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] }
+							],
+							"__worldX": 128,
+							"__worldY": 224
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [6,3],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "d3ecb9a0-fa90-11f0-8624-c329dbeeadb5",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [192,96],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Encounter OutlawGang", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Encounter OutlawGang"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "OutlawGang", "__tile": null, "defUid": 17, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["OutlawGang"]
+								}] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Brute"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Outlaw Gang", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw Gang"]
+								}] }
+							],
+							"__worldX": 192,
+							"__worldY": 96
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [10,2],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "08d3d0e0-fa90-11f0-8624-7d9d365d01b6",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [320,64],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Encounter OutlawGang", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Encounter OutlawGang"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "OutlawGang", "__tile": null, "defUid": 17, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["OutlawGang"]
+								}] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Brute"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Outlaw Gang", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw Gang"]
+								}] }
+							],
+							"__worldX": 320,
+							"__worldY": 64
+						},
+						{
+							"__identifier": "Foe",
+							"__grid": [11,8],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#F77622",
+							"iid": "0b993270-fa90-11f0-8624-d3e950a93a3b",
+							"width": 32,
+							"height": 32,
+							"defUid": 14,
+							"px": [352,256],
+							"fieldInstances": [
+								{ "__identifier": "Sprite", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 15, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] },
+								{ "__identifier": "Interact", "__type": "String", "__value": "Encounter Outlaw", "__tile": null, "defUid": 16, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Encounter Outlaw"]
+								}] },
+								{ "__identifier": "Encounter", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 17, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] },
+								{ "__identifier": "Alignment", "__type": "String", "__value": "Brute", "__tile": null, "defUid": 18, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Brute"]
+								}] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Outlaw", "__tile": null, "defUid": 19, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Outlaw"]
+								}] }
+							],
+							"__worldX": 352,
+							"__worldY": 256
+						},
+						{
+							"__identifier": "Spawn",
+							"__grid": [7,12],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#2F69BE",
+							"iid": "33958e40-fa90-11f0-8624-b720099d83a8",
+							"width": 32,
+							"height": 32,
+							"defUid": 28,
+							"px": [224,384],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "TestAngel", "__tile": null, "defUid": 29, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["TestAngel"]
+								}] },
+								{ "__identifier": "Direction", "__type": "String", "__value": "North", "__tile": null, "defUid": 30, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["North"]
+								}] }
+							],
+							"__worldX": 224,
+							"__worldY": 384
+						},
+						{
+							"__identifier": "Interactable",
+							"__grid": [7,13],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#5A6988",
+							"iid": "3c01ed80-fa90-11f0-8624-49179a79a8e5",
+							"width": 32,
+							"height": 32,
+							"defUid": 7,
+							"px": [224,416],
+							"fieldInstances": [
+								{ "__identifier": "Script", "__type": "String", "__value": "ChangeMap TestAngel", "__tile": null, "defUid": 8, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["ChangeMap TestAngel"]
+								}] },
+								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 9, "realEditorValues": [] },
+								{ "__identifier": "DisableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 10, "realEditorValues": [] },
+								{ "__identifier": "Label", "__type": "String", "__value": "Return to Main Lobby", "__tile": null, "defUid": 11, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Return to Main Lobby"]
+								}] }
+							],
+							"__worldX": 224,
+							"__worldY": 416
 						}
 					]
 				},
@@ -1854,6 +2029,8 @@
 					"seed": 9582373,
 					"overrideTilesetUid": null,
 					"gridTiles": [
+						{ "px": [96,32], "src": [32,64], "f": 0, "t": 23, "d": [18], "a": 1 },
+						{ "px": [128,32], "src": [32,64], "f": 0, "t": 23, "d": [19], "a": 1 },
 						{ "px": [160,32], "src": [32,64], "f": 0, "t": 23, "d": [20], "a": 1 },
 						{ "px": [192,32], "src": [32,64], "f": 0, "t": 23, "d": [21], "a": 1 },
 						{ "px": [224,32], "src": [32,64], "f": 0, "t": 23, "d": [22], "a": 1 },

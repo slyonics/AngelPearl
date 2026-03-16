@@ -147,7 +147,7 @@ namespace AngelPearl.SceneObjects.ViewModels
         {
             if (conversationRecord.EndScript != null)
             {
-                parentScene.AddController(new ConversationController(parentScene, this.PriorityLevel, conversationRecord.EndScript)).OnTerminated += new TerminationFollowup(() =>
+                parentScene.AddController(new ConversationController(parentScene, this, this.PriorityLevel, conversationRecord.EndScript)).OnTerminated += new TerminationFollowup(() =>
                 {
 					if (TerminateOnEnd) Close();
 				});
@@ -182,7 +182,7 @@ namespace AngelPearl.SceneObjects.ViewModels
 
         private void RunScript(string[] script)
         {
-            ScriptController = parentScene.AddController(new ConversationController(parentScene, this.PriorityLevel, script));
+            ScriptController = parentScene.AddController(new ConversationController(parentScene, this, this.PriorityLevel, script));
         }
 
         private bool IsScriptRunning => ScriptController != null && !ScriptController.Terminated; 

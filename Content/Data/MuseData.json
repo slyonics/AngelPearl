@@ -16,7 +16,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Smash", "Heal" ]
+			"ActiveModules": [ "Smash", "Heal", "Fireball" ]
 		}
 	},
 	{
@@ -36,7 +36,7 @@
 			"BaseMagic": 2,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Smash" ]
+			"ActiveModules": [ "Smash", "Heal" ]
 		}
 	},
 	{
@@ -56,7 +56,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Slice" ]
+			"ActiveModules": [ "Slice", "Heal" ]
 		}
 	},
 	{
@@ -76,7 +76,7 @@
 			"BaseMagic": 6,
 			"BaseArmor": 2,
 			"BaseResist": 2,
-			"ActiveModules": [ "Slice" ]
+			"ActiveModules": [ "Slice", "Fireball" ]
 		}
 	},
 	{

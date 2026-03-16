@@ -42,7 +42,7 @@ namespace AngelPearl.Models
 			CurrentSave.Mascot.Value = mascot;
 
 			CurrentSave.Objectives.Add(new ObjectiveModel("ObjDemo1", "- Descend to the next floor"));
-			CurrentSave.Objectives.Add(new ObjectiveModel("ObjDemo2", "- Defeat the Moon Bunny outlaws"));
+			CurrentSave.Objectives.Add(new ObjectiveModel("ObjDemo2", "- Get past the Moon Bunny outlaws"));
             CurrentSave.Objectives.Add(new ObjectiveModel("ObjDemo3", "- Talk to the angel Gabriel"));
 
             GameProfile.CurrentSave.Party.Clear();

@@ -398,6 +398,12 @@ namespace AngelPearl.Scenes.CrawlerScene
 			{
 				crawlerScene.MapViewModel.InteractLabel.Value = nextRoom.Foe.Label;
 				crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, 60 - nextRoom.Foe.Billboard.Texture.Height, Text.GetStringLength(GameFont.Console, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
+			
+				if (nextRoom.Foe.Billboard.Texture.Height > 118)
+				{
+					crawlerScene.MapViewModel.InteractBounds.Value = new Microsoft.Xna.Framework.Rectangle(0, -40, Text.GetStringLength(GameFont.Console, crawlerScene.MapViewModel.InteractLabel.Value) + 16, 19);
+
+				}
 			}
 			else if (!string.IsNullOrEmpty(nextRoom.Label))
 			{

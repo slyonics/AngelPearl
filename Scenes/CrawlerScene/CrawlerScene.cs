@@ -288,7 +288,14 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 
 			spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullCounterClockwise, null, null);
-            DrawOverlay(spriteBatch);
+
+			if (Foe.DeferredSprite != null && BattleViewModel == null && !PartyController.Turning)
+			{
+				float brightness = PartyController.FacingRoom.AverageBrightness();
+				spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + (160 - Foe.DeferredSprite.Height)), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.95f);
+			}
+
+			DrawOverlay(spriteBatch);
 
 			if (!overlayList.Any(x => x is ConversationViewModel || x is BattleViewModel))
 			{
@@ -297,12 +304,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 				miniMapBounds.X += (int)miniMapPanel.Position.X;
 				miniMapBounds.Y += (int)miniMapPanel.Position.Y;
 				floor.DrawMiniMap(spriteBatch, miniMapBounds, Color.White, 0.1f, PartyController.RoomX, PartyController.RoomY, PartyController.PartyDirection);
-			}
-
-            if (Foe.DeferredSprite != null && BattleViewModel == null && !PartyController.Turning)
-			{
-				float brightness = PartyController.FacingRoom.AverageBrightness();
-				spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + (160 - Foe.DeferredSprite.Height)), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.35f);
 			}
 
 			foreach (Particle particle in particleList) particle.Draw(spriteBatch, Camera);
