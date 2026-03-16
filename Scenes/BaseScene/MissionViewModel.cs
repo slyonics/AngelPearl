@@ -128,7 +128,7 @@ namespace AngelPearl.Scenes.BaseScene
         {
             
 
-            CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 6, 13, Direction.North));
+            CrossPlatformGame.SetCurrentScene(new CrawlerScene.CrawlerScene(GameMap.TestAngel, 7, 11, Direction.North));
         }
     }
 }

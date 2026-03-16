@@ -45,6 +45,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case "RemoveNpc": RemoveNpc(tokens); break;
                 case "ShowPortrait": ShowPortrait(tokens); break;
                 case "MoveBackward": crawlerScene.PartyController.MoveBackward(); break;
+                case "CompleteObjective": GameProfile.CurrentSave.Objectives.First(x => x.Value.Id == tokens[1]).Value.Completed.Value = true; break;
                 default: return false;
             }
 

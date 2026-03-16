@@ -330,6 +330,11 @@
 /processor:TextureProcessor
 /build:Sprites/NPCs/Door.png
 
+#begin Sprites/NPCs/Tree.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/NPCs/Tree.png
+
 #begin Sprites/Particles/Bash.png
 /importer:TextureImporter
 /processor:TextureProcessor

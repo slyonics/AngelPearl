@@ -47,6 +47,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 			Vector2 center = enemyPanel.AbsolutePosition + new Vector2(enemyPanel.OuterBounds.Width / 2, enemyPanel.OuterBounds.Height - 4);
 			foreach (var enemy in encounterRecord.Enemies)
 			{
+				InitialEnemies.Add(EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name));
+
 				if (!enemy.Flash)
 				{
 					crawlerScene.FLASH_COLOR[i] = new Vector4(1.0f);
@@ -95,13 +97,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 				{
 					if (!crawlerScene.OverlayList.Any(x => x is ConversationViewModel))
 					{
-						ConversationRecord conversationRecord = new ConversationRecord("Victory!!!");
-						ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
-						conversationViewModel.OnTerminated += new Action(() =>
-						{
-							crawlerScene.EndBattle();
-							Terminate();
-						});
+						Victory();
 					}
 
 					return;
@@ -162,7 +158,39 @@ namespace AngelPearl.Scenes.CrawlerScene
 			InitiativeList = InitiativeList.OrderByDescending(x => x.Initiative).ToList();
 		}
 
-		public void SetHeader(string header)
+        private void Victory()
+        {
+            int expGain = 0;
+            foreach (var enemy in InitialEnemies)
+            {
+                EnemyRecord enemyRecord = EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name);
+                expGain += enemyRecord.Exp;
+            }
+
+            List<DialogueRecord> victoryRecords = new List<DialogueRecord>();
+
+            var survivorList = PlayerList.Where(x => !x.Dead);
+            string participation;
+            victoryRecords.Add(new DialogueRecord { Text = $"Good work, all foes have been dispatched! The party gained {expGain} experience points." });
+
+            foreach (var battlePlayer in PlayerList)
+            {
+                if (battlePlayer.Dead) continue;
+                List<DialogueRecord> reports = battlePlayer.HeroModel.GrowAfterBattle(expGain);
+                foreach (DialogueRecord report in reports) victoryRecords.Add(report);
+                battlePlayer.HealAilment(AilmentType.Confusion);
+            }
+            var victoryConversation = new ConversationRecord() { DialogueRecords = victoryRecords.ToArray() };
+
+            ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, victoryConversation, PriorityLevel.MenuLevel));
+            conversationViewModel.OnTerminated += new Action(() =>
+            {
+                crawlerScene.EndBattle();
+                Terminate();
+            });
+        }
+
+        public void SetHeader(string header)
 		{
 			CommandHeader1.Value = "";
 			CommandHeader2.Value = "";

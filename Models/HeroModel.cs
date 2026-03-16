@@ -1,16 +1,52 @@
 ﻿using AngelPearl.Main;
+using ldtk;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework;
 
 namespace AngelPearl.Models
 {
 	public class HeroModel : BattlerModel
 	{
-		public HeroModel()
+        public static Dictionary<int, long> EXP_TABLE = new Dictionary<int, long>()
+        {
+            { 1, 0 },
+            { 2, 10 },
+            { 3, 33 },
+            { 4, 74 },
+            { 5, 140 },
+            { 6, 241 },
+            { 7, 389 },
+            { 8, 599 },
+            { 9, 888 },
+            { 10, 1276 },
+            { 11, 1786 },
+            { 12, 2441 },
+            { 13, 3269 },
+            { 14, 4299 },
+            { 15, 5564 },
+            { 16, 7097 },
+            { 17, 8936 },
+            { 18, 11120 },
+            { 19, 13691 },
+            { 20, 16693 },
+            { 21, 20173 },
+            { 22, 24180 },
+            { 23, 28765 },
+            { 24, 33983 },
+            { 25, 39890 },
+            { 26, 46546 },
+            { 27, 54012 },
+            { 28, 62352 },
+            { 29, 71632 },
+            { 30, 81921 }
+        };
+
+
+        public HeroModel()
 		{
 			
 		}
@@ -42,7 +78,9 @@ namespace AngelPearl.Models
 			if (heroRecord.CosmoEngine.ActiveModules != null) foreach(var moduleName in heroRecord.CosmoEngine.ActiveModules) EquipModule(moduleName, false);
 			if (heroRecord.CosmoEngine.PassiveModules != null) foreach (var moduleName in heroRecord.CosmoEngine.PassiveModules) EquipModule(moduleName, false);
 
-			CalculateStats();
+            GrowAfterBattle(EXP_TABLE[heroRecord.Level]);
+
+            CalculateStats();
 			PopulateCommands();
 		}
 
@@ -113,11 +151,70 @@ namespace AngelPearl.Models
 			else HealthColor.Value = new Color(136, 20, 0, 255);
 		}
 
-		public ModelProperty<Rectangle> WindowBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 117, 180));
+        public List<DialogueRecord> GrowAfterBattle(long expGained)
+        {
+            int oldLevel = Level.Value;
+
+            Exp.Value = Exp.Value + expGained;
+
+            long expThreshold = EXP_TABLE[Level.Value + 1];
+            while (Exp.Value >= expThreshold)
+            {
+                Level.Value = Level.Value + 1;
+                expThreshold = EXP_TABLE[Level.Value + 1];
+                CalculateStats();
+            }
+
+            NextLevel.Value = EXP_TABLE[Level.Value + 1] - Exp.Value;
+
+            int newLevel = Level.Value;
+
+            List<DialogueRecord> reports = new List<DialogueRecord>();
+
+            if (oldLevel != newLevel)
+            {
+                DialogueRecord dialogueRecord = new DialogueRecord()
+                {
+                    Text = Name + " reached level " + newLevel + "!",
+                    Script = new string[] { "Sound LevelUp" }
+                };
+
+                reports.Add(dialogueRecord);
+            }
+            ;
+
+            /*
+            var classRecord = ClassRecord.CLASSES.First(x => x.Name == Class.Value);
+            if (classRecord.LearnableAbilities != null)
+            {
+                var newAbility = classRecord.LearnableAbilities.FirstOrDefault(x => x.Level <= Level.Value && !Abilities.Any(y => y.Value.Name == x.Ability));
+                if (newAbility != null)
+                {
+                    var ability = AbilityRecord.ABILITIES.First(x => x.Name == newAbility.Ability);
+                    Abilities.Add(ability);
+
+                    DialogueRecord dialogueRecord = new DialogueRecord()
+                    {
+                        Text = Name + " learned @" + ability.Icon + " " + newAbility.Ability + "!"
+                    };
+
+                    reports.Add(dialogueRecord);
+                }
+            }
+            */
+
+            return reports;
+        }
+
+
+        public ModelProperty<Rectangle> WindowBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 117, 180));
 		public ModelProperty<Color> NameColor { get; set; } = new ModelProperty<Color>(Color.White);
 		public ModelProperty<Color> HealthColor { get; set; } = new ModelProperty<Color>(Color.White);
 
-		public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();
+        public ModelProperty<long> Exp { get; set; } = new ModelProperty<long>(0);
+        public ModelProperty<long> NextLevel { get; set; } = new ModelProperty<long>(0);
+
+        public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();
 
 		public ModelProperty<ItemRecord> Weapon { get; private set; } = new ModelProperty<ItemRecord>();
 		public ModelProperty<ItemRecord> Accessory { get; private set; } = new ModelProperty<ItemRecord>();

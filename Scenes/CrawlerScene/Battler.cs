@@ -178,7 +178,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			Stats.StatusAilments.ModelList.RemoveAll(x => x.Value == ailment);
 
-			if (Stats.StatusAilments.Count() == 0) AilmentSprite.PlayAnimation(AilmentType.Healthy.ToString());
+			if (Stats.StatusAilments.Count() == 0) AilmentSprite?.PlayAnimation(AilmentType.Healthy.ToString());
 		}
 
 		public virtual void FlashColor(Color color, int duration = DAMAGE_FLASH_DURATION)

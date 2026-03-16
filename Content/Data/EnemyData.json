@@ -32,7 +32,35 @@
 		"Class": "Bunny",
 		"Level": 5,
 		"Sprite": "Outlaw",
-		"Exp": 1,
+		"Exp": 10,
+		"Description": "This unusually vicious moon rabbit looks at your possessions with envy. HP 50, vulnerable to solar, resistant to lunar.",
+		"HP": 50,
+		"MP": 10,
+		"BaseSkill": 4,
+		"BaseReflex": 4,
+		"BaseHeart": 1,
+		"BaseMind": 1,
+		"PhysicalAttack": 9,
+		"PhysicalDefense": 5,
+		"PhysicalEvade": 5,
+		"MagicAttack": 10,
+		"MagicDefense": 5,
+		"MagicEvade": 5,
+		"ElementWeak": [ "Solar" ],
+		"ElementStrong": [ "Lunar" ],
+		"Attacks": [
+			{
+				"Script": [ "Attack" ],
+				"Weight": 100
+			}
+		]
+	},
+	{
+		"Name": "Gabriel",
+		"Class": "Angel",
+		"Level": 5,
+		"Sprite": "Outlaw",
+		"Exp": 10,
 		"Description": "This unusually vicious moon rabbit looks at your possessions with envy. HP 50, vulnerable to solar, resistant to lunar.",
 		"HP": 50,
 		"MP": 10,

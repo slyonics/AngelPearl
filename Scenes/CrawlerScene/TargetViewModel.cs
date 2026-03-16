@@ -185,7 +185,15 @@ namespace AngelPearl.Scenes.CrawlerScene
                 pointerSprite.PlayAnimation("Valid");
             }
 
-
+            if (target is BattlePlayer)
+            {
+                Label.Value = target.Stats.Name.Value;
+                int width = Text.GetStringLength(GameFont.Console, target.Stats.Name.Value) + 16;
+                LabelBounds.Value = new Rectangle((int)target.Center.X - (CrossPlatformGame.SCREEN_WIDTH / 2) - (width / 2), -170 + (int)target.Center.Y, width, 19);
+                ShowLabel.Value = true;
+                Description.Value = target.Stats.Description.Value;
+            }
+            else
             {
                 Label.Value = target.Stats.Name.Value;
                 int width = Text.GetStringLength(GameFont.Console, target.Stats.Name.Value) + 16;
