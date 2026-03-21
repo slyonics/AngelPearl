@@ -595,6 +595,11 @@
 /processor:TextureProcessor
 /build:Sprites/Widgets/Ninepatches/BattleWindow.png
 
+#begin Sprites/Widgets/Ninepatches/BlackSquareMain.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/BlackSquareMain.png
+
 #begin Sprites/Widgets/Ninepatches/Blank.png
 /importer:TextureImporter
 /processor:TextureProcessor

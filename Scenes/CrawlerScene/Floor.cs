@@ -38,8 +38,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             public Texture2D SpriteAtlas { get; private set; }
         }
 
-        public const float PERSPECTIVE_FOV = (float)Math.PI / 3.45f;
-        public const float PERSPECTIVE_ASPECT = 306f / 176;
+        public const float PERSPECTIVE_FOV = (float)Math.PI / 2.195f;
+        public const float PERSPECTIVE_ASPECT = 322f / 237;
 
         public const int MINI_CELL_SIZE = 6;
 

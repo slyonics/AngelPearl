@@ -50,7 +50,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			crawlText = GetWidget<CrawlText>("ConversationText");
 
 			int i = 0;
-			Vector2 center = enemyPanel.AbsolutePosition + new Vector2(enemyPanel.OuterBounds.Width / 2, enemyPanel.OuterBounds.Height - 4);
+			Vector2 center = enemyPanel.AbsolutePosition + new Vector2(enemyPanel.OuterBounds.Width / 2, enemyPanel.OuterBounds.Height);
 			foreach (var enemy in encounterRecord.Enemies)
 			{
 				InitialEnemies.Add(EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name));
@@ -60,7 +60,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 					crawlerScene.FLASH_COLOR[i] = new Vector4(1.0f);
 				}
 
-				Vector2 offset = new(enemy.OffsetX, enemy.OffsetY);
+				Vector2 offset = new(enemy.OffsetX, enemy.OffsetY - 64);
 				var battleEnemy = new BattleEnemy(crawlerScene, EnemyRecord.ENEMIES.First(x => x.Name == enemy.Name), center + offset, i, enemy.Flash);
 				EnemyList.Add(battleEnemy);
 				crawlerScene.AddEntity(battleEnemy);

@@ -29,10 +29,10 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 
 
-		private const int CRAWLER_VIEWPORT_WIDTH = 306;
-		private const int CRAWLER_VIEWPORT_HEIGHT = 176;
+		private const int CRAWLER_VIEWPORT_WIDTH = 322;
+		private const int CRAWLER_VIEWPORT_HEIGHT = 237;
 		private const int CRAWLER_VIEWPORT_OFFSETX = (CrossPlatformGame.SCREEN_WIDTH - CRAWLER_VIEWPORT_WIDTH) / 2;
-		private const int CRAWLER_VIEWPORT_OFFSETY = 54;
+		private const int CRAWLER_VIEWPORT_OFFSETY = 2;
 
 		public static CrawlerScene Instance;
 
@@ -292,7 +292,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (Foe.DeferredSprite != null && BattleViewModel == null && !PartyController.Turning)
 			{
 				float brightness = PartyController.FacingRoom.AverageBrightness();
-				spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + (160 - Foe.DeferredSprite.Height)), null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.95f);
+				spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + CRAWLER_VIEWPORT_HEIGHT - Foe.DeferredSprite.Height - 64), null, new Color(brightness, brightness, brightness, 1.0f), 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.95f);
 			}
 
 			DrawOverlay(spriteBatch);

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 
-	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,-180,306,54" InnerMargin="5,5,5,5">
+	<Panel Bounds="109,2,322,54" InnerMargin="5,5,5,5">
 		<DataGrid Items="Bind PlayerProfile.Objectives" Bounds="0,0,290,27" Alignment="Center">
 			<Panel Alignment="Vertical" Bounds="0,0,290,9">
 				<Image Icon="15,1" Alignment="Left" Bounds="0,0,8,8" Color="#FFFFFFFF" Visible="Bind DataGrid.Completed"/>
@@ -10,71 +10,56 @@
 		</DataGrid>
 	</Panel>
 
-	<Panel Style="MagicFrame" Anchor="$CenterX,$CenterY" Bounds="-153,-126,306,176" Depth="0.9">
+	<Panel Style="MagicFrame" Bounds="109,2,322,237" Depth="0.9">
 		<Button Name="InteractLabel" Alignment="Center" InnerMargin="0,1,0,0" Bounds="Bind InteractBounds" Style="MagicPopup" Action="ActivatePrompt" Visible="Bind ShowInteractLabel">
 			<Label Text="Bind InteractLabel" Font="Console" Alignment="Center" />
 		</Button>
 	</Panel>
 
-	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,50,102,28" InnerMargin="5,5,5,5">
-		<Label Text="Bind MiniMapHeader1" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,92,9"/>
-		<Label Text="Bind MiniMapHeader2" Font="Console" Alignment="Cascading" TextAlignment="Center" Bounds="0,0,92,9"/>
-	</Panel>
 
-	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130">
-		<Panel Bounds="0,-20,168,48" Alignment="Center">
-			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="TurnLeft" >
-				<Image Picture="TurnLeft" Alignment="Left" Bounds="0,2,48,16" />
-				<Label Text="Q" Alignment="Left" Bounds="-5,3,8,8" />
-			</Button>
-			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="MoveForward" >
-				<Image Picture="Forward" Alignment="Left" Bounds="0,2,48,16" />
-				<Label Text="W" Alignment="Left" Bounds="-5,3,8,8" />
-			</Button>
-			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="TurnRight" >
-				<Image Picture="TurnRight" Alignment="Left" Bounds="0,2,48,16" />
-				<Label Text="E" Alignment="Left" Bounds="-5,3,8,8" />
-			</Button>
 
-			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="StrafeLeft" >
-				<Image Picture="StrafeLeft" Alignment="Left" Bounds="0,2,48,16" />
-				<Label Text="A" Alignment="Left" Bounds="-5,3,8,8" />
-			</Button>
-			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="MoveBackward" >
-				<Image Picture="Backward" Alignment="Left" Bounds="0,2,48,16" />
-				<Label Text="S" Alignment="Left" Bounds="-5,3,8,8" />
-			</Button>
-			<Button Bounds="0,0,56,24" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="StrafeRight" >
-				<Image Picture="StrafeRight" Alignment="Left" Bounds="0,2,48,16" />
-				<Label Text="D" Alignment="Left" Bounds="-5,3,8,8" />
-			</Button>
-		</Panel>
+	<Panel Style="BlackSquareMain" Bounds="2,240,106,118" InnerMargin="7,7,7,7">
+		<Button Bounds="0,0,29,29" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="TurnLeft" >
+			<Image Picture="TurnLeft" Alignment="Left" Bounds="0,2,48,16" />
+			<Label Text="Q" Alignment="Left" Bounds="-5,3,8,8" />
+		</Button>
+		<Button Bounds="2,0,29,29" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="MoveForward" >
+			<Image Picture="Forward" Alignment="Left" Bounds="0,2,48,16" />
+			<Label Text="W" Alignment="Left" Bounds="-5,3,8,8" />
+		</Button>
+		<Button Bounds="2,0,29,29" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="TurnRight" >
+			<Image Picture="TurnRight" Alignment="Left" Bounds="0,2,48,16" />
+			<Label Text="E" Alignment="Left" Bounds="-5,3,8,8" />
+		</Button>
+		<Button Bounds="0,0,29,29" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="StrafeLeft" >
+			<Image Picture="StrafeLeft" Alignment="Left" Bounds="0,2,48,16" />
+			<Label Text="A" Alignment="Left" Bounds="-5,3,8,8" />
+		</Button>
+		<Button Bounds="2,0,29,29" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="MoveBackward" >
+			<Image Picture="Backward" Alignment="Left" Bounds="0,2,48,16" />
+			<Label Text="S" Alignment="Left" Bounds="-5,3,8,8" />
+		</Button>
+		<Button Bounds="2,0,29,29" Alignment="Cascading" Style="ThinPanel" PushedStyle="ThinPanelSelected" Margin="8,3,8,2" Action="StrafeRight" >
+			<Image Picture="StrafeRight" Alignment="Left" Bounds="0,2,48,16" />
+			<Label Text="D" Alignment="Left" Bounds="-5,3,8,8" />
+		</Button>
 	</Panel>
 	
-	<Panel Name="MiniMapPanel" Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" />
+	<Panel Name="MiniMapPanel" Style="BlackSquareMain" Bounds="432,240,106,118" />
+	<Panel Name="NarrationPanel" Style="BlackSquareMain" Bounds="109,240,322,118" />
+	<Panel Name="CommandPanel" Style="BlackSquareMain" Bounds="432,2,106,237" />
 
-	<DataGrid Items="Bind PlayerProfile.Party" Bounds="-270,-180,0,540,360">
-		<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="Bind DataGrid.WindowBounds" InnerMargin="4,4,4,4" Depth="0.3">
-			<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,2,92,18" Color="Bind DataGrid.NameColor"/>
-			
-			<Panel Style="MagicFrame" Bounds="0,2,109,124" Alignment="Vertical" Depth="0.1">
-				<Image Picture="Bind DataGrid.Portrait" Alignment="Stretch" Depth="0.2"/>
-			</Panel>
+	<Panel Style="BlackSquareMain" Bounds="2,2,106,237" InnerMargin="0,5,0,5" Depth="0.3">
+		<DataGrid Items="Bind PlayerProfile.Party" Bounds="0,-3,96,189" Alignment="Vertical">
+			<Panel Style="ThinFrame" Bounds="0,3,96,60" Alignment="Vertical" Depth="0.1">
+				<Image Picture="Bind DataGrid.Portrait" Bounds="0,0,96,60" Depth="0.2"/>
+				<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,2,92,18"/>
 
-			<Panel Alignment="Vertical" Bounds="0,0,109,12">
-				<Image Icon="7,0" Alignment="Cascading" Bounds="4,5,8,8" Color="#FFFFFFFF"/>
-				<Label Text="Bind DataGrid.HP" Font="Console" Alignment="Cascading" TextAlignment="Right" Bounds="2,4,24,10" Color="Bind DataGrid.HealthColor"/>
-				<Label Text="/" Alignment="Cascading" Font="Console" TextAlignment="Left" Bounds="0,4,7,10"/>
-				<Label Text="Bind DataGrid.MaxHP" Font="Console" Alignment="Cascading" TextAlignment="Left" Bounds="0,4,24,10" Color="Bind DataGrid.HealthColor"/>
 			</Panel>
-
-			<Panel Alignment="Vertical" Bounds="0,0,109,12">
-				<Image Icon="15,4" Alignment="Cascading" Bounds="4,5,8,8" Color="#FFFFFFFF"/>
-				<Label Text="Bind DataGrid.MP" Font="Console" Alignment="Cascading" TextAlignment="Right" Bounds="2,4,24,10" Color="Bind DataGrid.HealthColor"/>
-				<Label Text="/" Alignment="Cascading" Font="Console" TextAlignment="Left" Bounds="0,4,7,10"/>
-				<Label Text="Bind DataGrid.MaxMP" Font="Console" Alignment="Cascading" TextAlignment="Left" Bounds="0,4,24,10" Color="Bind DataGrid.HealthColor"/>
-			</Panel>
+		</DataGrid>
+		<Panel Style="ThinFrame" Bounds="0,4,96,37" Alignment="Vertical" Depth="0.1">
+			<Image Picture="Bind PlayerProfile.Mascot.Portrait" Bounds="0,0,96,37" Depth="0.2"/>
+			<Label Text="Bind PlayerProfile.Mascot.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,2,92,18"/>
 		</Panel>
-	</DataGrid>
-
+	</Panel>
 </View>

@@ -98,14 +98,14 @@ namespace AngelPearl.Scenes.CrawlerScene
             CurrentRoom.Foe = this;
 
             foeTexture = AssetCache.SPRITES[(GameSprite)Enum.Parse(typeof(GameSprite), "Enemies_" + sprite)];
-            float sizeX = foeTexture.Width / 18f;
-            float sizeY = foeTexture.Height / 18f;
+            float sizeX = foeTexture.Width / 13.6f;
+            float sizeY = foeTexture.Height / 13.6f;
             Billboard = new Billboard(crawlerScene, iFloor, foeTexture, sizeX, sizeY);
         }
 
         public void Draw(GraphicsDevice graphicsDevice, Matrix viewMatrix, float cameraX)
         {
-            if (CurrentRoom.Obscured) return;
+            if (CurrentRoom.Obscured || crawlerScene.BattleViewModel != null) return;
 
             //var battleScene = CrossPlatformGame.CurrentScene as BattleScene.BattleScene;
             //if (battleScene != null && battleScene.Foe == this) return;

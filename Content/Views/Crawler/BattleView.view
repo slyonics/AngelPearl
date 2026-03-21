@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 
-	<Panel Name="EnemyPanel" Anchor="$CenterX,$CenterY" Bounds="-153,-138,306,176">
+	<Panel Name="EnemyPanel" Bounds="109,2,322,237">
 
 	</Panel>
 

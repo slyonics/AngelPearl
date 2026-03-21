@@ -16,7 +16,7 @@
 			{
 				"Name": "Outlaw",
 				"OffsetX": -60,
-				"OffsetY": 0,
+				"OffsetY": 12,
 				"Flash": true
 			},
 			{
@@ -27,7 +27,7 @@
 			{
 				"Name": "Outlaw",
 				"OffsetX": 60,
-				"OffsetY": 0,
+				"OffsetY": 12,
 				"Flash": true
 			}
 		],

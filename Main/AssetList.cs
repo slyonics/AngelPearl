@@ -163,6 +163,7 @@ namespace AngelPearl.Main
         Widgets_Images_TurnRight,
         Widgets_Images_YouAreHere,
         Widgets_Ninepatches_BattleWindow,
+        Widgets_Ninepatches_BlackSquareMain,
         Widgets_Ninepatches_Blank,
         Widgets_Ninepatches_Cursor,
         Widgets_Ninepatches_LabelGlow,
