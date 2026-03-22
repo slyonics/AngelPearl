@@ -11,7 +11,7 @@ namespace AngelPearl.SceneObjects.Widgets
 		private string text;
 		public string Text { get => text; set { text = string.IsNullOrEmpty(value) ? "" : ExpandText(value); } }
 
-		public override Color Color { get; protected set; } = new Color(224, 192, 127, 255);
+		public override Color Color { get; protected set; } = new Color(224, 224, 224, 255);
 
 		private Alignment TextAlignment { get; set; }
 

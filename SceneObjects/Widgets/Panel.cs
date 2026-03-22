@@ -38,6 +38,17 @@ namespace AngelPearl.SceneObjects.Widgets
 			}
 		}
 
+		public override Color Color
+		{
+			get => base.Color;
+			protected set
+			{
+				base.Color = value;
+				if (panelFrame != null)
+					panelFrame.FrameColor = value;
+			}
+		}
+
 		private NinePatch panelFrame;
 
 		private TransitionType TransitionIn { get; set; } = TransitionType.None;

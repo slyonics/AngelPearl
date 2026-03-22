@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 
-	<RadioBox Name="CommandList" Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-153,78,102,102" Items="Bind AvailableCommands" OnSelect="CommandChanged" InnerMargin="4,5,4,0" SelectSound="None">
-		<RadioButton Style="Blank" PushedStyle="LabelGlow" Bounds="0,0,94,10" Alignment="Vertical" Action="SelectCommand" ActionParameter="Ref DataGrid" Enabled="Ref DataGrid.Usable">
+	<RadioBox Name="CommandList" Bounds="432,2,106,237" Items="Bind AvailableCommands" OnSelect="CommandChanged" InnerMargin="7,6,5,10" SelectSound="None">
+		<RadioButton Style="Blank" PushedStyle="LabelGlow" Bounds="0,0,94,10" Alignment="ReverseVertical" Action="SelectCommand" ActionParameter="Ref DataGrid" Enabled="Ref DataGrid.Usable">
 			<Image Icon="Ref DataGrid.Icon" Alignment="Cascading" Bounds="1,0,10,10"/>
 			<Label Text="Ref DataGrid.Name" Font="Interface" Alignment="Cascading" TextAlignment="Left" Bounds="1,-4,83,8"/>
 		</RadioButton>
 	</RadioBox>
 
-	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130" InnerMargin="6,5,6,0" Visible="Bind ShowCommandSummary">
+	<Panel Anchor="$CenterX,$CenterY" Bounds="-161,60,322,118" InnerMargin="10,6,8,10" Visible="Bind ShowCommandSummary">
 		<CrawlText Name="Description" Text="Bind Description" Alignment="Stretch" Font="Dialogue"/>
 	</Panel>
 	

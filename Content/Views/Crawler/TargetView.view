@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 	
-	<Panel Style="MagicWindow" Anchor="$CenterX,$CenterY" Bounds="-51,50,204,130" InnerMargin="6,5,6,0">
+	<Panel Anchor="$CenterX,$CenterY" Bounds="-161,60,322,118" InnerMargin="10,6,8,10">
 		<CrawlText Name="Description" Text="Bind Description" Alignment="Stretch" Font="Dialogue"/>
 	</Panel>
 

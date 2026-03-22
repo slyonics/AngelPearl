@@ -53,13 +53,17 @@
 		<DataGrid Items="Bind PlayerProfile.Party" Bounds="0,-3,96,189" Alignment="Vertical">
 			<Panel Style="ThinFrame" Bounds="0,3,96,60" Alignment="Vertical" Depth="0.1">
 				<Image Picture="Bind DataGrid.Portrait" Bounds="0,0,96,60" Depth="0.2"/>
-				<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,2,92,18"/>
+				<Panel Style="ThinPanel" Bounds="0,4,66,15" Alignment="Vertical" Color="#FFFFFF10" InnerMargin="0,1,0,0">
+					<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center"/>
+				</Panel>
 
 			</Panel>
 		</DataGrid>
 		<Panel Style="ThinFrame" Bounds="0,4,96,37" Alignment="Vertical" Depth="0.1">
 			<Image Picture="Bind PlayerProfile.Mascot.Portrait" Bounds="0,0,96,37" Depth="0.2"/>
-			<Label Text="Bind PlayerProfile.Mascot.Name" Font="LargeConsole" Alignment="Vertical" TextAlignment="Center" Bounds="0,2,92,18"/>
+			<Panel Style="ThinPanel" Bounds="0,4,66,15" Alignment="Vertical" Color="#FFFFFF10" InnerMargin="0,1,0,0">
+				<Label Text="Bind PlayerProfile.Mascot.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center"/>
+			</Panel>
 		</Panel>
 	</Panel>
 </View>
