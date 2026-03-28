@@ -335,10 +335,20 @@
 /processor:TextureProcessor
 /build:Sprites/NPCs/Door.png
 
+#begin Sprites/NPCs/PurpleTree.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/NPCs/PurpleTree.png
+
 #begin Sprites/NPCs/Tree.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/NPCs/Tree.png
+
+#begin Sprites/NPCs/YellowTree.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/NPCs/YellowTree.png
 
 #begin Sprites/Particles/Bash.png
 /importer:TextureImporter
@@ -674,6 +684,11 @@
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Widgets/Ninepatches/MagicWindow.png
+
+#begin Sprites/Widgets/Ninepatches/ManaBar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/ManaBar.png
 
 #begin Sprites/Widgets/Ninepatches/OrnateFrame.png
 /importer:TextureImporter

@@ -109,9 +109,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			long oldHealth = Stats.HP.Value;
 			long newHealth = Stats.HP.Value - damage;
-			float oldHealthBar = (float)Stats.HP.Value / Stats.HP.Value;
-			float newHealthBar = (float)newHealth / Stats.HP.Value;
-			TransitionController transitionController = new TransitionController(TransitionDirection.In, 1000, PriorityLevel.CutsceneLevel, true);
+			float oldHealthBar = (float)Stats.HP.Value / Stats.MaxHP.Value;
+			float newHealthBar = (float)newHealth / Stats.MaxHP.Value;
+			TransitionController transitionController = new TransitionController(TransitionDirection.In, 700, PriorityLevel.CutsceneLevel, true);
 			transitionController.UpdateTransition += new Action<float>(amount =>
 			{
 				Stats.HealthBar.Value = Math.Max(0, MathHelper.Lerp(oldHealthBar, newHealthBar, amount));
@@ -173,14 +173,36 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public virtual void Heal(int healing)
 		{
-			Stats.HP.Value = Math.Min(Stats.MaxHP.Value, Stats.HP.Value + healing);
+            long oldHealth = Stats.HP.Value;
+            long newHealth = Stats.HP.Value + healing;
+            float oldHealthBar = (float)Stats.HP.Value / Stats.MaxHP.Value;
+            float newHealthBar = (float)newHealth / Stats.MaxHP.Value;
+            TransitionController transitionController = new TransitionController(TransitionDirection.In, 700, PriorityLevel.CutsceneLevel, true);
+            transitionController.UpdateTransition += new Action<float>(amount =>
+            {
+                Stats.HealthBar.Value = Math.Min(1.0f, MathHelper.Lerp(oldHealthBar, newHealthBar, amount));
+            });
+            parentScene.AddController(transitionController);
+
+            Stats.HP.Value = Math.Min(Stats.MaxHP.Value, Stats.HP.Value + healing);
 
 			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, healing.ToString(), new Color(28, 210, 160))));
 		}
 
 		public virtual void Replenish(int replenishment)
 		{
-			Stats.MP.Value = Math.Min(Stats.MaxMP.Value, Stats.MP.Value + replenishment);
+            long oldMana = Stats.MP.Value;
+            long newMana = Stats.MP.Value + replenishment;
+            float oldManaBar = (float)Stats.MP.Value / Stats.MaxMP.Value;
+            float newManaBar = (float)newMana / Stats.MaxMP.Value;
+            TransitionController transitionController = new TransitionController(TransitionDirection.In, 700, PriorityLevel.CutsceneLevel, true);
+            transitionController.UpdateTransition += new Action<float>(amount =>
+            {
+                Stats.ManaBar.Value = Math.Min(1.0f, MathHelper.Lerp(oldManaBar, newManaBar, amount));
+            });
+            parentScene.AddController(transitionController);
+
+            Stats.MP.Value = Math.Min(Stats.MaxMP.Value, Stats.MP.Value + replenishment);
 
 			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, replenishment.ToString(), new Color(28, 160, 210))));
 		}

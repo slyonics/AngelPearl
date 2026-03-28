@@ -20,6 +20,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public Button InteractButton { get; private set; }
 
+        public int ObjectiveTimer = 2000;
+
         public MapViewModel(CrawlerScene iScene, GameView viewName)
             : base(iScene, PriorityLevel.GameLevel)
         {
@@ -52,6 +54,18 @@ namespace AngelPearl.Scenes.CrawlerScene
         {
             if (crawlerScene.OverlayList.Any(x => x is BattleViewModel)) return;
 
+            if (parentScene.PriorityLevel == PriorityLevel.GameLevel)
+            {
+                if (ObjectiveTimer > 0)
+                {
+                    ObjectiveTimer -= gameTime.ElapsedGameTime.Milliseconds;
+                    if (ObjectiveTimer <= 0)
+                    {
+                        ShowObjectives.Value = true;
+                    }
+                }
+            }
+
             base.Update(gameTime);
         }
 
@@ -68,11 +82,17 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public void ActivatePrompt()
         {
-			crawlerScene.Activate(crawlerScene.PartyController.FacingRoom);
+            ShowObjectives.Value = false;
+            ObjectiveTimer = 2000;
+
+            crawlerScene.Activate(crawlerScene.PartyController.FacingRoom);
 		}
 
         public void MoveForward()
         {
+            ShowObjectives.Value = false;
+            ObjectiveTimer = 2000;
+
             if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
             crawlerScene.PartyController.Path.Clear();
             crawlerScene.PartyController.MoveForward();
@@ -80,6 +100,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public void MoveBackward()
         {
+            ShowObjectives.Value = false;
+            ObjectiveTimer = 2000;
+
             if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
             crawlerScene.PartyController.Path.Clear();
             crawlerScene.PartyController.MoveBackward();
@@ -87,14 +110,20 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public void StrafeLeft()
 		{
-			if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
+            ShowObjectives.Value = false;
+            ObjectiveTimer = 2000;
+
+            if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
 			crawlerScene.PartyController.Path.Clear();
 			crawlerScene.PartyController.MoveLeft();
 		}
 
 		public void StrafeRight()
 		{
-			if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
+            ShowObjectives.Value = false;
+            ObjectiveTimer = 2000;
+
+            if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
 			crawlerScene.PartyController.Path.Clear();
 			crawlerScene.PartyController.MoveRight();
 		}
@@ -108,7 +137,10 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 		public void TurnRight()
 		{
-			if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
+            ShowObjectives.Value = false;
+            ObjectiveTimer = 2000;
+
+            if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
 			crawlerScene.PartyController.Path.Clear();
 			crawlerScene.PartyController.TurnRight();
 		}
@@ -120,8 +152,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 
 		public ModelProperty<bool> ShowInstructions { get; set; } = new ModelProperty<bool>(true);
-
-		public ModelProperty<bool> ShowMiniMap { get; set; } = new ModelProperty<bool>(true);
+        public ModelProperty<bool> ShowObjectives { get; set; } = new ModelProperty<bool>(false);
+        public ModelProperty<bool> ShowMiniMap { get; set; } = new ModelProperty<bool>(true);
 
 		public ModelProperty<bool> ShowInteractLabel { get; set; } = new ModelProperty<bool>(false);
 		public ModelProperty<string> InteractLabel { get; set; } = new ModelProperty<string>("");

@@ -555,6 +555,11 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 
 			Chest?.Destroy();
+
+            if (finishedMove)
+            {
+                crawlerScene.MapViewModel.ObjectiveTimer = 2000;
+            }
 		}
 
 

@@ -41,6 +41,8 @@ namespace AngelPearl.SceneObjects.Widgets
 			}
 		}
 
+        public override float Depth { get => base.Depth; set { base.Depth = value; UpdateFrame(); } }
+
 		public Gauge(Widget iParent, float widgetDepth)
 			: base(iParent, widgetDepth)
 		{
@@ -99,7 +101,10 @@ namespace AngelPearl.SceneObjects.Widgets
 			}
 		}
 
-		private NinePatch gaugeBackground;
+        public override float Depth { get => base.Depth; set { base.Depth = value; UpdateBarSprite(); } }
+
+
+        private NinePatch gaugeBackground;
 
 		public GaugeBar(Gauge iParent, float widgetDepth)
 			: base(iParent, widgetDepth)

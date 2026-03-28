@@ -157,5 +157,6 @@ namespace AngelPearl.Models
         public ModelCollection<AilmentType> AilmentImmune { get; set; } = new ModelCollection<AilmentType>();
 
 		public ModelProperty<float> HealthBar { get; set; } = new ModelProperty<float>(1.0f);
-	}
+        public ModelProperty<float> ManaBar { get; set; } = new ModelProperty<float>(1.0f);
+    }
 }

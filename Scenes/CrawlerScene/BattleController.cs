@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Microsoft.Xna.Framework;
-
-using AngelPearl.Main;
+﻿using AngelPearl.Main;
 using AngelPearl.Models;
 using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Controllers;
 using AngelPearl.SceneObjects.Particles;
 using AngelPearl.SceneObjects.ViewModels;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AngelPearl.Scenes.CrawlerScene
 {
@@ -107,8 +106,22 @@ namespace AngelPearl.Scenes.CrawlerScene
         {
             if (commandRecord != null)
             {
-                if (commandRecord.Cost > 0) attacker.Stats.MP.Value = attacker.Stats.MP.Value - commandRecord.Cost;
-				else if (commandRecord.Charges > 0) commandRecord.ChargesLeft--;
+                if (commandRecord.Cost > 0)
+                {
+                    long oldHealth = attacker.Stats.MP.Value;
+                    long newHealth = attacker.Stats.MP.Value - commandRecord.Cost;
+                    float oldHealthBar = (float)attacker.Stats.MP.Value / attacker.Stats.MaxMP.Value;
+                    float newHealthBar = (float)newHealth / attacker.Stats.MaxMP.Value;
+                    TransitionController transitionController = new TransitionController(TransitionDirection.In, 700, PriorityLevel.CutsceneLevel, true);
+                    transitionController.UpdateTransition += new Action<float>(amount =>
+                    {
+                        attacker.Stats.ManaBar.Value = Math.Max(0, MathHelper.Lerp(oldHealthBar, newHealthBar, amount));
+                    });
+                    battleScene.AddController(transitionController);
+
+                    attacker.Stats.MP.Value = attacker.Stats.MP.Value - commandRecord.Cost;
+                }
+                else if (commandRecord.Charges > 0) commandRecord.ChargesLeft--;
 			}
 
             /*
@@ -486,7 +499,18 @@ namespace AngelPearl.Scenes.CrawlerScene
             float percent = int.Parse(tokens[1].Replace("%", "")) / 100.0f;
             int sacrifice = (int)(attacker.Stats.HP.Value * percent);
             attacker.Stats.HP.Value = Math.Max(1, attacker.Stats.HP.Value - sacrifice);
-		}
+
+            long oldHealth = attacker.Stats.HP.Value;
+            long newHealth = attacker.Stats.HP.Value - sacrifice;
+            float oldHealthBar = (float)attacker.Stats.HP.Value / attacker.Stats.MaxHP.Value;
+            float newHealthBar = (float)newHealth / attacker.Stats.MaxHP.Value;
+            TransitionController transitionController = new TransitionController(TransitionDirection.In, 700, PriorityLevel.CutsceneLevel, true);
+            transitionController.UpdateTransition += new Action<float>(amount =>
+            {
+                attacker.Stats.HealthBar.Value = Math.Max(0, MathHelper.Lerp(oldHealthBar, newHealthBar, amount));
+            });
+            battleScene.AddController(transitionController);
+        }
 
 
 		private void CalculateReplenish(string[] tokens)

@@ -68,10 +68,10 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 
 			i = 0;
-			Vector2[] offsets = [ new(-222, -95), new(222, -95), new(-222, 95), new(222, 95) ];
+			Vector2[] offsets = [ new(55, 37), new(55, 100), new(55, 163), new(222, 95) ];
 			foreach (var player in GameProfile.CurrentSave.Party)
 			{
-				var battlePlayer = new BattlePlayer(crawlerScene, new Vector2(CrossPlatformGame.SCREEN_WIDTH / 2, CrossPlatformGame.SCREEN_HEIGHT / 2) + offsets[i], player.Value);
+				var battlePlayer = new BattlePlayer(crawlerScene, offsets[i], player.Value);
 				PlayerList.Add(battlePlayer);
 				crawlerScene.AddEntity(battlePlayer);
 				i++;

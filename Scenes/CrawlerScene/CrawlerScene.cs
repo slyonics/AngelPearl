@@ -203,7 +203,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public MapRoom AttemptMove(Direction moveDirection)
         {
-			var currentRoom = floor.GetRoom(PartyController.RoomX, PartyController.RoomY);
+            var currentRoom = floor.GetRoom(PartyController.RoomX, PartyController.RoomY);
 			var destinationRoom = currentRoom[moveDirection];
 			if (destinationRoom == null || destinationRoom.Blocked || !currentRoom.Neighbors.Contains(destinationRoom))
 			{

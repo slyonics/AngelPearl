@@ -49,20 +49,28 @@ namespace AngelPearl.Scenes.CrawlerScene
 			CameraX = (float)(Math.PI * (int)PartyDirection / 2.0f);
 		}
 
+		private void ResetObjectives()
+		{
+            crawlerScene.MapViewModel.ShowObjectives.Value = false;
+            crawlerScene.MapViewModel.ObjectiveTimer = 2000;
+        }
+
         public override void PreUpdate(GameTime gameTime)
         {
             if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
 
             InputFrame inputFrame = Input.CurrentInput;
-            if (inputFrame.CommandDown(Command.LookLeft)) { Path.Clear(); TurnLeft(); }
-            else if (inputFrame.CommandDown(Command.LookRight)) { Path.Clear(); TurnRight(); }
-			else if (inputFrame.CommandDown(Command.Left)) { Path.Clear(); MoveLeft(); }
-			else if (inputFrame.CommandDown(Command.Right)) { Path.Clear(); MoveRight(); }
-			else if (inputFrame.CommandDown(Command.Up)) { Path.Clear(); MoveForward(); }
-			else if (inputFrame.CommandDown(Command.Down)) { Path.Clear(); MoveBackward(); }
+            if (inputFrame.CommandDown(Command.LookLeft)) { Path.Clear(); ResetObjectives(); TurnLeft(); }
+            else if (inputFrame.CommandDown(Command.LookRight)) { Path.Clear(); ResetObjectives(); TurnRight(); }
+			else if (inputFrame.CommandDown(Command.Left)) { Path.Clear(); ResetObjectives(); MoveLeft(); }
+			else if (inputFrame.CommandDown(Command.Right)) { Path.Clear(); ResetObjectives(); MoveRight(); }
+			else if (inputFrame.CommandDown(Command.Up)) { Path.Clear(); ResetObjectives(); MoveForward(); }
+			else if (inputFrame.CommandDown(Command.Down)) { Path.Clear(); ResetObjectives(); MoveBackward(); }
 			else if (Input.CurrentInput.CommandPressed(Command.Confirm))
 			{
-				crawlerScene.MapViewModel.InteractLabel.Value = "";
+                ResetObjectives();
+
+                crawlerScene.MapViewModel.InteractLabel.Value = "";
 				crawlerScene.MapViewModel.ShowInteractLabel.Value = false;
 				Path.Clear();
 				crawlerScene.Activate(FacingRoom);
