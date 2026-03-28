@@ -58,6 +58,7 @@ namespace AngelPearl.Models
 			Description.Value = heroRecord.Description;
 
 			Portrait.Value = $"Portraits_{heroRecord.PortraitSprite}";
+			FullBody.Value = $"Portraits_{heroRecord.FullBodySprite}";
 
 			Level.Value = heroRecord.Level;
             HP.Value = MaxHP.Value = 40 + (4 * heroRecord.BaseHeart);
@@ -211,10 +212,11 @@ namespace AngelPearl.Models
 		public ModelProperty<Color> NameColor { get; set; } = new ModelProperty<Color>(Color.White);
 		public ModelProperty<Color> HealthColor { get; set; } = new ModelProperty<Color>(Color.White);
 
-        public ModelProperty<long> Exp { get; set; } = new ModelProperty<long>(0);
+		public ModelProperty<long> Exp { get; set; } = new ModelProperty<long>(0);
         public ModelProperty<long> NextLevel { get; set; } = new ModelProperty<long>(0);
 
         public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();
+		public ModelProperty<string> FullBody { get; set; } = new ModelProperty<string>();
 
 		public ModelProperty<ItemRecord> Weapon { get; private set; } = new ModelProperty<ItemRecord>();
 		public ModelProperty<ItemRecord> Accessory { get; private set; } = new ModelProperty<ItemRecord>();

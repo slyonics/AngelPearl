@@ -75,12 +75,15 @@ namespace AngelPearl.SceneObjects.Widgets
 			if (initializing) { initializing = false; return; }
 			if (Terminated || !Enabled || !Visible || Transitioning || parent.Transitioning) return;
 
+			if (ChildList.Count == 0) return;
+			Alignment alignment = ChildList.First().Alignment;
+
 			var input = Input.CurrentInput;
-			if (input.CommandPressed(Command.Up)) UpCursor?.Invoke();
-            else if (input.CommandPressed(Command.Right)) RightCursor?.Invoke();
-			else if (input.CommandPressed(Command.Down)) DownCursor?.Invoke();
-            else if (input.CommandPressed(Command.Left)) LeftCursor?.Invoke();
-            else if (input.CommandPressed(Command.Confirm) && Selection != -1)
+			if (input.CommandPressed(Command.Up)) if (alignment == Alignment.ReverseVertical) DownCursor?.Invoke(); else UpCursor?.Invoke();
+			else if (input.CommandPressed(Command.Right)) RightCursor?.Invoke();
+			else if (input.CommandPressed(Command.Down)) if (alignment == Alignment.ReverseVertical) UpCursor?.Invoke(); else DownCursor?.Invoke();
+			else if (input.CommandPressed(Command.Left)) LeftCursor?.Invoke();
+			else if (input.CommandPressed(Command.Confirm) && Selection != -1)
 			{
 				if (SelectSound != GameSound.None) Audio.PlaySound(SelectSound);
 				Activate();

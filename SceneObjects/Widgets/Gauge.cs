@@ -226,6 +226,7 @@ namespace AngelPearl.SceneObjects.Widgets
 		{
 			base.Draw(spriteBatch);
 
+			if (sliderBackground != null) sliderBackground.FrameColor = Color;
 			sliderBackground?.Draw(spriteBatch, Position);
 		}
 

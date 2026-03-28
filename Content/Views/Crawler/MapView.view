@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <View>
 
-	<Panel Bounds="109,2,322,54" InnerMargin="5,5,5,5">
+	<Panel Style="WhitePanel" Bounds="120,11,300,37" InnerMargin="5,5,5,5">
 		<DataGrid Items="Bind PlayerProfile.Objectives" Bounds="0,0,290,27" Alignment="Center">
 			<Panel Alignment="Vertical" Bounds="0,0,290,9">
 				<Image Icon="15,1" Alignment="Left" Bounds="0,0,8,8" Color="#FFFFFFFF" Visible="Bind DataGrid.Completed"/>
@@ -52,17 +52,32 @@
 	<Panel Style="BlackSquareMain" Bounds="2,2,106,237" InnerMargin="0,5,0,5" Depth="0.3">
 		<DataGrid Items="Bind PlayerProfile.Party" Bounds="0,-3,96,189" Alignment="Vertical">
 			<Panel Style="ThinFrame" Bounds="0,3,96,60" Alignment="Vertical" Depth="0.1">
+				
 				<Image Picture="Bind DataGrid.Portrait" Bounds="0,0,96,60" Depth="0.2"/>
-				<Panel Style="ThinPanel" Bounds="0,4,66,15" Alignment="Vertical" Color="#FFFFFF10" InnerMargin="0,1,0,0">
-					<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center"/>
+				
+				<Panel Style="WhitePanel" Bounds="0,4,66,16" Alignment="Vertical" InnerMargin="0,0,0,1">
+					<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center" Color="Bind DataGrid.NameColor"/>
+				</Panel>
+
+				<Panel Alignment="Vertical" Bounds="0,2,80,16">
+					<Image Icon="7,0" Alignment="Cascading" Bounds="4,5,8,8" Color="#FFFFFFFF"/>
+					<Gauge Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="0,0,64,6">
+						<GaugeBar Bar="HealthBar" Value="Bind DataGrid.HealthBar" Color="#FFFFFF20"/>
+					</Gauge>
+					<Label Text="Bind DataGrid.HP" Font="Console" Alignment="Cascading" TextAlignment="Right" Bounds="2,4,24,10" Color="Bind DataGrid.HealthColor"/>
+				</Panel>
+
+				<Panel Alignment="Vertical" Bounds="0,2,80,16">
+					<Image Icon="15,4" Alignment="Cascading" Bounds="4,5,8,8" Color="#FFFFFFFF"/>
+					<Label Text="Bind DataGrid.MP" Font="Console" Alignment="Cascading" TextAlignment="Right" Bounds="2,4,24,10" Color="Bind DataGrid.HealthColor"/>
 				</Panel>
 
 			</Panel>
 		</DataGrid>
 		<Panel Style="ThinFrame" Bounds="0,4,96,37" Alignment="Vertical" Depth="0.1">
 			<Image Picture="Bind PlayerProfile.Mascot.Portrait" Bounds="0,0,96,37" Depth="0.2"/>
-			<Panel Style="ThinPanel" Bounds="0,4,66,15" Alignment="Vertical" Color="#FFFFFF10" InnerMargin="0,1,0,0">
-				<Label Text="Bind PlayerProfile.Mascot.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center"/>
+			<Panel Style="WhitePanel" Bounds="0,4,66,15" Alignment="Vertical" InnerMargin="0,0,0,1">
+				<Label Text="Bind PlayerProfile.Mascot.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center" />
 			</Panel>
 		</Panel>
 	</Panel>

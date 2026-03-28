@@ -297,7 +297,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			DrawOverlay(spriteBatch);
 
-			if (!overlayList.Any(x => x is BattleViewModel))
+			// if (!overlayList.Any(x => x is BattleViewModel))
 			{
 				var miniMapPanel = MapViewModel.GetWidget<Panel>("MiniMapPanel");
 				Rectangle miniMapBounds = miniMapPanel.InnerBounds;

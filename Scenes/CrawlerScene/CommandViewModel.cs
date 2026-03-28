@@ -3,6 +3,7 @@ using AngelPearl.Models;
 using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Widgets;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
@@ -122,6 +123,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 
 		public BattlePlayer ActivePlayer { get; set; }
+		public Texture2D FullBody { get => AssetCache.SPRITES[Enum.Parse<GameSprite>(ActivePlayer.HeroModel.FullBody.Value)]; }
 
 		public ModelCollection<CommandRecord> AvailableCommands { get; set; } = new ModelCollection<CommandRecord>();
 

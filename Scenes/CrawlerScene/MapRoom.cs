@@ -142,7 +142,7 @@ namespace AngelPearl.Scenes.CrawlerScene
         private CrawlerScene crawlerScene;
         private Floor parentFloor;
 
-        int waypointTile = 1;
+        public int waypointTile { get; set; } = 1;
 
         private Dictionary<Direction, RoomWall> wallList = [];
 

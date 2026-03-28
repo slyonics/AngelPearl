@@ -155,5 +155,7 @@ namespace AngelPearl.Models
         public ModelCollection<ElementType> ElementImmune { get; set; } = new ModelCollection<ElementType>();
         public ModelCollection<ElementType> ElementAbsorb { get; set; } = new ModelCollection<ElementType>();
         public ModelCollection<AilmentType> AilmentImmune { get; set; } = new ModelCollection<AilmentType>();
-    }
+
+		public ModelProperty<float> HealthBar { get; set; } = new ModelProperty<float>(1.0f);
+	}
 }

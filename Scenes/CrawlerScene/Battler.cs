@@ -1,7 +1,7 @@
 ﻿using AngelPearl.Main;
 using AngelPearl.Models;
 using AngelPearl.SceneObjects;
-
+using AngelPearl.SceneObjects.Controllers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -106,6 +106,17 @@ namespace AngelPearl.Scenes.CrawlerScene
 			{
 				damage /= 2;
 			}
+
+			long oldHealth = Stats.HP.Value;
+			long newHealth = Stats.HP.Value - damage;
+			float oldHealthBar = (float)Stats.HP.Value / Stats.HP.Value;
+			float newHealthBar = (float)newHealth / Stats.HP.Value;
+			TransitionController transitionController = new TransitionController(TransitionDirection.In, 1000, PriorityLevel.CutsceneLevel, true);
+			transitionController.UpdateTransition += new Action<float>(amount =>
+			{
+				Stats.HealthBar.Value = Math.Max(0, MathHelper.Lerp(oldHealthBar, newHealthBar, amount));
+			});
+			parentScene.AddController(transitionController);
 
 			Stats.HP.Value = Math.Max(0, Stats.HP.Value - damage);
 

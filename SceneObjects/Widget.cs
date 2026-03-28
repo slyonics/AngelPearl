@@ -74,7 +74,7 @@ namespace AngelPearl.SceneObjects
 		public virtual Rectangle Bounds { get => bounds; set => bounds = value; }
 
 		protected Vector2[] layoutOffset = new Vector2[Enum.GetValuesAsUnderlyingType(typeof(Alignment)).Length];
-		protected Alignment Alignment { get; set; } = Alignment.Absolute;
+		public Alignment Alignment { get; protected set; } = Alignment.Absolute;
 		protected int horizontalCenterAdjust;
 		protected Rectangle currentWindow;
 
@@ -233,7 +233,7 @@ namespace AngelPearl.SceneObjects
 					currentWindow = bounds;
 					currentWindow.X = parent.InnerBounds.Right - (int)parent.layoutOffset[(int)Alignment].X - bounds.Width + bounds.X;
 					currentWindow.Y = parent.InnerBounds.Top + bounds.Y;
-					parent.AdjustLayoutOffset(Alignment, new Vector2(bounds.X + bounds.Width, 0));
+					parent.AdjustLayoutOffset(Alignment, new Vector2(-bounds.X - bounds.Width, 0));
 					break;
 
 				case Alignment.Anchored:

@@ -31,6 +31,7 @@ namespace AngelPearl.Models
 		public int Level { get; set; }
 
 		public string PortraitSprite { get; set; }
+		public string FullBodySprite { get; set; }
 
 		public int BaseHP { get; set; }
 		public int BaseMP { get; set; }

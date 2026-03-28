@@ -465,6 +465,11 @@
 /processor:TextureProcessor
 /build:Sprites/Portraits/Aika.png
 
+#begin Sprites/Portraits/AikaFull.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/AikaFull.png
+
 #begin Sprites/Portraits/Mascot.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -474,6 +479,11 @@
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Portraits/Proxy.png
+
+#begin Sprites/Portraits/ProxyFull.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/ProxyFull.png
 
 #begin Sprites/Tiles/CrawlerTiles.png
 /importer:TextureImporter
@@ -595,6 +605,11 @@
 /processor:TextureProcessor
 /build:Sprites/Widgets/Ninepatches/BattleWindow.png
 
+#begin Sprites/Widgets/Ninepatches/BlackSquareFrame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/BlackSquareFrame.png
+
 #begin Sprites/Widgets/Ninepatches/BlackSquareMain.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -609,6 +624,21 @@
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Widgets/Ninepatches/Cursor.png
+
+#begin Sprites/Widgets/Ninepatches/HealthBar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/HealthBar.png
+
+#begin Sprites/Widgets/Ninepatches/HealthFrame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/HealthFrame.png
+
+#begin Sprites/Widgets/Ninepatches/HealthGauge.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/HealthGauge.png
 
 #begin Sprites/Widgets/Ninepatches/LabelGlow.png
 /importer:TextureImporter
@@ -669,6 +699,11 @@
 /importer:TextureImporter
 /processor:TextureProcessor
 /build:Sprites/Widgets/Ninepatches/ThinPanelSelected.png
+
+#begin Sprites/Widgets/Ninepatches/WhitePanel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/WhitePanel.png
 
 #begin Sprites/Palette.png
 /importer:TextureImporter

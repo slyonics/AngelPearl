@@ -11,7 +11,7 @@
 	"iid": "bcda8860-fa90-11f0-8f89-27aaadadb3c9",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 44,
+	"nextUid": 45,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -1137,6 +1137,43 @@
 					"allowedRefsEntityUid": null,
 					"allowedRefTags": [],
 					"tilesetUid": null
+				},
+				{
+					"identifier": "Minimap",
+					"doc": null,
+					"__type": "Int",
+					"uid": 44,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayScale": 1,
+					"editorDisplayPos": "Above",
+					"editorLinkStyle": "StraightArrow",
+					"editorDisplayColor": null,
+					"editorAlwaysShow": false,
+					"editorShowInWorld": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"exportToToc": false,
+					"searchable": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [-1] },
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
+					"allowedRefTags": [],
+					"tilesetUid": null
 				}
 			]
 		},
@@ -1845,7 +1882,8 @@
 								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 24, "realEditorValues": [] },
 								{ "__identifier": "DisableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 25, "realEditorValues": [] },
 								{ "__identifier": "Size", "__type": "Int", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "Height", "__type": "Int", "__value": 0, "__tile": null, "defUid": 27, "realEditorValues": [] }
+								{ "__identifier": "Height", "__type": "Int", "__value": 0, "__tile": null, "defUid": 27, "realEditorValues": [] },
+								{ "__identifier": "Minimap", "__type": "Int", "__value": 5, "__tile": null, "defUid": 44, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }
 							],
 							"__worldX": 224,
 							"__worldY": 96
@@ -1872,7 +1910,8 @@
 								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 24, "realEditorValues": [] },
 								{ "__identifier": "DisableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 25, "realEditorValues": [] },
 								{ "__identifier": "Size", "__type": "Int", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "Height", "__type": "Int", "__value": 0, "__tile": null, "defUid": 27, "realEditorValues": [] }
+								{ "__identifier": "Height", "__type": "Int", "__value": 0, "__tile": null, "defUid": 27, "realEditorValues": [] },
+								{ "__identifier": "Minimap", "__type": "Int", "__value": 5, "__tile": null, "defUid": 44, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }
 							],
 							"__worldX": 224,
 							"__worldY": 320
@@ -1899,7 +1938,8 @@
 								{ "__identifier": "EnableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 24, "realEditorValues": [] },
 								{ "__identifier": "DisableIf", "__type": "String", "__value": null, "__tile": null, "defUid": 25, "realEditorValues": [] },
 								{ "__identifier": "Size", "__type": "Int", "__value": 5, "__tile": null, "defUid": 26, "realEditorValues": [] },
-								{ "__identifier": "Height", "__type": "Int", "__value": 0, "__tile": null, "defUid": 27, "realEditorValues": [] }
+								{ "__identifier": "Height", "__type": "Int", "__value": 0, "__tile": null, "defUid": 27, "realEditorValues": [] },
+								{ "__identifier": "Minimap", "__type": "Int", "__value": 5, "__tile": null, "defUid": 44, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }
 							],
 							"__worldX": 224,
 							"__worldY": 128

@@ -34,6 +34,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             string[] script = null;
             int size = 5;
             int heightOffset = 0;
+            int minimapTile = -1;
             foreach (FieldInstance field in entity.FieldInstances)
             {
                 switch (field.Identifier)
@@ -43,6 +44,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                     case "Script": if (!string.IsNullOrEmpty(field.Value)) script = field.Value.Split('\n'); break;
                     case "Size": size = (int)field.Value; break;
                     case "Height": heightOffset = (int)field.Value; break;
+					case "Minimap": minimapTile = (int)field.Value; break;
 				}
             }
 
@@ -53,6 +55,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             CurrentRoom = iFloor.GetRoom(startX, startY);
             if (script == null) CurrentRoom.Blocked = true;
             else CurrentRoom.PreEnterScript = CurrentRoom.InteractScript = script;
+            if (minimapTile > 0) CurrentRoom.waypointTile = minimapTile;
 
             var texture = AssetCache.SPRITES[(GameSprite)Enum.Parse(typeof(GameSprite), "NPCs_" + sprite)];
             float sizeX = texture.Width / 24.0f * size;
