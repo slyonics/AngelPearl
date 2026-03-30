@@ -10,7 +10,7 @@
 		</DataGrid>
 	</Panel>
 
-	<Panel Style="MagicFrame" Bounds="109,2,322,237" Depth="0.9">
+	<Panel Style="CrawlerFrame" Bounds="109,2,322,237" Depth="0.9">
 		<Button Name="InteractLabel" Alignment="Center" InnerMargin="0,1,0,0" Bounds="Bind InteractBounds" Style="MagicPopup" Action="ActivatePrompt" Visible="Bind ShowInteractLabel">
 			<Label Text="Bind InteractLabel" Font="Console" Alignment="Center" />
 		</Button>
@@ -53,34 +53,34 @@
 		<DataGrid Items="Bind PlayerProfile.Party" Bounds="0,-3,96,189" Alignment="Vertical">
 			<Panel Style="ThinFrame" Bounds="0,3,96,60" Alignment="Vertical" Depth="0.1">
 				
-				<Image Picture="Bind DataGrid.Portrait" Bounds="0,2,96,60" Depth="0.2"/>
-				
-				<Panel Style="WhitePanel" Bounds="0,0,66,16" Alignment="Vertical" InnerMargin="0,0,0,1">
-					<Label Text="Bind DataGrid.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center" Color="Bind DataGrid.NameColor"/>
-				</Panel>
+				<Image Picture="Bind DataGrid.Portrait" Bounds="0,0,96,60" Depth="0.2"/>
 
-				<Panel Alignment="ReverseVertical" Bounds="0,0,96,10">
-					<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,1,80,8" Color="#FFFFFF20">
+				<Panel Alignment="Vertical" Bounds="0,1,96,10">
+					<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,2,80,6" Color="#FFFFFF20">
+						<GaugeBar Bar="HealthBar" Value="Bind DataGrid.HealthBar" Color="#FFFFFF20"/>
+					</Gauge>
+					<Image Icon="7,0" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
+					<Label Text="Bind DataGrid.HP" Font="Console" Alignment="Center" TextAlignment="Center" Bounds="0,0,24,10" Color="Bind DataGrid.HealthColor" Depth="0.05"/>
+				</Panel>
+				
+				<Panel Alignment="Vertical" Bounds="0,-2,96,10">
+					<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,2,80,6" Color="#FFFFFF20">
 						<GaugeBar Bar="ManaBar" Value="Bind DataGrid.ManaBar" Color="#FFFFFF20"/>
 					</Gauge>
 					<Image Icon="15,4" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
 					<Label Text="Bind DataGrid.MP" Font="Console" Alignment="Center" TextAlignment="Center" Bounds="0,0,24,10" Color="Bind DataGrid.HealthColor" Depth="0.05"/>
 				</Panel>
 
-				<Panel Alignment="ReverseVertical" Bounds="0,0,96,10">
-					<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,1,80,8" Color="#FFFFFF20">
-						<GaugeBar Bar="HealthBar" Value="Bind DataGrid.HealthBar" Color="#FFFFFF20"/>
-					</Gauge>
-					<Image Icon="7,0" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
-					<Label Text="Bind DataGrid.HP" Font="Console" Alignment="Center" TextAlignment="Center" Bounds="0,0,24,10" Color="Bind DataGrid.HealthColor" Depth="0.05"/>
-				</Panel>
-
 			</Panel>
 		</DataGrid>
 		<Panel Style="ThinFrame" Bounds="0,4,96,37" Alignment="Vertical" Depth="0.1">
 			<Image Picture="Bind PlayerProfile.Mascot.Portrait" Bounds="0,0,96,37" Depth="0.2"/>
-			<Panel Style="WhitePanel" Bounds="0,4,66,15" Alignment="Vertical" InnerMargin="0,0,0,1">
-				<Label Text="Bind PlayerProfile.Mascot.Name" Font="LargeConsole" Alignment="Center" TextAlignment="Center" />
+			<Panel Alignment="Vertical" Bounds="0,1,96,10">
+				<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,2,80,6" Color="#FFFFFF20">
+					<GaugeBar Bar="ManaBar" Value="Bind PlayerProfile.Mascot.ManaBar" Color="#FFFFFF20"/>
+				</Gauge>
+				<Image Icon="15,4" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
+				<Label Text="Bind PlayerProfile.Mascot.MP" Font="Console" Alignment="Center" TextAlignment="Center" Bounds="0,0,24,10" Depth="0.05"/>
 			</Panel>
 		</Panel>
 	</Panel>

@@ -170,6 +170,7 @@ namespace AngelPearl.Main
         Widgets_Ninepatches_BlackSquareFrame,
         Widgets_Ninepatches_BlackSquareMain,
         Widgets_Ninepatches_Blank,
+        Widgets_Ninepatches_CrawlerFrame,
         Widgets_Ninepatches_Cursor,
         Widgets_Ninepatches_HealthBar,
         Widgets_Ninepatches_HealthFrame,

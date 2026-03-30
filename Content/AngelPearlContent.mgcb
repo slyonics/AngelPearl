@@ -630,6 +630,11 @@
 /processor:TextureProcessor
 /build:Sprites/Widgets/Ninepatches/Blank.png
 
+#begin Sprites/Widgets/Ninepatches/CrawlerFrame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Widgets/Ninepatches/CrawlerFrame.png
+
 #begin Sprites/Widgets/Ninepatches/Cursor.png
 /importer:TextureImporter
 /processor:TextureProcessor

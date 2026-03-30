@@ -32,9 +32,6 @@ namespace AngelPearl.Models
 			HeroModel aika = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Aika"));
 			CurrentSave.Roster.Add(aika);
 
-			HeroModel karin = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Karin"));
-			CurrentSave.Roster.Add(karin);
-
 			HeroModel mascot = new HeroModel(MuseRecord.MUSES.First(x => x.Name == "Mascot"));
 			CurrentSave.Mascot.Value = mascot;
 
