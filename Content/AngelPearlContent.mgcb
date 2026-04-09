@@ -480,6 +480,16 @@
 /processor:TextureProcessor
 /build:Sprites/Portraits/AikaFull.png
 
+#begin Sprites/Portraits/Faye.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/Faye.png
+
+#begin Sprites/Portraits/FayeFull.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Portraits/FayeFull.png
+
 #begin Sprites/Portraits/Mascot.png
 /importer:TextureImporter
 /processor:TextureProcessor

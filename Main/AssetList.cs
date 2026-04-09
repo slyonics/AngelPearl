@@ -140,6 +140,8 @@ namespace AngelPearl.Main
         Particles_Weapons,
         Portraits_Aika,
         Portraits_AikaFull,
+        Portraits_Faye,
+        Portraits_FayeFull,
         Portraits_Mascot,
         Portraits_Proxy,
         Portraits_ProxyFull,

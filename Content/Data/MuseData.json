@@ -86,9 +86,9 @@
 	{
 		"Name": "Faye",
 		"Description": "A quirky muse operating the Sagittarius cosmo engine.",
-		"ClassType": "Libra",
-		"PortraitSprite": "Proxy",
-		"FullBodySprite": "ProxyFull",
+		"ClassType": "Sagittarius",
+		"PortraitSprite": "Faye",
+		"FullBodySprite": "FayeFull",
 		"Level": 1,
 		"BaseSkill": 3,
 		"BaseReflex": 6,
