@@ -13,5 +13,8 @@
 	<Panel Anchor="$CenterX,$CenterY" Bounds="-161,60,322,118" InnerMargin="10,6,8,10" Visible="Bind TurnExecuting">
 		<CrawlText Name="ConversationText" Text="Bind Narration" Font="Dialogue" Alignment="Stretch" />
 	</Panel>
+
+	<Panel Style="BlackSquareMain" Bounds="2,240,106,118" InnerMargin="7,7,7,7" >
+	</Panel>
 	
 </View>

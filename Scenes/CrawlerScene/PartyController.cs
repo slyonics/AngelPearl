@@ -60,13 +60,14 @@ namespace AngelPearl.Scenes.CrawlerScene
             if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
 
             InputFrame inputFrame = Input.CurrentInput;
-            if (inputFrame.CommandDown(Command.LookLeft)) { Path.Clear(); ResetObjectives(); TurnLeft(); }
-            else if (inputFrame.CommandDown(Command.LookRight)) { Path.Clear(); ResetObjectives(); TurnRight(); }
-			else if (inputFrame.CommandDown(Command.Left)) { Path.Clear(); ResetObjectives(); MoveLeft(); }
-			else if (inputFrame.CommandDown(Command.Right)) { Path.Clear(); ResetObjectives(); MoveRight(); }
+            if (inputFrame.CommandDown(Command.StrafeLeft)) { Path.Clear(); ResetObjectives(); MoveLeft(); }
+            else if (inputFrame.CommandDown(Command.StrafeRight)) { Path.Clear(); ResetObjectives(); MoveRight(); }
+			else if (inputFrame.CommandDown(Command.Left)) { Path.Clear(); ResetObjectives(); TurnLeft(); }
+			else if (inputFrame.CommandDown(Command.Right)) { Path.Clear(); ResetObjectives(); TurnRight(); }
 			else if (inputFrame.CommandDown(Command.Up)) { Path.Clear(); ResetObjectives(); MoveForward(); }
 			else if (inputFrame.CommandDown(Command.Down)) { Path.Clear(); ResetObjectives(); MoveBackward(); }
-			else if (Input.CurrentInput.CommandPressed(Command.Confirm))
+			else if (inputFrame.CommandDown(Command.Wait)) { Path.Clear(); ResetObjectives(); Wait(); }
+            else if (Input.CurrentInput.CommandPressed(Command.Confirm))
 			{
                 ResetObjectives();
 
@@ -395,7 +396,29 @@ namespace AngelPearl.Scenes.CrawlerScene
 			DestinationRoom = destinationRoom;
 		}
 
-		public void CheckForInteractionPrompts()
+		public void Wait()
+		{
+            TransitionDirection transitionDirection =  TransitionDirection.In;
+            MoveController = new TransitionController(transitionDirection, 100, PriorityLevel.CutsceneLevel);
+
+			if (crawlerScene.MoveFoes(CurrentRoom))
+			{
+				ResetObjectives();
+
+                crawlerScene.StartBattle(crawlerScene.FoeInBattle);
+			}
+			else
+			{
+                crawlerScene.AddController(MoveController);
+                MoveController.FinishTransition += new Action<TransitionDirection>(t =>
+                {
+                    MoveController = null;
+                });
+            }
+        }
+
+
+        public void CheckForInteractionPrompts()
 		{
 			var nextRoom = crawlerScene.Floor.GetRoom(RoomX, RoomY)[PartyDirection];
 			if (Moving) crawlerScene.MapViewModel.InteractLabel.Value = "";

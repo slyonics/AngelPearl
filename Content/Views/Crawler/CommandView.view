@@ -3,10 +3,13 @@
 
 	<Panel Bounds="432,2,106,237" Style="BlackSquareFrame" Depth="0.1">
 		<Image Bounds="0,0,106,237" Picture="Ref FullBody" Depth="0.2"/>
-		<RadioBox Name="CommandList" Items="Bind AvailableCommands" OnSelect="CommandChanged" InnerMargin="7,6,5,10" SelectSound="None" Alignment="Stretch" Depth="0.15">
-			<RadioButton Style="WhitePanel" PushedStyle="LabelGlow" Bounds="0,0,94,10" Alignment="ReverseVertical" Action="SelectCommand" ActionParameter="Ref DataGrid" Enabled="Ref DataGrid.Usable" >
-				<Image Icon="Ref DataGrid.Icon" Alignment="Cascading" Bounds="4,0,10,10"/>
-				<Label Text="Ref DataGrid.Name" Font="Interface" Alignment="Cascading" TextAlignment="Left" Bounds="1,-4,80,8"/>
+	</Panel>
+
+	<Panel Anchor="$CenterX,$CenterY" Bounds="-147,2,294,237">
+		<RadioBox Name="CommandList" Items="Bind AvailableCommands" OnSelect="CommandChanged" InnerMargin="7,6,5,10" SelectSound="None" Alignment="Stretch">
+			<RadioButton Style="WhitePanel" PushedStyle="LabelGlow" Bounds="0,0,94,16" Alignment="Cascading" Action="SelectCommand" ActionParameter="Ref DataGrid" Enabled="Ref DataGrid.Usable" >
+				<Image Icon="Ref DataGrid.Icon" Alignment="Cascading" Bounds="4,-1,10,16"/>
+				<Label Text="Ref DataGrid.Name" Font="Dialogue" Alignment="Cascading" TextAlignment="Left" Bounds="1,-2,80,12"/>
 			</RadioButton>
 		</RadioBox>
 	</Panel>

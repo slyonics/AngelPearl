@@ -11,12 +11,13 @@ namespace AngelPearl.Main
 		Right,
 		Down,
 		Left,
-		LookLeft,
-		LookRight,
+		StrafeLeft,
+		StrafeRight,
 		Confirm,
 		Cancel,
 		Interact,
-		Menu
+		Menu,
+		Wait
     }
 
 	public class InputFrame
@@ -37,15 +38,16 @@ namespace AngelPearl.Main
 		{
 			{ Command.Up, new List<Keys>() { Keys.Up, Keys.W } },
 			{ Command.Right, new List<Keys>() { Keys.Right, Keys.D } },
-			{ Command.LookRight, new List<Keys>() { Keys.E } },
+			{ Command.StrafeRight, new List<Keys>() { Keys.E } },
 			{ Command.Down, new List<Keys>() { Keys.Down, Keys.S } },
 			{ Command.Left, new List<Keys>() { Keys.Left, Keys.A } },
-			{ Command.LookLeft, new List<Keys>() { Keys.Q } },
+			{ Command.StrafeLeft, new List<Keys>() { Keys.Q } },
 			{ Command.Confirm, new List<Keys>() { Keys.Enter, Keys.Space, Keys.Z } },
 			{ Command.Cancel, new List<Keys>() { Keys.Escape, Keys.Back, Keys.X } },
 			{ Command.Interact, new List<Keys>() { Keys.Enter, Keys.Space, Keys.Z } },
-			{ Command.Menu, new List<Keys>() { Keys.Escape, Keys.Back, Keys.X } }
-		}; 
+			{ Command.Menu, new List<Keys>() { Keys.Escape, Keys.Back, Keys.X } },
+			{ Command.Wait, new List<Keys>() { Keys.C } }
+        }; 
 
 		private List<float> keyActivity = new List<float>();
 		private KeyboardState newKeyState;

@@ -376,13 +376,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			FoeInBattle = foe;
 			EncounterRecord record = EncounterRecord.ENCOUNTERS.First(x => x.Name == foe.Encounter);
+            MapViewModel.HideBattleUI.Value = false;
             BattleViewModel = AddView(new BattleViewModel(this, record));
             //BattleViewModel.NewRound();
-			MapViewModel.ShowMiniMap.Value = false;
-			MapViewModel.ShowInstructions.Value = false;
-
-
-
 		}
 
         public void EndBattle()
@@ -391,8 +387,7 @@ namespace AngelPearl.Scenes.CrawlerScene
             FoeInBattle = null;
 
             BattleViewModel = null;
-            MapViewModel.ShowMiniMap.Value = true;
-            MapViewModel.ShowInstructions.Value = true;
+            MapViewModel.HideBattleUI.Value = true;
 
             Audio.PlayMusic(Music);
         }

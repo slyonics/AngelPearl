@@ -79,13 +79,10 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			DrawOnNewLayer = true;
 
-			crawlerScene.MapViewModel.ShowMiniMap.Value = false;
-
 			ConversationRecord conversationRecord = new ConversationRecord(encounterRecord.Intro);
 			ConversationViewModel conversationViewModel = crawlerScene.AddView(new ConversationViewModel(crawlerScene, conversationRecord, PriorityLevel.MenuLevel));
 			conversationViewModel.OnTerminated += new Action(() =>
 			{
-				crawlerScene.MapViewModel.ShowMiniMap.Value = true;
 				NewRound();
 			});
 
@@ -243,6 +240,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public List<EnemyRecord> InitialEnemies { get; set; } = [];
 
         public ModelProperty<bool> ShowHeader { get; set; } = new ModelProperty<bool>(false);
+        
         public ModelProperty<string> CommandHeader1 { get; set; } = new ModelProperty<string>("");
 		public ModelProperty<string> CommandHeader2 { get; set; } = new ModelProperty<string>("");
 

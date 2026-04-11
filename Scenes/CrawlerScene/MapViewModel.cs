@@ -145,17 +145,23 @@ namespace AngelPearl.Scenes.CrawlerScene
 			crawlerScene.PartyController.TurnRight();
 		}
 
+        public void Wait()
+        {
+            if (crawlerScene.FoeList.Any(x => x.IsMoving)) return;
+            crawlerScene.PartyController.Wait();
+        }
+
         public ModelProperty<string> MiniMapHeader1 { get; set; } = new ModelProperty<string>("");
 		public ModelProperty<string> MiniMapHeader2 { get; set; } = new ModelProperty<string>("");
 
 		public ModelProperty<Color> MapColor { get; set; } = new ModelProperty<Color>(Color.White);
 
 
-		public ModelProperty<bool> ShowInstructions { get; set; } = new ModelProperty<bool>(true);
-        public ModelProperty<bool> ShowObjectives { get; set; } = new ModelProperty<bool>(false);
+		public ModelProperty<bool> ShowObjectives { get; set; } = new ModelProperty<bool>(false);
         public ModelProperty<bool> ShowMiniMap { get; set; } = new ModelProperty<bool>(true);
+        public ModelProperty<bool> HideBattleUI { get; set; } = new ModelProperty<bool>(true);
 
-		public ModelProperty<bool> ShowInteractLabel { get; set; } = new ModelProperty<bool>(false);
+        public ModelProperty<bool> ShowInteractLabel { get; set; } = new ModelProperty<bool>(false);
 		public ModelProperty<string> InteractLabel { get; set; } = new ModelProperty<string>("");
 		public ModelProperty<Rectangle> InteractBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle());
 	}
