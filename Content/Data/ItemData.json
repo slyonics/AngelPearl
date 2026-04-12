@@ -2,7 +2,7 @@
 	{
 		"Name": "Pearl Rod",
 		"Description": "Majestic rod with a shining pearl on the tip. Inflicts almighty melee damage. ATK 10, HIT 90",
-		"Icon": "13,6",
+		"Icon": "11,1",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 10,
@@ -21,7 +21,7 @@
 	{
 		"Name": "Ruby Staff",
 		"Description": "Item description here.",
-		"Icon": "13,6",
+		"Icon": "11,1",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 10,
@@ -40,7 +40,7 @@
 	{
 		"Name": "Epee",
 		"Description": "An elegant slashing sword. ATK 12, HIT 100",
-		"Icon": "8,7",
+		"Icon": "11,1",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 12,
@@ -59,7 +59,7 @@
 	{
 		"Name": "Carrot",
 		"Description": "A leafy carrot that rabbits like to eat.",
-		"Icon": "13,17",
+		"Icon": "11,1",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 8,
@@ -78,7 +78,7 @@
 	{
 		"Name": "Ram Piston",
 		"Description": "Enourmous pneumatic battering ram. Powerful but somewhat inaccurate. Inflicts blunt melee damage. ATK 16, HIT 75",
-		"Icon": "6,7",
+		"Icon": "11,1",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 16,
@@ -97,7 +97,7 @@
 	{
 		"Name": "Vice Claws",
 		"Description": "Pneumatic battering ram.",
-		"Icon": "6,3",
+		"Icon": "11,1",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 16,
@@ -116,7 +116,7 @@
 	{
 		"Name": "Orbital Drones",
 		"Description": "Swarm of levitating impact drones attacks unerringly at range. Inflicts sharp ranged damage. ATK 8, HIT 100",
-		"Icon": "8,6",
+		"Icon": "11,1",
 		"ItemType": "Weapon",
 		"Targetting": "OneEnemy",
 		"Power": 8,
@@ -135,7 +135,7 @@
 	{
 		"Name": "Slice",
 		"Description": "Physical (slash) damage to one enemy. May inflict critical damage. Cost: {HP10%} HP",
-		"Icon": "13,4",
+		"Icon": "1,0",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
 		"Power": 15,
@@ -156,7 +156,7 @@
 	{
 		"Name": "Smash",
 		"Description": "Physical (blunt) damage to one enemy. May inflict stun. Cost: {HP10%} HP",
-		"Icon": "13,4",
+		"Icon": "3,0",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
 		"Power": 20,
@@ -176,7 +176,7 @@
 	{
 		"Name": "Sting",
 		"Description": "Physical (ranged) damage to one enemy. May inflict stun. Cost: {HP10%} HP",
-		"Icon": "11,6",
+		"Icon": "2,0",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
 		"Power": 15,
@@ -196,7 +196,7 @@
 	{
 		"Name": "Fireball",
 		"Description": "Magical (fire) damage to one enemy. Cost: 8 SP",
-		"Icon": "0,4",
+		"Icon": "4,0",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
 		"Power": 30,
@@ -217,7 +217,7 @@
 	{
 		"Name": "Heal",
 		"Description": "Light healing for one ally. Cost: 8 SP",
-		"Icon": "8,4",
+		"Icon": "6,0",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneAlly",
 		"Power": 8,
@@ -243,7 +243,7 @@
 	{
 		"Name": "Focus Stone",
 		"Description": "Natural mana crystal that slightly boosts magic power.",
-		"Icon": "4,4",
+		"Icon": "0,0",
 		"ItemType": "Accessory",
 		"MagicModifier": 2
 	}

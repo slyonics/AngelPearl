@@ -11,7 +11,7 @@ namespace AngelPearl.SceneObjects.Widgets
 	{
 		public delegate void ImageDrawFunction(SpriteBatch spriteBatch, Rectangle bounds, Color color, float depth);
 
-		public const int ICON_SIZE = 8;
+		public const int ICON_SIZE = 16;
 
 		private Rectangle? iconSource;
 		public string Icon { set { UpdateIconSource(value); } }

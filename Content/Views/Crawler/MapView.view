@@ -4,14 +4,14 @@
 	<Panel Style="WhitePanel" Bounds="120,11,300,37" InnerMargin="5,5,5,5" Visible="Bind ShowObjectives">
 		<DataGrid Items="Bind PlayerProfile.Objectives" Bounds="0,0,290,27" Alignment="Center">
 			<Panel Alignment="Vertical" Bounds="0,0,290,9">
-				<Image Icon="15,1" Alignment="Left" Bounds="0,0,8,8" Color="#FFFFFFFF" Visible="Bind DataGrid.Completed"/>
-				<Label Text="Bind DataGrid.Headline" Font="Console" Alignment="Left" TextAlignment="Left" Bounds="8,0,270,9"/>
+				<Image Icon="2,2" Alignment="Left" Bounds="4,0,8,8" Color="#FFFFFFFF" Visible="Bind DataGrid.Completed"/>
+				<Label Text="Bind DataGrid.Headline" Font="Console" Alignment="Left" TextAlignment="Left" Bounds="4,0,270,9"/>
 			</Panel>
 		</DataGrid>
 	</Panel>
 
 	<Panel Style="CrawlerFrame" Bounds="109,2,322,237" Depth="0.9">
-		<Button Name="InteractLabel" Alignment="Center" InnerMargin="0,1,0,0" Bounds="Bind InteractBounds" Style="MagicPopup" Action="ActivatePrompt" Visible="Bind ShowInteractLabel">
+		<Button Name="InteractLabel" Alignment="Center" InnerMargin="0,1,0,0" Bounds="Bind InteractBounds" Style="WhitePanel" Action="ActivatePrompt" Visible="Bind ShowInteractLabel">
 			<Label Text="Bind InteractLabel" Font="Console" Alignment="Center" />
 		</Button>
 	</Panel>
@@ -64,7 +64,7 @@
 					<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,2,80,6" Color="#FFFFFF20">
 						<GaugeBar Bar="HealthBar" Value="Bind DataGrid.HealthBar" Color="#FFFFFF20"/>
 					</Gauge>
-					<Image Icon="7,0" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
+					<Image Icon="0,2" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
 					<Label Text="Bind DataGrid.HP" Font="Console" Alignment="Center" TextAlignment="Center" Bounds="0,0,24,10" Color="Bind DataGrid.HealthColor" Depth="0.05"/>
 				</Panel>
 				
@@ -72,7 +72,7 @@
 					<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,2,80,6" Color="#FFFFFF20">
 						<GaugeBar Bar="ManaBar" Value="Bind DataGrid.ManaBar" Color="#FFFFFF20"/>
 					</Gauge>
-					<Image Icon="15,4" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
+					<Image Icon="1,2" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
 					<Label Text="Bind DataGrid.MP" Font="Console" Alignment="Center" TextAlignment="Center" Bounds="0,0,24,10" Color="Bind DataGrid.HealthColor" Depth="0.05"/>
 				</Panel>
 
@@ -84,7 +84,7 @@
 				<Gauge Background="HealthGauge" Minimum="0.0" Maximum="1.0" Alignment="Relative" Bounds="8,2,80,6" Color="#FFFFFF20">
 					<GaugeBar Bar="ManaBar" Value="Bind PlayerProfile.Mascot.ManaBar" Color="#FFFFFF20"/>
 				</Gauge>
-				<Image Icon="15,4" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
+				<Image Icon="1,2" Alignment="Cascading" Bounds="4,1,8,8" Depth="0.05" Color="#FFFFFFFF"/>
 				<Label Text="Bind PlayerProfile.Mascot.MP" Font="Console" Alignment="Center" TextAlignment="Center" Bounds="0,0,24,10" Depth="0.05"/>
 			</Panel>
 		</Panel>

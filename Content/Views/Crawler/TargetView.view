@@ -5,7 +5,7 @@
 		<CrawlText Name="Description" Text="Bind Description" Alignment="Stretch" Font="Dialogue"/>
 	</Panel>
 
-	<Panel InnerMargin="0,1,0,0" Anchor="$CenterX,$CenterY" Bounds="Bind LabelBounds" Style="MagicPopup" Visible="Bind ShowLabel">
+	<Panel InnerMargin="0,1,0,0" Anchor="$CenterX,$CenterY" Bounds="Bind LabelBounds" Style="WhitePanel" Visible="Bind ShowLabel">
 		<Label Text="Bind Label" Font="Console" Alignment="Center" />
 	</Panel>
 	
