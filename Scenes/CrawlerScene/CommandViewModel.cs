@@ -116,7 +116,47 @@ namespace AngelPearl.Scenes.CrawlerScene
 			ShowCommandSummary.Value = false;
 		}
 
-		public void CommandChanged(object parameter)
+		public void CommandUp()
+		{
+			int i = commandList.Selection;
+            commandList.CursorDecrement(3);
+			if (i != commandList.Selection)
+			{
+				Audio.PlaySound(GameSound.Cursor);
+            }
+        }
+
+        public void CommandRight()
+        {
+            int i = commandList.Selection;
+            commandList.CursorIncrement(1);
+            if (i != commandList.Selection)
+            {
+                Audio.PlaySound(GameSound.Cursor);
+            }
+        }
+
+        public void CommandDown()
+        {
+            int i = commandList.Selection;
+            commandList.CursorIncrement(3);
+            if (i != commandList.Selection)
+            {
+                Audio.PlaySound(GameSound.Cursor);
+            }
+        }
+
+        public void CommandLeft()
+        {
+            int i = commandList.Selection;
+            commandList.CursorDecrement(1);
+            if (i != commandList.Selection)
+            {
+                Audio.PlaySound(GameSound.Cursor);
+            }
+        }
+
+        public void CommandChanged(object parameter)
 		{
 			Description.Value = AvailableCommands[(int)parameter].Description;
 		}

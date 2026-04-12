@@ -206,7 +206,8 @@ namespace AngelPearl.SceneObjects
 				else if (type == typeof(string)) propertyInfo.SetValue(this, ParseString(attributeValue));
 				else if (type == typeof(Color)) propertyInfo.SetValue(this, Graphics.ParseHexcode(attributeValue));
 				else if (type == typeof(MethodInfo)) propertyInfo.SetValue(this, GetParent<ViewModel>().GetType().GetMethod(attributeValue));
-				else if (type == typeof(Texture2D)) propertyInfo.SetValue(this, AssetCache.SPRITES[(GameSprite)Enum.Parse(typeof(GameSprite), "Widgets_Images_" + attributeValue)]);
+                else if (type == typeof(Action)) propertyInfo.SetValue(this, new Action(() => GetParent<ViewModel>().GetType().GetMethod(attributeValue).Invoke(GetParent<ViewModel>(), [])));
+                else if (type == typeof(Texture2D)) propertyInfo.SetValue(this, AssetCache.SPRITES[(GameSprite)Enum.Parse(typeof(GameSprite), "Widgets_Images_" + attributeValue)]);
 			}
 		}
 

@@ -404,8 +404,6 @@ namespace AngelPearl.Scenes.CrawlerScene
 			if (crawlerScene.MoveFoes(CurrentRoom))
 			{
 				ResetObjectives();
-
-                crawlerScene.StartBattle(crawlerScene.FoeInBattle);
 			}
 			else
 			{
