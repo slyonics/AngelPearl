@@ -197,73 +197,11 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 Label.Value = target.Stats.Name.Value;
                 int width = Text.GetStringLength(GameFont.Console, target.Stats.Name.Value) + 16;
-                LabelBounds.Value = new Rectangle((int)target.Center.X - (CrossPlatformGame.SCREEN_WIDTH / 2) - (width / 2), -80, width, 19);
+                LabelBounds.Value = new Rectangle((int)target.Center.X - (CrossPlatformGame.SCREEN_WIDTH / 2) - (width / 2), -target.SpriteBounds.Height, width, 19);
                 ShowLabel.Value = true;
                 Description.Value = target.Stats.Description.Value;
             }
 		}
-
-		public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-
-            /*
-            targetFrames++;
-
-            if (targetAllEnemies && !targetAllAllies)
-            {
-                pointerSprite.SpriteEffects = SpriteEffects.None;
-
-                var aliveEnemies = battleScene.BattleViewModel.EnemyList.Where(x => !x.Dead);
-                int targetCount = aliveEnemies.Count();
-                uint i = 0;
-                foreach (BattleEnemy enemy in aliveEnemies)
-                {
-                    if (targetFrames % (targetCount + 1) != i)
-                    {
-                        Vector2 pointerPosition = enemy.Position + new Vector2(enemy.AnimatedSprite.SpriteBounds().Width / 2, -enemy.AnimatedSprite.SpriteBounds().Height / 3);
-                        pointerSprite.Draw(spriteBatch, pointerPosition, null, 0.01f);
-                    }
-                    i++;
-                }
-            }
-            else if (targetAllAllies && !targetAllEnemies)
-            {
-                pointerSprite.SpriteEffects = SpriteEffects.FlipHorizontally;
-
-                var aliveAllies = battleScene.BattleViewModel.PlayerList.Where(x => !x.Dead);
-                int targetCount = aliveAllies.Count();
-                uint i = 0;
-                foreach (BattlePlayer player in aliveAllies)
-                {
-                    if (targetFrames % (targetCount + 1) != i) pointerSprite.Draw(spriteBatch, new Vector2(player.SpriteBounds.Left, player.SpriteBounds.Center.Y), null, 0.01f);
-                    i++;
-                }
-            }
-            else
-            {
-                Vector2 pointerPos;
-                if (target is BattlePlayer)
-                {
-                    pointerSprite.SpriteEffects = SpriteEffects.FlipHorizontally;
-                    pointerPos = new Vector2(target.SpriteBounds.Left, target.SpriteBounds.Center.Y);
-                    pointerSprite.Draw(spriteBatch, pointerPos, null, 0.01f);
-                }
-                else
-                {
-                    pointerSprite.SpriteEffects = SpriteEffects.None;
-                    pointerPos = target.Position + new Vector2(target.AnimatedSprite.SpriteBounds().Width / 2, -target.AnimatedSprite.SpriteBounds().Height / 3);
-                    pointerSprite.Draw(spriteBatch, pointerPos, null, 0.01f);
-                }
-
-                if (pointerSprite.AnimationName == "Invalid")
-                {
-                    warningBox.Draw(spriteBatch, pointerPos - new Vector2(warningBox.Bounds.Width / 2, 4));
-                    Text.DrawCenteredText(spriteBatch, pointerPos + new Vector2(1, 3), GameFont.Interface, warningMessage, warningColor, 0.03f);
-                }
-            }
-            */
-        }
 
 
         private void SelectCurrentTarget()
@@ -289,7 +227,8 @@ namespace AngelPearl.Scenes.CrawlerScene
             Player.EnqueueCommand(battleController, Command);
 
             Player.HeroModel.NameColor.Value = Color.White;
-
+            Player.HeroModel.BattleIcon.Value = Command.Icon;
+            Player.HeroModel.BattleOrders.Value = Command.Name;
 
             var nextPlayer = battleScene.BattleViewModel.PlayerList.FirstOrDefault(x => !x.Dead && x.AwaitingOrders);
 			if (nextPlayer != null) battleScene.BattleViewModel.CommandViewModel = battleScene.AddView(new CommandViewModel(battleScene, nextPlayer));

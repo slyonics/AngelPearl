@@ -114,7 +114,7 @@
 		]
 	},
 	{
-		"Name": "Orbital Drones",
+		"Name": "Orbital Drone",
 		"Description": "Swarm of levitating impact drones attacks unerringly at range. Inflicts sharp ranged damage. ATK 8, HIT 100",
 		"Icon": "11,1",
 		"ItemType": "Weapon",
@@ -123,7 +123,7 @@
 		"Accuracy": 100,
 		"Priority": "Ranged",
 		"BattleScript": [
-			"Narrate $attackerName attacks with Orbital Drones!",
+			"Narrate $attackerName attacks with Orbital Drone!",
 			"Animate Attack Sword",
 			"Sound Slash",
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",

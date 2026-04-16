@@ -190,6 +190,7 @@ namespace AngelPearl.Scenes.CrawlerScene
                 List<DialogueRecord> reports = battlePlayer.HeroModel.GrowAfterBattle(expGain);
                 foreach (DialogueRecord report in reports) victoryRecords.Add(report);
                 battlePlayer.HealAilment(AilmentType.Confusion);
+                battlePlayer.HeroModel.BattleOrdersVisible.Value = false;
             }
             var victoryConversation = new ConversationRecord() { DialogueRecords = victoryRecords.ToArray() };
 

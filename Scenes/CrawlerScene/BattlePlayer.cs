@@ -118,6 +118,13 @@ namespace AngelPearl.Scenes.CrawlerScene
             AilmentSprite.Draw(spriteBatch, Center, null, 0.1f);
         }
 
+        public override void FinishTurn()
+        {
+            base.FinishTurn();
+
+            heroModel.BattleOrdersVisible.Value = false;
+        }
+
 		public List<DialogueRecord> GrowAfterBattle(EncounterRecord encounterRecord)
         {
             List<DialogueRecord> reports = new List<DialogueRecord>();

@@ -95,7 +95,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			ResetCommand();
 		}
 
-		public void FinishTurn()
+		public virtual void FinishTurn()
 		{
 			turnActive = false;
 		}

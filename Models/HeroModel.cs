@@ -208,11 +208,13 @@ namespace AngelPearl.Models
         }
 
 
-        public ModelProperty<Rectangle> WindowBounds { get; set; } = new ModelProperty<Rectangle>(new Rectangle(0, 0, 117, 180));
-		public ModelProperty<Color> NameColor { get; set; } = new ModelProperty<Color>(Color.White);
+        public ModelProperty<Color> NameColor { get; set; } = new ModelProperty<Color>(Color.White);
 		public ModelProperty<Color> HealthColor { get; set; } = new ModelProperty<Color>(Color.White);
+        public ModelProperty<string> BattleIcon { get; set; } = new ModelProperty<string>("0,0");
+        public ModelProperty<string> BattleOrders { get; set; } = new ModelProperty<string>("Need Orders");
+        public ModelProperty<bool> BattleOrdersVisible { get; set; } = new ModelProperty<bool>(false);
 
-		public ModelProperty<long> Exp { get; set; } = new ModelProperty<long>(0);
+        public ModelProperty<long> Exp { get; set; } = new ModelProperty<long>(0);
         public ModelProperty<long> NextLevel { get; set; } = new ModelProperty<long>(0);
 
         public ModelProperty<string> Portrait { get; set; } = new ModelProperty<string>();

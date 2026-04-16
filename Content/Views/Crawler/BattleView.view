@@ -16,5 +16,16 @@
 
 	<Panel Style="BlackSquareMain" Bounds="2,240,106,118" InnerMargin="7,7,7,7" >
 	</Panel>
+
+	<Panel Bounds="2,2,106,237" InnerMargin="0,5,0,5" >
+		<DataGrid Items="Bind PlayerProfile.Party" Bounds="0,-3,96,189" Alignment="Vertical">
+			<Panel Bounds="0,3,96,60" Alignment="Vertical" >
+				<Panel Style="WhitePanel" Bounds="0,0,94,16" Alignment="Center" Visible="Bind DataGrid.BattleOrdersVisible" >
+					<Image Icon="Bind DataGrid.BattleIcon" Alignment="Cascading" Bounds="1,-1,16,16"/>
+					<Label Text="Bind DataGrid.BattleOrders" Font="Dialogue" Alignment="Cascading" TextAlignment="Left" Bounds="1,-2,77,12"/>
+				</Panel>
+			</Panel>
+		</DataGrid>
+	</Panel>
 	
 </View>

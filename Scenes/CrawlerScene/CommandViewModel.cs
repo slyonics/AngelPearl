@@ -48,7 +48,11 @@ namespace AngelPearl.Scenes.CrawlerScene
 			(commandList.ChildList[0] as RadioButton).RadioSelect();
 
 			crawlerScene.BattleViewModel.SetHeader($"What will {ActivePlayer.Stats.Name.Value} do?");
-		}
+
+            ActiveMuse.BattleIcon.Value = "0,0";
+            ActiveMuse.BattleOrders.Value = "Need Orders";
+			ActiveMuse.BattleOrdersVisible.Value = true;
+        }
 
 		public override void Update(GameTime gameTime)
 		{
@@ -79,6 +83,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 					Terminate();
 
 					ActivePlayer.HeroModel.NameColor.Value = Color.White;
+					ActivePlayer.HeroModel.BattleOrdersVisible.Value = false;
 
 					lastOrderedPlayer.ResetCommand();
 					crawlerScene.BattleViewModel.CommandViewModel = crawlerScene.AddView(new CommandViewModel(crawlerScene, lastOrderedPlayer));
