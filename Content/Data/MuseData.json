@@ -17,7 +17,7 @@
 			"BaseMagic": 4,
 			"BaseArmor": 4,
 			"BaseResist": 4,
-			"ActiveModules": [ "Smash", "Heal", "Fireball" ]
+			"ActiveModules": [ "Slice", "Heal", "Fireball" ]
 		}
 	},
 	{

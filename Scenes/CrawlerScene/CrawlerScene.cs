@@ -1,4 +1,11 @@
-﻿using AngelPearl.Main;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AngelPearl.Main;
 using AngelPearl.Models;
 using AngelPearl.SceneObjects;
 using AngelPearl.SceneObjects.Controllers;
@@ -7,13 +14,8 @@ using AngelPearl.SceneObjects.ViewModels;
 using AngelPearl.SceneObjects.Widgets;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Platform.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AngelPearl.Scenes.CrawlerScene
 {
@@ -383,6 +385,16 @@ namespace AngelPearl.Scenes.CrawlerScene
 
         public void EndBattle()
         {
+            foreach (var muse in GameProfile.CurrentSave.Party)
+            {
+                if (muse.Value.HP.Value == 0)
+                {
+                    muse.Value.HP.Value = 1;
+                    muse.Value.UpdateHealthColor();
+                    muse.Value.HealthBar.Value = 1 / muse.Value.MaxHP.Value;
+                }
+            }
+
             FoeInBattle?.Destroy();
             FoeInBattle = null;
 

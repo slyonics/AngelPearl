@@ -86,7 +86,16 @@ namespace AngelPearl.Scenes.CrawlerScene
 		{
 			turnActive = true;
 
-			enqueuedController.FixTargetting();
+            if (stats.StatusAilments.Any(x => x.Value == AilmentType.Stun))
+			{
+				enqueuedController = new BattleController((CrawlerScene)parentScene, this, this, new AttackData()
+				{
+					Targetting = TargetType.Self,
+                    Script = new string[] { $"Narrate {Stats.Name} is stunned and cannot move!", "Wait 500", "HealAilment Stun" },
+                });
+            }
+
+            enqueuedController.FixTargetting();
 			enqueuedController.OnTerminated += new TerminationFollowup(() => FinishTurn());
 			parentScene.AddController(enqueuedController);
 
@@ -164,11 +173,13 @@ namespace AngelPearl.Scenes.CrawlerScene
 					confusionTurns = Rng.RandomInt(2, 4);
 					break;
 			}
-		}
 
-		public virtual void DisplayMessage(string message, Color? color = null)
+			MessageParticle(ailment.ToString().ToUpper());
+        }
+
+		public virtual void MessageParticle(string message, Color? color = null)
 		{
-			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, message, color ?? new(252, 0, 128))));
+			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, message, color ?? Color.AntiqueWhite)));
 		}
 
 		public virtual void Heal(int healing)

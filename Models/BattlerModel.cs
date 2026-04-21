@@ -53,6 +53,8 @@ namespace AngelPearl.Models
 	{
 		Healthy,
 
+		Stun,
+
 		Fear,
 		Death,
 		Confusion,

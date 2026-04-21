@@ -171,7 +171,10 @@
 			"OnHit Physical Blunt",
 			"Flash 255 0 0",
 			"Damage Physical Blunt",
-      "Ailment Stun 10"
+			"OnProc Stun 10",
+			"Wait 750",
+			"Ailment Stun",
+      "Narrate $targetName is stunned!"
 		]
 	},
 	{
@@ -192,7 +195,10 @@
 			"OnHit Physical Ranged",
 			"Flash 255 0 0",
 			"Damage Physical Ranged",
-			"Ailment Stun 10"
+			"OnProc Stun 10",
+			"Wait 750",
+			"Ailment Stun",
+			"Narrate $targetName is stunned!"
 		]
 	},
 	{

@@ -184,40 +184,33 @@ namespace AngelPearl.Scenes.CrawlerScene
         {
             switch (tokens[0])
             {
-                // case "Announce": battleScene.OverlayList.FirstOrDefault(x => x is AnnounceOverlay)?.Terminate(); battleScene.AddOverlay(new AnnounceOverlay(string.Join(' ', tokens.Skip(1)))); break;
+
+                case "OnHit": if (!CalculateHit(tokens)) scriptParser.EndScript(); break;
+                case "OnProc": if (!CalculateProc(tokens)) scriptParser.EndScript(); break;
+                case "Multitarget": if (!Multitarget()) scriptParser.EndScript(); break;
+
                 case "Animate": Animate(tokens); break;
                 case "Idle": ((BattlePlayer)attacker).Idle(); break;
 
+                case "Flash": Flash(tokens); break;
                 case "Effect": Effect(tokens); break;
                 case "CenterEffect": CenterEffect(tokens); break;
+                case "MessageParticle": target.MessageParticle(tokens[1]); break;
+
                 case "Damage": CalculateDamage(tokens); break;
-                case "Ailment":
-                    {
-                        if (tokens.Length > 2) // for ailments with a chance to inflict, e.g. Poison 30 for 30% chance to poison
-                        {
-                            if (CalculateAilmentProc(tokens))
-                            {
-                                target.InflictAilment(attacker, Enum.Parse<AilmentType>(tokens[1]));
-                            }
-                        }
-                        else // for ailments that always inflict if the command hits, e.g. Poison
-                        {
-                            target.InflictAilment(attacker, Enum.Parse<AilmentType>(tokens[1]));
-                        }
-                    }
-                    break;
+                case "Ailment": target.InflictAilment(attacker, Enum.Parse<AilmentType>(tokens[1])); break;
+                case "Sacrifice": Sacrifice(tokens); break;
                 case "Heal": CalculateHealing(tokens); break;
                 case "Replenish": CalculateReplenish(tokens); break;
-                case "Flash": Flash(tokens); break;
+                case "HealAilment": target.HealAilment(Enum.Parse<AilmentType>(tokens[1])); break;
 
                 case "Attack": Attack(tokens); break;
+
 				case "Narrate": Narration(tokens); break;
 				case "Dialogue": Dialogue(tokens); break;
                 case "Analyze": Analyze(tokens); return true;
-				case "Sacrifice": Sacrifice(tokens); break;
 				case "Flee": Flee(tokens); break;
-                case "OnHit": if (!CalculateHit(tokens)) scriptParser.EndScript(); break;
-                case "Multitarget": if (!Multitarget()) scriptParser.EndScript(); break;
+
                 default: return false;
             }
 
@@ -369,14 +362,14 @@ namespace AngelPearl.Scenes.CrawlerScene
             if (Rng.RandomInt(0, 99) > hit)
             {
                 Audio.PlaySound(GameSound.Miss);
-                target.DisplayMessage("MISS");
+                target.MessageParticle("MISS");
 
                 return false;
             }
             else if (Rng.RandomInt(0, 99) < evade)
             {
                 Audio.PlaySound(GameSound.Miss);
-                target.DisplayMessage("DODGE");
+                target.MessageParticle("DODGE");
 
                 return false;
             }
@@ -386,10 +379,14 @@ namespace AngelPearl.Scenes.CrawlerScene
             }
         }
 
-        private bool CalculateAilmentProc(string[] tokens)
+        private bool CalculateProc(string[] tokens)
         {
+            if (target.Dead || target.Stats.StatusAilments.Any(x => x.Value == AilmentType.Stone))
+            {
+                return false;
+            }
+
             int hit = int.Parse(tokens[2]);
-            int evade = 0;
 
             if (Rng.RandomInt(0, 99) > hit)
             {
@@ -398,11 +395,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
             if (target.Stats.AilmentImmune.Any(x => x.Value.ToString() == tokens[1]))
             {
-                target.DisplayMessage("Resist");
                 return false;
             }
-
-            target.DisplayMessage(tokens[1]);
 
             return true;
         }
