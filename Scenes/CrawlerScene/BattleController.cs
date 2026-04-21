@@ -191,7 +191,21 @@ namespace AngelPearl.Scenes.CrawlerScene
                 case "Effect": Effect(tokens); break;
                 case "CenterEffect": CenterEffect(tokens); break;
                 case "Damage": CalculateDamage(tokens); break;
-                case "Ailment": target.InflictAilment(attacker, (AilmentType)Enum.Parse(typeof(AilmentType), tokens[1])); break;
+                case "Ailment":
+                    {
+                        if (tokens.Length > 2) // for ailments with a chance to inflict, e.g. Poison 30 for 30% chance to poison
+                        {
+                            if (CalculateAilmentProc(tokens))
+                            {
+                                target.InflictAilment(attacker, Enum.Parse<AilmentType>(tokens[1]));
+                            }
+                        }
+                        else // for ailments that always inflict if the command hits, e.g. Poison
+                        {
+                            target.InflictAilment(attacker, Enum.Parse<AilmentType>(tokens[1]));
+                        }
+                    }
+                    break;
                 case "Heal": CalculateHealing(tokens); break;
                 case "Replenish": CalculateReplenish(tokens); break;
                 case "Flash": Flash(tokens); break;
@@ -355,14 +369,14 @@ namespace AngelPearl.Scenes.CrawlerScene
             if (Rng.RandomInt(0, 99) > hit)
             {
                 Audio.PlaySound(GameSound.Miss);
-                target.Miss();
+                target.DisplayMessage("MISS");
 
                 return false;
             }
             else if (Rng.RandomInt(0, 99) < evade)
             {
                 Audio.PlaySound(GameSound.Miss);
-                target.Miss();
+                target.DisplayMessage("DODGE");
 
                 return false;
             }
@@ -370,6 +384,27 @@ namespace AngelPearl.Scenes.CrawlerScene
             {
                 return true;
             }
+        }
+
+        private bool CalculateAilmentProc(string[] tokens)
+        {
+            int hit = int.Parse(tokens[2]);
+            int evade = 0;
+
+            if (Rng.RandomInt(0, 99) > hit)
+            {
+                return false;
+            }
+
+            if (target.Stats.AilmentImmune.Any(x => x.Value.ToString() == tokens[1]))
+            {
+                target.DisplayMessage("Resist");
+                return false;
+            }
+
+            target.DisplayMessage(tokens[1]);
+
+            return true;
         }
 
         private void CalculateDamage(string[] tokens)

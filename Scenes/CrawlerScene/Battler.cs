@@ -166,9 +166,9 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 		}
 
-		public virtual void Miss()
+		public virtual void DisplayMessage(string message, Color? color = null)
 		{
-			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, "MISS", Color.AntiqueWhite)));
+			ParticleList.Add(parentScene.AddParticle(new DamageParticle(parentScene, Position, message, color ?? new(252, 0, 128))));
 		}
 
 		public virtual void Heal(int healing)

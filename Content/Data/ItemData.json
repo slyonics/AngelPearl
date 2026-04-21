@@ -170,7 +170,8 @@
 			"CenterEffect Bash $targetCenterX $targetCenterY 2",
 			"OnHit Physical Blunt",
 			"Flash 255 0 0",
-			"Damage Physical Blunt"
+			"Damage Physical Blunt",
+      "Ailment Stun 10"
 		]
 	},
 	{
@@ -190,7 +191,8 @@
 			"CenterEffect Slash $targetCenterX $targetCenterY 1",
 			"OnHit Physical Ranged",
 			"Flash 255 0 0",
-			"Damage Physical Ranged"
+			"Damage Physical Ranged",
+			"Ailment Stun 10"
 		]
 	},
 	{
