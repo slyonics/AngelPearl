@@ -33,7 +33,15 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public bool Delaying { get; set; }
 		public List<Battler> ScaredOf { get; private set; } = new List<Battler>();
 
-		public AnimatedSprite AilmentSprite { get; protected set; }
+        private static readonly Dictionary<string, Animation> AILMENT_ANIMATIONS = new Dictionary<string, Animation>()
+        {
+            { AilmentType.Healthy.ToString(), new Animation(7, 9, 96, 96, 1, 9999) },
+            { AilmentType.Fear.ToString(), new Animation(0, 1, 96, 96, 8, 300) },
+            { AilmentType.Confusion.ToString(), new Animation(0, 4, 96, 96, 8, 300) },
+            { AilmentType.Stun.ToString(), new Animation(0, 4, 96, 96, 8, 300) }
+        };
+
+        public AnimatedSprite AilmentSprite { get; protected set; }
 		private int confusionTurns = 0;
 
 		public List<Particle> ParticleList { get; } = new List<Particle>();
@@ -41,21 +49,29 @@ namespace AngelPearl.Scenes.CrawlerScene
 		protected BattlerModel stats;
 		public BattlerModel Stats { get => stats; }
 
+
+
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite)
 			: base(iScene, iPosition, iSprite, new Dictionary<string, Animation>() { { "Idle", new Animation(0, 0, iSprite.Width, iSprite.Height, 1, 10000) } })
 		{
 			priorityLevel = PriorityLevel.TransitionLevel;
-		}
+
+            AilmentSprite = new AnimatedSprite(AssetCache.SPRITES[GameSprite.Particles_Ailments], AILMENT_ANIMATIONS);
+        }
 
 		public Battler(CrawlerScene iScene, Vector2 iPosition, Texture2D iSprite, Dictionary<string, Animation> iAnimations)
 			: base(iScene, iPosition, iSprite, iAnimations)
 		{
 			priorityLevel = PriorityLevel.TransitionLevel;
-		}
+
+            AilmentSprite = new AnimatedSprite(AssetCache.SPRITES[GameSprite.Particles_Ailments], AILMENT_ANIMATIONS);
+        }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+			AilmentSprite?.Update(gameTime);
 
 			ParticleList.RemoveAll(x => x.Terminated);
 
@@ -68,9 +84,15 @@ namespace AngelPearl.Scenes.CrawlerScene
 		public override void Draw(SpriteBatch spriteBatch, Camera camera)
 		{
 			animatedSprite?.Draw(spriteBatch, position - new Vector2(0.0f, positionZ), camera, 0.9f);
-		}
+            AilmentSprite?.Draw(spriteBatch, Center + new Vector2(0, 6), null, 0.01f);
+        }
 
-		public void ResetCommand()
+		public void DrawAilment(SpriteBatch spriteBatch)
+		{
+			AilmentSprite?.Draw(spriteBatch, Center + new Vector2(0, 6), null, 0.01f);
+        }
+
+        public void ResetCommand()
 		{
 			enqueuedCommand = null;
 			enqueuedController = null;
@@ -131,7 +153,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 
 			if (Dead)
 			{
-				var autoReviveBuff = Buffs.FirstOrDefault(x => x.Value == BuffType.AutoRevive);
+                AilmentSprite.PlayAnimation(AilmentType.Healthy.ToString());
+                var autoReviveBuff = Buffs.FirstOrDefault(x => x.Value == BuffType.AutoRevive);
 				if (autoReviveBuff != null)
 				{
 					Stats.HP.Value = 1;
@@ -154,7 +177,8 @@ namespace AngelPearl.Scenes.CrawlerScene
 					Stats.HP.Value = 0;
 					if (Dead)
 					{
-						var autoReviveBuff = Buffs.FirstOrDefault(x => x.Value == BuffType.AutoRevive);
+                        AilmentSprite.PlayAnimation(AilmentType.Healthy.ToString());
+                        var autoReviveBuff = Buffs.FirstOrDefault(x => x.Value == BuffType.AutoRevive);
 						if (autoReviveBuff != null)
 						{
 							Stats.HP.Value = 1;
@@ -172,7 +196,12 @@ namespace AngelPearl.Scenes.CrawlerScene
 					AilmentSprite.PlayAnimation(AilmentType.Confusion.ToString());
 					confusionTurns = Rng.RandomInt(2, 4);
 					break;
-			}
+
+                case AilmentType.Stun:
+                    AilmentSprite.PlayAnimation(AilmentType.Stun.ToString());
+                    confusionTurns = Rng.RandomInt(2, 4);
+                    break;
+            }
 
 			MessageParticle(ailment.ToString().ToUpper());
         }

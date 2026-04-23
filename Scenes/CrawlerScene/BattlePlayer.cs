@@ -111,11 +111,7 @@ namespace AngelPearl.Scenes.CrawlerScene
 			}
 
             AnimatedSprite.Draw(spriteBatch, Position + battlerOffset, null, 0.9f);
-        }
-
-        public void DrawAilment(SpriteBatch spriteBatch)
-        {
-            AilmentSprite.Draw(spriteBatch, Center, null, 0.1f);
+            AilmentSprite.Draw(spriteBatch, Center + new Vector2(0, 6), null, 0.1f);
         }
 
         public override void FinishTurn()

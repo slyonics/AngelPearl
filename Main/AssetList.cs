@@ -114,6 +114,7 @@ namespace AngelPearl.Main
         NPCs_PurpleTree,
         NPCs_Tree,
         NPCs_YellowTree,
+        Particles_Ailments,
         Particles_Bash,
         Particles_BlackHole,
         Particles_BlueHeal,

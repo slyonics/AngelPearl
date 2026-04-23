@@ -297,7 +297,20 @@ namespace AngelPearl.Scenes.CrawlerScene
 				spriteBatch.Draw(Foe.DeferredSprite, new Vector2((CRAWLER_VIEWPORT_WIDTH - Foe.DeferredSprite.Width) / 2 + CRAWLER_VIEWPORT_OFFSETX, CRAWLER_VIEWPORT_OFFSETY + CRAWLER_VIEWPORT_HEIGHT - Foe.DeferredSprite.Height - 64), null, new Color(brightness, brightness, brightness, 1.0f), 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.95f);
 			}
 
-			DrawOverlay(spriteBatch);
+            if (BattleViewModel != null)
+            {
+                foreach (var enemy in BattleViewModel.EnemyList)
+                {
+                    enemy.DrawAilment(spriteBatch);
+                }
+
+                foreach (var player in BattleViewModel.PlayerList)
+                {
+                    player.DrawAilment(spriteBatch);
+                }
+            }
+
+            DrawOverlay(spriteBatch);
 
 			// if (!overlayList.Any(x => x is BattleViewModel))
 			{

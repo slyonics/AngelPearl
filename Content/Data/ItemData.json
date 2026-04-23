@@ -155,7 +155,7 @@
 	},
 	{
 		"Name": "Smash",
-		"Description": "Physical (blunt) damage to one enemy. May inflict stun. Cost: {HP10%} HP",
+		"Description": "Physical (blunt) damage to one enemy. 10% chance to inflict stun. Cost: {HP10%} HP",
 		"Icon": "3,0",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",
@@ -179,7 +179,7 @@
 	},
 	{
 		"Name": "Sting",
-		"Description": "Physical (ranged) damage to one enemy. May inflict stun. Cost: {HP10%} HP",
+		"Description": "Physical (ranged) damage to one enemy. 10% chance to inflict stun. Cost: {HP10%} HP",
 		"Icon": "2,0",
 		"ItemType": "ActiveModule",
 		"Targetting": "OneEnemy",

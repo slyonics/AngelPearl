@@ -350,6 +350,11 @@
 /processor:TextureProcessor
 /build:Sprites/NPCs/YellowTree.png
 
+#begin Sprites/Particles/Ailments.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:Sprites/Particles/Ailments.png
+
 #begin Sprites/Particles/Bash.png
 /importer:TextureImporter
 /processor:TextureProcessor
